@@ -1,0 +1,53 @@
+Rellotge
+
+    Consulta
+    
+    Modificació
+	Modificar data
+	modificar hora
+	Modificar data i hora
+    
+    
+Tasca 
+
+    Inserció tasca 
+	amb data i hora
+	nomes hora (es posa al dia actual)
+	
+    Consulta
+	totes les futures
+	totes les passades
+	tasques d'un dia
+	tasques de A a B
+	nomes una etiqueta / expressio booleana d'etiquetes 
+	etiquetes + dates de A a B
+
+    Modificació
+	text
+	data
+	hora
+	afegir etiquetes
+	combinació dels anteriors
+
+    Esborrat 
+	k-essima
+	etiqueta de la k-essima
+	totes les etiquetes de la k-essima
+	
+    Sortir
+    
+
+Imlpementació
+    
+    Classes: Tasca i Agenda 
+    
+    Rellotge -> Atribut d'agenda (struct amb data i hora) 
+    
+    Tasca: Text + Data + Hora + [contenidor per etiquetes]
+    
+    
+Pel 5 de maig 
+
+    Entregar el .hh de cada classe 
+    
+    
