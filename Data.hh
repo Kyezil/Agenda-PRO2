@@ -10,7 +10,7 @@
 */
 class Data
 {
-private:
+protected:
   
   unsigned int any;   /// \invariant \f$ any \le 99 \f$
   unsigned int mes;   /// \invariant \f$ 1 \le mes \le 12 \f$
