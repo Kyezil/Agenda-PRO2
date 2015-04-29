@@ -1,5 +1,5 @@
-#include "agenda.hh"
-#include "comanda.hh" 
+#include "Agenda.hh"
+#include "Comanda.hh" 
 
 using namespace std; 
 
@@ -9,7 +9,6 @@ Agenda agenda("variables? ");
 Comanda comanda;
 
 while (true) {
-  
 if (comanda.llegir()) {
   if (comanda.es_insercio()) {
       //amb data i hora
@@ -39,11 +38,9 @@ if (comanda.llegir()) {
 	else {
 	      if (not comanda.te_expressio()) agenda.consulta(comanda.data(0), comanda.data(1), comanda.expressio());
 	      else agenda.consulta(comanda.data(0),comanda.data(1));
-	      
 	}
   }
 
-  
   else if (comanda.es_passat()){
     agenda.escriu_passat();
   }
@@ -63,13 +60,11 @@ if (comanda.llegir()) {
 	}
 
 	//hora
-	
 	if (comanda.te_hora()) {
 	    agenda.canviar_hora(comanda.tasca(), comanda.hora()); 
 	}
 	
 	//data
-	
 	if (comanda.nombre_dates()!=0){
 	     agenda.canviar_data(comanda.tasca(), comanda.data()); 
 	}
@@ -84,11 +79,9 @@ if (comanda.llegir()) {
 	}
 	
 	//fixar data i/o hora
-	
 	if (comanda.nombre_dates()!=0) {
 	    agenda.avanca_data(comanda.data());
 	}
-	
 	if (comanda.te_hora) {
 	    agenda.avanca_hora(comanda.hora());
 	}
