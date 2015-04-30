@@ -6,13 +6,11 @@
 #define _TASCA_HH_
 #include <string>
 #include <set>
-#include "Data.hh"
 
 class Tasca {
     private:
-        string titol;
-
-        /// \invariant \b etiquetes no conté etiquetes repetides
+        string titol;;
+        /// \invariant \b etiquetes no conté etiquetes repetides
         set<string> etiquetes; 
     public:
         /** \brief Modifica el títol de la tasca
@@ -20,7 +18,6 @@ class Tasca {
          *  \post el títol del p.i és \e titol
          */
         modificar_titol(string& titol);
-
 
         /** \brief Afegeix una etiqueta a la tasca
          *  \pre true
