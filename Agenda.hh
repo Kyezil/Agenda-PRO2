@@ -13,12 +13,16 @@ using namespace std;
 class Agenda {
     /** \class Agenda
      *  \brief Representa una agenda amb un conjunt de tasques amb etiquetes
+     *  \invariant 
+     *      1. No hi han tasques amb la mateixa data
+     *      2. No es poden modificar les tasques del passat
      */
     private:
         pair<Data, map<Data,Tasca>::const_iterator> rellotge;
         map<Data, Tasca> tasques;
         map<string, map<Data, Tasca*> > etiquetes;
         map<Data, Tasca*> menu; // vector<Tasca*> ???
+
     public:
         /** \brief Constructor d'una agenda per defecte
          *  \pre true
