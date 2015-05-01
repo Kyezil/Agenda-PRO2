@@ -1,0 +1,165 @@
+/** \file Agenda.hh
+    \brief Espesificació de la classe Agenda
+*/
+
+#ifndef _AGENDA_HH_
+#define _AGENDA_HH_
+
+
+#include <map>
+#include <string>
+#include "Data.hh"
+#include "Tasca.hh"
+#include "Rellotge.hh"
+
+/** \class Agenda
+    \brief Representa una agenda
+*/
+class Agenda
+{
+public:
+  //Constructores 
+
+  /** \brief Creadora per defecte. 
+
+      S'executa automaticament al declarar l'agenda.
+      \pre cert
+      \post el resultat es una agenda sense valors deteminats per als 
+      seus atributs
+  */   
+  Agenda();
+  
+  //Modificadores
+
+  /** \brief Afegeix una tasca
+      \pre data i hora són vàlides
+      \post el p.i. conté una nova tasca amb titol com a títol, data i 
+      hora
+   */
+  void insereix_amb_data(string titol, string data, string hora);
+  
+  /** \brief Afegeix una tasca amb la data actual
+      \pre la hora es vàlida
+      \post el p.i. conté una la tasca amb titol com a títol a la data  
+      actual i hora
+   */  
+  void insereix_sense_data(string titol, string hora);
+  
+  /** \brief Modifica el títol de la i-èssima tasca
+      \pre 1 <= i <= número de tasques
+      \post la i-èssima tasca té titol com a títol
+   */
+  void canviar_titol(int i, string titol); 
+  
+  /** \brief Afegeix una etiqueta a la i-èssima tasca
+      \pre 1 <= i <= número de tasques
+      \post la i-èssima tasca del p.i. té la nova etiqueta 
+  */ 
+  void afegir_etiqueta(int i, string etiqueta_i);
+  
+  /** \brief Modifica la hora de la i-èssima tasca
+      \pre 1 <= i <= número de tasques, la hora és vàlida
+      \post la hora de la i-èssima tasca és hora
+   */  
+  void canviar_hora(int i, string hora); 
+  
+  /** \brief Modifica la data de la i-èssima tasca
+      \pre 1 <= i <= número de tasques, data vàlida
+      \post la i-èssima tasca té la data nova
+   */  
+  void canviar_data(int i, string data);      
+
+  /** \brief Consulta el rellotge
+      \pre cert
+      \post la data del rellotge del p.i. s'ha escrit pel canal 
+      estàndard de sortida
+   */   
+  void consulta_rellotge();
+  
+  /** \brief Canvia la data del rellotge
+      \pre cert
+      \post la fecha del rellotge ha avançat fins a data
+   */  
+  void avanca_data(string data);
+
+  /** \brief Canvia la hora del rellotge
+      \pre la hora és vàlida
+      \post la hora del rellotge ha avançat fins a hora
+   */  
+  void avanca_hora(string hora);
+  
+  /** \brief Esborra la i-èssima tasca
+      \pre 1 <= i <= número de tasques
+      \post el p.i. no conté la i-èssima tasca
+   */  
+  void esborrar_tasca(int i); 
+
+  /** \brief Esborra una etiqueta de la i-èssima tasca
+      \pre 1 <= i <= número de tasques
+      \post la i-èssima tasca del p.i. no conté la etiqueta
+   */  
+  void esborrar_etiqueta(int i, string etiqueta_i);       
+
+
+  //Consultores
+  
+  /** \brief Consulta totes les tasques futures
+      \pre cert
+      \post s'han escrit els atributs del p.i. posteriors a la data
+      actual pel canal estàndard de sortida
+   */
+  void consulta();
+
+  /** \brief Consulta les taseques que satisfan l'expressio
+      \pre l'expressió és ben parenteritzada
+      \post s'han escrit els atributs del p.i. que satisfan la 
+      expressió pel canal estàndard de sortida
+   */
+  void consulta(string expressio);
+
+  /** \brief Consulta totes les tasques d'un dia
+      \pre la data és vàlida
+      \post s'han escrit els atributs del p.i. de la data donada
+      pel canal estàndard de sortida
+   */
+  void consulta(string data);
+
+  /** \brief Consulta les tasques d'un dia que satisfan l'expressió
+      \pre la data és vàlida i la expressió ben parenteritzada
+      \post s'han escrit els atributs del p.i. de la data donada que 
+      satisfan l'expressió pel canal estàndard de sortida
+   */
+  void consulta(string data, string expressio);
+
+  /** \brief Consulta les tasques dintre d'un període que satisfan 
+      l'expressió
+      \pre les dates són els extems del interval, són vàlides i la 
+      expressió està ben parenteritzada
+      \post s'han escrit els atributs del p.i. contingunts en l'interval 
+      que satisfan l'expressió pel canal estàndard de sortida
+   */
+  void consulta(string data1, string data2, string expressio);
+
+  /** \brief Consulta totes les tasques dintre d'un període de temps
+      \pre les dates són els extems del interval i són vàlides
+      \post s'han escrit els atributs del p.i. contingunts en l'interval 
+      canal estàndard de sortida
+   */
+  void consulta(string data1,string data2);
+
+  /** \brief Operació d'escritura
+      \pre cert
+      \post s'han escrit els atributs del p.i. anteriors a la data
+      actual pel canal estàndard de sortida
+  */
+  void escriu_passat(); // const?
+  
+private:
+  
+  map<Data, Tasca> Mapa;
+  Rellotge clock;
+  
+  
+};
+
+#endif
