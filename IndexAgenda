@@ -37,17 +37,25 @@ Tasca
     Sortir
     
 
-Imlpementació
+Imlpementació:
     
-    Classes: Tasca i Agenda 
+    2 Classes: Tasca i Agenda 
     
-    Rellotge -> Atribut d'agenda (struct amb data i hora) 
+    Data: struct
     
-    Tasca: Text + Data + Hora + [contenidor per etiquetes]
+    Agenda:
+	menu: Map<Data,Tasca*>     
+    	
+    	tasques: map<Data,Tasca> 
+    
+    	rellotge : Data + iterador a tasques
+    
+    Tasca: titol + set d'etiquetes (strings)
     
     
 Pel 5 de maig 
 
     Entregar el .hh de cada classe 
+    Generar el document amb Doxygen
     
     
