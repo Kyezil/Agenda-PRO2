@@ -41,13 +41,16 @@ Imlpementació:
     
     2 Classes: Tasca i Agenda 
     
-    Menu: (Map / Vector) ?
+    Data: struct
     
-    Agenda: Rellotge + map<Data,Tasca> 
+    Agenda:
+	menu: Map<Data,Tasca*>     
+    	
+    	tasques: map<Data,Tasca> 
     
-    Rellotge : Atribut d'agenda (struct amb data i hora) 
+    	rellotge : Data + iterador a tasques
     
-    Tasca: Titol + set d'etiquetes (strings)
+    Tasca: titol + set d'etiquetes (strings)
     
     
 Pel 5 de maig 
