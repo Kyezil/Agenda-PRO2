@@ -15,7 +15,7 @@ class Agenda {
      *  \brief Representa una agenda amb un conjunt de tasques amb etiquetes
      */
     private:
-        Data rellotge;
+        pair<Data, map<Data,Tasca>::const_iterator> rellotge;
         map<Data, Tasca> tasques;
         map<string, map<Data, Tasca*> > etiquetes;
         map<Data, Tasca*> menu; // vector<Tasca*> ???
