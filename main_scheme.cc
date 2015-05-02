@@ -5,7 +5,7 @@ using namespace std;
 
 int main (){
 
-Agenda agenda("variables? "); 
+Agenda agenda(); 
 Comanda comanda;
 
 while (true) {
@@ -13,11 +13,11 @@ if (comanda.llegir()) {
   if (comanda.es_insercio()) {
       //amb data i hora
       if (comanda.nombre_dates()!=0) {
-	  agenda.insereix_amb_data(comanda.titol(), comanda.data(0), comanda.hora());
+	  agenda.add_tasca(comanda.titol(), comanda.data(0), comanda.hora());
       }
       //nomes hora (es posa al dia actual)
       else {
-	  agenda.insereix_sense_data(comanda.titol(), comanda.hora());
+	  agenda.add_tasca(comanda.titol(), comanda.hora());
       }
   }
   
@@ -25,48 +25,46 @@ if (comanda.llegir()) {
         
         //totes les futures
 	if (comanda.nombre_dates()==0){
-	    if (not comanda.te_expressio()) agenda.consulta();
-	    else agenda.consulta(comanda.expressio());
+	    if (not comanda.te_expressio()) agenda.get_tasques();
+	    else agenda.get_tasques(comanda.expressio());
 	}
 	
 	//tasques d'un dia
 	else if (comanda.nombre_dates()==1) {
-	     if (not comanda.te_expressio()) agenda.consulta(comanda.data(0); 
-	     else agenda.consulta(comanda.data(0), comanda.expressio());
+	     if (not comanda.te_expressio()) agenda.get_tasques(comanda.data(0); 
+	     else agenda.get_tasques(comanda.data(0), comanda.expressio());
 	}
 	//tasques de A a B
 	else {
-	      if (not comanda.te_expressio()) agenda.consulta(comanda.data(0), comanda.data(1), comanda.expressio());
-	      else agenda.consulta(comanda.data(0),comanda.data(1));
+	      if (not comanda.te_expressio()) agenda.get_tasques(comanda.data(0), comanda.data(1), comanda.expressio());
+	      else agenda.get_tasques(comanda.data(0),comanda.data(1));
 	}
   }
 
   else if (comanda.es_passat()){
-    agenda.escriu_passat();
+    agenda.get_passat();
   }
   
   else if (comanda.es_modificacio()){
     
 	//text
-	
 	if (comanda.te_titol()) {
-	    agenda.canviar_titol(comanda.tasca(), comanda.titol()); 
+	    agenda.set_titol(comanda.tasca(), comanda.titol()); 
 	}
 	
 	//afegir etiquetes
-	
 	for (int i = 0; i < comanda.nombre_etiquetes(); ++i) {
-	    agenda.afegir_etiqueta(comanda.tasca(), comanda.etiqueta(i));
+	    agenda.add_etiqueta(comanda.tasca(), comanda.etiqueta(i));
 	}
 
 	//hora
 	if (comanda.te_hora()) {
-	    agenda.canviar_hora(comanda.tasca(), comanda.hora()); 
+	    agenda.set_data(comanda.tasca(), comanda.hora()); 
 	}
 	
 	//data
 	if (comanda.nombre_dates()!=0){
-	     agenda.canviar_data(comanda.tasca(), comanda.data()); 
+	     agenda.set_data(comanda.tasca(), comanda.data()); 
 	}
   }
   
@@ -75,33 +73,31 @@ if (comanda.llegir()) {
 	//consultar temps
 	
 	if (comanda.es_consulta()){
-	    agenda.consulta_rellotge();
+	    agenda.get_rellotge();
 	}
 	
 	//fixar data i/o hora
 	if (comanda.nombre_dates()!=0) {
-	    agenda.avanca_data(comanda.data());
+	    agenda.set_rellotge(comanda.data());
 	}
 	if (comanda.te_hora) {
-	    agenda.avanca_hora(comanda.hora());
+	    agenda.set_rellotge(comanda.hora());
 	}
   }
   
   else if (comanda.es_esborrat()) {
 	
 	if (comanda.tipus_esborrat() == "tasca") {
-	    agenda.esborrar_tasca(comanda.tasca()); 
+	    agenda.del_tasca(comanda.tasca()); 
 	}
 	else if (comanda.tipus_esborrat() == "etiquetes") {
-	    for (int i = 0; i < comanda.nombre_etiquetes(); ++i) {
-		agenda.esborrar_etiqueta(comanda.tasca(), comanda.etiqueta(i)); 
+	    agenda.del_etiquetes(comanda.tasca()); 
 	    }
 	}
 	else if (comanda.tipus_esborrat() == "etiqueta" ) {
-	     agenda.esborrar_etiqueta(comanda.tasca(), comanda.etiqueta(0));  
+	     agenda.del_etiqueta(comanda.tasca(), comanda.etiqueta(0));  
 	}    
   }
-  
   else break;
 }
 }
