@@ -19,8 +19,8 @@ struct Dia {
      *             0 <= \b dia <= 31  */
 
     /** \brief Construeix Dia a partir d'un string
-     *  \param[in] s string que conté un dia  "any.mes.dia"
-     *  \pre \e s té el format AA.MM.DD
+     *  \param[in] s string que conté un dia  "dia.mes.any"
+     *  \pre \e s té el format DD.MM.AA
      *  \post el p.i conté la data representada per \e s */
     Dia(string s);
 
