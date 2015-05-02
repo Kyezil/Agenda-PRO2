@@ -14,12 +14,11 @@ struct Data {
     unsigned int minut; /// \invariant \f$ \textbf{minut} < 60 \f$
     
     /** \brief Indica ordre entre dates (<).
-     *  \param[in] a lhs data
-     *  \param[in] b rhs data
-     *  \return (a < b)
-     *  \pre Cert
-     *  \post El resultat indica si la primera data és anterior a la segona.
+     *  \param[in] d rhs data
+     *  \return (p.i < b)
+     *  \pre true
+     *  \post retorna cert i el p.i és anterior a \e d
    */
-   bool operator<(const Data &a, const Data &b) const;
+   bool operator<(const Data &d) const;
 };
 #endif
