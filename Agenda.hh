@@ -103,7 +103,7 @@ class Agenda {
          *  \pre true
          *  \post retorna (data anterior al rellotge del p.i) */
         bool es_passat(Data data) const;
-        
+
         /** \brief Consulta si es pot modificar una tasca del menú
          *  \param[in] id nº de la tasca a modificar
          *  \pre true
@@ -113,7 +113,17 @@ class Agenda {
         /** \brief Consulta el rellotge
          *  \pre true
          *  \post s'ha escrit el rellotge pel canal de sortida estàndar */
-        void get_rellotge() const;
+        void print_rellotge() const;
+
+        /** \brief  Obté el dia del rellotge
+         *  \pre true
+         *  \post retorna el dia del rellotge del p.i */
+        Dia get_dia() const;
+
+        /** \brief  Obté la hora del rellotge
+         *  \pre true
+         *  \post retorna el rellotge del rellotge del p.i */
+        Hora get_hora() const;
 
         /** \brief Genera el menu per busqueda en rang i expressió
          *  \param[in] dia1 cota temporal inferior de la búsqueda
