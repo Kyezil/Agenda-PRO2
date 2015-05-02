@@ -4,8 +4,6 @@
 
 using namespace std; 
 
-Data string2Data (string& data, string& hora); //per implementar, no se si aquí o en un altre lloc per no embrutar
-
 int main (){
 
 Agenda agenda(); 
@@ -16,11 +14,11 @@ if (comanda.llegir()) {
   if (comanda.es_insercio()) {
       //amb data i hora
       if (comanda.nombre_dates()!=0) {
-	  agenda.add_tasca(comanda.titol(), string2Data(comanda.data(0), comanda.hora()));
+	  agenda.add_tasca(comanda.titol(), {Data(comanda.data(0)), Hora(comanda.hora())});
       }
       //nomes hora (es posa al dia actual)
       else {
-	  agenda.add_tasca(comanda.titol(), string2Data("DATA ACTUAL", comanda.hora());
+	  agenda.add_tasca(comanda.titol(), {agenda.get_dia(), Hora(comanda.hora())});
       }
   }
   
@@ -35,12 +33,12 @@ if (comanda.llegir()) {
 	//tasques d'un dia
 	else if (comanda.nombre_dates()==1) {
 	     if (not comanda.te_expressio()) agenda.get_tasques(comanda.data(0)); 
-	     else agenda.get_tasques(string2Data(comanda.data(0),"HORA ACTUAL"), comanda.expressio());
+	     else agenda.get_tasques({comanda.data(0),agenda.get_hora()}, comanda.expressio());
 	}
 	//tasques de A a B
 	else {
-	      if (not comanda.te_expressio()) agenda.get_tasques(string2Data(comanda.data(0),"HORA ACTUAL"), string2Data(comanda.data(1),"HORA ACTUAL"), comanda.expressio());
-	      else agenda.get_tasques(string2Data(comanda.data(0),"HORA ACUTAL"),string2Data(comanda.data(1), "HORA ACTUAL"));
+	      if (not comanda.te_expressio()) agenda.get_tasques({comanda.data(0),agenda.get_hora()}, {comanda.data(1),agenda.get_hora()}, comanda.expressio());
+	      else agenda.get_tasques({comanda.data(0),agenda.get_hora()},{comanda.data(1), agenda.get_hora()});
 	}
   }
 
@@ -60,15 +58,15 @@ if (comanda.llegir()) {
 	    agenda.add_etiqueta(comanda.tasca(), comanda.etiqueta(i));
 	}
 
-	//hora + data
+	//hora
 	if (comanda.te_hora()) {
 	    	
-	    agenda.set_data(comanda.tasca(), string2Data("DATA ACTUAL",comanda.hora())); 
+	    agenda.set_data(comanda.tasca(), {agenda.get_dia(),Hora(comanda.hora())}); 
 	}
 	
 	//data
 	if (comanda.nombre_dates()!=0){
-	     agenda.set_data(comanda.tasca(), string2Data(comanda.data(),"HORA ACTUAL")); 
+	     agenda.set_data(comanda.tasca(), {Dia(comanda.data()),agenda.get_hora()}); 
 	}
   }
   
@@ -82,10 +80,10 @@ if (comanda.llegir()) {
 	
 	//fixar data i/o hora
 	if (comanda.nombre_dates()!=0) {
-	    agenda.set_rellotge(string2Data(comanda.data(),"HORA ACTUAL"));
+	    agenda.set_rellotge({Dia(comanda.data()),agenda.get_hora()});
 	}
 	if (comanda.te_hora) {
-	    agenda.set_rellotge(string2Data("DATA ACTUAL",comanda.data()));
+	    agenda.set_rellotge({agenda.get_dia(),Dia(comanda.data())});
 	}
   }
   
