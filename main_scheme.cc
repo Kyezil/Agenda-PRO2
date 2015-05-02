@@ -9,8 +9,7 @@ int main (){
 Agenda agenda(); 
 Comanda comanda;
 
-while (true) {
-if (comanda.llegir()) {
+while (comanda.llegir()) {
   if (comanda.es_insercio()) {
       //amb data i hora
       if (comanda.nombre_dates()!=0) {
@@ -52,18 +51,14 @@ if (comanda.llegir()) {
 	if (comanda.te_titol()) {
 	    agenda.set_titol(comanda.tasca(), comanda.titol()); 
 	}
-	
 	//afegir etiquetes
 	for (int i = 0; i < comanda.nombre_etiquetes(); ++i) {
 	    agenda.add_etiqueta(comanda.tasca(), comanda.etiqueta(i));
 	}
-
 	//hora
 	if (comanda.te_hora()) {
-	    	
-	    agenda.set_data(comanda.tasca(), {agenda.get_dia(),Hora(comanda.hora())}); 
+	    	agenda.set_data(comanda.tasca(), {agenda.get_dia(),Hora(comanda.hora())}); 
 	}
-	
 	//data
 	if (comanda.nombre_dates()!=0){
 	     agenda.set_data(comanda.tasca(), {Dia(comanda.data()),agenda.get_hora()}); 
@@ -77,7 +72,6 @@ if (comanda.llegir()) {
 	if (comanda.es_consulta()){
 	    agenda.get_rellotge();
 	}
-	
 	//fixar data i/o hora
 	if (comanda.nombre_dates()!=0) {
 	    agenda.set_rellotge({Dia(comanda.data()),agenda.get_hora()});
@@ -88,7 +82,6 @@ if (comanda.llegir()) {
   }
   
   else if (comanda.es_esborrat()) {
-	
 	if (comanda.tipus_esborrat() == "tasca") {
 	    agenda.del_tasca(comanda.tasca()); 
 	}
@@ -100,7 +93,4 @@ if (comanda.llegir()) {
 	     agenda.del_etiqueta(comanda.tasca(), comanda.etiqueta(0));  
 	}    
   }
-  else break;
-}
-}
 }
