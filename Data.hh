@@ -1,24 +1,48 @@
 /** \file Data.hh
-    \brief Especificació de Data
+    \brief Especificació de Data (Dia i Hora)
 */
-#ifndef _DATA_HH_
-#define _DATA_HH_
-/** \struct Data
-    \brief Representa una data dia:mes:any hora:minut
+#ifndef DATA_HH
+#define DATA_HH
+#include <utility>
+using namespace std;
+
+/** \struct Dia
+    \brief Representa una dia , dia.mes.any
 */
-struct Data {
-    unsigned int any;   /// \invariant \f$ \textbf{any} \le 99 \f$
-    unsigned int mes;   /// \invariant \f$ 1 \le \textbf{mes} \le 12 \f$
-    unsigned int dia;   /// \invariant \f$ 1 \le \textbf{dia} \le 31 \f$
-    unsigned int hora;  /// \invariant \f$ \textbf{hora} < 24 \f$
-    unsigned int minut; /// \invariant \f$ \textbf{minut} < 60 \f$
-    
-    /** \brief Indica ordre entre dates (<).
-     *  \param[in] d rhs data
-     *  \return (p.i < b)
+struct Dia {
+    int any;
+    int mes;
+    int dia;
+    /** /invariant 0 <= \b any <= 99
+     *             1 <= \b mes <= 12
+     *             0 <= \b dia <= 31  */
+
+    /** \brief Indica ordre entre dies (<).
+     *  \param[in] d rhs dia
+     *  \return (p.i < d)
      *  \pre true
      *  \post retorna cert i el p.i és anterior a \e d
    */
-   bool operator<(const Data &d) const;
+   bool operator<(const Dia &d) const;
 };
+
+/** \struct Hora
+    \brief Representa una hora , hora:minut
+*/
+struct Hora {
+    int hora;
+    int minut;
+    /** /invariant 0 <= \b hora <= 23
+     *             0 <= \b minut <= 59
+
+    /** \brief Indica ordre entre hores (<).
+     *  \param[in] d rhs hora
+     *  \return (p.i < h)
+     *  \pre true
+     *  \post retorna cert i el p.i és anterior a \e h
+   */
+   bool operator<(const Hora&d) const;
+};
+
+typedef pair<Dia, Hora> Data;
 #endif
