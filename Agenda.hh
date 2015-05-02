@@ -2,12 +2,12 @@
  * \file Agenda.hh
  * \brief Especificació de la classe Agenda
  */
-#ifndef _AGENDA_HH_
-#define _AGENDA_HH_
+#ifndef AGENDA_HH
+#define AGENDA_HH
 #include <map>
 #include <string>
 #include "Data.hh"
-#include "Tasca.hh"
+
 using namespace std;
 
 class Agenda {
@@ -30,7 +30,6 @@ class Agenda {
          */
         Agenda();
 
-        // Modificadores
         /** \brief Avança el rellotge
          *  \param[in] data data fins on avançar
          *  \pre el rellotge del p.i és anterior a \e data
@@ -111,10 +110,10 @@ class Agenda {
          *  \param[in] data2 cota temporal superior de la búsqueda
          *  \param[in] expressio expressió booleana sobre les etiquetes
          *  \pre rellotge del p.i < \e data1 <= \e data2
-         *  \post el menú conté les tasques amb data [\e data1, \e data2[ amb un
-         *  conjunt d'etiquetes que compleix \e expressio
+         *  \post el menú conté les tasques amb data [\e data1, \e data2[ el
+         *  conjunt d'etiquetes de les quals compleix \e expressio
          */
-        void get_tasques(Data data1, Data data2, string expressio);
+        void consulta(Data data1, Data data2, string expressio);
 
         // Escriptura
         /** \brief Escriu totes les tasques del passat
