@@ -1,9 +1,9 @@
 /**
- * \file  Tasca.hh
+ * \file  tasca.hh
  * \brief Especificació de la classe Tasca
  */
-#ifndef _TASCA_HH_
-#define _TASCA_HH_
+#ifndef TASCA_HH
+#define TASCA_HH
 #include <string>
 #include <set>
 using namespace std;
@@ -26,14 +26,14 @@ class Tasca {
         /** \brief Constructor de tasca amb titol
          *  \param [in] titol Títol de la tasca a crear
          *  \pre true
-         *  \post el p.i és una tasca de \b titol = \e titol
+         *  \post el p.i és una tasca de titol \e titol
          */
         Tasca(string titol);
 
         /** \brief Modifica el títol de la tasca
          *  \param [in] titol Nou títol de la tasca
          *  \pre true
-         *  \post el \b titol del p.i és \e titol
+         *  \post el titol del p.i és \e titol
          */
         void modificar_titol(string titol);
 

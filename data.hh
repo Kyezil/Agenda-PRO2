@@ -1,4 +1,4 @@
-/** \file Data.hh
+/** \file data.hh
     \brief Especificació de Data (Dia i Hora)
 */
 #ifndef DATA_HH
