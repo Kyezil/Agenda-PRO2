@@ -46,7 +46,7 @@ struct Hora {
      *  \pre \e s té el format HH:MM
      *  \post el p.i conté la hora representada per \e s*/
     Hora(string s);
-    
+
     /** \brief Indica ordre entre hores (<).
      *  \param[in] d rhs hora
      *  \return (p.i < h)
