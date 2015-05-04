@@ -10,10 +10,10 @@
 /// \endcond
 using namespace std;
 
+/** \class Tasca
+ *  \brief Representa una tasca amb etiquetes associades
+ */
 class Tasca {
-    /** \class Tasca
-     *  \brief Representa una tasca amb etiquetes associades
-     */
     private:
         string titol;
         /// \invariant \b etiquetes no conté elements repetits

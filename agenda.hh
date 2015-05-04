@@ -2,21 +2,24 @@
  * \file agenda.hh
  * \brief Especificació de la classe Agenda
  */
+
 #ifndef AGENDA_HH
 #define AGENDA_HH
+
 /// \cond HIDE
 #include <map>
 #include <string>
 #include <vector>
 /// \endcond
-#include "data.hh"
 #include "tasca.hh"
-
+#include "data.hh"
 using namespace std;
 
+/** \class Agenda
+ *  \brief Representa una agenda amb un conjunt de tasques amb etiquetes
+ */
 class Agenda {
-    /** \class Agenda
-     *  \brief Representa una agenda amb un conjunt de tasques amb etiquetes
+    /**
      *  \invariant
      *      1. No hi han tasques amb la mateixa data
      *      2. No es poden modificar les tasques del passat
