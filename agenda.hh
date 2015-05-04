@@ -1,12 +1,14 @@
 /**
- * \file Agenda.hh
+ * \file agenda.hh
  * \brief Especificació de la classe Agenda
  */
 #ifndef AGENDA_HH
 #define AGENDA_HH
 #include <map>
 #include <string>
-#include "Data.hh"
+#include <vector>
+#include "data.hh"
+#include "tasca.hh"
 
 using namespace std;
 
@@ -59,7 +61,7 @@ class Agenda {
          *  \param[in] id nº de la tasca al menú
          *  \param[in] data nova data de la tasca
          *  \pre  es_modificable(id) i no existeix(data)
-         *  \post la tasca \e id del menú té com a data \e titol */
+         *  \post la tasca \e id del menú té com a data \e data */
         void set_data(int id, Data data);
 
         /** \brief Afegeix una etiqueda a una tasca del menú
@@ -154,4 +156,5 @@ class Agenda {
          * \pre true
          * \post es mostren totes les tasques del passat */
         void passat() const;
+};
 #endif
