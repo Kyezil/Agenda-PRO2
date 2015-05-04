@@ -4,10 +4,11 @@
 
 #ifndef TOKEN_HH
 #define TOKEN_HH
-
+/// \cond HIDE
 #include <string>
 #include "stdlib.h"
 #include <iostream>
+/// \endcond
 using namespace std;
 
 /** @class Token

@@ -4,8 +4,10 @@
  */
 #ifndef TASCA_HH
 #define TASCA_HH
+/// \cond HIDE
 #include <string>
 #include <set>
+/// \endcond
 using namespace std;
 
 class Tasca {

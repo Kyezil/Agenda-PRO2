@@ -5,11 +5,13 @@
 #ifndef COMANDA_HH
 #define COMANDA_HH
 
+/// \cond HIDE
 #include <sstream>
 #include <vector>
 #include <string>
 #include "stdlib.h"
 #include <iostream>
+/// \endcond
 #include "token.hh"
 using namespace std;
 

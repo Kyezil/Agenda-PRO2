@@ -3,8 +3,10 @@
 */
 #ifndef DATA_HH
 #define DATA_HH
+/// \cond HIDE
 #include <utility>
 #include <string>
+/// \endcond HIDE
 using namespace std;
 
 /** \struct Dia
@@ -14,7 +16,7 @@ struct Dia {
     int any;
     int mes;
     int dia;
-    /** /invariant 0 <= \b any <= 99
+    /** \invariant 0 <= \b any <= 99
      *             1 <= \b mes <= 12
      *             0 <= \b dia <= 31  */
 

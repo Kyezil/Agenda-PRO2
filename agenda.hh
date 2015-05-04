@@ -4,9 +4,11 @@
  */
 #ifndef AGENDA_HH
 #define AGENDA_HH
+/// \cond HIDE
 #include <map>
 #include <string>
 #include <vector>
+/// \endcond
 #include "data.hh"
 #include "tasca.hh"
 
@@ -37,6 +39,7 @@ class Agenda {
          */
         Agenda();
 
+        //Modificadores
         /** \brief Avança el rellotge
          *  \param[in] data data fins on avançar
          *  \pre no es_passat(data)
@@ -138,7 +141,7 @@ class Agenda {
         void consulta(Dia dia1, Dia dia2, string expressio = "");
 
         /** \brief Genera el menu corresponen a la búsqueda en un dia
-         *  \param[in] data dia en què s'ha de buscar
+         *  \param[in] dia dia en què s'ha de buscar
          *  \param[in] expressio expressió booleana sobre les etiquetes
          *  \pre true
          *  \post el menú conté les tasques no passadaes amb dia \e dia tal que
