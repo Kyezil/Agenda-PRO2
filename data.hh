@@ -1,5 +1,5 @@
 /** \file data.hh
-    \brief Especificació de Data (Dia i Hora)
+    \brief Definició de Data (Dia i Hora)
 */
 #ifndef DATA_HH
 #define DATA_HH
