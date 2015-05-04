@@ -10,7 +10,7 @@
 using namespace std;
 
 /** \struct Dia
-    \brief Representa una dia , dia.mes.any
+    \brief Representa un dia, dia.mes.any
 */
 struct Dia {
     int any;
@@ -35,7 +35,7 @@ struct Dia {
 };
 
 /** \struct Hora
-    \brief Representa una hora , hora:minut
+    \brief Representa una hora, hora:minut
 */
 struct Hora {
     int hora;
