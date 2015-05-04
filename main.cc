@@ -1,21 +1,18 @@
-#include "Agenda.hh"
-#include "Comanda.hh" 
-#include "Data.hh"
-
+#include "agenda.hh"
+#include "comanda.hh" 
 using namespace std; 
 
 int main (){
-
-Agenda agenda(); 
+Agenda agenda; 
 Comanda comanda;
-
-while (comanda.llegir()) {
+bool be;
+while (comanda.llegir(be)) {
   if (comanda.es_insercio()) {
      if (comanda.nombre_dates()!=0) {
       	/*  \pre la data no es del passat i no existeix cap tasca amb la mateixa data a la agenda
          *  \post a agenda s'ha afegit una tasca amb el títol i la data especificats 
          */
-	  agenda.add_tasca(comanda.titol(), {Data(comanda.data(0)), Hora(comanda.hora())});
+	  agenda.add_tasca(comanda.titol(), {Dia(comanda.data(1)), Hora(comanda.hora())});
       }
       else {
        	/*  \pre no existeix cap tasca a la data actual 
@@ -46,14 +43,14 @@ while (comanda.llegir()) {
 		/*  \pre true
 		 *  \post s'ha generat i es mostra per pantalla un menú amb les tasques del dia especificat
 		 */
-		agenda.consulta(comanda.data(0));
+		agenda.consulta(comanda.data(1));
 	      }	
 	      else {
 	        /*  \pre true
 		 *  \post s'ha generat i es mostra per pantalla un menú amb les tasques del dia especificat 
 		 *        que compleixen l'expressio
 		 */
-		agenda.consulta({comanda.data(0),agenda.get_hora()}, comanda.expressio());
+		agenda.consulta(Dia(comanda.data(1)), comanda.expressio());
 	      }
 	}
 	else {
@@ -61,14 +58,14 @@ while (comanda.llegir()) {
 		/*  \pre true
 		 *  \post s'ha generat i es mostra per pantalla un menú amb les tasques entre els dies especificats
 		 */
-		  agenda.consulta({comanda.data(0),agenda.get_hora()}, {comanda.data(1),agenda.get_hora()});
+		  agenda.consulta(Dia(comanda.data(1)), Dia(comanda.data(2)));
 	      }
 	      else { 
 		/*  \pre true
 		 *  \post s'ha generat i es mostra per pantalla un menú amb les tasques entre els dies especificats 
 		 *        que compleixen l'expressio
 		 */
-		  agenda.consulta({comanda.data(0),agenda.get_hora()},{comanda.data(1), agenda.get_hora()}, comanda.expressio());
+		   agenda.consulta(Dia(comanda.data(1)), Dia(comanda.data(2)), comanda.expressio());
 	      }
        }
   }
@@ -102,11 +99,10 @@ while (comanda.llegir()) {
 	    /*  \pre la tasca existeix i no és del passat
 	     *  \post la tasca té la data especificada
 	     */
-	     agenda.set_data(comanda.tasca(), {Dia(comanda.data()),agenda.get_hora()}); 
+	     agenda.set_data(comanda.tasca(), {Dia(comanda.data(1)),agenda.get_hora()}); 
 	}
   }
   else if (comanda.es_rellotge()) {
-	
 	if (comanda.es_consulta()){
 	    /*  \pre true
 	     *  \post s'ha escrit el rellotge pel canal de sortida estàndar
@@ -117,13 +113,13 @@ while (comanda.llegir()) {
 	    /*  \pre  la data no és passada
 	     *  \post el rellotge marca la data especificada 
        */
-	    agenda.set_rellotge({Dia(comanda.data()),agenda.get_hora()});
+	    agenda.set_rellotge({Dia(comanda.data(1)),agenda.get_hora()});
 	}
-	if (comanda.te_hora) {
+	if (comanda.te_hora()) {
    	  /*  \pre  la hora no és passada
 	     *  \post el rellotge marca la hora especificada 
        */
-	    agenda.set_rellotge({agenda.get_dia(),Dia(comanda.data())});
+	    agenda.set_rellotge({agenda.get_dia(),Hora(comanda.hora())});
 	}
   }
   else if (comanda.es_esborrat()) {
@@ -139,12 +135,12 @@ while (comanda.llegir()) {
 	       */
 	    agenda.del_etiquetes(comanda.tasca()); 
 	    }
-	}
 	else if (comanda.tipus_esborrat() == "etiqueta" ) {
         /*  \pre la tasca existeix i no és del passat
          *  \post la agenda no conté la etiqueta especificada
 	       */
 	     agenda.del_etiqueta(comanda.tasca(), comanda.etiqueta(0));  
 	}    
+  }
   }
 }
