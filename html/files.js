@@ -7,6 +7,7 @@ var files =
       [ "Comanda", "classComanda.html", "classComanda" ]
     ] ],
     [ "data.hh", "data_8hh.html", "data_8hh" ],
+    [ "main.cc", "main_8cc.html", "main_8cc" ],
     [ "tasca.hh", "tasca_8hh.html", [
       [ "Tasca", "classTasca.html", "classTasca" ]
     ] ],

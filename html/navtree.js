@@ -1,6 +1,7 @@
 var NAVTREE =
 [
   [ "Agenda-PRO2", "index.html", [
+    [ "Gestor de tasques", "md_README.html", null ],
     [ "Classes", null, [
       [ "Llista de Classes", "annotated.html", "annotated" ],
       [ "Índex de Classes", "classes.html", null ],
@@ -14,6 +15,7 @@ var NAVTREE =
       [ "Llista dels Fitxers", "files.html", "files" ],
       [ "Membres de Fitxers", "globals.html", [
         [ "Tot", "globals.html", null ],
+        [ "Funcions", "globals_func.html", null ],
         [ "Definicions de Tipus", "globals_type.html", null ]
       ] ]
     ] ]
