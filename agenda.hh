@@ -17,17 +17,15 @@ using namespace std;
 
 /** \class Agenda
  *  \brief Representa una agenda amb un conjunt de tasques amb etiquetes
+    \invariant 
+    - No hi han tasques amb la mateixa data
+    - No es poden modificar les tasques del passat
+     
+    \par Notació
+    -# Una data és "del passat" o "passada" si és anterior al rellotge del p.i.
+    -# Una tasca és "del passat" si la seva data associada ho és.
  */
 class Agenda {
-    /**
-     *  \invariant
-     *      1. No hi han tasques amb la mateixa data
-     *      2. No es poden modificar les tasques del passat
-     *
-     *  Notació:
-     *      1. Una data és "del passat" o "passada" si és anterior al rellotge del p.i.
-     *      2. Una tasca és "del passat" si la seva data associada ho és.
-     */
     private:
         pair<Data, map<Data,Tasca>::const_iterator> rellotge;
         map<Data, Tasca> tasques;

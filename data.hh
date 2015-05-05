@@ -13,12 +13,9 @@ using namespace std;
     \brief Representa un dia, dia.mes.any
 */
 struct Dia {
-    int any;
-    int mes;
-    int dia;
-    /** \invariant 0 <= \b any <= 99
-     *             1 <= \b mes <= 12
-     *             0 <= \b dia <= 31  */
+    int any; ///< 0 <= any <= 99
+    int mes; ///< 1 <= mes <= 12
+    int dia; ///< 1 <= dia <= 31
 
     /** \brief Construeix Dia a partir d'un string
      *  \param[in] s string que conté un dia  "dia.mes.any"
@@ -38,15 +35,13 @@ struct Dia {
     \brief Representa una hora, hora:minut
 */
 struct Hora {
-    int hora;
-    int minut;
-    /** /invariant 0 <= \b hora <= 23
-     *             0 <= \b minut <= 59
-
+    int hora; ///< 0 <= hora <= 23
+    int minut; ///< 0 <= minut <= 59
+    
     /** \brief Construeix Hora a partir d'un string
      *  \param[in] s string que conté un dia  "hora:minut"
      *  \pre \e s té el format HH:MM
-     *  \post el p.i conté la hora representada per \e s*/
+     *  \post el p.i conté la hora representada per \e s */
     Hora(string s);
 
     /** \brief Indica ordre entre hores (<).
