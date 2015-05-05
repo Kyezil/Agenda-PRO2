@@ -105,33 +105,42 @@ $(document).ready(function(){initNavTree('data_8hh_source.html','');});
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structDia.html">   15</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structDia.html">Dia</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structDia.html#a1ac099b1143395195adf7468e77b0389">   16</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structDia.html#a1ac099b1143395195adf7468e77b0389">any</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structDia.html#a654caaea275b08510b3422681aa3d973">   17</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structDia.html#a654caaea275b08510b3422681aa3d973">mes</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structDia.html#a3bea33db45fbfc88f88dbbdf99ef5707">   18</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structDia.html#a3bea33db45fbfc88f88dbbdf99ef5707">dia</a>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="structDia.html">Dia</a>(<span class="keywordtype">string</span> s);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;   <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code" href="structDia.html">Dia</a> &amp;d) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structHora.html">   40</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structHora.html">Hora</a> {</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structHora.html#a0a453671c02c2fab93fc546f5696480c">   41</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structHora.html#a0a453671c02c2fab93fc546f5696480c">hora</a>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structHora.html#ac80dca8aac1972870cc47d9db7fd4e12">   42</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structHora.html#ac80dca8aac1972870cc47d9db7fd4e12">minut</a>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<div class="ttc" id="structHora_html"><div class="ttname"><a href="structHora.html">Hora</a></div><div class="ttdoc">Representa una hora, hora:minut. </div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00040">data.hh:40</a></div></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structDia.html#a1ac099b1143395195adf7468e77b0389">   16</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structDia.html#a1ac099b1143395195adf7468e77b0389">any</a>; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structDia.html#a654caaea275b08510b3422681aa3d973">   17</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structDia.html#a654caaea275b08510b3422681aa3d973">mes</a>; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structDia.html#a3bea33db45fbfc88f88dbbdf99ef5707">   18</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structDia.html#a3bea33db45fbfc88f88dbbdf99ef5707">dia</a>; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="structDia.html">Dia</a>(<span class="keywordtype">string</span> s);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;   <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code" href="structDia.html">Dia</a> &amp;d) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structHora.html">   37</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structHora.html">Hora</a> {</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structHora.html#a0a453671c02c2fab93fc546f5696480c">   38</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structHora.html#a0a453671c02c2fab93fc546f5696480c">hora</a>; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structHora.html#ac80dca8aac1972870cc47d9db7fd4e12">   39</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structHora.html#ac80dca8aac1972870cc47d9db7fd4e12">minut</a>; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="structHora.html">Hora</a>(<span class="keywordtype">string</span> s);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;   <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code" href="structHora.html">Hora</a>&amp;d) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">   55</a></span>&#160;<span class="keyword">typedef</span> pair&lt;Dia, Hora&gt; <a class="code" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="structHora_html"><div class="ttname"><a href="structHora.html">Hora</a></div><div class="ttdoc">Representa una hora, hora:minut. </div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00037">data.hh:37</a></div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
-<div class="ttc" id="structDia_html_a654caaea275b08510b3422681aa3d973"><div class="ttname"><a href="structDia.html#a654caaea275b08510b3422681aa3d973">Dia::mes</a></div><div class="ttdeci">int mes</div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00017">data.hh:17</a></div></div>
+<div class="ttc" id="structDia_html_a654caaea275b08510b3422681aa3d973"><div class="ttname"><a href="structDia.html#a654caaea275b08510b3422681aa3d973">Dia::mes</a></div><div class="ttdeci">int mes</div><div class="ttdoc">1 <= mes <= 12 </div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00017">data.hh:17</a></div></div>
+<div class="ttc" id="data_8hh_html_a6ce001f8a23e966a5b4b6ee856f309f4"><div class="ttname"><a href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a></div><div class="ttdeci">pair&lt; Dia, Hora &gt; Data</div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00055">data.hh:55</a></div></div>
 <div class="ttc" id="structDia_html"><div class="ttname"><a href="structDia.html">Dia</a></div><div class="ttdoc">Representa un dia, dia.mes.any. </div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00015">data.hh:15</a></div></div>
-<div class="ttc" id="structDia_html_a3bea33db45fbfc88f88dbbdf99ef5707"><div class="ttname"><a href="structDia.html#a3bea33db45fbfc88f88dbbdf99ef5707">Dia::dia</a></div><div class="ttdeci">int dia</div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00018">data.hh:18</a></div></div>
-<div class="ttc" id="structDia_html_a1ac099b1143395195adf7468e77b0389"><div class="ttname"><a href="structDia.html#a1ac099b1143395195adf7468e77b0389">Dia::any</a></div><div class="ttdeci">int any</div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00016">data.hh:16</a></div></div>
-<div class="ttc" id="structHora_html_a0a453671c02c2fab93fc546f5696480c"><div class="ttname"><a href="structHora.html#a0a453671c02c2fab93fc546f5696480c">Hora::hora</a></div><div class="ttdeci">int hora</div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00041">data.hh:41</a></div></div>
-<div class="ttc" id="structHora_html_ac80dca8aac1972870cc47d9db7fd4e12"><div class="ttname"><a href="structHora.html#ac80dca8aac1972870cc47d9db7fd4e12">Hora::minut</a></div><div class="ttdeci">int minut</div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00042">data.hh:42</a></div></div>
+<div class="ttc" id="structDia_html_a3bea33db45fbfc88f88dbbdf99ef5707"><div class="ttname"><a href="structDia.html#a3bea33db45fbfc88f88dbbdf99ef5707">Dia::dia</a></div><div class="ttdeci">int dia</div><div class="ttdoc">1 <= dia <= 31 </div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00018">data.hh:18</a></div></div>
+<div class="ttc" id="structDia_html_a1ac099b1143395195adf7468e77b0389"><div class="ttname"><a href="structDia.html#a1ac099b1143395195adf7468e77b0389">Dia::any</a></div><div class="ttdeci">int any</div><div class="ttdoc">0 <= any <= 99 </div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00016">data.hh:16</a></div></div>
+<div class="ttc" id="structHora_html_a0a453671c02c2fab93fc546f5696480c"><div class="ttname"><a href="structHora.html#a0a453671c02c2fab93fc546f5696480c">Hora::hora</a></div><div class="ttdeci">int hora</div><div class="ttdoc">0 <= hora <= 23 </div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00038">data.hh:38</a></div></div>
+<div class="ttc" id="structHora_html_ac80dca8aac1972870cc47d9db7fd4e12"><div class="ttname"><a href="structHora.html#ac80dca8aac1972870cc47d9db7fd4e12">Hora::minut</a></div><div class="ttdeci">int minut</div><div class="ttdoc">0 <= minut <= 59 </div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00039">data.hh:39</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="data_8hh.html">data.hh</a></li>
-    <li class="footer">Generat a Dt Mai 5 2015 00:07:49 per a Agenda-PRO2 per
+    <li class="footer">Generat a Dt Mai 5 2015 20:22:10 per a Agenda-PRO2 per
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

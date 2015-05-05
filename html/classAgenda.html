@@ -168,8 +168,18 @@ Mètodes públics</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripció Detallada</h2>
 <div class="textblock"><p>Representa una agenda amb un conjunt de tasques amb etiquetes. </p>
+<dl class="section invariant"><dt>Invariant</dt><dd><ul>
+<li>No hi han tasques amb la mateixa data</li>
+<li>No es poden modificar les tasques del passat</li>
+</ul>
+</dd></dl>
+<dl class="section user"><dt>Notació</dt><dd><ol type="1">
+<li>Una data és "del passat" o "passada" si és anterior al rellotge del p.i.</li>
+<li>Una tasca és "del passat" si la seva data associada ho és. </li>
+</ol>
+</dd></dl>
 
-<p>Definició a la línia <a class="el" href="agenda_8hh_source.html#l00021">21</a> del fitxer <a class="el" href="agenda_8hh_source.html">agenda.hh</a>.</p>
+<p>Definició a la línia <a class="el" href="agenda_8hh_source.html#l00028">28</a> del fitxer <a class="el" href="agenda_8hh_source.html">agenda.hh</a>.</p>
 </div><h2 class="groupheader">Documentació del Constructor i el Destructor</h2>
 <a class="anchor" id="a6685054d2b4ccbf2a4ef2ac5e3746bc3"></a>
 <div class="memitem">
@@ -717,7 +727,7 @@ Mètodes públics</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classAgenda.html">Agenda</a></li>
-    <li class="footer">Generat a Dt Mai 5 2015 00:07:49 per a Agenda-PRO2 per
+    <li class="footer">Generat a Dt Mai 5 2015 20:22:10 per a Agenda-PRO2 per
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

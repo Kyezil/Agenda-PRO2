@@ -126,8 +126,12 @@ Mètodes públics</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripció Detallada</h2>
 <div class="textblock"><p>Representa una tasca amb etiquetes associades. </p>
+<dl class="section invariant"><dt>Invariant</dt><dd><ul>
+<li>Una tasca no té etiquetes repetides </li>
+</ul>
+</dd></dl>
 
-<p>Definició a la línia <a class="el" href="tasca_8hh_source.html#l00016">16</a> del fitxer <a class="el" href="tasca_8hh_source.html">tasca.hh</a>.</p>
+<p>Definició a la línia <a class="el" href="tasca_8hh_source.html#l00018">18</a> del fitxer <a class="el" href="tasca_8hh_source.html">tasca.hh</a>.</p>
 </div><h2 class="groupheader">Documentació del Constructor i el Destructor</h2>
 <a class="anchor" id="a94ed48399673b7c60ce0664f99be2d02"></a>
 <div class="memitem">
@@ -165,12 +169,12 @@ Mètodes públics</h2></td></tr>
 <p>Constructor de tasca amb titol. </p>
 <dl class="params"><dt>Paràmetres</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">titol</td><td>Títol de la tasca a crear </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">titol</td><td>títol de la tasca a crear </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>el p.i és una tasca de titol <em>titol</em> </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>el p.i és una tasca de titol <em>titol</em> sense etiquetes </dd></dl>
 
 </div>
 </div>
@@ -192,7 +196,7 @@ Mètodes públics</h2></td></tr>
 <p>Afegeix una etiqueta a la tasca. </p>
 <dl class="params"><dt>Paràmetres</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">etiq</td><td>Etiqueta a afegir </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">etiq</td><td>etiqueta a afegir </td></tr>
   </table>
   </dd>
 </dl>
@@ -218,7 +222,7 @@ Mètodes públics</h2></td></tr>
 <p>Esborrar una etiqueta de la tasca. </p>
 <dl class="params"><dt>Paràmetres</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">etiq</td><td>Etiqueta a esborrar </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">etiq</td><td>etiqueta a esborrar </td></tr>
   </table>
   </dd>
 </dl>
@@ -244,7 +248,7 @@ Mètodes públics</h2></td></tr>
 <p>Modifica el títol de la tasca. </p>
 <dl class="params"><dt>Paràmetres</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">titol</td><td>Nou títol de la tasca </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">titol</td><td>nou títol de la tasca </td></tr>
   </table>
   </dd>
 </dl>
@@ -262,7 +266,7 @@ Mètodes públics</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classTasca.html">Tasca</a></li>
-    <li class="footer">Generat a Dt Mai 5 2015 00:07:49 per a Agenda-PRO2 per
+    <li class="footer">Generat a Dt Mai 5 2015 20:22:10 per a Agenda-PRO2 per
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>
