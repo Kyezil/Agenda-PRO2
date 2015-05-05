@@ -1,6 +1,6 @@
 /**
  * \file  tasca.hh
- * \brief Especificació de la classe Tasca
+ * \brief Classe Tasca
  */
 #ifndef TASCA_HH
 #define TASCA_HH

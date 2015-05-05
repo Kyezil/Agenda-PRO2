@@ -1,6 +1,6 @@
 /**
  * \file agenda.hh
- * \brief Especificació de la classe Agenda
+ * \brief Classe Agenda
  */
 
 #ifndef AGENDA_HH
