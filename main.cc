@@ -1,3 +1,7 @@
+/** \file main.cc
+ *  \brief Programa principal
+ */
+
 #include "agenda.hh"
 #include "comanda.hh"
 using namespace std;
