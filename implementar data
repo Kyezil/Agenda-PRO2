@@ -1,4 +1,4 @@
-/** \file data.hh
+/** \file data.cc
 \brief Implementació de Data (Dia i Hora)
 */
 
