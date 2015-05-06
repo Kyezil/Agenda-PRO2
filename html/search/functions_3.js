@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['es_5fconsulta',['es_consulta',['../classComanda.html#a847ee227fd7fea3a105dbd78735de453',1,'Comanda::es_consulta()'],['../classToken.html#a81c4eba71c6257da6cadfab43cb237da',1,'Token::es_consulta()']]],
+  ['es_5fdata',['es_data',['../classToken.html#a8791d9d6123190213f63ad1026ca05be',1,'Token']]],
+  ['es_5fesborrat',['es_esborrat',['../classComanda.html#a9e71320e8617ce224c8d994d0969555a',1,'Comanda::es_esborrat()'],['../classToken.html#ab49eee0e53697bbbbbcbf0c105b3cf77',1,'Token::es_esborrat()']]],
+  ['es_5fetiqueta',['es_etiqueta',['../classToken.html#ad2949808a3a5d2afba78768e18005cbd',1,'Token']]],
+  ['es_5fexpressio',['es_expressio',['../classToken.html#a09eb1782d5b5d9d4a2a92f33c950bfc1',1,'Token']]],
+  ['es_5fhora',['es_hora',['../classToken.html#a16aead065c986f34b51c6193bd42882c',1,'Token']]],
+  ['es_5finsercio',['es_insercio',['../classComanda.html#a614467bedacc9cf29cc5a9dcbba6b23d',1,'Comanda']]],
+  ['es_5fmodificable',['es_modificable',['../classAgenda.html#ac806bdff68a0dde44205b7cb3926bafc',1,'Agenda']]],
+  ['es_5fmodificacio',['es_modificacio',['../classComanda.html#a2a33a5497c7d156f22065656cb48d9a1',1,'Comanda']]],
+  ['es_5fnombre',['es_nombre',['../classToken.html#a53411d8b5b08289a126944104d246380',1,'Token']]],
+  ['es_5fpassat',['es_passat',['../classAgenda.html#ac60aa6484d53e9873cc47627f4d6fc30',1,'Agenda::es_passat()'],['../classComanda.html#a1f435f8b605f0d1f5cbb06c8c6fe4005',1,'Comanda::es_passat()']]],
+  ['es_5frellotge',['es_rellotge',['../classComanda.html#aa8767f298317c3bb07f90676cabb8c43',1,'Comanda']]],
+  ['es_5ftext',['es_text',['../classToken.html#ab40c482fd70278c5f8ce53aa364d957e',1,'Token']]],
+  ['esborrar_5fetiqueta',['esborrar_etiqueta',['../classTasca.html#a5f6499c98f98eceb15243ece832304c1',1,'Tasca']]],
+  ['etiqueta',['etiqueta',['../classComanda.html#ac80e9a80d16c6bac9a134e431bca1ed0',1,'Comanda']]],
+  ['existeix',['existeix',['../classAgenda.html#ad6c42d4f05be9b7f0c48018dc6391b1d',1,'Agenda']]],
+  ['expressio',['expressio',['../classComanda.html#aa3191131592fbf58d20bed1052c31cd1',1,'Comanda']]]
+];
