@@ -1,4 +1,9 @@
+/**
+ *  \file tasca.cc
+ *  \brief Implementació tasca
+ */
 #include "tasca.hh" 
+
 Tasca::Tasca(string titol): titol(titol){
 } 
 void Tasca::modificar_titol(string titol){
