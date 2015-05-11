@@ -45,11 +45,11 @@ struct Hora {
     Hora(string s);
 
     /** \brief Indica ordre entre hores (<).
-     *  \param[in] d rhs hora
+     *  \param[in] h rhs hora
      *  \return (p.i < h)
      *  \pre true
      *  \post retorna cert i el p.i és anterior a \e h */
-   bool operator<(const Hora&d) const;
+   bool operator<(const Hora &h) const;
 };
 
 typedef pair<Dia, Hora> Data;
