@@ -1,6 +1,6 @@
 /**
  *  \file tasca.cc
- *  \brief Implementació tasca
+ *  \brief Implementació Tasca
  */
 #include "tasca.hh" 
 
@@ -16,4 +16,8 @@ void Tasca::add_etiqueta(string etiq) {
 
 void Tasca::del_etiqueta(string etiq) {
     tags_.erase(etiq);
+}
+
+void Tasca::del_etiquetes() {
+    tags_.clear();
 }
