@@ -17,8 +17,8 @@ using namespace std;
  */
 class Tasca {
     private:
-        string titol;
-        set<string> etiquetes;
+        string title_;
+        set<string> tags_; 
     public:
         /** \brief Constructor per defecte
          *  \pre true
