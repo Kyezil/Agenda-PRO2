@@ -12,7 +12,7 @@ using namespace std;
 
 /** \class Tasca
  *  \brief Representa una tasca amb etiquetes associades
- *  \invariant 
+ *  \invariant
  *  - Una tasca no té etiquetes repetides
  */
 class Tasca {
@@ -52,6 +52,12 @@ class Tasca {
          *  \pre true
          *  \post el p.i no té com a etiqueta \e etiq
          */
-        void del_etiqueta(string etiq);
+        void del_etiqueta(const string etiq);
+
+        /** \brief Esborrar totes les etiquetes de la tasca
+         *  \pre true
+         *  \post el p.i no té etiquetes
+         */
+        void del_etiquetes();
 };
 #endif
