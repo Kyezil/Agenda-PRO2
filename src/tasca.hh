@@ -12,13 +12,13 @@ using namespace std;
 
 /** \class Tasca
  *  \brief Representa una tasca amb etiquetes associades
- *  \invariant 
+ *  \invariant
  *  - Una tasca no té etiquetes repetides
  */
 class Tasca {
     private:
         string titol;
-        set<string> etiquetes; 
+        set<string> etiquetes;
     public:
         /** \brief Constructor per defecte
          *  \pre true
@@ -38,20 +38,26 @@ class Tasca {
          *  \pre true
          *  \post el titol del p.i és \e titol
          */
-        void modificar_titol(string titol);
+        void set_titol(string titol);
 
         /** \brief Afegeix una etiqueta a la tasca
          *  \param [in] etiq etiqueta a afegir
          *  \pre true
          *  \post el p.i té una etiqueta \e etiq
          */
-        void afegir_etiqueta(string etiq);
+        void add_etiqueta(string etiq);
 
         /** \brief Esborrar una etiqueta de la tasca
          *  \param [in] etiq etiqueta a esborrar
          *  \pre true
          *  \post el p.i no té com a etiqueta \e etiq
          */
-        void esborrar_etiqueta(string etiq);
+        void del_etiqueta(const string etiq);
+
+        /** \brief Esborrar totes les etiquetes de la tasca
+         *  \pre true
+         *  \post el p.i no té etiquetes
+         */
+        void del_etiquetes();
 };
 #endif
