@@ -4,9 +4,9 @@
 #include "data.hh"
 
 Dia::Dia(string s) {
-    dia = (s[0] - '0')*10 + s[1] - '0';
-    mes = (s[3] - '0')*10 + s[4] - '0';
-    any = (s[6] - '0')*10 + s[7] - '0';
+    dia = stoi(s.substr(0,2));
+    mes = stoi(s.substr(3,2));
+    any = stoi(s.substr(6,2));
 }
 
 bool Dia::operator<(const Dia &d) const {
@@ -14,8 +14,8 @@ bool Dia::operator<(const Dia &d) const {
 }
 
 Hora::Hora(string s) {
-    hora = (s[0] - '0')*10 + s[1] - '0';
-    minut = (s[3] - '0')*10 + s[4] - '0';
+    hora = stoi(s.substr(0,2));
+    minut = stoi(s.substr(3,2));
 }
 
 bool Hora::operator<(const Hora &h) const {
