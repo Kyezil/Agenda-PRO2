@@ -4,14 +4,16 @@
  */
 #include "tasca.hh" 
 
-Tasca::Tasca(string titol): titol(titol){
-} 
-void Tasca::modificar_titol(string titol){
-  this->titol=titol; 
+Tasca::Tasca(string titol): title_(titol) {}
+
+void Tasca::set_titol(string titol) {
+    title_ = titol; 
 }
-void Tasca::afegir_etiqueta(string etiq){
- etiquetes.insert(etiq); 
+
+void Tasca::add_etiqueta(string etiq) {
+    tags_.insert(etiq); 
 }
-void Tasca::esborrar_etiqueta(string etiq){
-  etiquetes.erase(etiq);
+
+void Tasca::del_etiqueta(string etiq) {
+    tags_.erase(etiq);
 }

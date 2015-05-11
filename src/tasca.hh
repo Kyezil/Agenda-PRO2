@@ -17,8 +17,8 @@ using namespace std;
  */
 class Tasca {
     private:
-        string titol;
-        set<string> etiquetes; 
+        string title_;
+        set<string> tags_; 
     public:
         /** \brief Constructor per defecte
          *  \pre true
@@ -38,20 +38,20 @@ class Tasca {
          *  \pre true
          *  \post el titol del p.i és \e titol
          */
-        void modificar_titol(string titol);
+        void set_titol(string titol);
 
         /** \brief Afegeix una etiqueta a la tasca
          *  \param [in] etiq etiqueta a afegir
          *  \pre true
          *  \post el p.i té una etiqueta \e etiq
          */
-        void afegir_etiqueta(string etiq);
+        void add_etiqueta(string etiq);
 
         /** \brief Esborrar una etiqueta de la tasca
          *  \param [in] etiq etiqueta a esborrar
          *  \pre true
          *  \post el p.i no té com a etiqueta \e etiq
          */
-        void esborrar_etiqueta(string etiq);
+        void del_etiqueta(string etiq);
 };
 #endif
