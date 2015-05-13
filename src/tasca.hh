@@ -7,6 +7,7 @@
 /// \cond HIDE
 #include <string>
 #include <set>
+#include <ostream>
 /// \endcond
 using namespace std;
 
@@ -59,5 +60,21 @@ class Tasca {
          *  \post el p.i no té etiquetes
          */
         void del_etiquetes();
+        
+        /** \brief Escriure el titol de la tasca
+         *  \param [in] t tasca de la qual volem escriure el títol
+         *  \param [out] out flux de sortida
+         *  \pre true
+         *  \post a \e out s'ha escrit el títol del p.i.
+         */
+        static void print_titol(const Tasca &t, ostream &out);
+        
+        /** \brief Escriu les etiquetes de la tasca
+         *  \param [in] t tasca de la qual volem escriure les etiquetes
+         *  \param [out] out flux de sortida
+         *  \pre true
+         *  \post a \e out s'han escrit les etiquetes del p.i. per ordre alfabètic
+         */
+        static void print_etiquetes(const Tasca &t, ostream &out);
 };
 #endif
