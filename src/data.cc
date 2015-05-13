@@ -22,9 +22,7 @@ void Dia::print(const Dia& d, ostream& os) {
     os << d.any;
 }
 
-Hora::Hora(int h, int m) : hora(h), minut(m) {}
-
-Hora::Hora(string s) : Hora(stoi(s.substr(0,2)),stoi(s.substr(3,2))) {}
+Hora::Hora(string s) : hora(stoi(s.substr(0,2))) , minut(stoi(s.substr(3,2))) {}
 
 bool Hora::operator<(const Hora &h) const {
     return (hora < h.hora) or (minut < h.minut);
