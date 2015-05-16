@@ -19,7 +19,7 @@ using namespace std;
 class Tasca {
     private:
         string title_;
-        set<string> tags_; 
+        set<string> tags_;
     public:
         /** \brief Constructor per defecte
          *  \pre true
@@ -60,21 +60,21 @@ class Tasca {
          *  \post el p.i no té etiquetes
          */
         void del_etiquetes();
-        
-        /** \brief Escriure el titol de la tasca
-         *  \param [in] t tasca de la qual volem escriure el títol
-         *  \param [out] out flux de sortida
+
+        /** \brief Mostrar el títol de la tasca
+         *  \param[in] t tasca de la qual volem escriure el títol
+         *  \param[out] out flux de sortida
          *  \pre true
-         *  \post a \e out s'ha escrit el títol del p.i.
+         *  \post s'ha escrit el titol del p.i a \e out
          */
-        static void print_titol(const Tasca &t, ostream &out);
+        static void print_titol(const Tasca& t, ostream& out);
         
-        /** \brief Escriu les etiquetes de la tasca
-         *  \param [in] t tasca de la qual volem escriure les etiquetes
-         *  \param [out] out flux de sortida
+        /** \brief Mostrar les etiquetes de la tasca
+         *  \param[in] t tasca, les etiquetes de la qual s'han de mostrar
+         *  \param[out] out flux de sortida
          *  \pre true
-         *  \post a \e out s'han escrit les etiquetes del p.i. per ordre alfabètic
+         *  \post s'han escrit a \e out les etiquetes del p.i en ordre lexicogràfic
          */
-        static void print_etiquetes(const Tasca &t, ostream &out);
+        static void print_etiquetes(const Tasca& t, ostream& out);
 };
 #endif
