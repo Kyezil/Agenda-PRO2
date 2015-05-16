@@ -52,7 +52,7 @@ void Agenda::consulta(Dia dia, string expressio) {}
 void Agenda::consulta() {}
 
 void Agenda::passat() const {
-    map<Data, Tasca>::const_iterator it = tasks_.begin();
+    instant it = tasks_.begin();
     int i = 1;
     while (it != clock_.second) {
         cout << i << ' ';
