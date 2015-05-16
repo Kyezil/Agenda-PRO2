@@ -20,6 +20,8 @@ class Dia {
         int any; ///< 0 <= any <= 99
 
     public:
+        Dia() = default;
+
         /** \brief Construeix Dia directament
          *  \pre els paramètres compleixen l'invariant de la classe
          *  \post el p.i conté la dia representada pels paramètres */
@@ -56,6 +58,8 @@ class Hora {
         int minut; ///< 0 <= minut <= 59
 
     public:
+        Hora() = default;
+
         /** \brief Construeix hora directament
          *  \pre els paramètres compleixen l'invariant de la classe
          *  \post el p.i conté la hora representada pels paramètres */
