@@ -3,11 +3,15 @@
  */
 #include "data.hh"
 
+Dia::Dia(int d, int m, int a) : dia(d), mes(m), any(a) {}
+
 Dia::Dia(string s) :
 dia(stoi(s.substr(0,2))), mes(stoi(s.substr(3,2))), any(stoi(s.substr(6,2))) {}
 
 bool Dia::operator<(const Dia &d) const {
-    return (any < d.any) or (mes < d.mes) or (dia < d.dia);
+    if (any != d.any) return (any < d.any);
+    else if (mes != d.mes) return (mes < d.mes);
+    else return (dia < d.dia);
 }
 
 void Dia::print(const Dia& d, ostream& os) {
@@ -19,10 +23,13 @@ void Dia::print(const Dia& d, ostream& os) {
     os << d.any;
 }
 
+Hora::Hora(int h, int m) : hora(h), minut(m) {}
+
 Hora::Hora(string s) : hora(stoi(s.substr(0,2))) , minut(stoi(s.substr(3,2))) {}
 
 bool Hora::operator<(const Hora &h) const {
-    return (hora < h.hora) or (minut < h.minut);
+    if (hora != h.hora) return (hora < h.hora);
+    else return (minut < h.minut);
 }
 
 void Hora::print(const Hora& h, ostream& os) {

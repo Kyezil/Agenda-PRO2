@@ -15,15 +15,20 @@ using namespace std;
   */
 class Dia {
     private:
-        int any; ///< 0 <= any <= 99
-        int mes; ///< 1 <= mes <= 12
         int dia; ///< 1 <= dia <= 31
+        int mes; ///< 1 <= mes <= 12
+        int any; ///< 0 <= any <= 99
 
     public:
+        /** \brief Construeix Dia directament
+         *  \pre els paramètres compleixen l'invariant de la classe
+         *  \post el p.i conté la dia representada pels paramètres */
+        Dia(int dia, int mes, int any);
+        
         /** \brief Construeix Dia a partir d'un string
          *  \param[in] s string que conté un dia  "dia.mes.any"
          *  \pre \e s té el format DD.MM.AA
-         *  \post el p.i conté la data representada per \e s */
+         *  \post el p.i conté la dia representada per \e s */
         Dia(string s);
 
         /** \brief Indica ordre entre dies (<).
@@ -51,6 +56,11 @@ class Hora {
         int minut; ///< 0 <= minut <= 59
 
     public:
+        /** \brief Construeix hora directament
+         *  \pre els paramètres compleixen l'invariant de la classe
+         *  \post el p.i conté la hora representada pels paramètres */
+        Hora(int hora, int minut);
+        
         /** \brief Construeix Hora a partir d'un string
          *  \param[in] s string que conté un dia  "hora:minut"
          *  \pre \e s té el format HH:MM
