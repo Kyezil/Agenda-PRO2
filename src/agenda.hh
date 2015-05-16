@@ -41,9 +41,11 @@ class Agenda {
         void print_menu_item(int i, const instant& it) const;
 
     public:
+        const Data origin = {{20,4,15},{0,0}}; // valor inicial per defecte
+
         /** \brief Constructor d'una agenda per defecte
          *  \pre true
-         *  \post el p.i és una agenda buida amb rellotge
+         *  \post el p.i és una agenda buida amb rellotge a origin
          */
         Agenda();
 

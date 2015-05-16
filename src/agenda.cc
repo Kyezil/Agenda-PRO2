@@ -6,7 +6,7 @@
 using namespace std;
 
 Agenda::Agenda() {
-    clock_ = {{{1,1,0},{12,18}}, tasks_.begin()};
+    clock_ = {origin,tasks_.begin()};
 }
 
 void Agenda::set_rellotge(Data data) {
