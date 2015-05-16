@@ -9,6 +9,7 @@
 #include <string>
 //#include <vector> TODO si necessitem el vector menu
 #include <list>
+#include <iostream>
 /// \endcond
 #include "tasca.hh"
 #include "data.hh"
@@ -25,8 +26,9 @@ using namespace std;
     -# Una tasca és "del passat" si la seva data associada ho és.
  */
 class Agenda {
+    typedef map<Data, Tasca>::const_iterator instant;
     private:
-        pair<Data, map<Data,Tasca>::const_iterator> clock_;
+        pair<Data, instant> clock_;
         map<Data, Tasca> tasks_;
         map<string, map<Data, Tasca*> > tags_;
         list<Tasca*> menu_;
