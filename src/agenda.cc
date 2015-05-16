@@ -14,8 +14,8 @@ void Agenda::set_rellotge(Data data) {
 }
 
 void Agenda::add_tasca(Data data, Tasca t) {
-    pair<instant,bool> it = tasks_.insert(make_pair(data,t));
-    if (clock_.second == tasks_.end()) clock_.second = it.first;
+    instant it = tasks_.insert(make_pair(data,t)).first;
+    if (++it == clock_.second) clock_.second = --it;
 }
 
 void Agenda::set_titol(const int id, string titol) {}
@@ -49,17 +49,31 @@ Hora Agenda::get_hora() const {
 
 void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {}
 void Agenda::consulta(Dia dia, string expressio) {}
-void Agenda::consulta() {}
+
+void Agenda::consulta() {
+    instant it = clock_.second;
+    menu_.clear();
+    int i = 1;
+    while (it != tasks_.end()) {
+        print_menu_item(i, it);
+        menu_.push_back(it);
+        ++i, ++it;
+    }
+}
 
 void Agenda::passat() const {
     instant it = tasks_.begin();
     int i = 1;
     while (it != clock_.second) {
-        cout << i << ' ';
-        Tasca::print_titol(it->second, cout);
-        cout << ' ' << it->first << ' ';
-        Tasca::print_etiquetes(it->second, cout);
-        cout << '\n';
+        print_menu_item(i, it);
         it++, i++;
     }
+}
+
+void Agenda::print_menu_item(int i, const instant& it) const {
+    cout << i << ' ';
+    Tasca::print_titol(it->second, cout);
+    cout << ' ' << it->first << ' ';
+    Tasca::print_etiquetes(it->second, cout);
+    cout << '\n';
 }

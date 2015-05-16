@@ -30,9 +30,15 @@ class Agenda {
     private:
         pair<Data, instant> clock_;
         map<Data, Tasca> tasks_;
-        map<string, map<Data, Tasca*> > tags_;
-        list<Tasca*> menu_;
-//      vector<Tasca*> menu; probablement no necessari
+        map<string, map<Data, instant> > tags_;
+        list<instant> menu_;
+
+        /** \brief Escriu una línia del menú
+         *  \param[in] i id de la línia
+         *  \pre true
+         *  \post s'ha escrit una línia en format:
+         *  i titol data etiquetes */
+        void print_menu_item(int i, const instant& it) const;
 
     public:
         /** \brief Constructor d'una agenda per defecte
