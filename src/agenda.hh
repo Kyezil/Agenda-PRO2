@@ -59,9 +59,10 @@ class Agenda {
         /** \brief Afegeix una tasca
          *  \param[in] data la data de la tasca a afegir
          *  \param[in] t la tasca a afegir
-         *  \pre  no is_passat(data) i no existeix(data)
-         *  \post el p.i conté la tasca t */
-        void add_tasca(Data data, Tasca t);
+         *  \return si s'ha pogut afegir la tasca
+         *  \pre  no is_passat(data)
+         *  \post si retorna true el p.i conté la tasca t */
+        bool add_tasca(Data data, Tasca t);
 
         /** \brief Canvia el títol d'una tasca del menú
          *  \param[in] id nº de la tasca al menú

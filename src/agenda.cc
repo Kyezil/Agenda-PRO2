@@ -13,9 +13,11 @@ void Agenda::set_rellotge(Data data) {
     clock_ = {data, tasks_.lower_bound(data)};
 }
 
-void Agenda::add_tasca(Data data, Tasca t) {
-    instant it = tasks_.insert(make_pair(data,t)).first;
-    if (++it == clock_.second) clock_.second = --it;
+bool Agenda::add_tasca(Data data, Tasca t) {
+    pair<instant,bool> ans = tasks_.insert(make_pair(data,t));
+    if (ans.second and (++ans.first == clock_.second))
+        clock_.second = --ans.first;
+    return ans.second;
 }
 
 void Agenda::set_titol(const int id, string titol) {}
