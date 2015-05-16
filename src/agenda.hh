@@ -30,9 +30,8 @@ class Agenda {
     private:
         pair<Data, instant> clock_;
         map<Data, Tasca> tasks_;
-        map<string, map<Data, Tasca*> > tags_;
-        list<Tasca*> menu_;
-//      vector<Tasca*> menu; probablement no necessari
+        map<string, map<Data, instant> > tags_;
+        list<instant> menu_;
 
     public:
         /** \brief Constructor d'una agenda per defecte
