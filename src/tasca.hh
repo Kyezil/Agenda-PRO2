@@ -7,6 +7,7 @@
 /// \cond HIDE
 #include <string>
 #include <set>
+#include <ostream>
 /// \endcond
 using namespace std;
 
@@ -18,7 +19,7 @@ using namespace std;
 class Tasca {
     private:
         string title_;
-        set<string> tags_; 
+        set<string> tags_;
     public:
         /** \brief Constructor per defecte
          *  \pre true
@@ -59,5 +60,21 @@ class Tasca {
          *  \post el p.i no té etiquetes
          */
         void del_etiquetes();
+
+        /** \brief Mostrar el títol de la tasca
+         *  \param[in] t tasca amb el titol a mostrar
+         *  \param[out] out flux de sortida
+         *  \pre true
+         *  \post s'ha escrit el titol del p.i a out
+         */
+        static void print_titol(const Tasca& t, ostream& out);
+        
+        /** \brief Mostrar les etiquetes de la tasca
+         *  \param[in] t tasca, les etiquetes de la qual s'han de mostrar
+         *  \param[out] out flux de sortida
+         *  \pre true
+         *  \post s'han escrit a out les etiquetes del p.i en ordre lexicogràfic
+         */
+        static void print_etiquetes(const Tasca& t, ostream& out);
 };
 #endif
