@@ -62,10 +62,10 @@ class Tasca {
         void del_etiquetes();
 
         /** \brief Mostrar el títol de la tasca
-         *  \param[in] t tasca amb el titol a mostrar
+         *  \param[in] t tasca de la qual volem escriure el títol
          *  \param[out] out flux de sortida
          *  \pre true
-         *  \post s'ha escrit el titol del p.i a out
+         *  \post s'ha escrit el titol del p.i a \e out
          */
         static void print_titol(const Tasca& t, ostream& out);
         
@@ -73,7 +73,7 @@ class Tasca {
          *  \param[in] t tasca, les etiquetes de la qual s'han de mostrar
          *  \param[out] out flux de sortida
          *  \pre true
-         *  \post s'han escrit a out les etiquetes del p.i en ordre lexicogràfic
+         *  \post s'han escrit a \e out les etiquetes del p.i en ordre lexicogràfic
          */
         static void print_etiquetes(const Tasca& t, ostream& out);
 };

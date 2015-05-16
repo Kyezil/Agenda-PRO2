@@ -2,7 +2,7 @@
  *  \file tasca.cc
  *  \brief Implementació Tasca
  */
-#include "tasca.hh" 
+#include "tasca.hh"
 
 Tasca::Tasca(string titol): title_(titol) {}
 
