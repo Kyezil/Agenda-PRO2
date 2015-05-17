@@ -134,11 +134,6 @@ class Agenda {
          *  \post retorna si es pot modificar la tasca \e id del menú */
         bool is_modificable(const int id) const;
 
-        /** \brief Consulta el rellotge
-         *  \pre true
-         *  \post s'ha escrit el rellotge pel canal de sortida estàndar */
-        void print_rellotge() const;
-
         /** \brief  Obté el dia del rellotge
          *  \pre true
          *  \post retorna el dia del rellotge del p.i */
