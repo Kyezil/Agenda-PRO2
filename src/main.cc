@@ -18,12 +18,29 @@ int main (){
     Comanda com;
     bool be;
     while (com.llegir(be)) {
-        if (com.es_insercio()) {
+        if (com.es_rellotge()) {
+            if (com.es_consulta()) cout << make_pair(ag.get_dia(), ag.get_hora()) << '\n';
+            else {
+                Data d;
+                if (com.nombre_dates() == 0) d.first = ag.get_dia();
+                else d.first = com.data(1);
+                if (com.te_hora()) d.second = com.hora();
+                else d.second = ag.get_hora();
+                if (not ag.is_passat(d)) ag.set_rellotge(d);
+                else nop();
+            }
+        }
+        else if (com.es_passat()) ag.passat();
+        else if(com.es_consulta()) {
+            if (com.nombre_dates() == 0 and not com.te_expressio()) ag.consulta();
+            // TODO es poden ajuntar varies però de moment per provar
+        }
+        else if (com.es_insercio()) {
             // genera data
             Data d;
             if (com.nombre_dates() == 0) d.first = ag.get_dia();
-            else d.first = Dia(com.data(1));
-            d.second = Hora(com.hora());
+            else d.first = com.data(1);
+            d.second = com.hora();
             bool ok = false;
             if(not ag.is_passat(d)) {
                 // genera etiquetes si cal
