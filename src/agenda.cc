@@ -115,18 +115,23 @@ Hora Agenda::get_hora() const {
 }
 
 void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
-    // generar llista de etiq que satisfan la expressió
+    // generar llista dels instants que satisfan la expressio
+    //jo faria: 
+    //list<instant> premenu;
+    //eval_list(premenu, expressio); //aixo et retorna la llista ordenada on tots compleixen per tot el temps,seria una op privada
+    //list<instant>::iterator it = premenu.lower_bound({dia1, Hora(0,0)}); //aixo no te pinta de funcionar.. 
+    //list<instant>::iterator end = premenu.lower_bound({dia2, Hora(0,0)});
     instant it = lower_bound({dia1, Hora(0,0)}); // no instant, sino iterador de la llista dels que valen
     instant end = upper_bound({dia2, Hora(23,59)}); // no cal, fins end
     menu_.clear();
     int i = 1;
     while (it != end) { // fins al primer que es surt de dia2 - llista queda ordenada si s'obte dun map
-        print_menu_itme(i, it);
+        print_menu_item(i, it);
         menu_.push_back(it);
         ++i;
         ++it;
     }
-} NO esta complet
+} //NO esta complet
 
 void Agenda::consulta(Dia dia, string expressio) {
     // generar llista dels que satisfan la expressio
