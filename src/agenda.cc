@@ -76,8 +76,11 @@ void Agenda::passat() const {
 void Agenda::print_map_data_tasca() {
     cinstant it = tasks_.begin();
     while (it != tasks_.end()) {
-        cout << (*it).first << ' ' << (*it).second.print_titol()
-             << ' ' << (*it).second.print_etiquetes() << endl;
+        cout << (*it).first << ' ';
+        Tasca::print_titol(it->second,cout);
+        cout << ' ';
+        Tasca::print_etiquetes(it->second, cout);
+        cout << '\n';
         ++it;
     }
 }
@@ -87,7 +90,8 @@ void Agenda::print_map_tags() {
     while (it != tags_.end()) {
         cout << '#' << (*it).first << " is at:";
         for (auto ins : (*it).second) {
-            cout << ' ' << (*ins).second.print_titol();
+            cout << ' ';
+            Tasca::print_titol(ins->second, cout);
         }
         ++it;
     }
