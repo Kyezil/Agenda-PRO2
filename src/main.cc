@@ -30,11 +30,11 @@ int main (){
                 else nop();
             }
         }
+        else if (com.es_passat()) ag.passat();
         else if(com.es_consulta()) {
             if (com.nombre_dates() == 0 and not com.te_expressio()) ag.consulta();
             // TODO es poden ajuntar varies però de moment per provar
         }
-        else if (com.es_passat()) ag.passat();
         else if (com.es_insercio()) {
             // genera data
             Data d;
