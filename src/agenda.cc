@@ -88,8 +88,31 @@ Hora Agenda::get_hora() const {
     return clock_.first.second;
 }
 
-//void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {}
-//void Agenda::consulta(Dia dia, string expressio) {}
+void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
+    instant it = lower_bound({dia1, Hora(0,0)});
+    instant end = upper_bound({dia2, Hora(23,59)});
+    menu_.clear();
+    int i = 1;
+    while (it != end) {
+        print_menu_itme(i, it);
+        menu_.push_back(it);
+        ++i;
+        ++it;
+    }
+}
+
+void Agenda::consulta(Dia dia, string expressio) {
+    instant it = lower_bound({dia1, Hora(0,0)});
+    instant end = upper_bound({dia1, Hora(23,59)});
+    menu_.clear();
+    int i = 1;
+    while (it != end) {
+        print_menu_item(i, it);
+        menu_.push_back(it);
+        ++i;
+        ++it;
+    }
+}
 
 void Agenda::consulta() {
     instant it = clock_.second;
