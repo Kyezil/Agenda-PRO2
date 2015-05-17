@@ -21,11 +21,11 @@ void Tasca::del_etiqueta(string etiq) {
 void Tasca::del_etiquetes() {
     tags_.clear();
 }
-void Tasca::begin_etiquetes(cword it) {
+void Tasca::begin_etiquetes(cword &it) {
     it = tags_.begin();
 }
 
-void Tasca::end_etiquetes(cword it) {
+void Tasca::end_etiquetes(cword &it) {
     it = tags_.end();
 }
 
