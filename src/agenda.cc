@@ -115,20 +115,22 @@ Hora Agenda::get_hora() const {
 }
 
 void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
-    instant it = lower_bound({dia1, Hora(0,0)});
-    instant end = upper_bound({dia2, Hora(23,59)});
+    // generar llista de etiq que satisfan la expressió
+    instant it = lower_bound({dia1, Hora(0,0)}); // no instant, sino iterador de la llista dels que valen
+    instant end = upper_bound({dia2, Hora(23,59)}); // no cal, fins end
     menu_.clear();
     int i = 1;
-    while (it != end) {
+    while (it != end) { // fins al primer que es surt de dia2 - llista queda ordenada si s'obte dun map
         print_menu_itme(i, it);
         menu_.push_back(it);
         ++i;
         ++it;
     }
-}
+} NO esta complet
 
 void Agenda::consulta(Dia dia, string expressio) {
-    instant it = lower_bound({dia1, Hora(0,0)});
+    // generar llista dels que satisfan la expressio
+    instant it = lower_bound({dia1, Hora(0,0)}); // iterador per a la llista
     instant end = upper_bound({dia1, Hora(23,59)});
     menu_.clear();
     int i = 1;
@@ -138,7 +140,7 @@ void Agenda::consulta(Dia dia, string expressio) {
         ++i;
         ++it;
     }
-}
+} // NO esta complet
 
 void Agenda::consulta() {
     instant it = clock_.second;
