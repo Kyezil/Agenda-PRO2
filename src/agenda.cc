@@ -86,6 +86,16 @@ void Agenda::print_map_data_tasca() {
     }
 }
 
+void Agenda::print_map_tags() {
+    map<string, set<instant, ordre_instant> >::const_iterator it = tags_.begin();
+    while (it != tags_.end()) {
+        cout << '#' << (*it).first << " is at:";
+        for (auto ins : (*it).second) {
+            cout << ' ' << (*ins).second.print_titol();
+        }
+    }
+}
+
 // PRIVATE
 bool Agenda::ordre_instant::operator()(const instant &a, const instant &b) const {
     return (a->first < b->first);
