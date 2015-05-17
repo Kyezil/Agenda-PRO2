@@ -29,18 +29,56 @@ bool Agenda::add_tasca(Data data, string titol, const set<string>& etiq) {
 }
 
 
-//void Agenda::set_titol(const int id, string titol) {}
-//void Agenda::set_data(const int id, Data data) {}
-//void Agenda::add_etiqueta(const int id, string etiqueta) {}
-//void Agenda::del_etiqueta(const int id, string etiqueta) {}
+void Agenda::set_titol(const int id, string titol) {
+    list<instant>::iterator it = menu_.begin();
+    advance(it, id - 1);
+    (*it)->second.set_titol(titol);
+}
+void Agenda::set_data(const int id, Data data) {
+    list<instant>::iterator it = menu_.begin();
+    advance(it, id - 1);
+    (*it)->first = data;
+    instant nou = tasks_.find(data);
+    map<string, set<instant, ordre_instant> >::iterator iter = tags_.begin();
+    while (iter != tags_.end()) {
+        if (iter->second.find(*it) != iter->second.end()) {
+            iter->second.erase(*it);
+            iter->second.insert(nou);
+        }
+    }
+    *it = nou;
+}
+void Agenda::add_etiqueta(const int id, string etiqueta) {
+    list<instant>::iterator it = menu_.begin();
+    advance(it, id - 1);
+    (*(*it)).second.add_etiqueta(etiqueta);
+    tags_[etiqueta].insert(*it);
+}
+void Agenda::del_etiqueta(const int id, string etiqueta) {
+    list<instant>::iterator it = menu_.begin();
+    advance(it, id -1);
+    (*it)->second.del_etiqueta(etiqueta);
+    tags_[etiqueta].erase(*it);
+}
 //void Agenda::del_etiquetes(const int id) {}
-//void Agenda::del_tasca(const int id) {}
+//void Agenda::del_tasca(const int id) {}  // que menu id apunti a end
 
 bool Agenda::is_passat(const Data& data) const {
     return (data < clock_.first);
 }
 
-//bool Agenda::is_modificable(const int id) const {}
+bool Agenda::is_modificable(const int id) const {
+    bool modi = ((0 < id) and (id < menu_.size()));
+    if (modi) {
+        list<instant>::iterator it = menu_.begin();
+        advance(it, id - 1);
+        modi = ((*it) != menu_.end());
+        if (modi) {
+            modi = ((*it)->first >= clock.first);
+        }
+    }
+    return modi;
+}
 
 Dia Agenda::get_dia() const {
     return clock_.first.first;
