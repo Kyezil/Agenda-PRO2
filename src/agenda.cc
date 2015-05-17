@@ -34,20 +34,23 @@ void Agenda::set_titol(const int id, string titol) {
     advance(it, id - 1);
     (*it)->second.set_titol(titol);
 }
+
 void Agenda::set_data(const int id, Data data) {
     list<instant>::iterator it = menu_.begin();
     advance(it, id - 1);
     (*it)->first = data;
     instant nou = tasks_.find(data);
-    map<string, set<instant, ordre_instant> >::iterator iter = tags_.begin();
-    while (iter != tags_.end()) {
-        if (iter->second.find(*it) != iter->second.end()) {
-            iter->second.erase(*it);
-            iter->second.insert(nou);
-        }
+    cword inici, fi;
+    nou->second.begin_etiquetes(inici);
+    nou->second.end_etiquetes(fi);
+    while(inici != fi) {
+        tags_[*inici].erase(*it);
+        tags_[*inici].insert(nou);
+        ++inici;
     }
     *it = nou;
 }
+
 void Agenda::add_etiqueta(const int id, string etiqueta) {
     list<instant>::iterator it = menu_.begin();
     advance(it, id - 1);
@@ -56,12 +59,35 @@ void Agenda::add_etiqueta(const int id, string etiqueta) {
 }
 void Agenda::del_etiqueta(const int id, string etiqueta) {
     list<instant>::iterator it = menu_.begin();
-    advance(it, id -1);
+    advance(it, id - 1);
     (*it)->second.del_etiqueta(etiqueta);
     tags_[etiqueta].erase(*it);
 }
-//void Agenda::del_etiquetes(const int id) {}
-//void Agenda::del_tasca(const int id) {}  // que menu id apunti a end
+void Agenda::del_etiquetes(const int id) {
+    list<instant>::iterator it = menu_.begin();
+    advance(it, id - 1);
+    cword inici, fi;
+    (*it)->second.begin_etiquetes(inici);
+    (*it)->second.end_etiquetes(fi);
+    while(inici != fi) {
+        tags_[(*inici)].erase(*it);
+        ++inici;
+    }
+    (*it)->second.del_etiquetes();
+}
+void Agenda::del_tasca(const int id) {
+    list<instant>::iterator it = menu_.begin();
+    advance(it, id - 1);
+    cword inici, fi;
+    (*it)->second.begin_etiquetes(inici);
+    (*it)->second.end_etiquetes(fi);
+    while(inici != fi) {
+        tags_[(*inici)].erase(*it); // (*it) es element a esborrar
+        ++inici;
+    }
+    tasques.erase(*it); // (*it) es iterador del element a esborrar
+    *it = tasques.end();
+}
 
 bool Agenda::is_passat(const Data& data) const {
     return (data < clock_.first);
