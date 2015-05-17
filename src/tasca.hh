@@ -21,6 +21,8 @@ class Tasca {
         string title_;
         set<string> tags_;
     public:
+        typedef set<string>::const_iterator cword;
+        
         /** \brief Constructor per defecte
          *  \pre true
          *  \post el p.i és una tasca sense etiquetes
@@ -60,6 +62,18 @@ class Tasca {
          *  \post el p.i no té etiquetes
          */
         void del_etiquetes();
+        
+        /** \brief Accedeix al iterador de la primera etiqueta
+         *  \pre true
+         *  \post \e it és el iterador la primera etiqueta o bé a end, si no n'hi ha cap
+         */
+        void begin_etiquetes(cword it);
+        
+        /** \brief Accedeix al iterador la etiqueta que aniria després de la última
+         *  \pre true
+         *  \post \e it és el iterador de end de les etiquetes
+         */
+        void end_etiquetes(cword it);
 
         /** \brief Mostrar el títol de la tasca
          *  \param[in] t tasca de la qual volem escriure el títol
