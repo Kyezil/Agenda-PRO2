@@ -28,22 +28,19 @@ bool Agenda::add_tasca(Data data, string titol, const set<string>& etiq) {
     return ans.second;
 }
 
-void Agenda::set_titol(const int id, string titol) {}
-void Agenda::set_data(const int id, Data data) {}
-void Agenda::add_etiqueta(const int id, string etiqueta) {}
-void Agenda::del_etiqueta(const int id, string etiqueta) {}
-void Agenda::del_etiquetes(const int id) {}
-void Agenda::del_tasca(const int id) {}
 
-bool Agenda::existeix(const Data& data) const {
-    return (tasks_.find(data) != tasks_.end());
-}
+//void Agenda::set_titol(const int id, string titol) {}
+//void Agenda::set_data(const int id, Data data) {}
+//void Agenda::add_etiqueta(const int id, string etiqueta) {}
+//void Agenda::del_etiqueta(const int id, string etiqueta) {}
+//void Agenda::del_etiquetes(const int id) {}
+//void Agenda::del_tasca(const int id) {}
 
 bool Agenda::is_passat(const Data& data) const {
     return (data < clock_.first);
 }
 
-bool Agenda::is_modificable(const int id) const {}
+//bool Agenda::is_modificable(const int id) const {}
 
 void Agenda::print_rellotge() const {
     cout << clock_.first;
@@ -57,8 +54,8 @@ Hora Agenda::get_hora() const {
     return clock_.first.second;
 }
 
-void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {}
-void Agenda::consulta(Dia dia, string expressio) {}
+//void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {}
+//void Agenda::consulta(Dia dia, string expressio) {}
 
 void Agenda::consulta() {
     instant it = clock_.second;
