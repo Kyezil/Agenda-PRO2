@@ -29,10 +29,10 @@ void Tasca::print_titol(const Tasca& t, ostream& out) {
 void Tasca::print_etiquetes(const Tasca& t, ostream& out) {
     set<string>::const_iterator it = t.tags_.begin();
     if (it != t.tags_.end()) {
-        out << '#' << *it;
+        out << *it;
         ++it;
         while (it != t.tags_.end()) {
-            out << " #" << *it;
+            out << *it;
             ++it;
         }
     }
