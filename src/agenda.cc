@@ -77,6 +77,15 @@ void Agenda::passat() const {
     }
 }
 
+void Agenda::print_map_data_tasca() {
+    cinstant it = tasks_.begin();
+    while (it != tasks_.end()) {
+        cout << (*it).first << ' ' << (*it).second.print_titol()
+             << ' ' << (*it).second.print_etiquetes() << endl;
+        ++it;
+    }
+}
+
 // PRIVATE
 bool Agenda::ordre_instant::operator()(const instant &a, const instant &b) const {
     return (a->first < b->first);
