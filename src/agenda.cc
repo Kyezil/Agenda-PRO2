@@ -14,7 +14,7 @@ void Agenda::set_rellotge(Data data) {
 }
 
 bool Agenda::add_tasca(Data data, string titol, const set<string>& etiq) {
-    pair<instant,bool> ans = tasks_.emplace(titol);
+    pair<instant,bool> ans = tasks_.emplace(make_pair(data,titol));
     if (ans.second) { //si s'ha pogut inserir
         // afegeix etiquetes i actualitza tags
         for (auto tag : etiq) {
