@@ -8,12 +8,6 @@ Dia::Dia(int d, int m, int a) : dia(d), mes(m), any(a) {}
 Dia::Dia(string s) :
 dia(stoi(s.substr(0,2))), mes(stoi(s.substr(3,2))), any(stoi(s.substr(6,2))) {}
 
-bool Dia::operator<(const Dia &d) const {
-    if (any != d.any) return (any < d.any);
-    else if (mes != d.mes) return (mes < d.mes);
-    else return (dia < d.dia);
-}
-
 void Dia::print(const Dia& d, ostream& os) {
     if (d.dia < 10) os << 0;
     os << d.dia << '.';
@@ -23,13 +17,49 @@ void Dia::print(const Dia& d, ostream& os) {
     os << d.any;
 }
 
+bool operator<(const Dia &lhs, const Dia& rhs) {
+    if (lhs.any != rhs.any) return (lhs.any < rhs.any);
+    else if (lhs.mes != rhs.mes) return (lhs.mes < rhs.mes);
+    else return (lhs.dia < rhs.dia);
+}
+bool operator==(const Dia& lhs, const Dia& rhs) {
+    return not (lhs < rhs) and not (rhs < lhs);
+}
+bool operator!=(const Dia& lhs, const Dia& rhs) {
+    return (lhs < rhs) or (rhs < lhs);
+}
+bool operator>(const Dia& lhs, const Dia& rhs) {
+    return (rhs < lhs);
+}
+bool operator<=(const Dia& lhs, const Dia& rhs) {
+    return not (rhs < lhs);
+}
+bool operator>=(const Dia& lhs, const Dia& rhs) {
+    return not (lhs < rhs);
+}
+
 Hora::Hora(int h, int m) : hora(h), minut(m) {}
 
 Hora::Hora(string s) : hora(stoi(s.substr(0,2))) , minut(stoi(s.substr(3,2))) {}
 
-bool Hora::operator<(const Hora &h) const {
-    if (hora != h.hora) return (hora < h.hora);
-    else return (minut < h.minut);
+bool operator<(const Hora &lhs, const Hora &rhs) {
+        if (lhs.hora != rhs.hora) return (lhs.hora < rhs.hora);
+    else return (lhs.minut < rhs.minut);
+}
+bool operator==(const Hora& lhs, const Hora& rhs) {
+    return not (lhs < rhs) and not (rhs < lhs);
+}
+bool operator!=(const Hora& lhs, const Hora& rhs) {
+    return (lhs < rhs) or (rhs < lhs);
+}
+bool operator>(const Hora& lhs, const Hora& rhs) {
+    return (rhs < lhs);
+}
+bool operator<=(const Hora& lhs, const Hora& rhs) {
+    return not (rhs < lhs);
+}
+bool operator>=(const Hora& lhs, const Hora& rhs) {
+    return not (lhs < rhs);
 }
 
 void Hora::print(const Hora& h, ostream& os) {
@@ -38,7 +68,6 @@ void Hora::print(const Hora& h, ostream& os) {
     if (h.minut < 10) os << 0;
     os << h.minut;
 }
-
 
 ostream& operator<<(ostream& os, const Data& d) {
     Dia::print(d.first, os);

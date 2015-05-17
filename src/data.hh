@@ -26,19 +26,13 @@ class Dia {
          *  \pre els paramètres compleixen l'invariant de la classe
          *  \post el p.i conté la dia representada pels paramètres */
         Dia(int dia, int mes, int any);
-        
+
         /** \brief Construeix Dia a partir d'un string
          *  \param[in] s string que conté un dia  "dia.mes.any"
          *  \pre \e s té el format DD.MM.AA
          *  \post el p.i conté la dia representada per \e s */
         Dia(string s);
 
-        /** \brief Indica ordre entre dies (<).
-         *  \param[in] d rhs dia
-         *  \return (p.i < d)
-         *  \pre true
-         *  \post retorna cert i el p.i és anterior a \e d  */
-        bool operator<(const Dia &d) const;
 
         /** \brief Escriu Dia en un flux de sortida
          *  \param[in] d el dia a escriure
@@ -47,7 +41,24 @@ class Dia {
          *  \post s'ha escriu dia "DD.MM.AA" a os
          */
         static void print(const Dia& d, ostream& os);
+
+        friend bool operator<(const Dia& lhs, const Dia& rhs);
+        friend bool operator==(const Dia& lhs, const Dia& rhs);
+        friend bool operator!=(const Dia& lhs, const Dia& rhs);
+        friend bool operator>(const Dia& lhs, const Dia& rhs);
+        friend bool operator<=(const Dia& lhs, const Dia& rhs);
+        friend bool operator>=(const Dia& lhs, const Dia& rhs);
 };
+/** \brief Indica ordre entre dies (@).
+ *  \pre true
+ *  \post retorna cert si (\e lhs @ \e rhs)
+ *  @ pot ser: <, >, ==, !=, <=, >= */
+bool operator<(const Dia& lhs, const Dia& rhs);
+bool operator==(const Dia& lhs, const Dia& rhs);
+bool operator!=(const Dia& lhs, const Dia& rhs);
+bool operator>(const Dia& lhs, const Dia& rhs);
+bool operator<=(const Dia& lhs, const Dia& rhs);
+bool operator>=(const Dia& lhs, const Dia& rhs);
 
 /** \class Hora
   \brief Representa una hora, hora:minut
@@ -64,19 +75,12 @@ class Hora {
          *  \pre els paramètres compleixen l'invariant de la classe
          *  \post el p.i conté la hora representada pels paramètres */
         Hora(int hora, int minut);
-        
+
         /** \brief Construeix Hora a partir d'un string
          *  \param[in] s string que conté un dia  "hora:minut"
          *  \pre \e s té el format HH:MM
          *  \post el p.i conté la hora representada per \e s */
         Hora(string s);
-
-        /** \brief Indica ordre entre hores (<).
-         *  \param[in] h rhs hora
-         *  \return (p.i < h)
-         *  \pre true
-         *  \post retorna cert i el p.i és anterior a \e h */
-        bool operator<(const Hora &h) const;
 
         /** \brief Escriu Hora en un flux de sortida
          *  \param[in] h la hora a escriure
@@ -85,7 +89,25 @@ class Hora {
          *  \post s'ha escriu dia "HH:MM" a os
          */
         static void print(const Hora& d, ostream& os);
+
+        friend bool operator<(const Hora& lhs, const Hora& rhs);
+        friend bool operator==(const Hora& lhs, const Hora& rhs);
+        friend bool operator!=(const Hora& lhs, const Hora& rhs);
+        friend bool operator>(const Hora& lhs, const Hora& rhs);
+        friend bool operator<=(const Hora& lhs, const Hora& rhs);
+        friend bool operator>=(const Hora& lhs, const Hora& rhs);
 };
+
+/** \brief Indica ordre entre hores (@).
+ *  \pre true
+ *  \post retorna si (\e lhs @ \e rhs)
+ *  @ pot ser: <, >, ==, !=, <=, >=*/
+bool operator<(const Hora& lhs, const Hora& rhs);
+bool operator==(const Hora& lhs, const Hora& rhs);
+bool operator!=(const Hora& lhs, const Hora& rhs);
+bool operator>(const Hora& lhs, const Hora& rhs);
+bool operator<=(const Hora& lhs, const Hora& rhs);
+bool operator>=(const Hora& lhs, const Hora& rhs);
 
 typedef pair<Dia, Hora> Data;
 ostream& operator<<(ostream& os, const Data& d);
