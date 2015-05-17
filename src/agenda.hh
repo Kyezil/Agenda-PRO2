@@ -122,12 +122,6 @@ class Agenda {
         void del_tasca(const int id);
 
         // Consultores
-        /** \brief Consulta si hi ha una tasca en una data
-         *  \param[in] data data de la tasca
-         *  \pre true
-         *  \post retorna si existeix una tasca amb data \e data */
-        bool existeix(const Data &data) const;
-
         /** \brief Consulta si una data és passada
          *  \param[in] data la data a evaluar
          *  \pre true
