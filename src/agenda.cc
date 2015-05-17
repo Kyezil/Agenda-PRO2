@@ -85,8 +85,8 @@ void Agenda::del_tasca(const int id) {
         tags_[(*inici)].erase(*it); // (*it) es element a esborrar
         ++inici;
     }
-    tasques.erase(*it); // (*it) es iterador del element a esborrar
-    *it = tasques.end();
+    tasks_.erase(*it); // (*it) es iterador del element a esborrar
+    *it = tasks_.end();
 }
 
 bool Agenda::is_passat(const Data& data) const {
