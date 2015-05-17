@@ -21,6 +21,13 @@ void Tasca::del_etiqueta(string etiq) {
 void Tasca::del_etiquetes() {
     tags_.clear();
 }
+void begin_etiquetes(cword it) {
+    it = tags_.begin();
+}
+
+void end_etiquetes(cword it) {
+    it = tags_.end();
+}
 
 void Tasca::print_titol(const Tasca& t, ostream& out) {
     out << t.title_;
