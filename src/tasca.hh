@@ -67,13 +67,13 @@ class Tasca {
          *  \pre true
          *  \post \e it és el iterador la primera etiqueta o bé a end, si no n'hi ha cap
          */
-        void begin_etiquetes(cword it);
+        void begin_etiquetes(cword &it);
         
         /** \brief Accedeix al iterador la etiqueta que aniria després de la última
          *  \pre true
          *  \post \e it és el iterador de end de les etiquetes
          */
-        void end_etiquetes(cword it);
+        void end_etiquetes(cword &it);
 
         /** \brief Mostrar el títol de la tasca
          *  \param[in] t tasca de la qual volem escriure el títol
