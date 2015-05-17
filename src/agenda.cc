@@ -75,23 +75,27 @@ void Agenda::passat() const {
 
 void Agenda::print_map_data_tasca() {
     cinstant it = tasks_.begin();
+    cout << "======== MAP PRINCIPAL =======\n";
     while (it != tasks_.end()) {
-        cout << (*it).first << ' ';
+        cout << it->first << ' ';
         Tasca::print_titol(it->second,cout);
         cout << ' ';
         Tasca::print_etiquetes(it->second, cout);
         cout << '\n';
         ++it;
     }
+    cout << endl;
 }
 
 void Agenda::print_map_tags() {
     map<string, set<instant, ordre_instant> >::const_iterator it = tags_.begin();
+    cout << "======== ETIQUETES =======\n";
     while (it != tags_.end()) {
-        cout << '#' << (*it).first << " is at:";
-        for (auto ins : (*it).second) {
+        cout << "-- " << it->first << " --\n";
+        for (auto ins : it->second) {
             cout << ' ';
             Tasca::print_titol(ins->second, cout);
+            cout << '\n';
         }
         ++it;
     }

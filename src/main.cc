@@ -54,5 +54,7 @@ int main (){
             }
             nop(ok);
         }
+        ag.print_map_data_tasca();
+        ag.print_map_tags();
     }
 }
