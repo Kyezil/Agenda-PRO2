@@ -178,5 +178,8 @@ class Agenda {
          * \pre true
          * \post es mostren totes les tasques del passat */
         void passat() const;
+        
+        void print_map_data_tasca();
+        void print_map_tags();
 };
 #endif
