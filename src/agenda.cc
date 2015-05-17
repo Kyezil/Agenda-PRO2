@@ -13,10 +13,18 @@ void Agenda::set_rellotge(Data data) {
     clock_ = {data, tasks_.lower_bound(data)};
 }
 
-bool Agenda::add_tasca(Data data, Tasca t) {
-    pair<instant,bool> ans = tasks_.insert(make_pair(data,t));
-    if (ans.second and (++ans.first == clock_.second))
-        clock_.second = --ans.first;
+bool Agenda::add_tasca(Data data, string titol, const set<string>& etiq) {
+    pair<instant,bool> ans = tasks_.emplace(titol);
+    if (ans.second) { //si s'ha pogut inserir
+        // afegeix etiquetes i actualitza tags
+        for (auto tag : etiq) {
+            ans.first->second.add_etiqueta(tag);
+            tags_[tag].insert(ans.first);
+        }
+        // actualitza rellotge
+        if (++ans.first == clock_.second)
+            clock_.second = --ans.first;
+    }
     return ans.second;
 }
 
@@ -64,7 +72,7 @@ void Agenda::consulta() {
 }
 
 void Agenda::passat() const {
-    instant it = tasks_.begin();
+    cinstant it = tasks_.begin();
     int i = 1;
     while (it != clock_.second) {
         print_menu_item(i, it);
@@ -77,7 +85,7 @@ bool Agenda::ordre_instant::operator()(const instant &a, const instant &b) const
     return (a->first < b->first);
 }
 
-void Agenda::print_menu_item(int i, const instant& it) const {
+void Agenda::print_menu_item(int i, const cinstant& it) const {
     cout << i << ' ';
     Tasca::print_titol(it->second, cout);
     cout << ' ' << it->first << ' ';

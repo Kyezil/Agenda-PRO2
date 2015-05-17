@@ -26,7 +26,8 @@ using namespace std;
     -# Una tasca és "del passat" si la seva data associada ho és.
  */
 class Agenda {
-    typedef map<Data, Tasca>::const_iterator instant;
+    typedef map<Data, Tasca>::iterator instant;
+    typedef map<Data, Tasca>::const_iterator cinstant;
     private:
         /** \struct Ordre Instant
          *  \brief Defineix l'ordre entre iteradors a tasques */
@@ -50,7 +51,7 @@ class Agenda {
          *  \pre true
          *  \post s'ha escrit una línia en format:
          *  i titol data etiquetes */
-        void print_menu_item(int i, const instant& it) const;
+        void print_menu_item(int i, const cinstant& it) const;
 
     public:
         const Data origin = {{20,4,15},{0,0}}; // valor inicial per defecte
@@ -70,11 +71,12 @@ class Agenda {
 
         /** \brief Afegeix una tasca
          *  \param[in] data la data de la tasca a afegir
-         *  \param[in] t la tasca a afegir
+         *  \param[in] titol de la tasca a afegir
+         *  \param[in] etiq cjt d'etiquetes de la tasca
          *  \return si s'ha pogut afegir la tasca
          *  \pre  no is_passat(data)
          *  \post si retorna true el p.i conté la tasca t */
-        bool add_tasca(Data data, Tasca t);
+        bool add_tasca(Data data, string titol, const set<string>& etiq = {});
 
         /** \brief Canvia el títol d'una tasca del menú
          *  \param[in] id nº de la tasca al menú
