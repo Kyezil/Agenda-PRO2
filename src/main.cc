@@ -22,8 +22,8 @@ int main (){
             // genera data
             Data d;
             if (com.nombre_dates() == 0) d.first = ag.get_dia();
-            else d.first = Dia(com.data(1));
-            d.second = Hora(com.hora());
+            else d.first = com.data(1);
+            d.second = com.hora();
             bool ok = false;
             if(not ag.is_passat(d)) {
                 // genera etiquetes si cal
@@ -36,6 +36,18 @@ int main (){
                 else ok = ag.add_tasca(d, com.titol());
             }
             nop(ok);
+        }
+        else if (com.es_rellotge()) {
+            if (com.es_consulta()) cout << make_pair(ag.get_dia(), ag.get_hora()) << '\n';
+            else {
+                Data d;
+                if (com.nombre_dates() == 0) d.first = ag.get_dia();
+                else d.first = com.data(1);
+                if (com.te_hora()) d.second = com.hora();
+                else d.second = ag.get_hora();
+                if (not ag.is_passat(d)) ag.set_rellotge(d);
+                else nop();
+            }
         }
     }
 }

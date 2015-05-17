@@ -42,10 +42,6 @@ bool Agenda::is_passat(const Data& data) const {
 
 //bool Agenda::is_modificable(const int id) const {}
 
-void Agenda::print_rellotge() const {
-    cout << clock_.first;
-}
-
 Dia Agenda::get_dia() const {
     return clock_.first.first;
 }
