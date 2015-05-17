@@ -93,6 +93,7 @@ void Agenda::print_map_tags() {
         for (auto ins : (*it).second) {
             cout << ' ' << (*ins).second.print_titol();
         }
+        ++it;
     }
 }
 
