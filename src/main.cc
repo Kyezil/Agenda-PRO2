@@ -1,92 +1,41 @@
 /** \file main.cc
  *  \brief Programa principal
  */
-
+/// \cond HIDE
+#include <set>
+/// \endcond HIDE
 #include "agenda.hh"
 #include "comanda.hh"
 #include "data.hh"
 using namespace std;
 
+void nop(bool ok = false) {
+    if (not ok) cout << "No s'ha realitzat\n";
+}
+
 int main (){
-    Agenda agenda;
-    Comanda comanda;
+    Agenda ag;
+    Comanda com;
     bool be;
-    while (comanda.llegir(be)) {
-        if (comanda.es_insercio()) {
-            if (comanda.nombre_dates()!=0) {
-                if (not agenda.is_passat({comanda.data(1),comanda.hora()}) and (not agenda.existeix({comanda.data(1),comanda.hora()}))){
-                    agenda.add_tasca({Dia(comanda.data(1)), Hora(comanda.hora())} ,comanda.titol());
+    while (com.llegir(be)) {
+        if (com.es_insercio()) {
+            // genera data
+            Data d;
+            if (com.nombre_dates() == 0) d.first = ag.get_dia();
+            else d.first = Dia(com.data(1));
+            d.second = Hora(com.hora());
+            bool ok = false;
+            if(not ag.is_passat(d)) {
+                // genera etiquetes si cal
+                if (com.nombre_etiquetes() > 0) {
+                    set<string> etiquetes;
+                    for (int i = 1; i <= com.nombre_etiquetes(); ++i)
+                        etiquetes.insert(com.etiqueta(i));
+                    ok = ag.add_tasca(d, com.titol(), etiquetes);
                 }
-                else cout << "No s'ha realitzat" << endl;
+                else ok = ag.add_tasca(d, com.titol());
             }
-            else {
-                if (not agenda.existeix({comanda.data(1),comanda.hora()})){
-                    agenda.add_tasca({agenda.get_dia(), Hora(comanda.hora())},comanda.titol());
-                }
-                else cout << "No s'ha realitzat" << endl;
-            }
-        }
-        else if (comanda.es_consulta()){
-            if (comanda.nombre_dates()==0){
-                if (not comanda.te_expressio()) agenda.consulta();
-                else;
-            }
-            else if (comanda.nombre_dates()==1) {
-                if (not comanda.te_expressio());
-                else;
-            }
-            else {
-                if (not comanda.te_expressio());
-                else;
-            }
-        }
-        else if (comanda.es_passat()) agenda.passat();
-        else if (comanda.es_modificacio()){
-            if (comanda.te_titol()) {
-                if (not agenda.is_passat({comanda.data(1),comanda.hora()}) and (not agenda.existeix({comanda.data(1),comanda.hora()})));
-                else cout << "No s'ha realitzat" << endl;
-            }
-            for (int i = 0; i < comanda.nombre_etiquetes(); ++i) {
-                if (agenda.is_modificable(comanda.tasca()));
-                else cout << "No s'ha realitzat" << endl;
-            }
-            if (comanda.te_hora()) {
-                if (agenda.is_modificable(comanda.tasca()));
-                else cout << "No s'ha realitzat" << endl;
-            }
-            if (comanda.nombre_dates()!=0){
-                if (agenda.is_modificable(comanda.tasca()));
-                else cout << "No s'ha realitzat" << endl;
-            }
-        }
-        else if (comanda.es_rellotge()) {
-            if (comanda.es_consulta()) agenda.print_rellotge();
-            if (comanda.nombre_dates()!=0) {
-                if (not agenda.is_passat({comanda.data(1),comanda.hora()})){
-                    agenda.set_rellotge({Dia(comanda.data(1)),agenda.get_hora()});
-                }
-                else cout << "No s'ha realitzat" << endl;
-            }
-            if (comanda.te_hora()) {
-                if (not agenda.is_passat({agenda.get_dia(),comanda.hora()})){
-                    agenda.set_rellotge({agenda.get_dia(),Hora(comanda.hora())});
-                }
-                else cout << "No s'ha realitzat" << endl;
-            }
-        }
-        else if (comanda.es_esborrat()) {
-            if (comanda.tipus_esborrat() == "tasca") {
-                if (agenda.is_modificable(comanda.tasca()));
-                else cout << "No s'ha realitzat" << endl;
-            }
-            else if (comanda.tipus_esborrat() == "etiquetes") {
-                if (agenda.is_modificable(comanda.tasca()));
-                else cout << "No s'ha realitzat" << endl;
-            }
-            else if (comanda.tipus_esborrat() == "etiqueta" ) {
-                if (agenda.is_modificable(comanda.tasca()));
-                else cout << "No s'ha realitzat" << endl;
-            }
+            nop(ok);
         }
     }
 }
