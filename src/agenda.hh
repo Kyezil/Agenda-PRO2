@@ -28,9 +28,21 @@ using namespace std;
 class Agenda {
     typedef map<Data, Tasca>::const_iterator instant;
     private:
+        /** \struct Ordre Instant
+         *  \brief Defineix l'ordre entre iteradors a tasques */
+        struct ordre_instant {
+            /** \brief Funció d'ordre dels instants
+             *  \param[in] a lhs
+             *  \param[in] b rhs
+             *  \pre a i b són dereferenciables
+             *  \post retorn si l'element apuntat per a és anterior a l'apuntat
+             *  per b */
+            bool operator()(const instant& a, const instant& b) const;
+        };
+        
         pair<Data, instant> clock_;
         map<Data, Tasca> tasks_;
-        map<string, map<Data, instant> > tags_;
+        map<string, set<instant, ordre_instant> > tags_;
         list<instant> menu_;
 
         /** \brief Escriu una línia del menú

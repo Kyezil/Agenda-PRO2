@@ -72,6 +72,11 @@ void Agenda::passat() const {
     }
 }
 
+// PRIVATE
+bool Agenda::ordre_instant::operator()(const instant &a, const instant &b) const {
+    return (a->first < b->first);
+}
+
 void Agenda::print_menu_item(int i, const instant& it) const {
     cout << i << ' ';
     Tasca::print_titol(it->second, cout);
