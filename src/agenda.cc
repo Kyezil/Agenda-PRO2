@@ -5,9 +5,6 @@
 #include "agenda.hh"
 using namespace std;
 
-#include <map> // no hauria de caldre, pero sino no m compila
-typedef set<string>::const_iterator cword; // sense no compila
-
 Agenda::Agenda() {
     clock_ = {origin,tasks_.begin()};
 }
@@ -45,9 +42,8 @@ void Agenda::set_data(const int id, Data data) {
     del_tasca(id);
     instant ans = add_tasca(data, tem).first;
     (*it) = ans;
-    cword inici, fi;
-    ans->second.begin_etiquetes(inici);
-    ans->second.end_etiquetes(fi);
+    Tasca::tag_iterator inici = ans->second.begin_etiquetes();
+    Tasca::tag_iterator fi = ans->second.begin_etiquetes();
     while(inici != fi) {
         tags_[*inici].erase(*it);
         tags_[*inici].insert(ans);
@@ -71,9 +67,8 @@ void Agenda::del_etiqueta(const int id, string etiqueta) {
 void Agenda::del_etiquetes(const int id) {
     list<instant>::iterator it = menu_.begin();
     advance(it, id - 1);
-    cword inici, fi;
-    (*it)->second.begin_etiquetes(inici);
-    (*it)->second.end_etiquetes(fi);
+    Tasca::tag_iterator inici = (*it)->second.begin_etiquetes();
+    Tasca::tag_iterator fi = (*it)->second.end_etiquetes();
     while(inici != fi) {
         tags_[(*inici)].erase(*it);
         ++inici;
@@ -83,9 +78,8 @@ void Agenda::del_etiquetes(const int id) {
 void Agenda::del_tasca(const int id) {
     list<instant>::iterator it = menu_.begin();
     advance(it, id - 1);
-    cword inici, fi;
-    (*it)->second.begin_etiquetes(inici);
-    (*it)->second.end_etiquetes(fi);
+    Tasca::tag_iterator inici = (*it)->second.begin_etiquetes();
+    Tasca::tag_iterator fi = (*it)->second.end_etiquetes();
     while(inici != fi) {
         tags_[(*inici)].erase(*it); // (*it) es element a esborrar
         ++inici;

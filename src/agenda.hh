@@ -52,7 +52,8 @@ class Agenda {
          *  \post s'ha escrit una línia en format:
          *  i titol data etiquetes */
         void print_menu_item(int i, const cinstant& it) const;
-
+        
+        pair<instant, bool> add_tasca(Data data, const Tasca &t);
     public:
         const Data origin = {{20,4,15},{0,0}}; // valor inicial per defecte
 
