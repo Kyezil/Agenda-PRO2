@@ -164,12 +164,10 @@ void Agenda::gen_menu(const Data& r1, const Data& r2, string expressio) {
             ++in1;
         }
     }
-    /*
-       else if (expressio[0] == '#') {
-       menu_.insert(menu_.end(), tags_[expressio].lower_bound(in1),
-       tags_[expressio].upper_bound(in2));
-       }
-       */
+    else if (expressio[0] == '#') {
+        menu_.insert(menu_.end(), tags_[expressio].lower_bound(in1),
+                tags_[expressio].upper_bound(in2));
+    }
 }
 
 bool Agenda::ordre_instant::operator()(const instant& a, const instant& b) const {

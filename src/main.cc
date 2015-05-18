@@ -34,10 +34,15 @@ int main (){
         else if (com.es_passat()) ag.passat();
         else if(com.es_consulta()) {
             if (com.nombre_dates() == 0 and not com.te_expressio()) ag.consulta();
-            else if (com.nombre_dates() == 2 and not com.te_expressio())
-                ag.consulta(Dia(com.data(1)), Dia(com.data(2)));
+            else if (com.nombre_dates() == 2) {
             // TODO es poden ajuntar varies però de moment per provar
-
+                if (not com.te_expressio()) {
+                    if (com.nombre_etiquetes() == 0)
+                        ag.consulta(Dia(com.data(1)), Dia(com.data(2)));
+                    else
+                        ag.consulta(Dia(com.data(1)), Dia(com.data(2)), com.etiqueta(1));
+                }
+            }
         }
         else if (com.es_insercio()) {
             // genera data
