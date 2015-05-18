@@ -55,9 +55,15 @@ Hora Agenda::get_hora() const {
 }
 
 void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
-    //TODO only for test fix and remove
-    gen_menu(make_pair(dia1, Hora(0,0)), make_pair(dia2, Hora(23,59)), expressio);
-    print_menu();
+    if (dia2 > dia1 and dia2 > clock_.first.first) {
+        //TODO only for test fix and remove
+        Data d1 = make_pair(dia1, Hora(0,0));
+        if (d1 < clock_.first) d1 = clock_.first;
+        Data d2 = make_pair(dia2, Hora(23,59));
+        gen_menu(d1, d2, expressio);
+        print_menu();
+    }
+    else cout << "AVIS: NO HA DE FER RES" << endl; //TODO delete al final
 }
 //void Agenda::consulta(Dia dia, string expressio) {}
 
