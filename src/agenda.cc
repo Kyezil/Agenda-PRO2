@@ -5,6 +5,9 @@
 #include "agenda.hh"
 using namespace std;
 
+#include <map> // no hauria de caldre, pero sino no m compila
+typedef set<string>::const_iterator cword; // sense no compila
+
 Agenda::Agenda() {
     clock_ = {origin,tasks_.begin()};
 }
@@ -38,7 +41,7 @@ void Agenda::set_titol(const int id, string titol) {
 void Agenda::set_data(const int id, Data data) {
     list<instant>::iterator it = menu_.begin();
     advance(it, id - 1);
-    (*it)->first = data;
+    (*(*it)).first = data; // peta! pq??
     instant nou = tasks_.find(data);
     cword inici, fi;
     nou->second.begin_etiquetes(inici);
@@ -96,11 +99,11 @@ bool Agenda::is_passat(const Data& data) const {
 bool Agenda::is_modificable(const int id) const {
     bool modi = ((0 < id) and (id < menu_.size()));
     if (modi) {
-        list<instant>::iterator it = menu_.begin();
+        list<instant>::const_iterator it = menu_.begin();
         advance(it, id - 1);
-        modi = ((*it) != menu_.end());
+        modi = ((*it) != tasks_.end());
         if (modi) {
-            modi = ((*it)->first >= clock.first);
+            modi = ((*it)->first >= clock_.first);
         }
     }
     return modi;
@@ -121,8 +124,8 @@ void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
     //eval_list(premenu, expressio); //aixo et retorna la llista ordenada on tots compleixen per tot el temps,seria una op privada
     //list<instant>::iterator it = premenu.lower_bound({dia1, Hora(0,0)}); //aixo no te pinta de funcionar.. 
     //list<instant>::iterator end = premenu.lower_bound({dia2, Hora(0,0)});
-    instant it = lower_bound({dia1, Hora(0,0)}); // no instant, sino iterador de la llista dels que valen
-    instant end = upper_bound({dia2, Hora(23,59)}); // no cal, fins end
+    instant it = tasks_.lower_bound({dia1, Hora(0,0)}); // no instant, sino iterador de la llista dels que valen
+    instant end = tasks_.upper_bound({dia2, Hora(23,59)}); // no cal, fins end
     menu_.clear();
     int i = 1;
     while (it != end) { // fins al primer que es surt de dia2 - llista queda ordenada si s'obte dun map
@@ -135,8 +138,8 @@ void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
 
 void Agenda::consulta(Dia dia, string expressio) {
     // generar llista dels que satisfan la expressio
-    instant it = lower_bound({dia1, Hora(0,0)}); // iterador per a la llista
-    instant end = upper_bound({dia1, Hora(23,59)});
+    instant it = tasks_.lower_bound({dia, Hora(0,0)}); // iterador per a la llista
+    instant end = tasks_.upper_bound({dia, Hora(23,59)});
     menu_.clear();
     int i = 1;
     while (it != end) {
