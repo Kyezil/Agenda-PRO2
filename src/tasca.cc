@@ -40,7 +40,7 @@ void Tasca::print_etiquetes(const Tasca& t, ostream& out) {
         out << *it;
         ++it;
         while (it != t.tags_.end()) {
-            out << *it;
+            out << ' ' << *it;
             ++it;
         }
     }
