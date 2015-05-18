@@ -22,17 +22,25 @@ void Tasca::del_etiquetes() {
     tags_.clear();
 }
 
+Tasca::tag_iterator Tasca::begin_etiquetes() {
+    return tags_.begin();
+}
+
+Tasca::tag_iterator Tasca::end_etiquetes() {
+    return tags_.end();
+}
+
 void Tasca::print_titol(const Tasca& t, ostream& out) {
     out << t.title_;
 }
 
 void Tasca::print_etiquetes(const Tasca& t, ostream& out) {
-    set<string>::const_iterator it = t.tags_.begin();
+    tag_iterator it = t.tags_.begin();
     if (it != t.tags_.end()) {
-        out << '#' << *it;
+        out << *it;
         ++it;
         while (it != t.tags_.end()) {
-            out << " #" << *it;
+            out << *it;
             ++it;
         }
     }
