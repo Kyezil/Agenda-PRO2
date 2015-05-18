@@ -7,6 +7,7 @@
 /// \cond HIDE
 #include <map>
 #include <string>
+#include <sstream>
 //#include <vector> TODO si necessitem el vector menu
 #include <list>
 #include <iostream>
@@ -40,7 +41,7 @@ class Agenda {
              *  per b */
             bool operator()(const instant& a, const instant& b) const;
         };
-        
+
         pair<Data, instant> clock_;
         map<Data, Tasca> tasks_;
         map<string, set<instant, ordre_instant> > tags_;
@@ -53,8 +54,13 @@ class Agenda {
          *  i titol data etiquetes */
         void print_menu_item(int i, const cinstant& it) const;
 
+        /** \brief Escriu el menú
+         *  \pre true
+         *  \post s'ha escrit el menú del p.i */
+        void print_menu() const;
+
         pair<instant, bool> p_add_tasca(const Data& data, const Tasca& t);
-       
+
         /** \brief Fusiona 2 rangs de tasques fent la intersecció
          *  \param[in] in1 inici del 1r rang
          *  \param[in] in2 final del 1r rang
@@ -200,7 +206,7 @@ class Agenda {
          * \pre true
          * \post es mostren totes les tasques del passat */
         void passat() const;
-        
+
         void print_map_data_tasca();
         void print_map_tags();
 };

@@ -34,7 +34,10 @@ int main (){
         else if (com.es_passat()) ag.passat();
         else if(com.es_consulta()) {
             if (com.nombre_dates() == 0 and not com.te_expressio()) ag.consulta();
+            else if (com.nombre_dates() == 2 and not com.te_expressio())
+                ag.consulta(Dia(com.data(1)), Dia(com.data(2)));
             // TODO es poden ajuntar varies però de moment per provar
+
         }
         else if (com.es_insercio()) {
             // genera data

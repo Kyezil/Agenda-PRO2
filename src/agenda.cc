@@ -33,7 +33,6 @@ bool Agenda::add_tasca(const Data &data, const Tasca& t) {
     return p_add_tasca(data, t).second;
 }
 
-
 //void Agenda::set_titol(const int id, string titol) {}
 //void Agenda::set_data(const int id, Data data) {}
 //void Agenda::add_etiqueta(const int id, string etiqueta) {}
@@ -55,7 +54,11 @@ Hora Agenda::get_hora() const {
     return clock_.first.second;
 }
 
-//void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {}
+void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
+    //TODO only for test fix and remove
+    gen_menu(make_pair(dia1, Hora(0,0)), make_pair(dia2, Hora(23,59)), expressio);
+    print_menu();
+}
 //void Agenda::consulta(Dia dia, string expressio) {}
 
 void Agenda::consulta() {
@@ -106,15 +109,40 @@ void Agenda::print_map_tags() {
     }
 }
 
-// PRIVATE
-bool Agenda::ordre_instant::operator()(const instant &a, const instant &b) const {
-    return (a->first < b->first);
-}
-
 void Agenda::print_menu_item(int i, const cinstant& it) const {
     cout << i << ' ';
     Tasca::print_titol(it->second, cout);
     cout << ' ' << it->first << ' ';
     Tasca::print_etiquetes(it->second, cout);
     cout << '\n';
+}
+
+void Agenda::print_menu() const {
+    list<instant>::const_iterator it = menu_.begin();
+    int i = 1;
+    while (it != menu_.end()) {
+        print_menu_item(i, *it);
+        ++it, ++i;
+    }
+}
+void Agenda::gen_menu(const Data& r1, const Data& r2, string expressio) {
+    menu_.clear(); // buida el menú
+    instant in1 = tasks_.lower_bound(r1);
+    instant in2 = tasks_.lower_bound(r2);
+    if (expressio.size() == 0) {
+        while (in1 != in2) {
+            menu_.insert(menu_.end(), in1);
+            ++in1;
+        }
+    }
+    /*
+    else if (expressio[0] == '#') {
+        menu_.insert(menu_.end(), tags_[expressio].lower_bound(in1),
+                tags_[expressio].upper_bound(in2));
+    }
+    */
+}
+
+bool Agenda::ordre_instant::operator()(const instant& a, const instant& b) const {
+    return (a->first < b->first);
 }
