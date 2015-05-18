@@ -54,6 +54,24 @@ class Agenda {
         void print_menu_item(int i, const cinstant& it) const;
 
         pair<instant, bool> p_add_tasca(const Data& data, const Tasca& t);
+       
+        /** \brief Fusiona 2 rangs de tasques fent la intersecció
+         *  \param[in] in1 inici del 1r rang
+         *  \param[in] in2 final del 1r rang
+         *  \param[in][out] l 2n rang i contenedor de la intersecció
+         *  \pre in1 i in2 són iteradors a contenidors d'instants
+         *  \post l conté la intersecció de [in1, in2) i l */
+        template<typename Iterator>
+        void merge_and(Iterator in1, Iterator in2, list<instant>& l);
+
+        /** \brief Fusiona 2 rangs de tasques fent la unió
+         *  \param[in] in1 inici del 1r rang
+         *  \param[in] in2 final del 1r rang
+         *  \param[in][out] l 2n rang i contenedor de la unió
+         *  \pre in1 i in2 són iteradors a contenidors d'instants
+         *  \post l conté la unió de [in1, in2) i l */
+        template<typename Iterator>
+        void merge_or(Iterator in1, Iterator in2, list<instant>& l);
     public:
         const Data origin = {{20,4,15},{0,0}}; // valor inicial per defecte
 
