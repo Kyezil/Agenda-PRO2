@@ -125,6 +125,35 @@ void Agenda::print_menu() const {
         ++it, ++i;
     }
 }
+
+template<typename Iterator>
+void Agenda::merge_and(Iterator in1, Iterator in2, list<instant>& l){
+    list<instant>::iterator it_l = l.begin();
+    while (in1 != in2 and not l.empty()) {
+        if( (*it_l)->first > in1->first ) ++in1;
+        else if( (*it_l)->first < in1->first ) l.erase(it_l);
+        else ++it_l, ++in1;
+    }
+    while (it_l!=l.end()) l.erase(it_l);
+}
+
+template<typename Iterator>
+void Agenda::merge_or(Iterator in1, Iterator in2, list<instant>& l){
+    list<instant>::iterator it_l = l.begin();
+    while (in1 != in2 and not l.empty()) {
+        if ((*it_l)->first > in1->first){
+            l.insert(*in1);
+            ++in1;
+        }
+        else if ((*it_l)->first < in1->first) ++it_l;
+        else ++it_l, ++in1;
+    }
+    while (in1 != in2) {
+        l.insert(*in1);
+        ++in1;
+    }
+}
+
 void Agenda::gen_menu(const Data& r1, const Data& r2, string expressio) {
     menu_.clear(); // buida el menú
     instant in1 = tasks_.lower_bound(r1);
@@ -136,11 +165,11 @@ void Agenda::gen_menu(const Data& r1, const Data& r2, string expressio) {
         }
     }
     /*
-    else if (expressio[0] == '#') {
-        menu_.insert(menu_.end(), tags_[expressio].lower_bound(in1),
-                tags_[expressio].upper_bound(in2));
-    }
-    */
+       else if (expressio[0] == '#') {
+       menu_.insert(menu_.end(), tags_[expressio].lower_bound(in1),
+       tags_[expressio].upper_bound(in2));
+       }
+       */
 }
 
 bool Agenda::ordre_instant::operator()(const instant& a, const instant& b) const {
