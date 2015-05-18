@@ -1,0 +1,34 @@
++ dinar familia 30.05.15 14:00 #familia #chill #cumple
++ cine #art #lleure #chill 18:30 02.06.15
++ entrenament #lleure #run #club #equip 19:30
++ graduacio de la escola 20.06.14 18:00 #lleure #chill #familia #cole
++ anar al dentista 02.06.15 11:00 #caries #medic #salut
++ campionats regionals #equip #club #lleure #run 10:00 10.06.15
++ viatge a illes balears 29.06.15 10:00
+passat?
+?
+? #lleure
+? #chill 02.06.15
+? (#lleure,#chill)
+? ((#lleure,#chill).run)
+? (#lleure.#chill)
+? (#chill.#cumple),(#run.#equip)
+? (#chill.#cumple).(#run,#equip)
+sortir
+
+1 ok
+2 ok
+3 ha de possarse al dia que marca el rellotge
+4 no s'ha de inserir, es anterior
+5 ok
+6 no se si la hora pot anar avans que el dia
+7 ok sense etiquetes
+passat buit
+futur totes menys la 4
+menu: cine enteno campionats (en ordre q sigui)
+menu: cine
+menu: dinar, cine, entreno, campionats, viatge (ordre q sigui)
+menu: entreno, campionats
+menu: cine
+menu: dinar, entrenament, campionats
+menu: buit
