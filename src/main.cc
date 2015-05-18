@@ -5,8 +5,9 @@
 #include <set>
 /// \endcond HIDE
 #include "agenda.hh"
-#include "comanda.hh"
+#include "tasca.hh"
 #include "data.hh"
+#include "comanda.hh"
 using namespace std;
 
 void nop(bool ok = false) {
@@ -45,12 +46,12 @@ int main (){
             if(not ag.is_passat(d)) {
                 // genera etiquetes si cal
                 if (com.nombre_etiquetes() > 0) {
-                    set<string> etiquetes;
+                    Tasca &&temp (com.titol());
                     for (int i = 1; i <= com.nombre_etiquetes(); ++i)
-                        etiquetes.insert(com.etiqueta(i));
-                    ok = ag.add_tasca(d, com.titol(), etiquetes);
+                        temp.add_etiqueta(com.etiqueta(i));
+                    ok = ag.add_tasca(d, temp);
                 }
-                else ok = ag.add_tasca(d, com.titol());
+                else ok = ag.add_tasca(d, Tasca(com.titol()));
             }
             nop(ok);
         }

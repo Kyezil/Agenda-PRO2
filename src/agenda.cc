@@ -13,19 +13,24 @@ void Agenda::set_rellotge(Data data) {
     clock_ = {data, tasks_.lower_bound(data)};
 }
 
-bool Agenda::add_tasca(Data data, string titol, const set<string>& etiq) {
-    pair<instant,bool> ans = tasks_.emplace(make_pair(data,titol));
-    if (ans.second) { //si s'ha pogut inserir
+pair<Agenda::instant, bool> Agenda::p_add_tasca(const Data& data, const Tasca& t) {
+    pair<instant,bool> ins = tasks_.emplace(make_pair(data, t));
+    if (ins.second) { //si s'ha pogut inserir
         // afegeix etiquetes i actualitza tags
-        for (auto tag : etiq) {
-            ans.first->second.add_etiqueta(tag);
-            tags_[tag].insert(ans.first);
+        Tasca::tag_iterator tag = ins.first->second.begin_etiquetes();
+        while (tag != ins.first->second.end_etiquetes()) {
+            tags_[*tag].insert(ins.first);
+            ++tag;
         }
         // actualitza rellotge
-        if (++ans.first == clock_.second)
-            clock_.second = --ans.first;
+        if (++ins.first == clock_.second)
+            clock_.second = --ins.first;
     }
-    return ans.second;
+    return ins;
+}
+
+bool Agenda::add_tasca(const Data &data, const Tasca& t) {
+    return p_add_tasca(data, t).second;
 }
 
 

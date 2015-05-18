@@ -53,6 +53,7 @@ class Agenda {
          *  i titol data etiquetes */
         void print_menu_item(int i, const cinstant& it) const;
 
+        pair<instant, bool> p_add_tasca(const Data& data, const Tasca& t);
     public:
         const Data origin = {{20,4,15},{0,0}}; // valor inicial per defecte
 
@@ -71,12 +72,11 @@ class Agenda {
 
         /** \brief Afegeix una tasca
          *  \param[in] data la data de la tasca a afegir
-         *  \param[in] titol de la tasca a afegir
-         *  \param[in] etiq cjt d'etiquetes de la tasca
+         *  \param[in] tasca la tasca a afegir
          *  \return si s'ha pogut afegir la tasca
          *  \pre  no is_passat(data)
          *  \post si retorna true el p.i conté la tasca t */
-        bool add_tasca(Data data, string titol, const set<string>& etiq = {});
+        bool add_tasca(const Data &data, const Tasca& t);
 
         /** \brief Canvia el títol d'una tasca del menú
          *  \param[in] id nº de la tasca al menú
