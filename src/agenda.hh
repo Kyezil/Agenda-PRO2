@@ -72,6 +72,15 @@ class Agenda {
          *  \post l conté la unió de [in1, in2) i l */
         template<typename Iterator>
         void merge_or(Iterator in1, Iterator in2, list<instant>& l);
+
+        /** \brief Genera el menú a partir d'una búsqueda de tasques
+         *  \param[in] r1 inici del rang
+         *  \param[in] r2 final de rang
+         *  \param[in] expressio expressió que han de complir les etiquetes
+         *  \pre no es_passat(\e r1) and no es_passat(\e r2), \e r1 < \e r2
+         *  \post el menu del p.i conté les tasques de [\e r1,\e r2) les etiquetes
+         *  de les quals compleixen \e expressio */
+        void gen_menu(const Data& r1, const Data& r2, string expressio);
     public:
         const Data origin = {{20,4,15},{0,0}}; // valor inicial per defecte
 
