@@ -41,17 +41,19 @@ void Agenda::set_titol(const int id, string titol) {
 void Agenda::set_data(const int id, Data data) {
     list<instant>::iterator it = menu_.begin();
     advance(it, id - 1);
-    (*(*it)).first = data; // peta! pq??
-    instant nou = tasks_.find(data);
+    Tasca tem = (*it)->second;
+    del_tasca(id);
+    instant ans = add_tasca(data, tem).first;
+    (*it) = ans;
     cword inici, fi;
-    nou->second.begin_etiquetes(inici);
-    nou->second.end_etiquetes(fi);
+    ans->second.begin_etiquetes(inici);
+    ans->second.end_etiquetes(fi);
     while(inici != fi) {
         tags_[*inici].erase(*it);
-        tags_[*inici].insert(nou);
+        tags_[*inici].insert(ans);
         ++inici;
     }
-    *it = nou;
+    *it = ans;
 }
 
 void Agenda::add_etiqueta(const int id, string etiqueta) {
@@ -102,9 +104,7 @@ bool Agenda::is_modificable(const int id) const {
         list<instant>::const_iterator it = menu_.begin();
         advance(it, id - 1);
         modi = ((*it) != tasks_.end());
-        if (modi) {
-            modi = ((*it)->first >= clock_.first);
-        }
+        modi = modi and ((*it)->first >= clock_.first);
     }
     return modi;
 }
