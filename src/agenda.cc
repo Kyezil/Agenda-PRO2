@@ -118,3 +118,36 @@ void Agenda::print_menu_item(int i, const cinstant& it) const {
     Tasca::print_etiquetes(it->second, cout);
     cout << '\n';
 }
+
+    
+void Agenda::merge_and(Iterator in1, Iterator in2, list<instant>& l){
+    list<instant>::iterator it_l = l.begin(); 
+    while (in1 != in2 and not l.empty()) {
+        if((it_l->first)>(in1->first)) ++in1;
+	else if((it_l->first)<(in1->first)) l.erase(it_l);
+	else {
+	  ++it_l;
+	  ++in1;
+	}
+    }
+    while (it_l!=l.end()) l.erase(it_l);
+}
+
+void Agenda::merge_or(Iterator in1, Iterator in2, list<instant>& l){
+    list<instant>::iterator it_l = l.begin(); 
+    while (in1 != in2 and not l.empty()) {
+        if((it_l->first)>(in1->first)){
+	  l.insert(*in1);
+	  ++in1;
+	}
+	else if((it_l->first)<(in1->first)) ++it_l;
+	else {
+	  ++it_l;
+	  ++in1;
+	}
+    }
+    while (in1 != in2) {
+      l.insert(*in1);
+      ++in1; 
+    }
+}
