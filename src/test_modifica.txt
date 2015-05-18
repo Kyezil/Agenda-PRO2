@@ -1,0 +1,63 @@
++ dinar familia 30.05.15 14:00 #familia #chill #cumple --
++ cine #art #lleure #chill 18:30 02.06.15 --
++ entrenament #lleure #run #club #equip 19:30
++ graduacio de la escola 20.06.14 18:00 #lleure #chill #familia #cole
++ anar al dentista 02.06.15 11:00 #caries #medic #salut --
++ campionats regionals #equip #club #lleure #run 10:00 10.06.15 --
++ viatge a illes balears 29.06.15 10:00
+?
+rellotge 20:00
+passat?
+? 01.04.15 10.06.15
+1 13:30
+3 peliculon a ca la iaia
+?
+5 vaitge a grecia
+5 #chachipistachi
+5 #lleure
+-2
+1 20.03.15
+4 29.06.15
+6 bon dia
+2 bon dia
+rellotge 04.06.15
+rellotge?
+3 #relax
+5 #lleure #fly #chill
+?
+1 -#lleure
+?
+1 -#noestic
+?
+1 -etiquetes
+?
+sortir
+
+1 ok
+2 ok
+3 ha de possarse al dia que marca el rellotge
+4 no s'ha de inserir, es anterior
+5 ok
+6 no se si la hora pot anar avans que el dia
+7 ok sense etiquetes
+futur totes menys la 4
+rellotge despres de entrenament
+passat te entreno
+(menu) amb 1, 2, 3, 4: dinar, dentista, cine, campionats
+hora de dinar avans
+cine canvia de nom
+(menu) amb 1,2,3,4,5: modificats, + viatge
+canvia el viatge i afegeix etiquetes
+esborra dentista
+error -> no s'ha realitzat (passada)
+error -> no s'ha realitzat (viatge!)
+error -> no s'ha realitzat (no existeix al menu)
+error -> no s'ha realitzat (ha sigut esborrada)
+avança el rellotge
+mira rellotge
+error -> no s'ha realitzat (ara es del passat)
+ja conte algunes etiquetes
+futures menu: 1, 2: campionats, viatge
+treu etiqueta
+error -> No s'ha realitzat treu etiqueta que no esta
+treu totes les etiquetes de campionats
