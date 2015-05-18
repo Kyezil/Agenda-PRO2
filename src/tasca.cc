@@ -21,12 +21,13 @@ void Tasca::del_etiqueta(string etiq) {
 void Tasca::del_etiquetes() {
     tags_.clear();
 }
-void Tasca::begin_etiquetes(cword &it) {
-    it = tags_.begin();
+
+Tasca::tag_iterator Tasca::begin_etiquetes() {
+    return tags_.begin();
 }
 
-void Tasca::end_etiquetes(cword &it) {
-    it = tags_.end();
+Tasca::tag_iterator Tasca::end_etiquetes() {
+    return tags_.end();
 }
 
 void Tasca::print_titol(const Tasca& t, ostream& out) {
@@ -34,7 +35,7 @@ void Tasca::print_titol(const Tasca& t, ostream& out) {
 }
 
 void Tasca::print_etiquetes(const Tasca& t, ostream& out) {
-    cword it = t.tags_.begin();
+    tag_iterator it = t.tags_.begin();
     if (it != t.tags_.end()) {
         out << *it;
         ++it;
