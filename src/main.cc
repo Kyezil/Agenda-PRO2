@@ -34,22 +34,26 @@ int main (){
         else if (com.es_passat()) ag.passat();
         else if(com.es_consulta()) {
             if (com.nombre_dates() == 0) {
-                if (com.nombre_etiquetes() == 0) ag.consulta();
+                if (com.te_expressio()) ag.consulta(com.expressio());
+                else if (com.nombre_etiquetes() == 0) ag.consulta();
                 else ag.consulta(com.etiqueta(1));
-                // aqui va expressio
             }
             else if (com.nombre_dates() == 1) {
-                if (com.nombre_etiquetes() == 0) ag.consulta(com.data(1));
-                else ag.consulta(Dia(com.data(1)), com.etiqueta(1));
-                // aqui va expressio
+                if(com.te_expressio())
+                    ag.consulta(Dia(com.data(1)), com.expressio());
+                else if (com.nombre_etiquetes() == 0)
+                    ag.consulta(com.data(1));
+                else
+                    ag.consulta(Dia(com.data(1)), com.etiqueta(1));
             }
             else {
                 assert(com.nombre_dates() == 2);
-                if (com.nombre_etiquetes() == 0)
+                if (com.te_expressio())
+                    ag.consulta(Dia(com.data(1)), Dia(com.data(2)), com.expressio());
+                else if (com.nombre_etiquetes() == 0)
                     ag.consulta(Dia(com.data(1)), Dia(com.data(2)));
                 else
                     ag.consulta(Dia(com.data(1)), Dia(com.data(2)), com.etiqueta(1));
-                // aqui va expressio
             }
         }
         else if (com.es_insercio()) {
