@@ -42,7 +42,7 @@ int main (){
                 if(com.te_expressio())
                     ag.consulta(Dia(com.data(1)), com.expressio());
                 else if (com.nombre_etiquetes() == 0)
-                    ag.consulta(com.data(1));
+                    ag.consulta(Dia(com.data(1)));
                 else
                     ag.consulta(Dia(com.data(1)), com.etiqueta(1));
             }

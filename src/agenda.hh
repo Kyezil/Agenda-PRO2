@@ -42,6 +42,7 @@ class Agenda {
             bool operator()(const instant& a, const instant& b) const;
         };
         typedef set<instant, ordre_instant> set_instant;
+        typedef map<string, set_instant> tag_set;
 
         pair<Data, instant> clock_;
         map<Data, Tasca> tasks_;
@@ -98,8 +99,8 @@ class Agenda {
 
         void extract_tag(istringstream& exp, string& tag);
 
-        set_instant::iterator safe_upper_bound(const string& tag, const instant& in);
-        set_instant::iterator safe_lower_bound(const string& tag, const instant& in);
+        set_instant::iterator safe_upper_bound(tag_set::iterator& tag, const instant& in);
+        set_instant::iterator safe_lower_bound(tag_set::iterator& tag, const instant& in);
         /** \brief Avalua una expressió parentitzada i guarda el resultat
          *  \param[in] in1 inici del rang
          *  \param[in] r2 final del rang

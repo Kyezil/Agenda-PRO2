@@ -55,7 +55,7 @@ Hora Agenda::get_hora() const {
 }
 
 void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
-    if (dia2 > dia1 and dia2 > clock_.first.first) {
+    if (dia2 >= dia1 and dia2 > clock_.first.first) {
         menu_.clear();
         //TODO only for test fix and remove
         Data d1 = make_pair(dia1, Hora(0,0));
@@ -65,9 +65,12 @@ void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
                 in2 = tasks_.upper_bound(d2);
         if (expressio.size() == 0) menu_directe(in1, in2);
         else if (expressio[0] == '#') {
-            set_instant::iterator it1 = tags_[expressio].lower_bound(in1),
-                                  it2 = tags_[expressio].upper_bound(in2);
+            tag_set::iterator tag = tags_.find(expressio);
+            if (tag != tags_.end()) {
+            set_instant::iterator it1 = tag->second.lower_bound(in1),
+                                  it2 = tag->second.upper_bound(in2);
             menu_directe(it1,it2);
+            }
         }
         else {
             istringstream exp(expressio);
@@ -91,9 +94,12 @@ void Agenda::consulta(string expressio) {
         menu_directe(in1, in2);
     }
     else if (expressio[0] == '#'){
-        set_instant::iterator in1 = tags_[expressio].begin(),
-                              in2 = tags_[expressio].end();
-        menu_directe(in1, in2);
+        tag_set::iterator tag = tags_.find(expressio);
+        if (tag != tags_.end()) {
+            set_instant::iterator in1 = tag->second.begin(),
+                in2 = tag->second.end();
+            menu_directe(in1, in2);
+        }
     }
     else {
         instant in1 = clock_.second, //copia per no modificar el rellotge
@@ -222,14 +228,14 @@ void Agenda::print_llista(const list<instant>& l) {
     }
 }
 
-Agenda::set_instant::iterator Agenda::safe_upper_bound(const string& tag, const instant& in) {
-    if (in == tasks_.end()) return tags_[tag].end();
-    else return tags_[tag].upper_bound(in);
+Agenda::set_instant::iterator Agenda::safe_upper_bound(tag_set::iterator& tag, const instant& in) {
+    if (in == tasks_.end()) return tag->second.end();
+    else return tag->second.upper_bound(in);
 }
 
-Agenda::set_instant::iterator Agenda::safe_lower_bound(const string& tag, const instant& in) {
-    if (in == tasks_.end()) return tags_[tag].end();
-    else return tags_[tag].lower_bound(in);
+Agenda::set_instant::iterator Agenda::safe_lower_bound(tag_set::iterator &tag, const instant& in) {
+    if (in == tasks_.end()) return tag->second.end();
+    else return tag->second.lower_bound(in);
 }
 
 void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstream& exp, list<instant>& l) {
@@ -241,7 +247,10 @@ void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstr
         // etiqueta
         string tag;
         extract_tag(exp, tag);
-        l.insert(l.end(), safe_lower_bound(tag, in1), safe_upper_bound(tag,in2));
+        tag_set::iterator cjt_tag = tags_.find(tag);
+        if (cjt_tag != tags_.end()) {
+            l.insert(l.end(), safe_lower_bound(cjt_tag, in1), safe_upper_bound(cjt_tag,in2));
+        }
     }
     // operador
     char op = exp.get();
@@ -257,9 +266,14 @@ void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstr
         //etiqueta
         string tag;
         extract_tag(exp, tag);
-        if (op == '.')// and
-            merge_and(safe_lower_bound(tag,in1), safe_upper_bound(tag,in2), l);
-        else merge_or(safe_lower_bound(tag,in1), safe_upper_bound(tag,in2), l);
+        tag_set::iterator cjt_tag = tags_.find(tag);
+        if (cjt_tag != tags_.end()) {
+            if (op == '.')
+                merge_and(safe_lower_bound(cjt_tag,in1), safe_upper_bound(cjt_tag,in2), l);
+            else
+                merge_or(safe_lower_bound(cjt_tag,in1), safe_upper_bound(cjt_tag,in2), l);
+        }
+        else if (op == '.') l.clear();
     }
     // parèntesi final
     c = exp.get();
