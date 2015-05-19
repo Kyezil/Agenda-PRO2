@@ -56,6 +56,7 @@ Hora Agenda::get_hora() const {
 
 void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
     if (dia2 > dia1 and dia2 > clock_.first.first) {
+        menu_.clear();
         //TODO only for test fix and remove
         Data d1 = make_pair(dia1, Hora(0,0));
         if (d1 < clock_.first) d1 = clock_.first;
@@ -69,7 +70,8 @@ void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
             menu_directe(it1,it2);
         }
         else {
-            cout << "ENCARA S'HA DE FER L'AVALUACIO" << endl;
+            istringstream exp(expressio);
+            exp_parentitzada(in1, in2, exp, menu_);
         }
     }
     else cout << "AVIS: NO HA DE FER RES" << endl; //TODO delete al final
@@ -81,6 +83,7 @@ void Agenda::consulta(Dia dia, string expressio) {
 
 void Agenda::consulta(string expressio) {
     // TODO entendre pq el compilador accepta directament els parametres
+    menu_.clear();
     if (expressio.size() == 0) {
         instant in1 = clock_.second, //copia per no modificar el rellotge
                 in2 = tasks_.end();
@@ -92,7 +95,10 @@ void Agenda::consulta(string expressio) {
         menu_directe(in1, in2);
     }
     else {
-        cout << "ENCARA S'HA DE FER L'AVALUACIO" << endl;
+        instant in1 = clock_.second, //copia per no modificar el rellotge
+                in2 = tasks_.end();
+        istringstream exp(expressio);
+        exp_parentitzada(in1, in2, exp, menu_);
     }
 }
 
@@ -155,10 +161,10 @@ void Agenda::merge_and(Iterator in1, Iterator in2, list<instant>& l){
     list<instant>::iterator it_l = l.begin();
     while (in1 != in2 and not l.empty()) {
         if( (*in1)->first < (*it_l)->first ) ++in1;
-        else if( (*it_l)->first < (*in1)->first ) l.erase(it_l);
+        else if((*in1)->first < (*it_l)->first) it_l = l.erase(it_l);
         else ++it_l, ++in1;
     }
-    while (it_l!=l.end()) l.erase(it_l);
+    while (it_l!=l.end()) it_l = l.erase(it_l);
 }
 
 template<typename Iterator>
@@ -179,7 +185,6 @@ void Agenda::merge_or(Iterator in1, Iterator in2, list<instant>& l){
 }
 
 void Agenda::menu_directe(set_instant::iterator& in1, set_instant::iterator& in2) {
-    menu_.clear();
     int i = 1;
     while (in1 != in2) {
         menu_.insert(menu_.end(), *in1);
@@ -189,7 +194,6 @@ void Agenda::menu_directe(set_instant::iterator& in1, set_instant::iterator& in2
 }
 
 void Agenda::menu_directe(instant& in1, instant& in2) {
-    menu_.clear();
     int i = 1;
     while (in1 != in2) {
         menu_.insert(menu_.end(), in1);

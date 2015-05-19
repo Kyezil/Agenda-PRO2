@@ -84,6 +84,7 @@ class Agenda {
          *  \param[in] in1 inici del rang
          *  \param[in] in2 final del rang
          *  \pre in1 apunta a una tasca anterior a la de in2, i les dues no passades
+         *  menú està buit
          *  \post el menú conté les tasques de [in1, in2) i s'ha mostrat el menú */
         void menu_directe(instant& in1, instant& in2);
 
@@ -91,6 +92,7 @@ class Agenda {
          *  \param[in] in1 inici del rang
          *  \param[in] in2 final del rang
          *  \pre in1, in2 apunten a instants de tasques no passades i in1 anterior a in2
+         *  menú està buit
          *  \post el menú conté les tasques de [*in1, *in2) i s'ha mostrat el menú */
         void menu_directe(set_instant::iterator& in1, set_instant::iterator& in2);
 
