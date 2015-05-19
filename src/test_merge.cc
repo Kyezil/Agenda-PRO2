@@ -28,7 +28,7 @@ void merge_and(Iterator in1, Iterator in2, list<int>& l){
         else if(*it_l < *in1) it_l = l.erase(it_l);
         else ++it_l, ++in1;
     }
-    while (it_l != l.end()) l.erase(it_l);
+    while (it_l != l.end()) it_l = l.erase(it_l);
 }
 
 void print(list<int>& l) {
@@ -50,7 +50,7 @@ int main() {
     print(fusio);
 
     cout << "CASOS ****" << endl;
-    set<int> s4;
+    set<int> s4 = {};
     merge_and(s4.begin(), s4.end(), fusio);
     print(fusio);
 }
