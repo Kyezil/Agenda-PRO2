@@ -67,14 +67,20 @@ void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
 }
 //void Agenda::consulta(Dia dia, string expressio) {}
 
-void Agenda::consulta() {
-    instant it = clock_.second;
-    menu_.clear();
-    int i = 1;
-    while (it != tasks_.end()) {
-        print_menu_item(i, it);
-        menu_.push_back(it);
-        ++i, ++it;
+void Agenda::consulta(string expressio) {
+    // TODO entendre pq el compilador accepta directament els parametres
+    if (expressio.size() == 0) {
+        instant in1 = clock_.second; //copia per no modificar el rellotge
+        cinstant in2 = tasks_.end();
+        menu_directe(in1, in2);
+    }
+    else if (expressio[0] == '#'){
+        set_instant::iterator in1 = tags_[expressio].begin();
+        set_instant::const_iterator in2 = tags_[expressio].end();
+        menu_directe(in1, in2);
+    }
+    else {
+        cout << "ENCARA S'HA DE FER L'EVALUACIO" << endl;
     }
 }
 
@@ -157,6 +163,26 @@ void Agenda::merge_or(Iterator in1, Iterator in2, list<instant>& l){
     while (in1 != in2) {
         l.insert(*in1);
         ++in1;
+    }
+}
+
+void Agenda::menu_directe(set_instant::iterator& in1, set_instant::const_iterator& in2) {
+    menu_.clear();
+    int i = 1;
+    while (in1 != in2) {
+        menu_.insert(menu_.end(), *in1);
+        print_menu_item(i, *in1);
+        ++in1, ++i;
+    }
+}
+
+void Agenda::menu_directe(instant& in1, cinstant& in2) {
+    menu_.clear();
+    int i = 1;
+    while (in1 != in2) {
+        menu_.insert(menu_.end(), in1);
+        print_menu_item(i, in1);
+        ++in1, ++i;
     }
 }
 

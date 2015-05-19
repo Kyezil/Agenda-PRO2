@@ -41,10 +41,11 @@ class Agenda {
              *  per b */
             bool operator()(const instant& a, const instant& b) const;
         };
+        typedef set<instant, ordre_instant> set_instant;
 
         pair<Data, instant> clock_;
         map<Data, Tasca> tasks_;
-        map<string, set<instant, ordre_instant> > tags_;
+        map<string, set_instant> tags_;
         list<instant> menu_;
 
         /** \brief Escriu una línia del menú
@@ -78,6 +79,21 @@ class Agenda {
          *  \post l conté la unió de [in1, in2) i l */
         template<typename Iterator>
         void merge_or(Iterator in1, Iterator in2, list<instant>& l);
+
+        /** \brief Fa la búsqueda i escriu el menú d'un rang
+         *  \param[in] in1 inici del rang
+         *  \param[in] in2 final del rang
+         *  \pre in1 apunta a una tasca anterior a la de in2, i les dues no passades
+         *  \post el menú conté les tasques de [in1, in2) i s'ha mostrat el menú */
+        void menu_directe(instant& in1, cinstant& in2);
+
+        /** \brief Fa la búsqueda i escriu el menú d'un rang
+         *  \param[in] in1 inici del rang
+         *  \param[in] in2 final del rang
+         *  \pre in1, in2 apunten a instants de tasques no passades i in1 anterior a in2
+         *  \post el menú conté les tasques de [*in1, *in2) i s'ha mostrat el menú */
+        void menu_directe(set_instant::iterator& in1, set_instant::const_iterator& in2);
+
 
         /** \brief Genera el menú a partir d'una búsqueda de tasques
          *  \param[in] r1 inici del rang
@@ -183,23 +199,22 @@ class Agenda {
          *  \param[in] expressio expressió booleana sobre les etiquetes
          *  \pre true
          *  \post el menú conté les tasques amb data en [\e data1, \e data2] no passades
-         *        tal que el conjunt d'etiquetes de les quals compleix \e expressio
-         *        i es mostra el menú */
+         *  amb un conjunt d'etiquetes que compleix \e expressio i es mostra el menú */
         void consulta(Dia dia1, Dia dia2, string expressio = "");
 
         /** \brief Genera el menu corresponen a la búsqueda en un dia
          *  \param[in] dia dia en què s'ha de buscar
          *  \param[in] expressio expressió booleana sobre les etiquetes
          *  \pre true
-         *  \post el menú conté les tasques no passadaes amb dia \e dia tal que
-         *        el conjunt d'etiquetes de les quals compleix \e expressio
-         *        i es mostra el menú */
+         *  \post el menú conté les tasques no passades amb dia \e dia i un un conjunt
+         *  d'etiquetes que compleix \e expressio i es mostra el menú */
         void consulta(Dia dia, string expressio = "");
 
-        /** \brief Genera el menu de les tasques no passades
+        /** \brief Genera el menu de les tasques que compleixen expressió
          *  \pre true
-         *  \post el menú conté les tasques no passades i es mostra */
-        void consulta();
+         *  \post el menú conté les tasques no passades amb un conjunt d'etiquetes que
+         *  compleix expressio i es mostra el menú */
+        void consulta(string expressio = "");
 
         // Escriptura
         /** \brief Escriu totes les tasques del passat

@@ -33,7 +33,10 @@ int main (){
         }
         else if (com.es_passat()) ag.passat();
         else if(com.es_consulta()) {
-            if (com.nombre_dates() == 0 and not com.te_expressio()) ag.consulta();
+            if (com.nombre_dates() == 0) {
+                if (com.nombre_etiquetes() == 0) ag.consulta();
+                else ag.consulta(com.etiqueta(1));
+            }
             else if (com.nombre_dates() == 2) {
             // TODO es poden ajuntar varies però de moment per provar
                 if (not com.te_expressio()) {
