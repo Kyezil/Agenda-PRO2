@@ -1,0 +1,31 @@
++ dinar familia 30.05.15 14:00 #familia #chill #cumple
++ cine #art #lleure #chill 18:30 02.06.15
++ entrenament #lleure #run #club #equip 19:30
++ graduacio de la escola 20.06.14 18:00 #lleure #chill #familia #cole
++ anar al dentista 02.06.15 11:00 #caries #medic
++ campionats regionals #equip #club #lleure #run 10:00 10.06.15
++ viatge a illes balears 29.06.15 10:00
+?
+passat?
+rellotge?
+rellotge 20:00
+passat?
+rellotge 00:00 20.06.15
+?
+rellotge 00.05.15 10:00
+rellotge 20.06.15 00:00
+sortir
+
+1 ok
+2 ok
+3 ha de possarse al dia que marca el rellotge
+4 no s'ha de inserir, es anterior
+5 ok
+6 no se si la hora pot anar avans que el dia
+7 ok sense etiquetes
+futur totes menys la 4
+passat buit
+rellotge despres de entrenament
+rellotge mes endavant (nomes queda viatge)
+rellotge en darrere -> error
+rellotge no fa res
