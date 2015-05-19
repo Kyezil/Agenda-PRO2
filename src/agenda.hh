@@ -85,14 +85,14 @@ class Agenda {
          *  \param[in] in2 final del rang
          *  \pre in1 apunta a una tasca anterior a la de in2, i les dues no passades
          *  \post el menú conté les tasques de [in1, in2) i s'ha mostrat el menú */
-        void menu_directe(instant& in1, cinstant& in2);
+        void menu_directe(instant& in1, instant& in2);
 
         /** \brief Fa la búsqueda i escriu el menú d'un rang
          *  \param[in] in1 inici del rang
          *  \param[in] in2 final del rang
          *  \pre in1, in2 apunten a instants de tasques no passades i in1 anterior a in2
          *  \post el menú conté les tasques de [*in1, *in2) i s'ha mostrat el menú */
-        void menu_directe(set_instant::iterator& in1, set_instant::const_iterator& in2);
+        void menu_directe(set_instant::iterator& in1, set_instant::iterator& in2);
 
 
         /** \brief Genera el menú a partir d'una búsqueda de tasques
