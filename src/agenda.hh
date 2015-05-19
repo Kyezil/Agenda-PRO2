@@ -98,6 +98,8 @@ class Agenda {
 
         void extract_tag(istringstream& exp, string& tag);
 
+        set_instant::iterator safe_upper_bound(const string& tag, const instant& in);
+        set_instant::iterator safe_lower_bound(const string& tag, const instant& in);
         /** \brief Avalua una expressió parentitzada i guarda el resultat
          *  \param[in] in1 inici del rang
          *  \param[in] r2 final del rang
@@ -225,6 +227,7 @@ class Agenda {
          * \post es mostren totes les tasques del passat */
         void passat() const;
 
+        void print_llista(const list<instant>& l);
         void print_map_data_tasca();
         void print_map_tags();
 };

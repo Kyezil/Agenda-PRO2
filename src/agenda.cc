@@ -72,6 +72,7 @@ void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
         else {
             istringstream exp(expressio);
             exp_parentitzada(in1, in2, exp, menu_);
+            print_menu();
         }
     }
     else cout << "AVIS: NO HA DE FER RES" << endl; //TODO delete al final
@@ -99,6 +100,7 @@ void Agenda::consulta(string expressio) {
                 in2 = tasks_.end();
         istringstream exp(expressio);
         exp_parentitzada(in1, in2, exp, menu_);
+        print_menu();
     }
 }
 
@@ -159,18 +161,18 @@ void Agenda::print_menu() const {
 template<typename Iterator>
 void Agenda::merge_and(Iterator in1, Iterator in2, list<instant>& l){
     list<instant>::iterator it_l = l.begin();
-    while (in1 != in2 and not l.empty()) {
+    while (in1 != in2 and it_l != l.end()) {
         if( (*in1)->first < (*it_l)->first ) ++in1;
-        else if((*in1)->first < (*it_l)->first) it_l = l.erase(it_l);
+        else if((*it_l)->first < (*in1)->first) it_l = l.erase(it_l);
         else ++it_l, ++in1;
     }
-    while (it_l!=l.end()) it_l = l.erase(it_l);
+    while (it_l != l.end()) it_l = l.erase(it_l);
 }
 
 template<typename Iterator>
 void Agenda::merge_or(Iterator in1, Iterator in2, list<instant>& l){
     list<instant>::iterator it_l = l.begin();
-    while (in1 != in2 and not l.empty()) {
+    while (in1 != in2 and it_l != l.end()) {
         if ((*in1)->first < (*it_l)->first){
             l.insert(it_l, *in1);
             ++in1;
@@ -179,7 +181,7 @@ void Agenda::merge_or(Iterator in1, Iterator in2, list<instant>& l){
         else ++it_l, ++in1;
     }
     while (in1 != in2) {
-        l.insert(it_l, *in1);
+        l.insert(l.end(), *in1);
         ++in1;
     }
 }
@@ -208,20 +210,43 @@ void Agenda::extract_tag(istringstream& exp, string& tag) {
         tag += exp.get();
 }
 
+void Agenda::print_llista(const list<instant>& l) {
+    list<instant>::const_iterator it = l.begin();
+    while (it != l.end()) {
+        cout << (*it)->first << ' ';
+        Tasca::print_titol((*it)->second,cout);
+        cout << ' ';
+        Tasca::print_etiquetes((*it)->second, cout);
+        cout << '\n';
+        ++it;
+    }
+}
+
+Agenda::set_instant::iterator Agenda::safe_upper_bound(const string& tag, const instant& in) {
+    if (in == tasks_.end()) return tags_[tag].end();
+    else return tags_[tag].upper_bound(in);
+}
+
+Agenda::set_instant::iterator Agenda::safe_lower_bound(const string& tag, const instant& in) {
+    if (in == tasks_.end()) return tags_[tag].end();
+    else return tags_[tag].lower_bound(in);
+}
+
 void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstream& exp, list<instant>& l) {
     // 1r operand
-    char c = exp.get();
+    char c = exp.get(); //llegir (
+    c = exp.peek();
     if (c == '(') exp_parentitzada(in1, in2, exp, l);
     else {
         // etiqueta
-        string tag = "#";
+        string tag;
         extract_tag(exp, tag);
-        l.insert(l.end(), tags_[tag].lower_bound(in1), tags_[tag].upper_bound(in2));
+        l.insert(l.end(), safe_lower_bound(tag, in1), safe_upper_bound(tag,in2));
     }
     // operador
     char op = exp.get();
     // 2n operand
-    c = exp.get();
+    c = exp.peek();
     if (c == '(') {
         list<instant> l2;
         exp_parentitzada(in1, in2, exp, l2);
@@ -230,11 +255,11 @@ void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstr
     }
     else {
         //etiqueta
-        string tag = "#";
+        string tag;
         extract_tag(exp, tag);
         if (op == '.')// and
-            merge_and(tags_[tag].lower_bound(in1), tags_[tag].upper_bound(in2), l);
-        else merge_or(tags_[tag].lower_bound(in1), tags_[tag].upper_bound(in2), l);
+            merge_and(safe_lower_bound(tag,in1), safe_upper_bound(tag,in2), l);
+        else merge_or(safe_lower_bound(tag,in1), safe_upper_bound(tag,in2), l);
     }
     // parèntesi final
     c = exp.get();
