@@ -94,15 +94,16 @@ class Agenda {
          *  \post el menú conté les tasques de [*in1, *in2) i s'ha mostrat el menú */
         void menu_directe(set_instant::iterator& in1, set_instant::iterator& in2);
 
+        void extract_tag(istringstream& exp, string& tag);
 
-        /** \brief Genera el menú a partir d'una búsqueda de tasques
-         *  \param[in] r1 inici del rang
-         *  \param[in] r2 final de rang
-         *  \param[in] expressio expressió que han de complir les etiquetes
-         *  \pre no es_passat(\e r1) and no es_passat(\e r2), \e r1 < \e r2
-         *  \post el menu del p.i conté les tasques de [\e r1,\e r2) les etiquetes
-         *  de les quals compleixen \e expressio */
-        void gen_menu(const Data& r1, const Data& r2, string expressio);
+        /** \brief Avalua una expressió parentitzada i guarda el resultat
+         *  \param[in] in1 inici del rang
+         *  \param[in] r2 final del rang
+         *  \param[in] expressio flux de l'expressió parentitzada
+         *  \param[out][in] llista on es guarda el resultat
+         *  \pre in1 i in2 apuntent a tasques no passades i in1 anterior a in2
+         *  \post l conté les tasques del rang que compleixen l'expressió  */
+        void exp_parentitzada(const instant& in1, const instant& in2, istringstream& exp, list<instant>& l);
     public:
         const Data origin = {{20,4,15},{0,0}}; // valor inicial per defecte
 

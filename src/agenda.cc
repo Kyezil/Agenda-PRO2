@@ -154,8 +154,8 @@ template<typename Iterator>
 void Agenda::merge_and(Iterator in1, Iterator in2, list<instant>& l){
     list<instant>::iterator it_l = l.begin();
     while (in1 != in2 and not l.empty()) {
-        if( (*it_l)->first > in1->first ) ++in1;
-        else if( (*it_l)->first < in1->first ) l.erase(it_l);
+        if( (*in1)->first < (*it_l)->first ) ++in1;
+        else if( (*it_l)->first < (*in1)->first ) l.erase(it_l);
         else ++it_l, ++in1;
     }
     while (it_l!=l.end()) l.erase(it_l);
@@ -165,15 +165,15 @@ template<typename Iterator>
 void Agenda::merge_or(Iterator in1, Iterator in2, list<instant>& l){
     list<instant>::iterator it_l = l.begin();
     while (in1 != in2 and not l.empty()) {
-        if ((*it_l)->first > in1->first){
-            l.insert(*in1);
+        if ((*in1)->first < (*it_l)->first){
+            l.insert(it_l, *in1);
             ++in1;
         }
-        else if ((*it_l)->first < in1->first) ++it_l;
+        else if ((*it_l)->first < (*in1)->first) ++it_l;
         else ++it_l, ++in1;
     }
     while (in1 != in2) {
-        l.insert(*in1);
+        l.insert(it_l, *in1);
         ++in1;
     }
 }
@@ -198,20 +198,43 @@ void Agenda::menu_directe(instant& in1, instant& in2) {
     }
 }
 
-void Agenda::gen_menu(const Data& r1, const Data& r2, string expressio) {
-    menu_.clear(); // buida el menú
-    instant in1 = tasks_.lower_bound(r1);
-    instant in2 = tasks_.lower_bound(r2);
-    if (expressio.size() == 0) {
-        while (in1 != in2) {
-            menu_.insert(menu_.end(), in1);
-            ++in1;
-        }
+void Agenda::extract_tag(istringstream& exp, string& tag) {
+    char c;
+    while (c = exp.peek(), not exp.eof() and c != '.' and c != ',' and c != ')')
+        tag += exp.get();
+}
+
+void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstream& exp, list<instant>& l) {
+    // 1r operand
+    char c = exp.get();
+    if (c == '(') exp_parentitzada(in1, in2, exp, l);
+    else {
+        // etiqueta
+        string tag = "#";
+        extract_tag(exp, tag);
+        l.insert(l.end(), tags_[tag].lower_bound(in1), tags_[tag].upper_bound(in2));
     }
-    else if (expressio[0] == '#') {
-        menu_.insert(menu_.end(), tags_[expressio].lower_bound(in1),
-                tags_[expressio].upper_bound(in2));
+    // operador
+    char op = exp.get();
+    // 2n operand
+    c = exp.get();
+    if (c == '(') {
+        list<instant> l2;
+        exp_parentitzada(in1, in2, exp, l2);
+        if (op == '.') merge_and(l2.begin(), l2.end(), l);
+        else merge_or(l2.begin(), l2.end(), l);
     }
+    else {
+        //etiqueta
+        string tag = "#";
+        extract_tag(exp, tag);
+        if (op == '.')// and
+            merge_and(tags_[tag].lower_bound(in1), tags_[tag].upper_bound(in2), l);
+        else merge_or(tags_[tag].lower_bound(in1), tags_[tag].upper_bound(in2), l);
+    }
+    // parèntesi final
+    c = exp.get();
+    if (c != ')') cout << "NO PARENTESI FINAL" << endl; //TODO REMOVE
 }
 
 bool Agenda::ordre_instant::operator()(const instant& a, const instant& b) const {
