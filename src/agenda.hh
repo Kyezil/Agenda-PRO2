@@ -26,18 +26,39 @@ using namespace std;
     -# Una tasca és "del passat" si la seva data associada ho és.
  */
 class Agenda {
-    typedef map<Data, Tasca>::const_iterator instant;
+    typedef map<Data, Tasca>::iterator instant;
+    typedef map<Data, Tasca>::const_iterator cinstant;
     private:
+        /** \struct Ordre Instant
+         *  \brief Defineix l'ordre entre iteradors a tasques */
+        struct ordre_instant {
+            /** \brief Funció d'ordre dels instants
+             *  \param[in] a lhs
+             *  \param[in] b rhs
+             *  \pre a i b són dereferenciables
+             *  \post retorn si l'element apuntat per a és anterior a l'apuntat
+             *  per b */
+            bool operator()(const instant& a, const instant& b) const;
+        };
+        
         pair<Data, instant> clock_;
         map<Data, Tasca> tasks_;
-        map<string, map<Data, Tasca*> > tags_;
-        list<Tasca*> menu_;
-//      vector<Tasca*> menu; probablement no necessari
+        map<string, set<instant, ordre_instant> > tags_;
+        list<instant> menu_;
+
+        /** \brief Escriu una línia del menú
+         *  \param[in] i id de la línia
+         *  \pre true
+         *  \post s'ha escrit una línia en format:
+         *  i titol data etiquetes */
+        void print_menu_item(int i, const cinstant& it) const;
 
     public:
+        const Data origin = {{20,4,15},{0,0}}; // valor inicial per defecte
+
         /** \brief Constructor d'una agenda per defecte
          *  \pre true
-         *  \post el p.i és una agenda buida amb rellotge
+         *  \post el p.i és una agenda buida amb rellotge a origin
          */
         Agenda();
 
@@ -50,10 +71,12 @@ class Agenda {
 
         /** \brief Afegeix una tasca
          *  \param[in] data la data de la tasca a afegir
-         *  \param[in] t la tasca a afegir
-         *  \pre  no is_passat(data) i no existeix(data)
-         *  \post el p.i conté la tasca t */
-        void add_tasca(Data data, Tasca t);
+         *  \param[in] titol de la tasca a afegir
+         *  \param[in] etiq cjt d'etiquetes de la tasca
+         *  \return si s'ha pogut afegir la tasca
+         *  \pre  no is_passat(data)
+         *  \post si retorna true el p.i conté la tasca t */
+        bool add_tasca(Data data, string titol, const set<string>& etiq = {});
 
         /** \brief Canvia el títol d'una tasca del menú
          *  \param[in] id nº de la tasca al menú
@@ -99,12 +122,6 @@ class Agenda {
         void del_tasca(const int id);
 
         // Consultores
-        /** \brief Consulta si hi ha una tasca en una data
-         *  \param[in] data data de la tasca
-         *  \pre true
-         *  \post retorna si existeix una tasca amb data \e data */
-        bool existeix(const Data &data) const;
-
         /** \brief Consulta si una data és passada
          *  \param[in] data la data a evaluar
          *  \pre true
@@ -116,11 +133,6 @@ class Agenda {
          *  \pre true
          *  \post retorna si es pot modificar la tasca \e id del menú */
         bool is_modificable(const int id) const;
-
-        /** \brief Consulta el rellotge
-         *  \pre true
-         *  \post s'ha escrit el rellotge pel canal de sortida estàndar */
-        void print_rellotge() const;
 
         /** \brief  Obté el dia del rellotge
          *  \pre true
