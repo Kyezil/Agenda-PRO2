@@ -13,7 +13,18 @@ passat?
 ? ((#lleure,#chill).run)
 ? (#lleure.#chill)
 ? (#chill.#cumple),(#run.#equip)
+? (#chill.#cumple),(#run.#equip) 30.05.15
+? (#chill.#cumple),(#run.#equip) 30.03.15 30.05.15
 ? (#chill.#cumple).(#run,#equip)
+? (#salut,(#cumple.#club))
+? (#salut,(#cumple.#club)) 10.06.15
+? (#salut,(#cumple.#club)) 02.06.15 10.06.15
+1 00:00
+? (#salut,(#cumple.#club)) 02.06.15
+1 23:59
+? (#salut,(#cumple.#club)) 02.06.15
+1 00:00 03.06.15
+? (#salut,(#cumple.#club)) 02.06.15
 sortir
 
 1 ok
@@ -31,4 +42,15 @@ menu: dinar, cine, entreno, campionats, viatge (ordre q sigui)
 menu: entreno, campionats
 menu: cine
 menu: dinar, entrenament, campionats
+menu: dinar
+menu: entrenament, dinar
+menu: buit
+menu: dentista
+menu: buit
+menu: dentista
+canvi
+menu: dentista
+canvi
+menu: dentista
+canvi
 menu: buit
