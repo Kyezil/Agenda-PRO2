@@ -78,10 +78,11 @@ int main (){
         else if (com.es_modificacio()) {
             if (com.te_titol())
                 nop(ag.set_titol(com.tasca(), com.titol()));
-            for (int i = 1; i <= com.nombre_etiquetes(); ++i) {
-                //TODO a veure si es pot ajuntar totes alhora
-                ag.add_etiqueta(com.tasca(), com.etiqueta(i));
-            }
+                bool ok = true;
+                for (int i = 1; ok and i <= com.nombre_etiquetes(); ++i) {
+                    ok = ag.add_etiqueta(com.tasca(), com.etiqueta(i));
+                    nop(ok);
+                }
             if (com.nombre_dates() == 0 and com.te_hora()) nop(ag.set_hora(com.tasca(), com.hora()));
             else if (com.nombre_dates() != 0) {
                 if (com.te_hora()) nop(ag.set_data(com.tasca(), make_pair(Dia(com.data(1)), Hora(com.hora()))));

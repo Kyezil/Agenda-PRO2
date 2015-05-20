@@ -80,13 +80,13 @@ void Agenda::p_set_data(list<instant>::iterator& it, Data data) {
 
 bool Agenda::set_data(const int id, Data d) {
     pair<list<instant>::iterator,bool> it = menu(id);
-    if (it.second) p_set_data(it.first, d);
+    if (it.second and (*it.first)->first != d) p_set_data(it.first, d);
     return it.second;
 }
 
 bool Agenda::set_dia(const int id, Dia d) {
     pair<list<instant>::iterator,bool> it = menu(id);
-    if (it.second) {
+    if (it.second and (*it.first)->first.first != d) {
         Data dat = make_pair(d, (*it.first)->first.second);
         p_set_data(it.first, dat);
     }
@@ -95,7 +95,7 @@ bool Agenda::set_dia(const int id, Dia d) {
 
 bool Agenda::set_hora(const int id, Hora h) {
     pair<list<instant>::iterator,bool> it = menu(id);
-    if (it.second) {
+    if (it.second and (*it.first)->first.second != h) {
         Data d = make_pair((*it.first)->first.first, h);
         p_set_data(it.first, d);
     }
@@ -173,7 +173,7 @@ Hora Agenda::get_hora() const {
 }
 
 void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
-    if (dia2 >= dia1 and dia2 > clock_.first.first) {
+    if (dia2 >= dia1 and dia2 >= clock_.first.first) {
         menu_.clear();
         Data d1 = make_pair(dia1, Hora(0,0));
         if (d1 < clock_.first) d1 = clock_.first;
@@ -184,8 +184,8 @@ void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
         else if (expressio[0] == '#') {
             tag_set::iterator tag = tags_.find(expressio);
             if (tag != tags_.end()) {
-            set_instant::iterator it1 = safe_lower_bound(tag,in1),
-                                  it2 = safe_upper_bound(tag,in2);
+            set_instant::iterator it1 = safe_bound(tag,in1),
+                                  it2 = safe_bound(tag,in2);
             menu_directe(it1,it2);
             }
         }
@@ -225,7 +225,8 @@ void Agenda::consulta(string expressio) {
     }
 }
 
-void Agenda::passat() const {
+void Agenda::passat() {
+    menu_.clear();
     cinstant it = tasks_.begin();
     int i = 1;
     while (it != clock_.second) {
@@ -343,12 +344,7 @@ void Agenda::print_llista(const list<instant>& l) {
     }
 }
 
-Agenda::set_instant::iterator Agenda::safe_upper_bound(tag_set::iterator& tag, const instant& in) {
-    if (in == tasks_.end()) return tag->second.end();
-    else return tag->second.upper_bound(in);
-}
-
-Agenda::set_instant::iterator Agenda::safe_lower_bound(tag_set::iterator &tag, const instant& in) {
+Agenda::set_instant::iterator Agenda::safe_bound(tag_set::iterator &tag, const instant& in) {
     if (in == tasks_.end()) return tag->second.end();
     else return tag->second.lower_bound(in);
 }
@@ -364,7 +360,7 @@ void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstr
         extract_tag(exp, tag);
         tag_set::iterator cjt_tag = tags_.find(tag);
         if (cjt_tag != tags_.end()) {
-            l.insert(l.end(), safe_lower_bound(cjt_tag, in1), safe_upper_bound(cjt_tag,in2));
+            l.insert(l.end(), safe_bound(cjt_tag, in1), safe_bound(cjt_tag,in2));
         }
     }
     // operador
@@ -384,9 +380,9 @@ void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstr
         tag_set::iterator cjt_tag = tags_.find(tag);
         if (cjt_tag != tags_.end()) {
             if (op == '.')
-                merge_and(safe_lower_bound(cjt_tag,in1), safe_upper_bound(cjt_tag,in2), l);
+                merge_and(safe_bound(cjt_tag,in1), safe_bound(cjt_tag,in2), l);
             else
-                merge_or(safe_lower_bound(cjt_tag,in1), safe_upper_bound(cjt_tag,in2), l);
+                merge_or(safe_bound(cjt_tag,in1), safe_bound(cjt_tag,in2), l);
         }
         else if (op == '.') l.clear();
     }
