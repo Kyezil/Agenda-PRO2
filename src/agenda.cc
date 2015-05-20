@@ -97,12 +97,11 @@ bool Agenda::is_passat(const Data& data) const {
 }
 
 bool Agenda::is_modificable(const int id) const {
-    bool modi = ((0 < id) and (id < menu_.size()));
+    bool modi = (1 <= id) and (id <= menu_.size());
     if (modi) {
-        list<instant>::const_iterator it = menu_.begin();
+        list<instant>::iterator it = menu_.begin();
         advance(it, id - 1);
-        modi = ((*it) != tasks_.end());
-        modi = modi and ((*it)->first >= clock_.first);
+        modi = ((*it) != tasks_.end()) and not is_passat((*it)->first);
     }
     return modi;
 }
