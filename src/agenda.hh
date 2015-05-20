@@ -61,6 +61,13 @@ class Agenda {
          *  \post s'ha escrit el menú del p.i */
         void print_menu() const;
 
+        /** \brief Afegeix una tasca (private)
+         *  \param[in] data la data de la tasca a afegir
+         *  \param[in] tasca la tasca a afegir
+         *  \return iterator a la tasca insertada i bool si s'ha pogut inserir
+         *  \pre  no is_passat(data)
+         *  \post si return.second, el p.i conté la tasca t i return.first és un
+         *  instant que hi apunta */
         pair<instant, bool> p_add_tasca(const Data& data, const Tasca& t);
 
         /** \brief Fusiona 2 rangs de tasques fent la intersecció
