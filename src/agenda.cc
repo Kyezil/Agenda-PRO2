@@ -90,17 +90,21 @@ bool Agenda::del_etiqueta(const int id, string etiqueta) {
     return it.second;
 }
 
-//void Agenda::del_etiquetes(const int id) {
-//    list<instant>::iterator it = menu_.begin();
-//    advance(it, id - 1);
-//    Tasca::tag_iterator inici = (*it)->second.begin_etiquetes();
-//    Tasca::tag_iterator fi = (*it)->second.end_etiquetes();
-//    while(inici != fi) {
-//        tags_[(*inici)].erase(*it);
-//        ++inici;
-//    }
-//    (*it)->second.del_etiquetes();
-//}
+bool Agenda::del_etiquetes(const int id) {
+    pair<list<instant>::iterator,bool> it = menu(id);
+    if (it.second) {
+        Tasca::tag_iterator inici = (*it.first)->second.begin_etiquetes();
+        Tasca::tag_iterator fi = (*it.first)->second.end_etiquetes();
+        while(inici != fi) {
+            tag_set::iterator t = tags_.find(*inici);
+            t->second.erase(*it.first);
+            if (t->second.empty()) tags_.erase(t);
+            ++inici;
+        }
+        (*it.first)->second.del_etiquetes();
+    }
+    return it.second;
+}
 //void Agenda::del_tasca(const int id) {
 //    list<instant>::iterator it = menu_.begin();
 //    advance(it, id - 1);
