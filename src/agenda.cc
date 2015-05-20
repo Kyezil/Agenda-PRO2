@@ -128,8 +128,8 @@ void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
         else if (expressio[0] == '#') {
             tag_set::iterator tag = tags_.find(expressio);
             if (tag != tags_.end()) {
-            set_instant::iterator it1 = tag->second.lower_bound(in1),
-                                  it2 = tag->second.upper_bound(in2);
+            set_instant::iterator it1 = safe_lower_bound(tag,in1),
+                                  it2 = safe_upper_bound(tag,in2);
             menu_directe(it1,it2);
             }
         }
