@@ -10,12 +10,12 @@ passat?
 ? #lleure
 ? #chill 02.06.15
 ? (#lleure,#chill)
-? ((#lleure,#chill).run)
+? ((#lleure,#chill).#run)
 ? (#lleure.#chill)
-? (#chill.#cumple),(#run.#equip)
-? (#chill.#cumple),(#run.#equip) 30.05.15
-? (#chill.#cumple),(#run.#equip) 30.03.15 30.05.15
-? (#chill.#cumple).(#run,#equip)
+? ((#chill.#cumple),(#run.#equip))
+? ((#chill.#cumple),(#run.#equip)) 30.05.15
+? ((#chill.#cumple),(#run.#equip)) 30.03.15 30.05.15
+? ((#chill.#cumple).(#run,#equip))
 ? (#salut,(#cumple.#club))
 ? (#salut,(#cumple.#club)) 10.06.15
 ? (#salut,(#cumple.#club)) 02.06.15 10.06.15
@@ -25,6 +25,7 @@ passat?
 ? (#salut,(#cumple.#club)) 02.06.15
 1 00:00 03.06.15
 ? (#salut,(#cumple.#club)) 02.06.15
+
 sortir
 
 1 ok
@@ -38,7 +39,7 @@ passat buit
 futur totes menys la 4
 menu: cine enteno campionats (en ordre q sigui)
 menu: cine
-menu: dinar, cine, entreno, campionats, viatge (ordre q sigui)
+menu: dinar, cine, entreno, campionats (ordre q sigui)
 menu: entreno, campionats
 menu: cine
 menu: dinar, entrenament, campionats
