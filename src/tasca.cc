@@ -36,12 +36,8 @@ void Tasca::print_titol(const Tasca& t, ostream& out) {
 
 void Tasca::print_etiquetes(const Tasca& t, ostream& out) {
     tag_iterator it = t.tags_.begin();
-    if (it != t.tags_.end()) {
-        out << *it;
+    while (it != t.tags_.end()) {
+        out << ' ' << *it;
         ++it;
-        while (it != t.tags_.end()) {
-            out << ' ' << *it;
-            ++it;
-        }
     }
 }

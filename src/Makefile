@@ -1,12 +1,14 @@
 CXX = g++
-CXXFLAGS = -c -std=c++11 -O2 -Wshadow -Wall -Wextra -Werror -Wno-uninitialized -Wno-sign-compare
+CXXFLAGS = -c -std=c++0x -O2 -Wshadow -Wall -Wextra -Werror -Wno-uninitialized -Wno-sign-compare -DND_DEBUG
 LDFLAGS =
-SRC = main.cc agenda.cc tasca.cc data.cc
+SRC = program.cc agenda.cc tasca.cc data.cc
 LIB = comanda.cc token.cc
 OBJ = $(SRC:.cc=.o)
-EXE = main
+EXE = program.exe
 
 all: $(SRC) $(EXE)
+jutge:
+	tar -cvf practica.tar Makefile $(SRC) agenda.hh tasca.hh data.hh
 
 debug: CXXFLAGS += -D_GLIBCXX_DEBUG -g
 debug: $(EXE) $(SRC) 
@@ -18,4 +20,4 @@ $(EXE): $(OBJ)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 clean:
-	rm $(EXE) $(OBJ)
+	rm $(EXE) $(OBJ) practica.tar

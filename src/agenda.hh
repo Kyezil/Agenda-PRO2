@@ -126,8 +126,6 @@ class Agenda {
          *       si no retorna false */
         pair<list<instant>::iterator, bool> menu(const int id);
     public:
-        const Data origin = {{20,4,15},{0,0}}; // valor inicial per defecte
-
         /** \brief Constructor d'una agenda per defecte
          *  \pre true
          *  \post el p.i és una agenda buida amb rellotge a origin
