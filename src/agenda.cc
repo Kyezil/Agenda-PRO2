@@ -50,23 +50,47 @@ bool Agenda::set_titol(const int id, string titol) {
     return it.second;
 }
 
-//void Agenda::set_data(const int id, Data data) {
-//    list<instant>::iterator it = menu_.begin();
-//    advance(it, id - 1);
-//    Tasca tem = (*it)->second;
-//    del_tasca(id);
-//    instant ans = add_tasca(data, tem).first;
-//    (*it) = ans;
-//    Tasca::tag_iterator inici = ans->second.begin_etiquetes();
-//    Tasca::tag_iterator fi = ans->second.begin_etiquetes();
-//    while(inici != fi) {
-//        tags_[*inici].erase(*it);
-//        tags_[*inici].insert(ans);
-//        ++inici;
-//    }
-//    *it = ans;
-//}
-//
+void Agenda::p_set_data(list<instant>::iterator& it, Data data) {
+        Tasca tem = (*it)->second;
+        instant ans = p_add_tasca(data, tem).first;
+        Tasca::tag_iterator inici = (*it)->second.begin_etiquetes();
+        Tasca::tag_iterator fi = (*it)->second.end_etiquetes();
+        while(inici != fi) {
+            tag_set::iterator t = tags_.find(*inici);
+            t->second.erase(*it);
+            if (t->second.empty()) tags_.erase(t);
+            ++inici;
+        }
+        if (*it == clock_.second) ++clock_.second;
+        tasks_.erase(*it); // (*it) es iterador del element a esborrar
+        *it = ans;
+}
+
+bool Agenda::set_data(const int id, Data d) {
+    pair<list<instant>::iterator,bool> it = menu(id);
+    if (it.second) p_set_data(it.first, d);
+    return it.second;
+}
+
+bool Agenda::set_dia(const int id, Dia d) {
+    pair<list<instant>::iterator,bool> it = menu(id);
+    if (it.second) {
+        Data dat = make_pair(d, (*it.first)->first.second);
+        p_set_data(it.first, dat);
+    }
+    return it.second;
+}
+
+bool Agenda::set_hora(const int id, Hora h) {
+    pair<list<instant>::iterator,bool> it = menu(id);
+    if (it.second) {
+        Data d = make_pair((*it.first)->first.first, h);
+        p_set_data(it.first, d);
+    }
+    return it.second;
+    
+}
+
 bool Agenda::add_etiqueta(const int id, string etiqueta) {
     pair<list<instant>::iterator,bool> it = menu(id);
     if (it.second) {
@@ -121,7 +145,7 @@ bool Agenda::del_tasca(const int id) {
         *it.first = tasks_.end();
     }
     return it.second;
-    
+
 }
 
 bool Agenda::is_passat(const Data& data) const {

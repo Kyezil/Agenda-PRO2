@@ -61,6 +61,8 @@ class Agenda {
          *  \post s'ha escrit el menú del p.i */
         void print_menu() const;
 
+        void p_set_data(list<instant>::iterator& it, Data data);
+ 
         /** \brief Afegeix una tasca (private)
          *  \param[in] data la data de la tasca a afegir
          *  \param[in] tasca la tasca a afegir
@@ -159,7 +161,9 @@ class Agenda {
          *  \param[in] data nova data de la tasca
          *  \pre  no existeix(data)
          *  \post si retorna true, la tasca \e id del menú té com a data \e data */
-        bool set_data(const int id, Data data);
+        bool set_dia(const int id, Dia d);
+        bool set_hora(const int id, Hora d);
+        bool set_data(const int id, Data d);
 
         /** \brief Afegeix una etiqueda a una tasca del menú
          *  \param[in] id nº de la tasca al menú
