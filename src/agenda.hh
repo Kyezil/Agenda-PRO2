@@ -7,6 +7,7 @@
 /// \cond HIDE
 #include <map>
 #include <string>
+#include <sstream>
 //#include <vector> TODO si necessitem el vector menu
 #include <list>
 #include <iostream>
@@ -40,10 +41,12 @@ class Agenda {
              *  per b */
             bool operator()(const instant& a, const instant& b) const;
         };
-        
+        typedef set<instant, ordre_instant> set_instant;
+        typedef map<string, set_instant> tag_set;
+
         pair<Data, instant> clock_;
         map<Data, Tasca> tasks_;
-        map<string, set<instant, ordre_instant> > tags_;
+        map<string, set_instant> tags_;
         list<instant> menu_;
 
         /** \brief Escriu una línia del menú
@@ -53,6 +56,11 @@ class Agenda {
          *  i titol data etiquetes */
         void print_menu_item(int i, const cinstant& it) const;
 
+        /** \brief Escriu el menú
+         *  \pre true
+         *  \post s'ha escrit el menú del p.i */
+        void print_menu() const;
+
         /** \brief Afegeix una tasca (private)
          *  \param[in] data la data de la tasca a afegir
          *  \param[in] tasca la tasca a afegir
@@ -61,6 +69,53 @@ class Agenda {
          *  \post si return.second, el p.i conté la tasca t i return.first és un
          *  instant que hi apunta */
         pair<instant, bool> p_add_tasca(const Data& data, const Tasca& t);
+
+        /** \brief Fusiona 2 rangs de tasques fent la intersecció
+         *  \param[in] in1 inici del 1r rang
+         *  \param[in] in2 final del 1r rang
+         *  \param[in][out] l 2n rang i contenedor de la intersecció
+         *  \pre in1 i in2 són iteradors a contenidors d'instants
+         *  \post l conté la intersecció de [in1, in2) i l */
+        template<typename Iterator>
+        void merge_and(Iterator in1, Iterator in2, list<instant>& l);
+
+        /** \brief Fusiona 2 rangs de tasques fent la unió
+         *  \param[in] in1 inici del 1r rang
+         *  \param[in] in2 final del 1r rang
+         *  \param[in][out] l 2n rang i contenedor de la unió
+         *  \pre in1 i in2 són iteradors a contenidors d'instants
+         *  \post l conté la unió de [in1, in2) i l */
+        template<typename Iterator>
+        void merge_or(Iterator in1, Iterator in2, list<instant>& l);
+
+        /** \brief Fa la búsqueda i escriu el menú d'un rang
+         *  \param[in] in1 inici del rang
+         *  \param[in] in2 final del rang
+         *  \pre in1 apunta a una tasca anterior a la de in2, i les dues no passades
+         *  menú està buit
+         *  \post el menú conté les tasques de [in1, in2) i s'ha mostrat el menú */
+        void menu_directe(instant& in1, instant& in2);
+
+        /** \brief Fa la búsqueda i escriu el menú d'un rang
+         *  \param[in] in1 inici del rang
+         *  \param[in] in2 final del rang
+         *  \pre in1, in2 apunten a instants de tasques no passades i in1 anterior a in2
+         *  menú està buit
+         *  \post el menú conté les tasques de [*in1, *in2) i s'ha mostrat el menú */
+        void menu_directe(set_instant::iterator& in1, set_instant::iterator& in2);
+
+        void extract_tag(istringstream& exp, string& tag);
+
+        set_instant::iterator safe_upper_bound(tag_set::iterator& tag, const instant& in);
+        set_instant::iterator safe_lower_bound(tag_set::iterator& tag, const instant& in);
+        /** \brief Avalua una expressió parentitzada i guarda el resultat
+         *  \param[in] in1 inici del rang
+         *  \param[in] r2 final del rang
+         *  \param[in] expressio flux de l'expressió parentitzada
+         *  \param[out][in] llista on es guarda el resultat
+         *  \pre in1 i in2 apuntent a tasques no passades i in1 anterior a in2
+         *  \post l conté les tasques del rang que compleixen l'expressió  */
+        void exp_parentitzada(const instant& in1, const instant& in2, istringstream& exp, list<instant>& l);
     public:
         const Data origin = {{20,4,15},{0,0}}; // valor inicial per defecte
 
@@ -157,30 +212,30 @@ class Agenda {
          *  \param[in] expressio expressió booleana sobre les etiquetes
          *  \pre true
          *  \post el menú conté les tasques amb data en [\e data1, \e data2] no passades
-         *        tal que el conjunt d'etiquetes de les quals compleix \e expressio
-         *        i es mostra el menú */
+         *  amb un conjunt d'etiquetes que compleix \e expressio i es mostra el menú */
         void consulta(Dia dia1, Dia dia2, string expressio = "");
 
         /** \brief Genera el menu corresponen a la búsqueda en un dia
          *  \param[in] dia dia en què s'ha de buscar
          *  \param[in] expressio expressió booleana sobre les etiquetes
          *  \pre true
-         *  \post el menú conté les tasques no passadaes amb dia \e dia tal que
-         *        el conjunt d'etiquetes de les quals compleix \e expressio
-         *        i es mostra el menú */
+         *  \post el menú conté les tasques no passades amb dia \e dia i un un conjunt
+         *  d'etiquetes que compleix \e expressio i es mostra el menú */
         void consulta(Dia dia, string expressio = "");
 
-        /** \brief Genera el menu de les tasques no passades
+        /** \brief Genera el menu de les tasques que compleixen expressió
          *  \pre true
-         *  \post el menú conté les tasques no passades i es mostra */
-        void consulta();
+         *  \post el menú conté les tasques no passades amb un conjunt d'etiquetes que
+         *  compleix expressio i es mostra el menú */
+        void consulta(string expressio = "");
 
         // Escriptura
         /** \brief Escriu totes les tasques del passat
          * \pre true
          * \post es mostren totes les tasques del passat */
         void passat() const;
-        
+
+        void print_llista(const list<instant>& l);
         void print_map_data_tasca();
         void print_map_tags();
 };
