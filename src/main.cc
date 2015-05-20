@@ -75,5 +75,9 @@ int main (){
             }
             nop(ok);
         }
+        else if (com.es_modificacio()) {
+            if (com.te_titol())
+                if(not ag.set_titol(com.tasca(), com.titol())) nop();
+        }
     }
 }
