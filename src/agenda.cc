@@ -6,7 +6,7 @@
 using namespace std;
 
 Agenda::Agenda() {
-    clock_ = {make_pair(Dia(24,5,15),Hora(0,0)),tasks_.begin()};
+    clock_ = {make_pair(Dia(20,4,15),Hora(0,0)),tasks_.begin()};
 }
 
 void Agenda::set_rellotge(Data data) {
