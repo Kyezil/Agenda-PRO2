@@ -253,7 +253,7 @@ void Agenda::print_map_tags() {
 void Agenda::print_menu_item(int i, const cinstant& it) const {
     cout << i << ' ';
     Tasca::print_titol(it->second, cout);
-    cout << ' ' << it->first << ' ';
+    cout << ' ' << it->first;
     Tasca::print_etiquetes(it->second, cout);
     cout << '\n';
 }
