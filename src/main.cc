@@ -75,5 +75,26 @@ int main (){
             }
             nop(ok);
         }
+        else if (com.es_modificacio()) {
+            if (com.te_titol())
+                nop(ag.set_titol(com.tasca(), com.titol()));
+            for (int i = 1; i <= com.nombre_etiquetes(); ++i) {
+                //TODO a veure si es pot ajuntar totes alhora
+                ag.add_etiqueta(com.tasca(), com.etiqueta(i));
+            }
+            if (com.nombre_dates() == 0 and com.te_hora()) nop(ag.set_hora(com.tasca(), com.hora()));
+            else if (com.nombre_dates() != 0) {
+                if (com.te_hora()) nop(ag.set_data(com.tasca(), make_pair(Dia(com.data(1)), Hora(com.hora()))));
+                else nop(ag.set_dia(com.tasca(), com.data(1)));
+            }
+        }
+        else if (com.es_esborrat()) {
+            if (com.tipus_esborrat() == "etiqueta")
+                nop(ag.del_etiqueta(com.tasca(), com.etiqueta(1)));
+            else if (com.tipus_esborrat() == "etiquetes")
+                nop(ag.del_etiquetes(com.tasca()));
+            else if (com.tipus_esborrat() == "tasca")
+                nop(ag.del_tasca(com.tasca()));
+        }
     }
 }

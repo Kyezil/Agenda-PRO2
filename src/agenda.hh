@@ -61,6 +61,8 @@ class Agenda {
          *  \post s'ha escrit el menú del p.i */
         void print_menu() const;
 
+        void p_set_data(list<instant>::iterator& it, Data data);
+ 
         /** \brief Afegeix una tasca (private)
          *  \param[in] data la data de la tasca a afegir
          *  \param[in] tasca la tasca a afegir
@@ -111,11 +113,18 @@ class Agenda {
         /** \brief Avalua una expressió parentitzada i guarda el resultat
          *  \param[in] in1 inici del rang
          *  \param[in] r2 final del rang
-         *  \param[in] expressio flux de l'expressió parentitzada
+         *  \param[in] exp flux de l'expressió parentitzada
          *  \param[out][in] llista on es guarda el resultat
          *  \pre in1 i in2 apuntent a tasques no passades i in1 anterior a in2
          *  \post l conté les tasques del rang que compleixen l'expressió  */
         void exp_parentitzada(const instant& in1, const instant& in2, istringstream& exp, list<instant>& l);
+
+        /** \brief Indica si es pot modificar la tasca #id del menu
+         * \param[in] id número de la tasca en el menu
+         * \pre true
+         * \post si es pot modificar retorna un iterador del menu i true
+         *       si no retorna false */
+        pair<list<instant>::iterator, bool> menu(const int id);
     public:
         const Data origin = {{20,4,15},{0,0}}; // valor inicial per defecte
 
@@ -143,45 +152,46 @@ class Agenda {
         /** \brief Canvia el títol d'una tasca del menú
          *  \param[in] id nº de la tasca al menú
          *  \param[in] titol nou títol de la tasca
-         *  \pre is_modificable(id)
-         *  \post la tasca \e id del menú té com a títol \e titol */
-        void set_titol(const int id, string titol);
+         *  \pre true
+         *  \post si retorna true, la tasca \e id del menú té com a títol \e titol */
+        bool set_titol(const int id, string titol);
 
         /** \brief Canvia la data d'una tasca del menú
          *  \param[in] id nº de la tasca al menú
          *  \param[in] data nova data de la tasca
-         *  \pre  is_modificable(id) i no existeix(data)
-         *  \post la tasca \e id del menú té com a data \e data */
-        void set_data(const int id, Data data);
+         *  \pre  no existeix(data)
+         *  \post si retorna true, la tasca \e id del menú té com a data \e data */
+        bool set_dia(const int id, Dia d);
+        bool set_hora(const int id, Hora d);
+        bool set_data(const int id, Data d);
 
         /** \brief Afegeix una etiqueda a una tasca del menú
          *  \param[in] id nº de la tasca al menú
          *  \param[in] etiqueta etiqueta a afegir
-         *  \pre  is_modificable(id)
-         *  \post la tasca \e id del menú té l'etiqueta \e etiqueta
-         */
-        void add_etiqueta(const int id, string etiqueta);
+         *  \pre  true
+         *  \post si retorna true, la tasca \e id del menú té l'etiqueta \e etiqueta */
+        bool add_etiqueta(const int id, string etiqueta);
 
         /** \brief Esborra una etiqueda d'una tasca del menú
          *  \param[in] id nº de la tasca al menú
          *  \param[in] etiqueta etiqueta a esborrar
-         *  \pre  is_modificable(id)
-         *  \post la tasca \e id no té l'etiqueta \e etiqueta
+         *  \pre  true
+         *  \post si retorna true, la tasca \e id no té l'etiqueta \e etiqueta
          */
-        void del_etiqueta(const int id, const string etiqueta);
+        bool del_etiqueta(const int id, const string etiqueta);
 
         /** \brief Esborra totes les etiquedes d'una tasca del menú
          *  \param[in] id nº de la tasca al menú
-         *  \pre  is_modificable(id)
-         *  \post la tasca \e id del menú no té cap etiqueta
+         *  \pre true
+         *  \post si retorna true, la tasca \e id del menú no té cap etiqueta
          */
-        void del_etiquetes(const int id);
+        bool del_etiquetes(const int id);
 
         /** \brief Esborra una tasca del menú
          *  \param[in] id nº de la tasca al menú
-         *  \pre is_modificable(id)
-         *  \post el p.i no conté la tasca \e id del menú */
-        void del_tasca(const int id);
+         *  \pre true
+         *  \post si retorna true, el p.i no conté la tasca \e id del menú */
+        bool del_tasca(const int id);
 
         // Consultores
         /** \brief Consulta si una data és passada
@@ -189,12 +199,6 @@ class Agenda {
          *  \pre true
          *  \post retorna (data anterior al rellotge del p.i) */
         bool is_passat(const Data &data) const;
-
-        /** \brief Consulta si es pot modificar una tasca del menú
-         *  \param[in] id nº de la tasca a modificar
-         *  \pre true
-         *  \post retorna si es pot modificar la tasca \e id del menú */
-        bool is_modificable(const int id) const;
 
         /** \brief  Obté el dia del rellotge
          *  \pre true
