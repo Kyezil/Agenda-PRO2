@@ -7,19 +7,18 @@
 /// \cond HIDE
 #include <string>
 #include <set>
-#include <ostream>
 /// \endcond
 using namespace std;
 
 /** \class Tasca
  *  \brief Representa una tasca amb etiquetes associades
- *  \invariant
+ *  \invariant 
  *  - Una tasca no té etiquetes repetides
  */
 class Tasca {
     private:
-        string title_;
-        set<string> tags_;
+        string titol;
+        set<string> etiquetes; 
     public:
         typedef set<string>::const_iterator tag_iterator;//< iterador per les etiquetes
 

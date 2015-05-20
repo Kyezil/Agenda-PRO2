@@ -1,12 +1,11 @@
 /** \file data.hh
-  \brief Definició de Data (Dia i Hora)
-  */
+    \brief Definició de Data (Dia i Hora)
+*/
 #ifndef DATA_HH
 #define DATA_HH
 /// \cond HIDE
 #include <utility>
 #include <string>
-#include <ostream>
 /// \endcond HIDE
 using namespace std;
 
@@ -110,5 +109,4 @@ bool operator<=(const Hora& lhs, const Hora& rhs);
 bool operator>=(const Hora& lhs, const Hora& rhs);
 
 typedef pair<Dia, Hora> Data;
-ostream& operator<<(ostream& os, const Data& d);
 #endif
