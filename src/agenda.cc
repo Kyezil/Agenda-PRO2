@@ -35,8 +35,9 @@ pair<Agenda::instant, bool> Agenda::p_add_tasca(const Data& data, const Tasca& t
             ++tag;
         }
         // actualitza rellotge
-        if (++ins.first == clock_.second)
-            clock_.second = --ins.first;
+        ++ins.first;
+        if (ins.first == clock_.second) --clock_.second;
+        --ins.first;
     }
     return ins;
 }
