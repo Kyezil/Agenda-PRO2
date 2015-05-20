@@ -67,12 +67,12 @@ bool Agenda::set_titol(const int id, string titol) {
 //    *it = ans;
 //}
 //
-//void Agenda::add_etiqueta(const int id, string etiqueta) {
-//    list<instant>::iterator it = menu_.begin();
-//    advance(it, id - 1);
-//    (*(*it)).second.add_etiqueta(etiqueta);
-//    tags_[etiqueta].insert(*it);
-//}
+bool Agenda::add_etiqueta(const int id, string etiqueta) {
+    pair<list<instant>::iterator,bool> it = menu(id);
+    if (it.second) (*it.first)->second.add_etiqueta(etiqueta);
+    tags_[etiqueta].insert(*it.first);
+    return it.second;
+}
 //void Agenda::del_etiqueta(const int id, string etiqueta) {
 //    list<instant>::iterator it = menu_.begin();
 //    advance(it, id - 1);

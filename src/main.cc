@@ -77,7 +77,11 @@ int main (){
         }
         else if (com.es_modificacio()) {
             if (com.te_titol())
-                if(not ag.set_titol(com.tasca(), com.titol())) nop();
+                nop(ag.set_titol(com.tasca(), com.titol()));
+            for (int i = 1; i <= com.nombre_etiquetes(); ++i) {
+                //TODO a veure si es pot ajuntar totes alhora
+                ag.add_etiqueta(com.tasca(), com.etiqueta(i));
+            }
         }
     }
 }
