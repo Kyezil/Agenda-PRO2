@@ -8,6 +8,9 @@ EXE = main
 
 all: $(SRC) $(EXE)
 
+debug: CXXFLAGS += -D_GLIBCXX_DEBUG -g
+debug: $(EXE) $(SRC) 
+
 $(EXE): $(OBJ)
 	$(CXX) $(LDFLAGS) $(OBJ) $(LIB) -o $@
 

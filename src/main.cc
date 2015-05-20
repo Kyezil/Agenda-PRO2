@@ -2,11 +2,12 @@
  *  \brief Programa principal
  */
 /// \cond HIDE
-#include <set>
+#include <cassert>
 /// \endcond HIDE
 #include "agenda.hh"
-#include "comanda.hh"
+#include "tasca.hh"
 #include "data.hh"
+#include "comanda.hh"
 using namespace std;
 
 void nop(bool ok = false) {
@@ -32,8 +33,28 @@ int main (){
         }
         else if (com.es_passat()) ag.passat();
         else if(com.es_consulta()) {
-            if (com.nombre_dates() == 0 and not com.te_expressio()) ag.consulta();
-            // TODO es poden ajuntar varies però de moment per provar
+            if (com.nombre_dates() == 0) {
+                if (com.te_expressio()) ag.consulta(com.expressio());
+                else if (com.nombre_etiquetes() == 0) ag.consulta();
+                else ag.consulta(com.etiqueta(1));
+            }
+            else if (com.nombre_dates() == 1) {
+                if(com.te_expressio())
+                    ag.consulta(Dia(com.data(1)), com.expressio());
+                else if (com.nombre_etiquetes() == 0)
+                    ag.consulta(Dia(com.data(1)));
+                else
+                    ag.consulta(Dia(com.data(1)), com.etiqueta(1));
+            }
+            else {
+                assert(com.nombre_dates() == 2);
+                if (com.te_expressio())
+                    ag.consulta(Dia(com.data(1)), Dia(com.data(2)), com.expressio());
+                else if (com.nombre_etiquetes() == 0)
+                    ag.consulta(Dia(com.data(1)), Dia(com.data(2)));
+                else
+                    ag.consulta(Dia(com.data(1)), Dia(com.data(2)), com.etiqueta(1));
+            }
         }
         else if (com.es_insercio()) {
             // genera data
@@ -45,12 +66,12 @@ int main (){
             if(not ag.is_passat(d)) {
                 // genera etiquetes si cal
                 if (com.nombre_etiquetes() > 0) {
-                    set<string> etiquetes;
+                    Tasca &&temp (com.titol());
                     for (int i = 1; i <= com.nombre_etiquetes(); ++i)
-                        etiquetes.insert(com.etiqueta(i));
-                    ok = ag.add_tasca(d, com.titol(), etiquetes);
+                        temp.add_etiqueta(com.etiqueta(i));
+                    ok = ag.add_tasca(d, temp);
                 }
-                else ok = ag.add_tasca(d, com.titol());
+                else ok = ag.add_tasca(d, Tasca(com.titol()));
             }
             nop(ok);
         }
