@@ -61,7 +61,7 @@ class Agenda {
          *  \post s'ha escrit el menú del p.i */
         void print_menu() const;
 
-        void p_set_data(list<instant>::iterator& it, Data data);
+        bool p_set_data(list<instant>::iterator& it, Data data);
 
         /** \brief Afegeix una tasca (private)
          *  \param[in] data la data de la tasca a afegir

@@ -63,25 +63,28 @@ bool Agenda::set_titol(const int id, string titol) {
     return it.second;
 }
 
-void Agenda::p_set_data(list<instant>::iterator& it, Data data) {
+bool Agenda::p_set_data(list<instant>::iterator& it, Data data) {
         Tasca tem = (*it)->second;
-        instant ans = p_add_tasca(data, tem).first;
-        Tasca::tag_iterator inici = (*it)->second.begin_etiquetes();
-        Tasca::tag_iterator fi = (*it)->second.end_etiquetes();
-        while(inici != fi) {
-            tag_set::iterator t = tags_.find(*inici);
-            t->second.erase(*it);
-            if (t->second.empty()) tags_.erase(t);
-            ++inici;
+        pair<instant,bool> ans = p_add_tasca(data, tem);
+        if (ans.second) {
+            Tasca::tag_iterator inici = (*it)->second.begin_etiquetes();
+            Tasca::tag_iterator fi = (*it)->second.end_etiquetes();
+            while(inici != fi) {
+                tag_set::iterator t = tags_.find(*inici);
+                t->second.erase(*it);
+                if (t->second.empty()) tags_.erase(t);
+                ++inici;
+            }
+            if (*it == clock_.second) ++clock_.second;
+            tasks_.erase(*it); // (*it) es iterador del element a esborrar
+            *it = ans.first;
         }
-        if (*it == clock_.second) ++clock_.second;
-        tasks_.erase(*it); // (*it) es iterador del element a esborrar
-        *it = ans;
+        return ans.second;
 }
 
 bool Agenda::set_data(const int id, Data d) {
     pair<list<instant>::iterator,bool> it = menu(id);
-    if (it.second and (*it.first)->first != d) p_set_data(it.first, d);
+    if (it.second and (*it.first)->first != d) it.second = p_set_data(it.first, d);
     return it.second;
 }
 
@@ -89,7 +92,7 @@ bool Agenda::set_dia(const int id, Dia d) {
     pair<list<instant>::iterator,bool> it = menu(id);
     if (it.second and (*it.first)->first.first != d) {
         Data dat = make_pair(d, (*it.first)->first.second);
-        p_set_data(it.first, dat);
+        it.second = p_set_data(it.first, dat);
     }
     return it.second;
 }
@@ -98,7 +101,7 @@ bool Agenda::set_hora(const int id, Hora h) {
     pair<list<instant>::iterator,bool> it = menu(id);
     if (it.second and (*it.first)->first.second != h) {
         Data d = make_pair((*it.first)->first.first, h);
-        p_set_data(it.first, d);
+        it.second = p_set_data(it.first, d);
     }
     return it.second;
 
