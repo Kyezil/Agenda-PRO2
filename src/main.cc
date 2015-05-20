@@ -88,6 +88,8 @@ int main (){
                 nop(ag.del_etiqueta(com.tasca(), com.etiqueta(1)));
             else if (com.tipus_esborrat() == "etiquetes")
                 nop(ag.del_etiquetes(com.tasca()));
+            else if (com.tipus_esborrat() == "tasca")
+                nop(ag.del_tasca(com.tasca()));
         }
     }
 }

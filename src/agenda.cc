@@ -105,18 +105,24 @@ bool Agenda::del_etiquetes(const int id) {
     }
     return it.second;
 }
-//void Agenda::del_tasca(const int id) {
-//    list<instant>::iterator it = menu_.begin();
-//    advance(it, id - 1);
-//    Tasca::tag_iterator inici = (*it)->second.begin_etiquetes();
-//    Tasca::tag_iterator fi = (*it)->second.end_etiquetes();
-//    while(inici != fi) {
-//        tags_[(*inici)].erase(*it); // (*it) es element a esborrar
-//        ++inici;
-//    }
-//    tasks_.erase(*it); // (*it) es iterador del element a esborrar
-//    *it = tasks_.end();
-//}
+bool Agenda::del_tasca(const int id) {
+    pair<list<instant>::iterator,bool> it = menu(id);
+    if (it.second) {
+        Tasca::tag_iterator inici = (*it.first)->second.begin_etiquetes();
+        Tasca::tag_iterator fi = (*it.first)->second.end_etiquetes();
+        while(inici != fi) {
+            tag_set::iterator t = tags_.find(*inici);
+            t->second.erase(*it.first);
+            if (t->second.empty()) tags_.erase(t);
+            ++inici;
+        }
+        if (*it.first == clock_.second) ++clock_.second;
+        tasks_.erase(*it.first); // (*it.first) es iterador del element a esborrar
+        *it.first = tasks_.end();
+    }
+    return it.second;
+    
+}
 
 bool Agenda::is_passat(const Data& data) const {
     return (data < clock_.first);
