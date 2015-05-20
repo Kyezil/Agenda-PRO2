@@ -163,7 +163,6 @@ Hora Agenda::get_hora() const {
 void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
     if (dia2 >= dia1 and dia2 > clock_.first.first) {
         menu_.clear();
-        //TODO only for test fix and remove
         Data d1 = make_pair(dia1, Hora(0,0));
         if (d1 < clock_.first) d1 = clock_.first;
         Data d2 = make_pair(dia2, Hora(23,59));
@@ -184,7 +183,6 @@ void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
             print_menu();
         }
     }
-    else cout << "AVIS: NO HA DE FER RES" << endl; //TODO delete al final
 }
 
 void Agenda::consulta(Dia dia, string expressio) {
@@ -192,7 +190,6 @@ void Agenda::consulta(Dia dia, string expressio) {
 }
 
 void Agenda::consulta(string expressio) {
-    // TODO entendre pq el compilador accepta directament els parametres
     menu_.clear();
     if (expressio.size() == 0) {
         instant in1 = clock_.second, //copia per no modificar el rellotge
@@ -383,7 +380,6 @@ void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstr
     }
     // parèntesi final
     c = exp.get();
-    if (c != ')') cout << "NO PARENTESI FINAL" << endl; //TODO REMOVE
 }
 
 bool Agenda::ordre_instant::operator()(const instant& a, const instant& b) const {
