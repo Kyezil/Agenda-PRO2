@@ -83,5 +83,9 @@ int main (){
                 ag.add_etiqueta(com.tasca(), com.etiqueta(i));
             }
         }
+        else if (com.es_esborrat()) {
+            if (com.tipus_esborrat() == "etiqueta")
+                nop(ag.del_etiqueta(com.tasca(), com.etiqueta(1)));
+        }
     }
 }

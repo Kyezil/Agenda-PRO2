@@ -111,7 +111,7 @@ class Agenda {
         /** \brief Avalua una expressió parentitzada i guarda el resultat
          *  \param[in] in1 inici del rang
          *  \param[in] r2 final del rang
-         *  \param[in] expressio flux de l'expressió parentitzada
+         *  \param[in] exp flux de l'expressió parentitzada
          *  \param[out][in] llista on es guarda el resultat
          *  \pre in1 i in2 apuntent a tasques no passades i in1 anterior a in2
          *  \post l conté les tasques del rang que compleixen l'expressió  */
