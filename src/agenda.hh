@@ -2,10 +2,8 @@
  * \file agenda.hh
  * \brief Classe Agenda
  */
-
 #ifndef AGENDA_HH
 #define AGENDA_HH
-
 /// \cond HIDE
 #include <map>
 #include <string>
@@ -20,15 +18,17 @@ using namespace std;
 
 /** \class Agenda
  *  \brief Representa una agenda amb un conjunt de tasques amb etiquetes
-    \invariant 
+    \invariant
     - No hi han tasques amb la mateixa data
     - No es poden modificar les tasques del passat
-     
+
     \par Notació
     -# Una data és "del passat" o "passada" si és anterior al rellotge del p.i.
     -# Una tasca és "del passat" si la seva data associada ho és.
  */
 class Agenda {
+    typedef map<Data, Tasca>::iterator instant;
+    typedef map<Data, Tasca>::const_iterator cinstant;
     private:
         /** \struct Ordre Instant
          *  \brief Defineix l'ordre entre iteradors a tasques */
@@ -128,14 +128,14 @@ class Agenda {
     public:
         /** \brief Constructor d'una agenda per defecte
          *  \pre true
-         *  \post el p.i és una agenda buida amb rellotge
+         *  \post el p.i és una agenda buida amb rellotge a origin
          */
         Agenda();
 
         //Modificadores
         /** \brief Avança el rellotge
          *  \param[in] data data fins on avançar
-         *  \pre no es_passat(data)
+         *  \pre no is_passat(data)
          *  \post si el rellotge del p.i marca \e data */
         void set_rellotge(Data data);
 
@@ -196,7 +196,7 @@ class Agenda {
          *  \param[in] data la data a evaluar
          *  \pre true
          *  \post retorna (data anterior al rellotge del p.i) */
-        bool es_passat(Data data) const;
+        bool is_passat(const Data &data) const;
 
         /** \brief  Obté el dia del rellotge
          *  \pre true
