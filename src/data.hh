@@ -20,45 +20,51 @@ class Dia {
         int any; ///< 0 <= any <= 99
 
     public:
+        /** \brief Constructor per defecte
+         *  \pre true
+         *  \post el p.i no té valors per defecte */
         Dia() = default;
 
-        /** \brief Construeix Dia directament
-         *  \pre els paramètres compleixen l'invariant de la classe
-         *  \post el p.i conté la dia representada pels paramètres */
+        /** \brief Constructor explícit amb dia, mes i any
+         *  \pre els paràmetres compleixen les condicions dels membres
+         *  \post el p.i representat el dia definit pels paramètres*/
         Dia(int dia, int mes, int any);
 
-        /** \brief Construeix Dia a partir d'un string
-         *  \param[in] s string que conté un dia  "dia.mes.any"
-         *  \pre \e s té el format DD.MM.AA
+        /** \brief Constructor a partir string
+         *  \param[in] s dia a representar
+         *  \pre \e s té el format "DD.MM.AA" on D,M,A són digits [0-9]
          *  \post el p.i conté la dia representada per \e s */
         Dia(string s);
 
-
-        /** \brief Escriu Dia en un flux de sortida
+        /** \brief Escriure formatejat
          *  \param[in] d el dia a escriure
          *  \param[out] os el flux de sortida on escriure
          *  \pre true
-         *  \post s'ha escriu dia "DD.MM.AA" a os
-         */
+         *  \post s'ha escrit d a os amb el format "DD.MM.AA" */
         static void print(const Dia& d, ostream& os);
 
+        /// Operadors de comparació \{
         friend bool operator<(const Dia& lhs, const Dia& rhs);
         friend bool operator==(const Dia& lhs, const Dia& rhs);
         friend bool operator!=(const Dia& lhs, const Dia& rhs);
         friend bool operator>(const Dia& lhs, const Dia& rhs);
         friend bool operator<=(const Dia& lhs, const Dia& rhs);
         friend bool operator>=(const Dia& lhs, const Dia& rhs);
+        /// \}
 };
-/** \brief Indica ordre entre dies (@).
+/** \defgroup Comparació de Dia
+ *  '@' representa l'operador : <, >, ==, !=, <=, >=
+ *  \brief Indica ordre entre dies (@).
  *  \pre true
- *  \post retorna cert si (\e lhs @ \e rhs)
- *  @ pot ser: <, >, ==, !=, <=, >= */
+ *  \post retorna si (\e lhs @ \e rhs)
+ *  \{ */
 bool operator<(const Dia& lhs, const Dia& rhs);
 bool operator==(const Dia& lhs, const Dia& rhs);
 bool operator!=(const Dia& lhs, const Dia& rhs);
 bool operator>(const Dia& lhs, const Dia& rhs);
 bool operator<=(const Dia& lhs, const Dia& rhs);
 bool operator>=(const Dia& lhs, const Dia& rhs);
+/// \}
 
 /** \class Hora
   \brief Representa una hora, hora:minut
@@ -90,25 +96,35 @@ class Hora {
          */
         static void print(const Hora& d, ostream& os);
 
+        /// Operadors de comparació \{
         friend bool operator<(const Hora& lhs, const Hora& rhs);
         friend bool operator==(const Hora& lhs, const Hora& rhs);
         friend bool operator!=(const Hora& lhs, const Hora& rhs);
         friend bool operator>(const Hora& lhs, const Hora& rhs);
         friend bool operator<=(const Hora& lhs, const Hora& rhs);
         friend bool operator>=(const Hora& lhs, const Hora& rhs);
+        /// \}
 };
 
-/** \brief Indica ordre entre hores (@).
+/** \defgroup Comparació de Hora 
+ *  '@' representa l'operador : <, >, ==, !=, <=, >=
+ *  \brief Indica ordre entre hores (@).
  *  \pre true
  *  \post retorna si (\e lhs @ \e rhs)
- *  @ pot ser: <, >, ==, !=, <=, >=*/
+ *  \{ */
 bool operator<(const Hora& lhs, const Hora& rhs);
 bool operator==(const Hora& lhs, const Hora& rhs);
 bool operator!=(const Hora& lhs, const Hora& rhs);
 bool operator>(const Hora& lhs, const Hora& rhs);
 bool operator<=(const Hora& lhs, const Hora& rhs);
 bool operator>=(const Hora& lhs, const Hora& rhs);
+///\}
 
+/** \brief Definició de Data */
 typedef pair<Dia, Hora> Data;
+
+/** \brief Operador << de Data
+ *  \pre true
+ *  \post s'ha escrit Data en format: %DD.MM.AA HH:MM% a os */
 ostream& operator<<(ostream& os, const Data& d);
 #endif
