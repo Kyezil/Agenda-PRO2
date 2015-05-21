@@ -15,7 +15,7 @@ void Agenda::set_rellotge(Data data) {
         Tasca::tag_iterator inici = clock_.second->second.begin_etiquetes();
         Tasca::tag_iterator fi = clock_.second->second.end_etiquetes();
         while(inici != fi) {
-            tag_set::iterator t = tags_.find(*inici);
+            tag_map::iterator t = tags_.find(*inici);
             t->second.erase(clock_.second);
             if (t->second.empty()) tags_.erase(t);
             ++inici;
@@ -46,7 +46,7 @@ bool Agenda::add_tasca(const Data &data, const Tasca& t) {
     return p_add_tasca(data, t).second;
 }
 
-pair<list<Agenda::instant>::iterator, bool> Agenda::menu(const int id) {
+pair<list<Agenda::instant>::iterator, bool> Agenda::menu_item(const int id) {
     bool ok  = (1 <= id) and (id <= menu_.size());
     list<instant>::iterator it = menu_.begin();
     if (ok) {
@@ -58,7 +58,7 @@ pair<list<Agenda::instant>::iterator, bool> Agenda::menu(const int id) {
 }
 
 bool Agenda::set_titol(const int id, string titol) {
-    pair<list<instant>::iterator,bool> it = menu(id);
+    pair<list<instant>::iterator,bool> it = menu_item(id);
     if (it.second) (*it.first)->second.set_titol(titol);
     return it.second;
 }
@@ -70,7 +70,7 @@ bool Agenda::p_set_data(list<instant>::iterator& it, Data data) {
             Tasca::tag_iterator inici = (*it)->second.begin_etiquetes();
             Tasca::tag_iterator fi = (*it)->second.end_etiquetes();
             while(inici != fi) {
-                tag_set::iterator t = tags_.find(*inici);
+                tag_map::iterator t = tags_.find(*inici);
                 t->second.erase(*it);
                 if (t->second.empty()) tags_.erase(t);
                 ++inici;
@@ -83,13 +83,13 @@ bool Agenda::p_set_data(list<instant>::iterator& it, Data data) {
 }
 
 bool Agenda::set_data(const int id, Data d) {
-    pair<list<instant>::iterator,bool> it = menu(id);
+    pair<list<instant>::iterator,bool> it = menu_item(id);
     if (it.second and (*it.first)->first != d) it.second = p_set_data(it.first, d);
     return it.second;
 }
 
 bool Agenda::set_dia(const int id, Dia d) {
-    pair<list<instant>::iterator,bool> it = menu(id);
+    pair<list<instant>::iterator,bool> it = menu_item(id);
     if (it.second and (*it.first)->first.first != d) {
         Data dat = make_pair(d, (*it.first)->first.second);
         it.second = p_set_data(it.first, dat);
@@ -98,7 +98,7 @@ bool Agenda::set_dia(const int id, Dia d) {
 }
 
 bool Agenda::set_hora(const int id, Hora h) {
-    pair<list<instant>::iterator,bool> it = menu(id);
+    pair<list<instant>::iterator,bool> it = menu_item(id);
     if (it.second and (*it.first)->first.second != h) {
         Data d = make_pair((*it.first)->first.first, h);
         it.second = p_set_data(it.first, d);
@@ -108,7 +108,7 @@ bool Agenda::set_hora(const int id, Hora h) {
 }
 
 bool Agenda::add_etiqueta(const int id, string etiqueta) {
-    pair<list<instant>::iterator,bool> it = menu(id);
+    pair<list<instant>::iterator,bool> it = menu_item(id);
     if (it.second) {
         (*it.first)->second.add_etiqueta(etiqueta);
         tags_[etiqueta].insert(*it.first);
@@ -117,9 +117,9 @@ bool Agenda::add_etiqueta(const int id, string etiqueta) {
 }
 
 bool Agenda::del_etiqueta(const int id, string etiqueta) {
-    pair<list<instant>::iterator,bool> it = menu(id);
+    pair<list<instant>::iterator,bool> it = menu_item(id);
     if (it.second) {
-        tag_set::iterator t = tags_.find(etiqueta);
+        tag_map::iterator t = tags_.find(etiqueta);
         if (t == tags_.end()) it.second = false;
         else {
             (*it.first)->second.del_etiqueta(etiqueta);
@@ -131,12 +131,12 @@ bool Agenda::del_etiqueta(const int id, string etiqueta) {
 }
 
 bool Agenda::del_etiquetes(const int id) {
-    pair<list<instant>::iterator,bool> it = menu(id);
+    pair<list<instant>::iterator,bool> it = menu_item(id);
     if (it.second) {
         Tasca::tag_iterator inici = (*it.first)->second.begin_etiquetes();
         Tasca::tag_iterator fi = (*it.first)->second.end_etiquetes();
         while(inici != fi) {
-            tag_set::iterator t = tags_.find(*inici);
+            tag_map::iterator t = tags_.find(*inici);
             t->second.erase(*it.first);
             if (t->second.empty()) tags_.erase(t);
             ++inici;
@@ -146,12 +146,12 @@ bool Agenda::del_etiquetes(const int id) {
     return it.second;
 }
 bool Agenda::del_tasca(const int id) {
-    pair<list<instant>::iterator,bool> it = menu(id);
+    pair<list<instant>::iterator,bool> it = menu_item(id);
     if (it.second) {
         Tasca::tag_iterator inici = (*it.first)->second.begin_etiquetes();
         Tasca::tag_iterator fi = (*it.first)->second.end_etiquetes();
         while(inici != fi) {
-            tag_set::iterator t = tags_.find(*inici);
+            tag_map::iterator t = tags_.find(*inici);
             t->second.erase(*it.first);
             if (t->second.empty()) tags_.erase(t);
             ++inici;
@@ -186,7 +186,7 @@ void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
                 in2 = tasks_.upper_bound(d2);
         if (expressio.size() == 0) menu_directe(in1, in2);
         else if (expressio[0] == '#') {
-            tag_set::iterator tag = tags_.find(expressio);
+            tag_map::iterator tag = tags_.find(expressio);
             if (tag != tags_.end()) {
             set_instant::iterator it1 = safe_bound(tag,in1),
                                   it2 = safe_bound(tag,in2);
@@ -213,7 +213,7 @@ void Agenda::consulta(string expressio) {
         menu_directe(in1, in2);
     }
     else if (expressio[0] == '#'){
-        tag_set::iterator tag = tags_.find(expressio);
+        tag_map::iterator tag = tags_.find(expressio);
         if (tag != tags_.end()) {
             set_instant::iterator in1 = tag->second.begin(),
                 in2 = tag->second.end();
@@ -236,34 +236,6 @@ void Agenda::passat() {
     while (it != clock_.second) {
         print_menu_item(i, it);
         it++, i++;
-    }
-}
-
-void Agenda::print_map_data_tasca() {
-    cinstant it = tasks_.begin();
-    cout << "======== MAP PRINCIPAL =======\n";
-    while (it != tasks_.end()) {
-        cout << it->first << ' ';
-        Tasca::print_titol(it->second,cout);
-        cout << ' ';
-        Tasca::print_etiquetes(it->second, cout);
-        cout << '\n';
-        ++it;
-    }
-    cout << endl;
-}
-
-void Agenda::print_map_tags() {
-    map<string, set<instant, ordre_instant> >::const_iterator it = tags_.begin();
-    cout << "======== ETIQUETES =======\n";
-    while (it != tags_.end()) {
-        cout << "-- " << it->first << " --\n";
-        for (auto ins : it->second) {
-            cout << ' ';
-            Tasca::print_titol(ins->second, cout);
-            cout << '\n';
-        }
-        ++it;
     }
 }
 
@@ -336,19 +308,7 @@ void Agenda::extract_tag(istringstream& exp, string& tag) {
         tag += exp.get();
 }
 
-void Agenda::print_llista(const list<instant>& l) {
-    list<instant>::const_iterator it = l.begin();
-    while (it != l.end()) {
-        cout << (*it)->first << ' ';
-        Tasca::print_titol((*it)->second,cout);
-        cout << ' ';
-        Tasca::print_etiquetes((*it)->second, cout);
-        cout << '\n';
-        ++it;
-    }
-}
-
-Agenda::set_instant::iterator Agenda::safe_bound(tag_set::iterator &tag, const instant& in) {
+Agenda::set_instant::iterator Agenda::safe_bound(tag_map::iterator &tag, const instant& in) {
     if (in == tasks_.end()) return tag->second.end();
     else return tag->second.lower_bound(in);
 }
@@ -362,7 +322,7 @@ void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstr
         // etiqueta
         string tag;
         extract_tag(exp, tag);
-        tag_set::iterator cjt_tag = tags_.find(tag);
+        tag_map::iterator cjt_tag = tags_.find(tag);
         if (cjt_tag != tags_.end()) {
             l.insert(l.end(), safe_bound(cjt_tag, in1), safe_bound(cjt_tag,in2));
         }
@@ -381,7 +341,7 @@ void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstr
         //etiqueta
         string tag;
         extract_tag(exp, tag);
-        tag_set::iterator cjt_tag = tags_.find(tag);
+        tag_map::iterator cjt_tag = tags_.find(tag);
         if (cjt_tag != tags_.end()) {
             if (op == '.')
                 merge_and(safe_bound(cjt_tag,in1), safe_bound(cjt_tag,in2), l);

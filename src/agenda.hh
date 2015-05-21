@@ -8,7 +8,6 @@
 #include <map>
 #include <string>
 #include <sstream>
-//#include <vector> TODO si necessitem el vector menu
 #include <list>
 #include <iostream>
 /// \endcond
@@ -20,129 +19,167 @@ using namespace std;
  *  \brief Representa una agenda amb un conjunt de tasques amb etiquetes
     \invariant
     - No hi han tasques amb la mateixa data
-    - No es poden modificar les tasques del passat
+    - Un cop una tasca és passada no es pot modificar
+    - Cada etiqueta té un únic conjunt (no buit) de tasques (no passades) associat
 
     \par Notació
     -# Una data és "del passat" o "passada" si és anterior al rellotge del p.i.
     -# Una tasca és "del passat" si la seva data associada ho és.
  */
 class Agenda {
-    typedef map<Data, Tasca>::iterator instant;
-    typedef map<Data, Tasca>::const_iterator cinstant;
     private:
-        /** \struct Ordre Instant
-         *  \brief Defineix l'ordre entre iteradors a tasques */
+        /// Un instant itera sobre el conjunt de les tasques
+        typedef map<Data, Tasca>::iterator instant;
+        /// Un cinstant és un instant però sense dret a modificació
+        typedef map<Data, Tasca>::const_iterator cinstant;
+
+        /** \struct Ordre instant
+         *  \brief Defineix l'ordre entre instants */
         struct ordre_instant {
-            /** \brief Funció d'ordre dels instants
+            /** \brief Ordre entre instants
              *  \param[in] a lhs
              *  \param[in] b rhs
-             *  \pre a i b són dereferenciables
-             *  \post retorn si l'element apuntat per a és anterior a l'apuntat
+             *  \pre a i b són instants vàlids
+             *  \post retorna l'element apuntat per a és anterior a l'apuntat
              *  per b */
             bool operator()(const instant& a, const instant& b) const;
         };
-        typedef set<instant, ordre_instant> set_instant;
-        typedef map<string, set_instant> tag_set;
 
+        /// Un set_instant és un conjunt d'instants ordenats per ordre_instant
+        typedef set<instant, ordre_instant> set_instant;
+        /// Un tag_map és un map de tag al seu conjunt d'instants
+        typedef map<string, set_instant> tag_map;
+
+        /// Rellotge: Data concreta a la qual està i instant a la primera tasca no passada
         pair<Data, instant> clock_;
+        /// Conjunt de tasques: guarda les tasques ordenades i associades per la seva Data
         map<Data, Tasca> tasks_;
+        /// Catàleg d'etiquetes: associa a cada etiqueta el cjt de tasques que la tenen
         map<string, set_instant> tags_;
+        /// Menú: guarda les tasques corresponents a la última consulta
         list<instant> menu_;
 
-        /** \brief Escriu una línia del menú
-         *  \param[in] i id de la línia
-         *  \pre true
-         *  \post s'ha escrit una línia en format:
-         *  i titol data etiquetes */
+        /** \brief Escriure una línia del menú
+         *  \param[in] i número de la línia
+         *  \param[in] it cinstant apuntant a l'entrada a escriure
+         *  \pre it és valid (!= end)
+         *  \post s'ha escrit pel canal de sortida estàndar una línia en format:
+         *  %i titol_tasca data_tasca etiquetes% */
         void print_menu_item(int i, const cinstant& it) const;
 
-        /** \brief Escriu el menú
+        /** \brief Escriure el menú
          *  \pre true
-         *  \post s'ha escrit el menú del p.i */
+         *  \post s'ha escrit pel canal de sortida estàndar 1 línia per a cada element
+         *  del menú seguint el format de print_menu_item */
         void print_menu() const;
 
-        bool p_set_data(list<instant>::iterator& it, Data data);
+        /** \brief Modifica la data d'una tasca del menú
+         *  \param[in]
+         *  \pre no is_passat(data)
+         *  \post si no existeix una tasca amb data d, la tasca del menú apuntada per
+         *  it té com a data d. Retorna si s'ha pogut fer la modificació */
+        bool p_set_data(list<instant>::iterator& it, Data d);
 
         /** \brief Afegeix una tasca (private)
          *  \param[in] data la data de la tasca a afegir
          *  \param[in] tasca la tasca a afegir
-         *  \return iterator a la tasca insertada i bool si s'ha pogut inserir
+         *  \return iterator a la tasca inserida i bool si s'ha pogut inserir
          *  \pre  no is_passat(data)
          *  \post si return.second, el p.i conté la tasca t i return.first és un
          *  instant que hi apunta */
         pair<instant, bool> p_add_tasca(const Data& data, const Tasca& t);
 
         /** \brief Fusiona 2 rangs de tasques fent la intersecció
-         *  \param[in] in1 inici del 1r rang
-         *  \param[in] in2 final del 1r rang
-         *  \param[in][out] l 2n rang i contenedor de la intersecció
+         *  \param[in] in1 inici del 1r operand
+         *  \param[in] in2 final del 1r operand
+         *  \param[in][out] l 2n operand i contenedor de la intersecció
          *  \pre in1 i in2 són iteradors a contenidors d'instants
          *  \post l conté la intersecció de [in1, in2) i l */
         template<typename Iterator>
         void merge_and(Iterator in1, Iterator in2, list<instant>& l);
 
         /** \brief Fusiona 2 rangs de tasques fent la unió
-         *  \param[in] in1 inici del 1r rang
-         *  \param[in] in2 final del 1r rang
-         *  \param[in][out] l 2n rang i contenedor de la unió
+         *  \param[in] in1 inici del 1r operand
+         *  \param[in] in2 final del 1r operand
+         *  \param[in][out] l 2n operand i contenedor de la unió
          *  \pre in1 i in2 són iteradors a contenidors d'instants
          *  \post l conté la unió de [in1, in2) i l */
         template<typename Iterator>
         void merge_or(Iterator in1, Iterator in2, list<instant>& l);
 
-        /** \brief Fa la búsqueda i escriu el menú d'un rang
-         *  \param[in] in1 inici del rang
-         *  \param[in] in2 final del rang
-         *  \pre in1 apunta a una tasca anterior a la de in2, i les dues no passades
-         *  menú està buit
-         *  \post el menú conté les tasques de [in1, in2) i s'ha mostrat el menú */
+        /** \brief Genera i escriu el menú d'un interval de tasques
+         *  Genera i escriu el menú (alhora) de totes les tasques entre in1 i in2,
+         *  [in1,in2) és un interval del cjt de tasques
+         *  \param[in] in1 inici de l'interval
+         *  \param[in] in2 final de l'interval
+         *  \pre in1 apunta a una tasca no passada i in2 apunta a una tasca no anterior a
+         *  la de in1 (informalment: rellotge del p.i <= *in1 <= *in2); i el menú està buit
+         *  \post el menú conté les tasques de [*in1, *in2) i s'ha mostrat el menú */
         void menu_directe(instant& in1, instant& in2);
 
-        /** \brief Fa la búsqueda i escriu el menú d'un rang
-         *  \param[in] in1 inici del rang
-         *  \param[in] in2 final del rang
-         *  \pre in1, in2 apunten a instants de tasques no passades i in1 anterior a in2
-         *  menú està buit
+        /** \brief Genera i escriu el menú d'un interval de tasques
+         *  Genera i escriu el menú (alhora) de totes les tasques entre in1 i in2,
+         *  [in1, in2) és un interval del cjt de tasques associat a una etiqueta
+         *  \param[in] in1 inici de l'interval
+         *  \param[in] in2 final de l'interval
+         *  \pre in1 apunta a una tasca no passada i in2 apunta a una tasca no anterior a
+         *  la de in1 (informalment: rellotge del p.i <= *in1 <= *in2); i el menú està buit
          *  \post el menú conté les tasques de [*in1, *in2) i s'ha mostrat el menú */
         void menu_directe(set_instant::iterator& in1, set_instant::iterator& in2);
 
+        /** \brief Llegeix una etiqueta d'una expressió
+         *  \param[in] exp expressió d'on s'ha d'extreure l'etiqueta
+         *  \param[out] tag string on s'ha de guardar l'etiqueta
+         *  \pre exp és un tros d'una expressió booleana on el 1r caràcter és el 1r
+         *  caràcter de l'etiqueta a extreure, tag = "#"
+         *  \post s'ha consumit l'etiqueta de exp i tag conté l'etiqueta extreta */
         void extract_tag(istringstream& exp, string& tag);
 
-        set_instant::iterator safe_bound(tag_set::iterator& tag, const instant& in);
+        /** \brief Obté una cota equivalent en el cjt d'instant d'una etiqueta
+         * Obté un iterador que apunta al primer instant del cjt de tags *tag que no és
+         * anterior a in
+         *  \param[in] tag iterador que apunta al cjt d'instants que s'ha d'acotar
+         *  \param[in] in instant amb el qual volem acotar el conjunt tag
+         *  \pre tag és valid (no apunta a l'end)
+         *  \post retorna un iterador del cjt d'instant d'una etiqueta tal que els
+         *  elements que hi són anteriors i posteriors també ho són respecte in;
+         *  si no n'hi ha cap retorna un iterador al final (end) */
+        set_instant::iterator safe_bound(tag_map::iterator& tag, const instant& in);
 
-        /** \brief Avalua una expressió parentitzada i guarda el resultat
-         *  \param[in] in1 inici del rang
-         *  \param[in] r2 final del rang
+        /** \brief Avalua una expressió parentitzada en un interval d'instants
+         *  \param[in] in1 inici de l'interval on avaluar
+         *  \param[in] in2 final de l'interval on avaluar
          *  \param[in] exp flux de l'expressió parentitzada
-         *  \param[out][in] llista on es guarda el resultat
-         *  \pre in1 i in2 apuntent a tasques no passades i in1 anterior a in2
-         *  \post l conté les tasques del rang que compleixen l'expressió  */
+         *  \param[out][in] l contenidor on es guarda el resultat
+         *  \pre in1 apunta a un element no passat i in2 és posterior a in1
+         *       exp és una expressió booleana de la forma:
+         *       exp: (e.e) | (e,e)
+         *         e: exp | etiqueta
+         *  \post l conté les tasques en [in1,in2) que compleixen l'expressió*/
         void exp_parentitzada(const instant& in1, const instant& in2, istringstream& exp, list<instant>& l);
 
         /** \brief Indica si es pot modificar la tasca #id del menu
          * \param[in] id número de la tasca en el menu
          * \pre true
-         * \post si es pot modificar retorna un iterador del menu i true
-         *       si no retorna false */
-        pair<list<instant>::iterator, bool> menu(const int id);
+         * \post si es pot modificar retorna un iterador a l'element id-èssim del menú;
+         *  si no, retorna false */
+        pair<list<instant>::iterator, bool> menu_item(const int id);
     public:
         /** \brief Constructor d'una agenda per defecte
          *  \pre true
-         *  \post el p.i és una agenda buida amb rellotge a origin
-         */
+         *  \post el p.i és una agenda buida amb rellotge al 20.04.15 00:00 */
         Agenda();
 
         //Modificadores
         /** \brief Avança el rellotge
          *  \param[in] data data fins on avançar
          *  \pre no is_passat(data)
-         *  \post si el rellotge del p.i marca \e data */
+         *  \post el rellotge del p.i marca \e data */
         void set_rellotge(Data data);
 
         /** \brief Afegeix una tasca
          *  \param[in] data la data de la tasca a afegir
          *  \param[in] tasca la tasca a afegir
-         *  \return si s'ha pogut afegir la tasca
          *  \pre  no is_passat(data)
          *  \post si retorna true el p.i conté la tasca t */
         bool add_tasca(const Data &data, const Tasca& t);
@@ -154,13 +191,25 @@ class Agenda {
          *  \post si retorna true, la tasca \e id del menú té com a títol \e titol */
         bool set_titol(const int id, string titol);
 
+        /** \brief Canvia el dia d'una tasca del menú
+         *  \param[in] id nº de la tasca al menú
+         *  \param[in] d nou dia de la tasca
+         *  \pre  true
+         *  \post si retorna true, la tasca \e id del menú té com a dia \e d */
+        bool set_dia(const int id, Dia d);
+
+        /** \brief Canvia la hora d'una tasca del menú
+         *  \param[in] id nº de la tasca al menú
+         *  \param[in] h nova hora de la tasca
+         *  \pre  true
+         *  \post si retorna true, la tasca \e id del menú té com a hora \e h */
+        bool set_hora(const int id, Hora h);
+
         /** \brief Canvia la data d'una tasca del menú
          *  \param[in] id nº de la tasca al menú
-         *  \param[in] data nova data de la tasca
-         *  \pre  no existeix(data)
-         *  \post si retorna true, la tasca \e id del menú té com a data \e data */
-        bool set_dia(const int id, Dia d);
-        bool set_hora(const int id, Hora d);
+         *  \param[in] d nova data de la tasca
+         *  \pre  true
+         *  \post si retorna true, la tasca \e id del menú té com a data \e d */
         bool set_data(const int id, Data d);
 
         /** \brief Afegeix una etiqueda a una tasca del menú
@@ -174,15 +223,13 @@ class Agenda {
          *  \param[in] id nº de la tasca al menú
          *  \param[in] etiqueta etiqueta a esborrar
          *  \pre  true
-         *  \post si retorna true, la tasca \e id no té l'etiqueta \e etiqueta
-         */
+         *  \post si retorna true, la tasca \e id no té l'etiqueta \e etiqueta */
         bool del_etiqueta(const int id, const string etiqueta);
 
         /** \brief Esborra totes les etiquedes d'una tasca del menú
          *  \param[in] id nº de la tasca al menú
          *  \pre true
-         *  \post si retorna true, la tasca \e id del menú no té cap etiqueta
-         */
+         *  \post si retorna true, la tasca \e id del menú no té cap etiqueta */
         bool del_etiquetes(const int id);
 
         /** \brief Esborra una tasca del menú
@@ -195,7 +242,7 @@ class Agenda {
         /** \brief Consulta si una data és passada
          *  \param[in] data la data a evaluar
          *  \pre true
-         *  \post retorna (data anterior al rellotge del p.i) */
+         *  \post retorna si data és anterior al rellotge del p.i */
         bool is_passat(const Data &data) const;
 
         /** \brief  Obté el dia del rellotge
@@ -205,27 +252,28 @@ class Agenda {
 
         /** \brief  Obté la hora del rellotge
          *  \pre true
-         *  \post retorna el rellotge del rellotge del p.i */
+         *  \post retorna la hora del rellotge del p.i */
         Hora get_hora() const;
 
-        /** \brief Genera el menu per busqueda en rang i expressió
-         *  \param[in] dia1 cota temporal inferior de la búsqueda
-         *  \param[in] dia2 cota temporal superior de la búsqueda
-         *  \param[in] expressio expressió booleana sobre les etiquetes
+        /** \brief Genera el menu de les tasques d'un interval que compleixen una expressió
+         *  \param[in] dia1 inici de l'interval temporal
+         *  \param[in] dia2 final de l'interval temporal
+         *  \param[in] expressio expressió booleana ben parentitzada (opcional)
          *  \pre true
          *  \post el menú conté les tasques amb data en [\e data1, \e data2] no passades
          *  amb un conjunt d'etiquetes que compleix \e expressio i es mostra el menú */
         void consulta(Dia dia1, Dia dia2, string expressio = "");
 
-        /** \brief Genera el menu corresponen a la búsqueda en un dia
-         *  \param[in] dia dia en què s'ha de buscar
-         *  \param[in] expressio expressió booleana sobre les etiquetes
+        /** \brief Genera el menu del tasques d'un dia que compleixen una expressió
+         *  \param[in] dia dia on han d'estar les tasques
+         *  \param[in] expressio expressió booleana ben parentitzada (opcional)
          *  \pre true
          *  \post el menú conté les tasques no passades amb dia \e dia i un un conjunt
          *  d'etiquetes que compleix \e expressio i es mostra el menú */
         void consulta(Dia dia, string expressio = "");
 
-        /** \brief Genera el menu de les tasques que compleixen expressió
+        /** \brief Genera el menu de les tasques que compleixen una expressió
+         * En aquest cas no hi ha cap restricció temporal, sinó que es busca en totes
          *  \pre true
          *  \post el menú conté les tasques no passades amb un conjunt d'etiquetes que
          *  compleix expressio i es mostra el menú */
@@ -234,11 +282,8 @@ class Agenda {
         // Escriptura
         /** \brief Escriu totes les tasques del passat
          * \pre true
-         * \post es mostren totes les tasques del passat */
+         * \post s'han mostrat pel canal estàndar de sortida totes les tasques anteriors
+         * al rellotge del p.i */
         void passat();
-
-        void print_llista(const list<instant>& l);
-        void print_map_data_tasca();
-        void print_map_tags();
 };
 #endif
