@@ -6,18 +6,20 @@
 using namespace std;
 
 Agenda::Agenda() {
+    // Dia per defecte de l'enunciat
     clock_ = {make_pair(Dia(20,4,15),Hora(0,0)),tasks_.begin()};
 }
 
 void Agenda::set_rellotge(Data data) {
-    instant it = tasks_.lower_bound(data);
+    instant it = tasks_.lower_bound(data); //primera tasca del present
+    // Actualitzar el conjunt d'etiquetes (esborrar les tasques passades)
     while (clock_.second != it) {
         Tasca::tag_iterator inici = clock_.second->second.begin_etiquetes();
         Tasca::tag_iterator fi = clock_.second->second.end_etiquetes();
         while(inici != fi) {
-            tag_map::iterator t = tags_.find(*inici);
-            t->second.erase(clock_.second);
-            if (t->second.empty()) tags_.erase(t);
+            tag_map::iterator t = tags_.find(*inici); // cjt associat a l'etiqueta
+            t->second.erase(clock_.second); // esborrar l'instant
+            if (t->second.empty()) tags_.erase(t); // esborar el cjt si es buit
             ++inici;
         }
         ++clock_.second;
@@ -34,10 +36,10 @@ pair<Agenda::instant, bool> Agenda::p_add_tasca(const Data& data, const Tasca& t
             tags_[*tag].insert(ins.first);
             ++tag;
         }
-        // actualitza rellotge
-        ++ins.first;
+        // si estem abans de la primera data no passada
+       ++ins.first;
         if (ins.first == clock_.second) --clock_.second;
-        --ins.first;
+       --ins.first;
     }
     return ins;
 }
@@ -84,6 +86,7 @@ bool Agenda::p_set_data(list<instant>::iterator& it, Data data) {
 
 bool Agenda::set_data(const int id, Data d) {
     pair<list<instant>::iterator,bool> it = menu_item(id);
+    // si es pot inserir i no existeix ja la mateixa data
     if (it.second and (*it.first)->first != d) it.second = p_set_data(it.first, d);
     return it.second;
 }
