@@ -66,6 +66,7 @@ bool Agenda::set_titol(const int id, string titol) {
 }
 
 bool Agenda::p_set_data(list<instant>::iterator& it, Data data) {
+        if (data < clock_.first) return false;
         Tasca tem = (*it)->second;
         pair<instant,bool> ans = p_add_tasca(data, tem);
         if (ans.second) {
