@@ -89,6 +89,16 @@ class Agenda {
          *  instant que hi apunta */
         pair<instant, bool> p_add_tasca(const Data& data, const Tasca& t);
 
+        /** \brief Genera i escriu el menú d'un interval de tasques
+         *  Genera i escriu el menú (alhora) de totes les tasques entre in1 i in2,
+         *  [in1,in2) és un interval del cjt de tasques
+         *  \param[in] in1 inici de l'interval
+         *  \param[in] in2 final de l'interval
+         *  \pre in1 apunta a una tasca no passada i in2 apunta a una tasca no anterior a
+         *  la de in1 (informalment: rellotge del p.i <= *in1 <= *in2); i el menú està buit
+         *  \post el menú conté les tasques de [*in1, *in2) i s'ha mostrat el menú */
+        void menu_directe(instant& in1, instant& in2);
+
         /** \brief Fusiona 2 rangs de tasques fent la intersecció
          *  \param[in] in1 inici del 1r operand
          *  \param[in] in2 final del 1r operand
@@ -106,16 +116,6 @@ class Agenda {
          *  \post l conté la unió de [in1, in2) i l */
         template<typename Iterator>
         void merge_or(Iterator in1, Iterator in2, list<instant>& l);
-
-        /** \brief Genera i escriu el menú d'un interval de tasques
-         *  Genera i escriu el menú (alhora) de totes les tasques entre in1 i in2,
-         *  [in1,in2) és un interval del cjt de tasques
-         *  \param[in] in1 inici de l'interval
-         *  \param[in] in2 final de l'interval
-         *  \pre in1 apunta a una tasca no passada i in2 apunta a una tasca no anterior a
-         *  la de in1 (informalment: rellotge del p.i <= *in1 <= *in2); i el menú està buit
-         *  \post el menú conté les tasques de [*in1, *in2) i s'ha mostrat el menú */
-        void menu_directe(instant& in1, instant& in2);
 
         /** \brief Genera i escriu el menú d'un interval de tasques
          *  Genera i escriu el menú (alhora) de totes les tasques entre in1 i in2,
