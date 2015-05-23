@@ -1,0 +1,50 @@
++ dinar amb la familia 30.05.15 14:00 #familia #descans #cumple
++ cine #art #lleure #descans 18:30 02.06.15
++ entrenament #lleure #run #club #equip 19:30
++ graduacio de la escola 20.06.14 18:00 #lleure #descans #familia #cole
++ anar al dentista 02.06.15 11:00 #caries #medic
++ campionats regionals #equip #club #lleure #run 10:00 10.06.15
++ viatge a illes balears 29.06.15 10:00
+?
+passat?
+? #lleure
+? #chill 02.06.15
+? (#lleure,#descans)
+? ((#lleure,#descans).#run)
+? ((#descans.#cumple),(#run.#equip))
+? ((#descans.#cumple),(#run.#equip)) 30.05.15
+? ((#descans.#cumple),(#run.#equip)) 30.03.15 30.05.15
+? (#salut,(#cumple.#club))
+? (#salut,(#cumple.#club)) 10.06.15
+? (#salut,(#cumple.#club)) 02.06.15 10.06.15
+1 00:00
+? (#salut,(#cumple.#club)) 02.06.15
+1 23:59
+? (#salut,(#cumple.#club)) 02.06.15
+1 00:00 03.06.15
+? (#salut,(#cumple.#club)) 02.06.15
++ anar a la uni 11.06.15 09:00 #classe #concentracio #amics
++ entreno 12.06.15 17:00 #run #club #amics #equip
++ 13.06.15 platja
+?
+-1
+1 #guanyar
+2 20.06.15 10:00
+2 #pro2 #mates
+3 -#run
+3 -#sol
+4 #sol #sol #sol
+?
+1 -etiquetes
+2 sitges i anar a la platja #gelat
+3 20.04.15
+rellotge?
+rellotge 20:00
+passat?
+rellotge 20:00
+rellotge 00:00 20.06.15
+?
+rellotge 20.06.15
+rellotge 20.06.15 00:00
+rellotge 00.05.15 10:00
+sortir
