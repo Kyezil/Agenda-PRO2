@@ -123,9 +123,13 @@ bool Agenda::del_etiqueta(const int id, string etiqueta) {
         tag_set::iterator t = tags_.find(etiqueta);
         if (t == tags_.end()) it.second = false;
         else {
-            (*it.first)->second.del_etiqueta(etiqueta);
-            t->second.erase(*it.first);
-            if (t->second.empty()) tags_.erase(t);
+            set_instant::iterator el = t->second.find(*it.first);
+            if (el == t->second.end()) it.second = false;
+            else {
+                (*it.first)->second.del_etiqueta(etiqueta);
+                t->second.erase(el);
+                if (t->second.empty()) tags_.erase(t);
+            }
         }
     }
     return it.second;
