@@ -85,26 +85,19 @@ bool Agenda::p_set_data(list<instant>::iterator& it, Data data) {
 
 bool Agenda::set_data(const int id, Data d) {
     pair<list<instant>::iterator,bool> it = menu(id);
-    if (it.second and (*it.first)->first != d) it.second = p_set_data(it.first, d);
-    return it.second;
+    return it.second and ((*it.first)->first != d) and p_set_data(it.first, d);
 }
 
 bool Agenda::set_dia(const int id, Dia d) {
     pair<list<instant>::iterator,bool> it = menu(id);
-    if (it.second and (*it.first)->first.first != d) {
-        Data dat = make_pair(d, (*it.first)->first.second);
-        it.second = p_set_data(it.first, dat);
-    }
-    return it.second;
+    return it.second and ((*it.first)->first.first != d) and 
+        p_set_data(it.first, make_pair(d, (*it.first)->first.second));
 }
 
 bool Agenda::set_hora(const int id, Hora h) {
     pair<list<instant>::iterator,bool> it = menu(id);
-    if (it.second and (*it.first)->first.second != h) {
-        Data d = make_pair((*it.first)->first.first, h);
-        it.second = p_set_data(it.first, d);
-    }
-    return it.second;
+    return it.second and ((*it.first)->first.second != h) and
+        p_set_data(it.first, make_pair((*it.first)->first.first, h));
 
 }
 
