@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>Agenda-PRO2: Fitxer de Codi comanda.hh</title>
+<title>Agenda-PRO2: Fitxer de Codi src/comanda.hh</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,7 +83,7 @@ $(document).ready(function(){initNavTree('comanda_8hh_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tot</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fitxers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funcions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definicions de Tipus</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pàgines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tot</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fitxers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funcions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definicions de Tipus</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Classes Amigues</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,39 +112,39 @@ $(document).ready(function(){initNavTree('comanda_8hh_source.html','');});
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classComanda.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classComanda.html">Comanda</a> {</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> MAX_i_data = 2;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classComanda.html#abf1249ea57fd3525306f1817be45177c">   26</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> MAX_i_data = 2;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    vector&lt;Token&gt; e;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> mida;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classComanda.html#a4792137ffe62e366d017c085798e1de7">   28</a></span>&#160;    vector&lt;Token&gt; <a class="code" href="classComanda.html#a4792137ffe62e366d017c085798e1de7">e</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classComanda.html#abaf613f247586557027ad5857ace89c2">   29</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classComanda.html#abaf613f247586557027ad5857ace89c2">mida</a>;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">bool</span> e_insercio;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">bool</span> e_consulta;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">bool</span> e_passat;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">bool</span> e_modificacio;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> e_rellotge;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> e_esborrat;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">bool</span> e_acabament;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classComanda.html#afa50474d0c9c08da1f3042cfddc9df24">   31</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classComanda.html#afa50474d0c9c08da1f3042cfddc9df24">e_insercio</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classComanda.html#a558a2944c2306c12df9f889fc96a58dd">   32</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classComanda.html#a558a2944c2306c12df9f889fc96a58dd">e_consulta</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classComanda.html#a38e7cdf2003076cbe88461f03dc2106c">   33</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classComanda.html#a38e7cdf2003076cbe88461f03dc2106c">e_passat</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classComanda.html#a96d917429f6bfa73608d745ad1e1dfc7">   34</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classComanda.html#a96d917429f6bfa73608d745ad1e1dfc7">e_modificacio</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classComanda.html#ad73910246f9c47c887a3c01b53350282">   35</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classComanda.html#ad73910246f9c47c887a3c01b53350282">e_rellotge</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classComanda.html#a70a9790e90a45015dbcd4c6700ec0812">   36</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classComanda.html#a70a9790e90a45015dbcd4c6700ec0812">e_esborrat</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classComanda.html#a0f7472af37d7f6c24f74fbac60e4a696">   37</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classComanda.html#a0f7472af37d7f6c24f74fbac60e4a696">e_acabament</a>;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span>  n_dates;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    vector&lt;string&gt; i_data;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classComanda.html#a0a4e13d8edba10c69d1b058d8fc6a7c3">   39</a></span>&#160;    <span class="keywordtype">int</span>  <a class="code" href="classComanda.html#a0a4e13d8edba10c69d1b058d8fc6a7c3">n_dates</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classComanda.html#a06ee1d3173ee0ae52c588689e9263099">   40</a></span>&#160;    vector&lt;string&gt; <a class="code" href="classComanda.html#a06ee1d3173ee0ae52c588689e9263099">i_data</a>;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">bool</span> t_hora;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">string</span> i_hora;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classComanda.html#ae481194a2016e940e655173e897d214d">   42</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classComanda.html#ae481194a2016e940e655173e897d214d">t_hora</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classComanda.html#a480a34460b3668a5b4a1fa7e796632db">   43</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classComanda.html#a480a34460b3668a5b4a1fa7e796632db">i_hora</a>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">bool</span> t_titol;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">string</span> i_titol;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classComanda.html#a08e8674396e2125cf8b2900f289713a7">   45</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classComanda.html#a08e8674396e2125cf8b2900f289713a7">t_titol</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classComanda.html#aca04e90eab5ac14ddc3b25f154aabe48">   46</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classComanda.html#aca04e90eab5ac14ddc3b25f154aabe48">i_titol</a>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">int</span>  n_etiquetes;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    vector&lt;string&gt; i_etiqueta;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classComanda.html#a1e525815f0745140e05da2ebb96ec39a">   48</a></span>&#160;    <span class="keywordtype">int</span>  <a class="code" href="classComanda.html#a1e525815f0745140e05da2ebb96ec39a">n_etiquetes</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classComanda.html#a1d193f66ea6d2681ab79a16192da3114">   49</a></span>&#160;    vector&lt;string&gt; <a class="code" href="classComanda.html#a1d193f66ea6d2681ab79a16192da3114">i_etiqueta</a>;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">bool</span> t_expressio;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">string</span> i_expressio;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classComanda.html#ac7037525fc1cd9f49b02bd87cf4b6123">   51</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classComanda.html#ac7037525fc1cd9f49b02bd87cf4b6123">t_expressio</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classComanda.html#a9236cdc5142b6a9f4116673abce06508">   52</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classComanda.html#a9236cdc5142b6a9f4116673abce06508">i_expressio</a>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">string</span> i_esborrat;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classComanda.html#a269a43d5b283a23792791a2ba67747b0">   54</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classComanda.html#a269a43d5b283a23792791a2ba67747b0">i_esborrat</a>;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">int</span> i_tasca;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classComanda.html#aab152fe48a937f449c027a2274fc31e7">   56</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classComanda.html#aab152fe48a937f449c027a2274fc31e7">i_tasca</a>;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">bool</span> error;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classComanda.html#a9a1bf4bf74940a4bac90140e67d11972">   58</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classComanda.html#a9a1bf4bf74940a4bac90140e67d11972">error</a>;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">// inicialitzar atributs de la comanda</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> iniciar();</div>
@@ -224,16 +224,38 @@ $(document).ready(function(){initNavTree('comanda_8hh_source.html','');});
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;};</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classComanda_html_aca04e90eab5ac14ddc3b25f154aabe48"><div class="ttname"><a href="classComanda.html#aca04e90eab5ac14ddc3b25f154aabe48">Comanda::i_titol</a></div><div class="ttdeci">string i_titol</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00046">comanda.hh:46</a></div></div>
+<div class="ttc" id="classComanda_html_a269a43d5b283a23792791a2ba67747b0"><div class="ttname"><a href="classComanda.html#a269a43d5b283a23792791a2ba67747b0">Comanda::i_esborrat</a></div><div class="ttdeci">string i_esborrat</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00054">comanda.hh:54</a></div></div>
+<div class="ttc" id="classComanda_html_a9a1bf4bf74940a4bac90140e67d11972"><div class="ttname"><a href="classComanda.html#a9a1bf4bf74940a4bac90140e67d11972">Comanda::error</a></div><div class="ttdeci">bool error</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00058">comanda.hh:58</a></div></div>
+<div class="ttc" id="classComanda_html_a1d193f66ea6d2681ab79a16192da3114"><div class="ttname"><a href="classComanda.html#a1d193f66ea6d2681ab79a16192da3114">Comanda::i_etiqueta</a></div><div class="ttdeci">vector&lt; string &gt; i_etiqueta</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00049">comanda.hh:49</a></div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="classComanda_html_a70a9790e90a45015dbcd4c6700ec0812"><div class="ttname"><a href="classComanda.html#a70a9790e90a45015dbcd4c6700ec0812">Comanda::e_esborrat</a></div><div class="ttdeci">bool e_esborrat</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00036">comanda.hh:36</a></div></div>
+<div class="ttc" id="classComanda_html_ae481194a2016e940e655173e897d214d"><div class="ttname"><a href="classComanda.html#ae481194a2016e940e655173e897d214d">Comanda::t_hora</a></div><div class="ttdeci">bool t_hora</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00042">comanda.hh:42</a></div></div>
+<div class="ttc" id="classComanda_html_abaf613f247586557027ad5857ace89c2"><div class="ttname"><a href="classComanda.html#abaf613f247586557027ad5857ace89c2">Comanda::mida</a></div><div class="ttdeci">int mida</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00029">comanda.hh:29</a></div></div>
+<div class="ttc" id="classComanda_html_ad73910246f9c47c887a3c01b53350282"><div class="ttname"><a href="classComanda.html#ad73910246f9c47c887a3c01b53350282">Comanda::e_rellotge</a></div><div class="ttdeci">bool e_rellotge</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00035">comanda.hh:35</a></div></div>
+<div class="ttc" id="classComanda_html_ac7037525fc1cd9f49b02bd87cf4b6123"><div class="ttname"><a href="classComanda.html#ac7037525fc1cd9f49b02bd87cf4b6123">Comanda::t_expressio</a></div><div class="ttdeci">bool t_expressio</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00051">comanda.hh:51</a></div></div>
+<div class="ttc" id="classComanda_html_aab152fe48a937f449c027a2274fc31e7"><div class="ttname"><a href="classComanda.html#aab152fe48a937f449c027a2274fc31e7">Comanda::i_tasca</a></div><div class="ttdeci">int i_tasca</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00056">comanda.hh:56</a></div></div>
+<div class="ttc" id="classComanda_html_a480a34460b3668a5b4a1fa7e796632db"><div class="ttname"><a href="classComanda.html#a480a34460b3668a5b4a1fa7e796632db">Comanda::i_hora</a></div><div class="ttdeci">string i_hora</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00043">comanda.hh:43</a></div></div>
+<div class="ttc" id="classComanda_html_afa50474d0c9c08da1f3042cfddc9df24"><div class="ttname"><a href="classComanda.html#afa50474d0c9c08da1f3042cfddc9df24">Comanda::e_insercio</a></div><div class="ttdeci">bool e_insercio</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00031">comanda.hh:31</a></div></div>
+<div class="ttc" id="classComanda_html_a1e525815f0745140e05da2ebb96ec39a"><div class="ttname"><a href="classComanda.html#a1e525815f0745140e05da2ebb96ec39a">Comanda::n_etiquetes</a></div><div class="ttdeci">int n_etiquetes</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00048">comanda.hh:48</a></div></div>
 <div class="ttc" id="token_8hh_html"><div class="ttname"><a href="token_8hh.html">token.hh</a></div><div class="ttdoc">Classe Token. </div></div>
+<div class="ttc" id="classComanda_html_a9236cdc5142b6a9f4116673abce06508"><div class="ttname"><a href="classComanda.html#a9236cdc5142b6a9f4116673abce06508">Comanda::i_expressio</a></div><div class="ttdeci">string i_expressio</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00052">comanda.hh:52</a></div></div>
+<div class="ttc" id="classComanda_html_a06ee1d3173ee0ae52c588689e9263099"><div class="ttname"><a href="classComanda.html#a06ee1d3173ee0ae52c588689e9263099">Comanda::i_data</a></div><div class="ttdeci">vector&lt; string &gt; i_data</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00040">comanda.hh:40</a></div></div>
+<div class="ttc" id="classComanda_html_a08e8674396e2125cf8b2900f289713a7"><div class="ttname"><a href="classComanda.html#a08e8674396e2125cf8b2900f289713a7">Comanda::t_titol</a></div><div class="ttdeci">bool t_titol</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00045">comanda.hh:45</a></div></div>
+<div class="ttc" id="classComanda_html_a0f7472af37d7f6c24f74fbac60e4a696"><div class="ttname"><a href="classComanda.html#a0f7472af37d7f6c24f74fbac60e4a696">Comanda::e_acabament</a></div><div class="ttdeci">bool e_acabament</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00037">comanda.hh:37</a></div></div>
+<div class="ttc" id="classComanda_html_a96d917429f6bfa73608d745ad1e1dfc7"><div class="ttname"><a href="classComanda.html#a96d917429f6bfa73608d745ad1e1dfc7">Comanda::e_modificacio</a></div><div class="ttdeci">bool e_modificacio</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00034">comanda.hh:34</a></div></div>
 <div class="ttc" id="classComanda_html"><div class="ttname"><a href="classComanda.html">Comanda</a></div><div class="ttdoc">Representa una comanda (línia de text d&#39;entrada). El mètode llegir permet utilitzar consultores sobre...</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00023">comanda.hh:23</a></div></div>
+<div class="ttc" id="classComanda_html_a0a4e13d8edba10c69d1b058d8fc6a7c3"><div class="ttname"><a href="classComanda.html#a0a4e13d8edba10c69d1b058d8fc6a7c3">Comanda::n_dates</a></div><div class="ttdeci">int n_dates</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00039">comanda.hh:39</a></div></div>
+<div class="ttc" id="classComanda_html_a4792137ffe62e366d017c085798e1de7"><div class="ttname"><a href="classComanda.html#a4792137ffe62e366d017c085798e1de7">Comanda::e</a></div><div class="ttdeci">vector&lt; Token &gt; e</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00028">comanda.hh:28</a></div></div>
+<div class="ttc" id="classComanda_html_a38e7cdf2003076cbe88461f03dc2106c"><div class="ttname"><a href="classComanda.html#a38e7cdf2003076cbe88461f03dc2106c">Comanda::e_passat</a></div><div class="ttdeci">bool e_passat</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00033">comanda.hh:33</a></div></div>
+<div class="ttc" id="classComanda_html_a558a2944c2306c12df9f889fc96a58dd"><div class="ttname"><a href="classComanda.html#a558a2944c2306c12df9f889fc96a58dd">Comanda::e_consulta</a></div><div class="ttdeci">bool e_consulta</div><div class="ttdef"><b>Definition:</b> <a href="comanda_8hh_source.html#l00032">comanda.hh:32</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="comanda_8hh.html">comanda.hh</a></li>
-    <li class="footer">Generat a Dt Mai 5 2015 20:42:58 per a Agenda-PRO2 per
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="comanda_8hh.html">comanda.hh</a></li>
+    <li class="footer">Generat a Dg Mai 24 2015 23:02:41 per a Agenda-PRO2 per
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

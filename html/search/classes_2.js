@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dia',['Dia',['../structDia.html',1,'']]]
+  ['dia',['Dia',['../classDia.html',1,'']]]
 ];

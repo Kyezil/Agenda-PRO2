@@ -10,6 +10,10 @@
 #include "comanda.hh"
 using namespace std;
 
+/** \brief Escriu un missatge d'error
+ * \param[in] ok booleà que indica si NO s'ha d'escriu el missatge
+ * \pre true
+ * \post si no ok s'ha escrit un missatge d'error pel canal de sortida estàndar */
 void nop(bool ok = false) {
     if (not ok) cout << "No s'ha realitzat\n";
 }

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>Agenda-PRO2: Fitxer de Codi agenda.hh</title>
+<title>Agenda-PRO2: Fitxer de Codi src/agenda.hh</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,7 +83,7 @@ $(document).ready(function(){initNavTree('agenda_8hh_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tot</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fitxers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funcions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definicions de Tipus</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pàgines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tot</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fitxers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funcions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definicions de Tipus</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Classes Amigues</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -98,81 +98,127 @@ $(document).ready(function(){initNavTree('agenda_8hh_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="agenda_8hh.html">Veure la documentació d'aquest fitxer.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef AGENDA_HH</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define AGENDA_HH</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef AGENDA_HH</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define AGENDA_HH</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tasca_8hh.html">tasca.hh</a>&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="data_8hh.html">data.hh</a>&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classAgenda.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAgenda.html">Agenda</a> {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        pair&lt;Data, map&lt;Data,Tasca&gt;::const_iterator&gt; rellotge;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        map&lt;Data, Tasca&gt; tasques;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        map&lt;string, map&lt;Data, Tasca*&gt; &gt; etiquetes;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        map&lt;Data, Tasca*&gt; menu_map;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        vector&lt;pair&lt;Data, Tasca*&gt; &gt; menu;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classAgenda.html">Agenda</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">//Modificadores</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> set_rellotge(<a class="code" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> data);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">void</span> add_tasca(<span class="keywordtype">string</span> titol, <a class="code" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> data);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> set_titol(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">string</span> titol);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">void</span> set_data(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <a class="code" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> data);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">void</span> add_etiqueta(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">string</span> etiqueta);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordtype">void</span> del_etiqueta(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">string</span> etiqueta);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">void</span> del_etiquetes(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordtype">void</span> del_tasca(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="comment">// Consultores</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"></span>        <span class="keywordtype">bool</span> existeix(<a class="code" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> data) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classAgenda.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAgenda.html">Agenda</a> {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="classAgenda.html">Agenda</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">//Modificadores</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> set_rellotge(<a class="code" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> data);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">bool</span> add_tasca(<span class="keyword">const</span> <a class="code" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> &amp;data, <span class="keyword">const</span> <a class="code" href="classTasca.html">Tasca</a>&amp; t);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">bool</span> set_titol(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">string</span> titol);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">bool</span> set_dia(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <a class="code" href="classDia.html">Dia</a> d);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">bool</span> set_hora(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <a class="code" href="classHora.html">Hora</a> h);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">bool</span> set_data(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <a class="code" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> d);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">bool</span> add_etiqueta(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">string</span> etiqueta);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">bool</span> del_etiqueta(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keyword">const</span> <span class="keywordtype">string</span> etiqueta);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">bool</span> del_etiquetes(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordtype">bool</span> del_tasca(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordtype">bool</span> es_passat(<a class="code" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> data) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordtype">bool</span> es_modificable(<span class="keywordtype">int</span> <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="comment">// Consultores</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment"></span>        <span class="keywordtype">bool</span> is_passat(<span class="keyword">const</span> <a class="code" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> &amp;data) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <a class="code" href="classDia.html">Dia</a> get_dia() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordtype">void</span> print_rellotge() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="classHora.html">Hora</a> get_hora() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <a class="code" href="structDia.html">Dia</a> get_dia() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <a class="code" href="structHora.html">Hora</a> get_hora() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordtype">void</span> consulta(<a class="code" href="structDia.html">Dia</a> dia1, <a class="code" href="structDia.html">Dia</a> dia2, <span class="keywordtype">string</span> expressio = <span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordtype">void</span> consulta(<a class="code" href="structDia.html">Dia</a> dia, <span class="keywordtype">string</span> expressio = <span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordtype">void</span> consulta();</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="comment">// Escriptura</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> passat() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;};</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="classAgenda_html"><div class="ttname"><a href="classAgenda.html">Agenda</a></div><div class="ttdoc">Representa una agenda amb un conjunt de tasques amb etiquetes. </div><div class="ttdef"><b>Definition:</b> <a href="agenda_8hh_source.html#l00028">agenda.hh:28</a></div></div>
-<div class="ttc" id="structHora_html"><div class="ttname"><a href="structHora.html">Hora</a></div><div class="ttdoc">Representa una hora, hora:minut. </div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00037">data.hh:37</a></div></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordtype">void</span> consulta(<a class="code" href="classDia.html">Dia</a> dia1, <a class="code" href="classDia.html">Dia</a> dia2, <span class="keywordtype">string</span> expressio = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keywordtype">void</span> consulta(<a class="code" href="classDia.html">Dia</a> dia, <span class="keywordtype">string</span> expressio = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordtype">void</span> consulta(<span class="keywordtype">string</span> expressio = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="comment">// Escriptura</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> passat();</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keyword">typedef</span> map&lt;Data, Tasca&gt;::iterator <a class="code" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a>;</div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="classAgenda.html#a81d8b6bbacc6457812e56e1673ff85e9">  166</a></span>&#160;        <span class="keyword">typedef</span> map&lt;Data, Tasca&gt;::const_iterator <a class="code" href="classAgenda.html#a81d8b6bbacc6457812e56e1673ff85e9">cinstant</a>;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="structAgenda_1_1ordre__instant.html">  170</a></span>&#160;        <span class="keyword">struct </span><a class="code" href="structAgenda_1_1ordre__instant.html">ordre_instant</a> {</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> instant&amp; a, <span class="keyword">const</span> instant&amp; b) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        };</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="classAgenda.html#a0c8ffc685adc383ad053962d71c6bde4">  180</a></span>&#160;        <span class="keyword">typedef</span> set&lt;instant, ordre_instant&gt; <a class="code" href="classAgenda.html#a0c8ffc685adc383ad053962d71c6bde4">set_instant</a>;</div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="classAgenda.html#a30845902779495023753776f38bfe464">  182</a></span>&#160;        <span class="keyword">typedef</span> map&lt;string, set_instant&gt; <a class="code" href="classAgenda.html#a30845902779495023753776f38bfe464">tag_map</a>;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="classAgenda.html#a39cb68838b3f54776812c51e559ee8e0">  185</a></span>&#160;        pair&lt;Data, instant&gt; <a class="code" href="classAgenda.html#a39cb68838b3f54776812c51e559ee8e0">clock_</a>;</div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="classAgenda.html#a34ca04664781e905fb50d8053a4b220e">  187</a></span>&#160;        map&lt;Data, Tasca&gt; <a class="code" href="classAgenda.html#a34ca04664781e905fb50d8053a4b220e">tasks_</a>;</div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="classAgenda.html#ab27331223fbc69ccd60c97dfa8e5c4c3">  189</a></span>&#160;        map&lt;string, set_instant&gt; <a class="code" href="classAgenda.html#ab27331223fbc69ccd60c97dfa8e5c4c3">tags_</a>;</div>
+<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="classAgenda.html#ac8b3c38dde65025e4fd9b8ed67a1bfa3">  191</a></span>&#160;        list&lt;instant&gt; <a class="code" href="classAgenda.html#ac8b3c38dde65025e4fd9b8ed67a1bfa3">menu_</a>;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        pair&lt;list&lt;instant&gt;::iterator, <span class="keywordtype">bool</span>&gt; menu_item(<span class="keyword">const</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        pair&lt;instant, bool&gt; p_add_tasca(<span class="keyword">const</span> <a class="code" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a>&amp; data, <span class="keyword">const</span> <a class="code" href="classTasca.html">Tasca</a>&amp; t);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordtype">bool</span> p_set_data(list&lt;instant&gt;::iterator&amp; it, <a class="code" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> d);</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keywordtype">void</span> menu_directe(instant&amp; in1, instant&amp; in2);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keywordtype">void</span> menu_directe(set_instant::iterator&amp; in1, set_instant::iterator&amp; in2);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Iterator&gt;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <span class="keywordtype">void</span> merge_and(Iterator in1, Iterator in2, list&lt;instant&gt;&amp; l);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Iterator&gt;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keywordtype">void</span> merge_or(Iterator in1, Iterator in2, list&lt;instant&gt;&amp; l);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="keywordtype">string</span> extract_tag(istringstream&amp; exp);</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        set_instant::iterator safe_bound(tag_map::iterator&amp; tag, <span class="keyword">const</span> instant&amp; in);</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        <span class="keywordtype">void</span> exp_parentitzada(<span class="keyword">const</span> instant&amp; in1, <span class="keyword">const</span> instant&amp; in2, istringstream&amp; exp, list&lt;instant&gt;&amp; l);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="keywordtype">void</span> print_menu_item(<span class="keywordtype">int</span> i, <span class="keyword">const</span> cinstant&amp; it) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <span class="keywordtype">void</span> print_menu() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;};</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="structAgenda_1_1ordre__instant_html"><div class="ttname"><a href="structAgenda_1_1ordre__instant.html">Agenda::ordre_instant</a></div><div class="ttdef"><b>Definition:</b> <a href="agenda_8hh_source.html#l00170">agenda.hh:170</a></div></div>
+<div class="ttc" id="classAgenda_html"><div class="ttname"><a href="classAgenda.html">Agenda</a></div><div class="ttdoc">Representa una agenda amb un conjunt de tasques amb etiquetes. </div><div class="ttdef"><b>Definition:</b> <a href="agenda_8hh_source.html#l00032">agenda.hh:32</a></div></div>
+<div class="ttc" id="classAgenda_html_a505505981b60ebb5ae54a6dbb646952d"><div class="ttname"><a href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">Agenda::instant</a></div><div class="ttdeci">map&lt; Data, Tasca &gt;::iterator instant</div><div class="ttdoc">Un instant itera sobre el conjunt de les tasques. </div><div class="ttdef"><b>Definition:</b> <a href="agenda_8hh_source.html#l00164">agenda.hh:164</a></div></div>
+<div class="ttc" id="classDia_html"><div class="ttname"><a href="classDia.html">Dia</a></div><div class="ttdoc">Representa un dia, dia.mes.any. </div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00016">data.hh:16</a></div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="classAgenda_html_ac8b3c38dde65025e4fd9b8ed67a1bfa3"><div class="ttname"><a href="classAgenda.html#ac8b3c38dde65025e4fd9b8ed67a1bfa3">Agenda::menu_</a></div><div class="ttdeci">list&lt; instant &gt; menu_</div><div class="ttdoc">Menú: guarda les tasques corresponents a la última consulta. </div><div class="ttdef"><b>Definition:</b> <a href="agenda_8hh_source.html#l00191">agenda.hh:191</a></div></div>
+<div class="ttc" id="classAgenda_html_a0c8ffc685adc383ad053962d71c6bde4"><div class="ttname"><a href="classAgenda.html#a0c8ffc685adc383ad053962d71c6bde4">Agenda::set_instant</a></div><div class="ttdeci">set&lt; instant, ordre_instant &gt; set_instant</div><div class="ttdoc">Un set_instant és un conjunt d&#39;instants ordenats per ordre_instant. </div><div class="ttdef"><b>Definition:</b> <a href="agenda_8hh_source.html#l00180">agenda.hh:180</a></div></div>
+<div class="ttc" id="classTasca_html"><div class="ttname"><a href="classTasca.html">Tasca</a></div><div class="ttdoc">Representa una tasca amb etiquetes associades. </div><div class="ttdef"><b>Definition:</b> <a href="tasca_8hh_source.html#l00019">tasca.hh:19</a></div></div>
+<div class="ttc" id="classAgenda_html_a34ca04664781e905fb50d8053a4b220e"><div class="ttname"><a href="classAgenda.html#a34ca04664781e905fb50d8053a4b220e">Agenda::tasks_</a></div><div class="ttdeci">map&lt; Data, Tasca &gt; tasks_</div><div class="ttdoc">Conjunt de tasques: guarda les tasques ordenades i associades per la seva data. </div><div class="ttdef"><b>Definition:</b> <a href="agenda_8hh_source.html#l00187">agenda.hh:187</a></div></div>
 <div class="ttc" id="tasca_8hh_html"><div class="ttname"><a href="tasca_8hh.html">tasca.hh</a></div><div class="ttdoc">Classe Tasca. </div></div>
-<div class="ttc" id="data_8hh_html_a6ce001f8a23e966a5b4b6ee856f309f4"><div class="ttname"><a href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a></div><div class="ttdeci">pair&lt; Dia, Hora &gt; Data</div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00055">data.hh:55</a></div></div>
-<div class="ttc" id="structDia_html"><div class="ttname"><a href="structDia.html">Dia</a></div><div class="ttdoc">Representa un dia, dia.mes.any. </div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00015">data.hh:15</a></div></div>
+<div class="ttc" id="data_8hh_html_a6ce001f8a23e966a5b4b6ee856f309f4"><div class="ttname"><a href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a></div><div class="ttdeci">pair&lt; Dia, Hora &gt; Data</div><div class="ttdoc">Definició de Data. </div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00124">data.hh:124</a></div></div>
+<div class="ttc" id="classAgenda_html_a39cb68838b3f54776812c51e559ee8e0"><div class="ttname"><a href="classAgenda.html#a39cb68838b3f54776812c51e559ee8e0">Agenda::clock_</a></div><div class="ttdeci">pair&lt; Data, instant &gt; clock_</div><div class="ttdoc">Rellotge: data concreta a la qual està i instant a la primera tasca no passada. </div><div class="ttdef"><b>Definition:</b> <a href="agenda_8hh_source.html#l00185">agenda.hh:185</a></div></div>
+<div class="ttc" id="classAgenda_html_a30845902779495023753776f38bfe464"><div class="ttname"><a href="classAgenda.html#a30845902779495023753776f38bfe464">Agenda::tag_map</a></div><div class="ttdeci">map&lt; string, set_instant &gt; tag_map</div><div class="ttdoc">Un tag_map és un map de tag al seu conjunt d&#39;instants. </div><div class="ttdef"><b>Definition:</b> <a href="agenda_8hh_source.html#l00182">agenda.hh:182</a></div></div>
 <div class="ttc" id="data_8hh_html"><div class="ttname"><a href="data_8hh.html">data.hh</a></div><div class="ttdoc">Definició de Data (Dia i Hora) </div></div>
+<div class="ttc" id="classAgenda_html_ab27331223fbc69ccd60c97dfa8e5c4c3"><div class="ttname"><a href="classAgenda.html#ab27331223fbc69ccd60c97dfa8e5c4c3">Agenda::tags_</a></div><div class="ttdeci">map&lt; string, set_instant &gt; tags_</div><div class="ttdoc">Catàleg d&#39;etiquetes: associa a cada etiqueta el cjt de tasques que la tenen. </div><div class="ttdef"><b>Definition:</b> <a href="agenda_8hh_source.html#l00189">agenda.hh:189</a></div></div>
+<div class="ttc" id="classAgenda_html_a81d8b6bbacc6457812e56e1673ff85e9"><div class="ttname"><a href="classAgenda.html#a81d8b6bbacc6457812e56e1673ff85e9">Agenda::cinstant</a></div><div class="ttdeci">map&lt; Data, Tasca &gt;::const_iterator cinstant</div><div class="ttdoc">Un cinstant és un instant sense dret a modificació </div><div class="ttdef"><b>Definition:</b> <a href="agenda_8hh_source.html#l00166">agenda.hh:166</a></div></div>
+<div class="ttc" id="classHora_html"><div class="ttname"><a href="classHora.html">Hora</a></div><div class="ttdoc">Representa una hora, hora:minut. </div><div class="ttdef"><b>Definition:</b> <a href="data_8hh_source.html#l00072">data.hh:72</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="agenda_8hh.html">agenda.hh</a></li>
-    <li class="footer">Generat a Dt Mai 5 2015 20:42:58 per a Agenda-PRO2 per
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="agenda_8hh.html">agenda.hh</a></li>
+    <li class="footer">Generat a Dg Mai 24 2015 23:02:41 per a Agenda-PRO2 per
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

@@ -52,7 +52,7 @@ class Dia {
         friend bool operator>=(const Dia& lhs, const Dia& rhs);
         /// \}
 };
-/** \defgroup Comparació de Dia
+/** Comparació de Dia
  *  '@' representa l'operador : <, >, ==, !=, <=, >=
  *  \brief Indica ordre entre dies (@).
  *  \pre true
@@ -106,7 +106,7 @@ class Hora {
         /// \}
 };
 
-/** \defgroup Comparació de Hora 
+/** Comparació de Hora 
  *  '@' representa l'operador : <, >, ==, !=, <=, >=
  *  \brief Indica ordre entre hores (@).
  *  \pre true
@@ -125,6 +125,6 @@ typedef pair<Dia, Hora> Data;
 
 /** \brief Operador << de Data
  *  \pre true
- *  \post s'ha escrit Data en format: %DD.MM.AA HH:MM% a os */
+ *  \post s'ha escrit Data en format: \%DD.MM.AA HH:MM\% a os */
 ostream& operator<<(ostream& os, const Data& d);
 #endif

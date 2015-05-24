@@ -83,7 +83,7 @@ $(document).ready(function(){initNavTree('globals.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tot</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fitxers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funcions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definicions de Tipus</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pàgines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tot</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fitxers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funcions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definicions de Tipus</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Classes Amigues</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -98,7 +98,40 @@ $(document).ready(function(){initNavTree('globals.html','');});
 : <a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">data.hh</a>
 </li>
 <li>main()
-: <a class="el" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main.cc</a>
+: <a class="el" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4">program.cc</a>
+</li>
+<li>nop()
+: <a class="el" href="program_8cc.html#af8ea0d04000a8133283c6d21e8348373">program.cc</a>
+</li>
+<li>operator!=()
+: <a class="el" href="data_8cc.html#a161dae5ff4d232bf20ed21bddb3171cd">data.cc</a>
+, <a class="el" href="data_8hh.html#a161dae5ff4d232bf20ed21bddb3171cd">data.hh</a>
+</li>
+<li>operator&lt;()
+: <a class="el" href="data_8cc.html#a782bc84ccb0e7077fee42ac4d6a575b8">data.cc</a>
+, <a class="el" href="data_8hh.html#a782bc84ccb0e7077fee42ac4d6a575b8">data.hh</a>
+</li>
+<li>operator&lt;&lt;()
+: <a class="el" href="data_8cc.html#a90bb051fbc9d2b01d7a4936fc42cd7a9">data.cc</a>
+, <a class="el" href="data_8hh.html#a90bb051fbc9d2b01d7a4936fc42cd7a9">data.hh</a>
+</li>
+<li>operator&lt;=()
+: <a class="el" href="data_8cc.html#a7ec1765304b7c3f64220c4d2fefa51bd">data.cc</a>
+, <a class="el" href="data_8hh.html#a7ec1765304b7c3f64220c4d2fefa51bd">data.hh</a>
+</li>
+<li>operator==()
+: <a class="el" href="data_8cc.html#a39557121ec0ff4f387d6ecdc1b0206b7">data.cc</a>
+, <a class="el" href="data_8hh.html#a39557121ec0ff4f387d6ecdc1b0206b7">data.hh</a>
+</li>
+<li>operator&gt;()
+: <a class="el" href="data_8cc.html#a38e10ed9f3ee7b82707178b49cf53334">data.cc</a>
+, <a class="el" href="data_8hh.html#a37574a3130616f6cf95d207494d2e4b8">data.hh</a>
+, <a class="el" href="data_8cc.html#a37574a3130616f6cf95d207494d2e4b8">data.cc</a>
+, <a class="el" href="data_8hh.html#a38e10ed9f3ee7b82707178b49cf53334">data.hh</a>
+</li>
+<li>operator&gt;=()
+: <a class="el" href="data_8cc.html#aaa8e3d27c2257351bbcbef8daeadf3c0">data.cc</a>
+, <a class="el" href="data_8hh.html#aaa8e3d27c2257351bbcbef8daeadf3c0">data.hh</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -106,7 +139,7 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generat a Dt Mai 5 2015 20:42:59 per a Agenda-PRO2 per
+    <li class="footer">Generat a Dg Mai 24 2015 23:02:41 per a Agenda-PRO2 per
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

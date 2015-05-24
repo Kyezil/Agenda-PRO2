@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['set_5fdata',['set_data',['../classAgenda.html#a13e6857743f77efe45de0a011e1cebfa',1,'Agenda']]],
-  ['set_5frellotge',['set_rellotge',['../classAgenda.html#a9f93f923984de6ae2857e2ccdfa6657d',1,'Agenda']]],
-  ['set_5ftitol',['set_titol',['../classAgenda.html#a2a1a99c45d3fd30aa7b0b607c900fbfa',1,'Agenda']]]
+  ['nombre_5fdates',['nombre_dates',['../classComanda.html#aadabfc85ec7cdeb45039e8952a1ab124',1,'Comanda']]],
+  ['nombre_5fetiquetes',['nombre_etiquetes',['../classComanda.html#a4280b6ae2d435d9c21bbed364cb1db3d',1,'Comanda']]],
+  ['nop',['nop',['../program_8cc.html#af8ea0d04000a8133283c6d21e8348373',1,'program.cc']]]
 ];

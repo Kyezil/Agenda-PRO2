@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cc']]],
-  ['modificar_5ftitol',['modificar_titol',['../classTasca.html#ac1e95d388130b22f771df14bff0b049e',1,'Tasca']]]
+  ['hora',['hora',['../classComanda.html#ae8bca2ad702d3316dc1c53dcab7cac02',1,'Comanda::hora()'],['../classHora.html#ae05fd06528302df59fbf8ffe8ad7f9bc',1,'Hora::Hora()=default'],['../classHora.html#aa8fe684f1e7e271a0acb6bb774afc1af',1,'Hora::Hora(int hora, int minut)'],['../classHora.html#ac2e684e593a06b8c03e3899a15048ad1',1,'Hora::Hora(string s)']]]
 ];

@@ -1,20 +1,10 @@
 var searchData=
 [
-  ['es_5fconsulta',['es_consulta',['../classComanda.html#a847ee227fd7fea3a105dbd78735de453',1,'Comanda::es_consulta()'],['../classToken.html#a81c4eba71c6257da6cadfab43cb237da',1,'Token::es_consulta()']]],
-  ['es_5fdata',['es_data',['../classToken.html#a8791d9d6123190213f63ad1026ca05be',1,'Token']]],
-  ['es_5fesborrat',['es_esborrat',['../classComanda.html#a9e71320e8617ce224c8d994d0969555a',1,'Comanda::es_esborrat()'],['../classToken.html#ab49eee0e53697bbbbbcbf0c105b3cf77',1,'Token::es_esborrat()']]],
-  ['es_5fetiqueta',['es_etiqueta',['../classToken.html#ad2949808a3a5d2afba78768e18005cbd',1,'Token']]],
-  ['es_5fexpressio',['es_expressio',['../classToken.html#a09eb1782d5b5d9d4a2a92f33c950bfc1',1,'Token']]],
-  ['es_5fhora',['es_hora',['../classToken.html#a16aead065c986f34b51c6193bd42882c',1,'Token']]],
-  ['es_5finsercio',['es_insercio',['../classComanda.html#a614467bedacc9cf29cc5a9dcbba6b23d',1,'Comanda']]],
-  ['es_5fmodificable',['es_modificable',['../classAgenda.html#ac806bdff68a0dde44205b7cb3926bafc',1,'Agenda']]],
-  ['es_5fmodificacio',['es_modificacio',['../classComanda.html#a2a33a5497c7d156f22065656cb48d9a1',1,'Comanda']]],
-  ['es_5fnombre',['es_nombre',['../classToken.html#a53411d8b5b08289a126944104d246380',1,'Token']]],
-  ['es_5fpassat',['es_passat',['../classAgenda.html#ac60aa6484d53e9873cc47627f4d6fc30',1,'Agenda::es_passat()'],['../classComanda.html#a1f435f8b605f0d1f5cbb06c8c6fe4005',1,'Comanda::es_passat()']]],
-  ['es_5frellotge',['es_rellotge',['../classComanda.html#aa8767f298317c3bb07f90676cabb8c43',1,'Comanda']]],
-  ['es_5ftext',['es_text',['../classToken.html#ab40c482fd70278c5f8ce53aa364d957e',1,'Token']]],
-  ['esborrar_5fetiqueta',['esborrar_etiqueta',['../classTasca.html#a5f6499c98f98eceb15243ece832304c1',1,'Tasca']]],
-  ['etiqueta',['etiqueta',['../classComanda.html#ac80e9a80d16c6bac9a134e431bca1ed0',1,'Comanda']]],
-  ['existeix',['existeix',['../classAgenda.html#ad6c42d4f05be9b7f0c48018dc6391b1d',1,'Agenda']]],
-  ['expressio',['expressio',['../classComanda.html#aa3191131592fbf58d20bed1052c31cd1',1,'Comanda']]]
+  ['data',['data',['../classToken.html#af793ed1062684808c32526e66c0317da',1,'Token::data()'],['../classComanda.html#ab4ce0a50bde32145d11cbaee753526c7',1,'Comanda::data()'],['../data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4',1,'Data():&#160;data.hh']]],
+  ['data_2ecc',['data.cc',['../data_8cc.html',1,'']]],
+  ['data_2ehh',['data.hh',['../data_8hh.html',1,'']]],
+  ['del_5fetiqueta',['del_etiqueta',['../classAgenda.html#a6ef451c0e91d39fe3457acf37be7f3b9',1,'Agenda::del_etiqueta()'],['../classTasca.html#ac2881ef756de6004d1fde1de5125dc36',1,'Tasca::del_etiqueta()']]],
+  ['del_5fetiquetes',['del_etiquetes',['../classAgenda.html#acab4b24367d4dbf5dd8e03e10f9c283f',1,'Agenda::del_etiquetes()'],['../classTasca.html#a2f196ae8e2cb0895c1f6c28422b1a385',1,'Tasca::del_etiquetes()']]],
+  ['del_5ftasca',['del_tasca',['../classAgenda.html#ab7bec241daeb8540c96aa24e9fbf5180',1,'Agenda']]],
+  ['dia',['Dia',['../classDia.html',1,'Dia'],['../classDia.html#a3bea33db45fbfc88f88dbbdf99ef5707',1,'Dia::dia()'],['../classDia.html#a10cf75d5338ae9e11bacede176d816c1',1,'Dia::Dia()=default'],['../classDia.html#a7116163d8fcce1dbf99f1006ec3bace5',1,'Dia::Dia(int dia, int mes, int any)'],['../classDia.html#a1c0f0d55bb9d937496d4122a817fc193',1,'Dia::Dia(string s)']]]
 ];

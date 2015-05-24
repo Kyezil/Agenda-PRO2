@@ -1,14 +1,15 @@
 var NAVTREE =
 [
   [ "Agenda-PRO2", "index.html", [
-    [ "Gestor de tasques", "md_README.html", null ],
     [ "Classes", null, [
       [ "Llista de Classes", "annotated.html", "annotated" ],
       [ "Índex de Classes", "classes.html", null ],
       [ "Membres de Classes", "functions.html", [
         [ "Tot", "functions.html", null ],
         [ "Funcions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+        [ "Variables", "functions_vars.html", null ],
+        [ "Definicions de Tipus", "functions_type.html", null ],
+        [ "Funcions Associades", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Fitxers", null, [
@@ -24,7 +25,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"agenda_8hh.html"
+"agenda_8cc.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

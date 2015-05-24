@@ -83,7 +83,7 @@ $(document).ready(function(){initNavTree('classTasca.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tot</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fitxers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funcions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definicions de Tipus</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pàgines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tot</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fitxers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funcions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definicions de Tipus</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Classes Amigues</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,7 +94,10 @@ $(document).ready(function(){initNavTree('classTasca.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Tipus Públics</a> &#124;
 <a href="#pub-methods">Mètodes públics</a> &#124;
+<a href="#pub-static-methods">Mètodes Públics Estàtics</a> &#124;
+<a href="#pri-attribs">Atributs Privats</a> &#124;
 <a href="classTasca-members.html">Llista de tots els membres</a>  </div>
   <div class="headertitle">
 <div class="title">Referència de la Classe Tasca</div>  </div>
@@ -105,24 +108,60 @@ $(document).ready(function(){initNavTree('classTasca.html','');});
  <a href="classTasca.html#details">Més...</a></p>
 
 <p><code>#include &lt;<a class="el" href="tasca_8hh_source.html">tasca.hh</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de col·laboració per a Tasca:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTasca__coll__graph.png" border="0" usemap="#Tasca_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">llegenda</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Tipus Públics</h2></td></tr>
+<tr class="memitem:af8233ebb911104c788b391de60afa1f6"><td class="memItemLeft" align="right" valign="top">typedef set&lt; string &gt;<br class="typebreak" />
+::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#af8233ebb911104c788b391de60afa1f6">tag_iterator</a></td></tr>
+<tr class="separator:af8233ebb911104c788b391de60afa1f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Mètodes públics</h2></td></tr>
-<tr class="memitem:a94ed48399673b7c60ce0664f99be2d02"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#a94ed48399673b7c60ce0664f99be2d02">Tasca</a> ()</td></tr>
-<tr class="memdesc:a94ed48399673b7c60ce0664f99be2d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor per defecte.  <a href="#a94ed48399673b7c60ce0664f99be2d02">Més...</a><br /></td></tr>
-<tr class="separator:a94ed48399673b7c60ce0664f99be2d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a107b66327d87a31e1d97d674b9c1d837"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#a107b66327d87a31e1d97d674b9c1d837">Tasca</a> ()=default</td></tr>
+<tr class="memdesc:a107b66327d87a31e1d97d674b9c1d837"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor per defecte.  <a href="#a107b66327d87a31e1d97d674b9c1d837">Més...</a><br /></td></tr>
+<tr class="separator:a107b66327d87a31e1d97d674b9c1d837"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26330095c08461227c77a08ad9b0f5b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#a26330095c08461227c77a08ad9b0f5b2">Tasca</a> (string titol)</td></tr>
 <tr class="memdesc:a26330095c08461227c77a08ad9b0f5b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor de tasca amb titol.  <a href="#a26330095c08461227c77a08ad9b0f5b2">Més...</a><br /></td></tr>
 <tr class="separator:a26330095c08461227c77a08ad9b0f5b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1e95d388130b22f771df14bff0b049e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#ac1e95d388130b22f771df14bff0b049e">modificar_titol</a> (string titol)</td></tr>
-<tr class="memdesc:ac1e95d388130b22f771df14bff0b049e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifica el títol de la tasca.  <a href="#ac1e95d388130b22f771df14bff0b049e">Més...</a><br /></td></tr>
-<tr class="separator:ac1e95d388130b22f771df14bff0b049e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a638563745c9ece3188e54f3061a79fb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#a638563745c9ece3188e54f3061a79fb1">afegir_etiqueta</a> (string etiq)</td></tr>
-<tr class="memdesc:a638563745c9ece3188e54f3061a79fb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Afegeix una etiqueta a la tasca.  <a href="#a638563745c9ece3188e54f3061a79fb1">Més...</a><br /></td></tr>
-<tr class="separator:a638563745c9ece3188e54f3061a79fb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f6499c98f98eceb15243ece832304c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#a5f6499c98f98eceb15243ece832304c1">esborrar_etiqueta</a> (string etiq)</td></tr>
-<tr class="memdesc:a5f6499c98f98eceb15243ece832304c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esborrar una etiqueta de la tasca.  <a href="#a5f6499c98f98eceb15243ece832304c1">Més...</a><br /></td></tr>
-<tr class="separator:a5f6499c98f98eceb15243ece832304c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a857dfa2ca6948480c345c152bc4b73fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#a857dfa2ca6948480c345c152bc4b73fa">set_titol</a> (string titol)</td></tr>
+<tr class="memdesc:a857dfa2ca6948480c345c152bc4b73fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modificar el títol de la tasca.  <a href="#a857dfa2ca6948480c345c152bc4b73fa">Més...</a><br /></td></tr>
+<tr class="separator:a857dfa2ca6948480c345c152bc4b73fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7871ea389e1e35587fe4c7e7c4fcd229"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#a7871ea389e1e35587fe4c7e7c4fcd229">add_etiqueta</a> (string etiq)</td></tr>
+<tr class="memdesc:a7871ea389e1e35587fe4c7e7c4fcd229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Afegir una etiqueta a la tasca.  <a href="#a7871ea389e1e35587fe4c7e7c4fcd229">Més...</a><br /></td></tr>
+<tr class="separator:a7871ea389e1e35587fe4c7e7c4fcd229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2881ef756de6004d1fde1de5125dc36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#ac2881ef756de6004d1fde1de5125dc36">del_etiqueta</a> (const string etiq)</td></tr>
+<tr class="memdesc:ac2881ef756de6004d1fde1de5125dc36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esborrar una etiqueta de la tasca.  <a href="#ac2881ef756de6004d1fde1de5125dc36">Més...</a><br /></td></tr>
+<tr class="separator:ac2881ef756de6004d1fde1de5125dc36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f196ae8e2cb0895c1f6c28422b1a385"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#a2f196ae8e2cb0895c1f6c28422b1a385">del_etiquetes</a> ()</td></tr>
+<tr class="memdesc:a2f196ae8e2cb0895c1f6c28422b1a385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esborrar totes les etiquetes de la tasca.  <a href="#a2f196ae8e2cb0895c1f6c28422b1a385">Més...</a><br /></td></tr>
+<tr class="separator:a2f196ae8e2cb0895c1f6c28422b1a385"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9c5e035755efb862a0757468bf456cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTasca.html#af8233ebb911104c788b391de60afa1f6">tag_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#ab9c5e035755efb862a0757468bf456cf">begin_etiquetes</a> ()</td></tr>
+<tr class="memdesc:ab9c5e035755efb862a0757468bf456cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtenir un iterador al principi del cjt d'etiquetes.  <a href="#ab9c5e035755efb862a0757468bf456cf">Més...</a><br /></td></tr>
+<tr class="separator:ab9c5e035755efb862a0757468bf456cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2affc785be51f35abb9a2d8fdb4e1203"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTasca.html#af8233ebb911104c788b391de60afa1f6">tag_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#a2affc785be51f35abb9a2d8fdb4e1203">end_etiquetes</a> ()</td></tr>
+<tr class="memdesc:a2affc785be51f35abb9a2d8fdb4e1203"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtenir un iterator al final de les etiquetes.  <a href="#a2affc785be51f35abb9a2d8fdb4e1203">Més...</a><br /></td></tr>
+<tr class="separator:a2affc785be51f35abb9a2d8fdb4e1203"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Mètodes Públics Estàtics</h2></td></tr>
+<tr class="memitem:a4e84f388a8059d6ff51c193c67b9ce83"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#a4e84f388a8059d6ff51c193c67b9ce83">print_titol</a> (const <a class="el" href="classTasca.html">Tasca</a> &amp;t, ostream &amp;out)</td></tr>
+<tr class="memdesc:a4e84f388a8059d6ff51c193c67b9ce83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostrar el títol de la tasca.  <a href="#a4e84f388a8059d6ff51c193c67b9ce83">Més...</a><br /></td></tr>
+<tr class="separator:a4e84f388a8059d6ff51c193c67b9ce83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26a5ba43ce13afd9fc453015a3574825"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#a26a5ba43ce13afd9fc453015a3574825">print_etiquetes</a> (const <a class="el" href="classTasca.html">Tasca</a> &amp;t, ostream &amp;out)</td></tr>
+<tr class="memdesc:a26a5ba43ce13afd9fc453015a3574825"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mostrar les etiquetes de la tasca.  <a href="#a26a5ba43ce13afd9fc453015a3574825">Més...</a><br /></td></tr>
+<tr class="separator:a26a5ba43ce13afd9fc453015a3574825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributs Privats</h2></td></tr>
+<tr class="memitem:a7bf8e389b7151d51dc6d6dad5a1dee48"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#a7bf8e389b7151d51dc6d6dad5a1dee48">title_</a></td></tr>
+<tr class="separator:a7bf8e389b7151d51dc6d6dad5a1dee48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a539dd630c80f5c99caf56a2f6ac7ba6f"><td class="memItemLeft" align="right" valign="top">set&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTasca.html#a539dd630c80f5c99caf56a2f6ac7ba6f">tags_</a></td></tr>
+<tr class="separator:a539dd630c80f5c99caf56a2f6ac7ba6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripció Detallada</h2>
 <div class="textblock"><p>Representa una tasca amb etiquetes associades. </p>
@@ -131,11 +170,29 @@ Mètodes públics</h2></td></tr>
 </ul>
 </dd></dl>
 
-<p>Definició a la línia <a class="el" href="tasca_8hh_source.html#l00018">18</a> del fitxer <a class="el" href="tasca_8hh_source.html">tasca.hh</a>.</p>
-</div><h2 class="groupheader">Documentació del Constructor i el Destructor</h2>
-<a class="anchor" id="a94ed48399673b7c60ce0664f99be2d02"></a>
+<p>Definició a la línia <a class="el" href="tasca_8hh_source.html#l00019">19</a> del fitxer <a class="el" href="tasca_8hh_source.html">tasca.hh</a>.</p>
+</div><h2 class="groupheader">Documentació de les Definicions de Tipus Membre</h2>
+<a class="anchor" id="af8233ebb911104c788b391de60afa1f6"></a>
 <div class="memitem">
 <div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef set&lt;string&gt;::const_iterator <a class="el" href="classTasca.html#af8233ebb911104c788b391de60afa1f6">Tasca::tag_iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definició a la línia <a class="el" href="tasca_8hh_source.html#l00024">24</a> del fitxer <a class="el" href="tasca_8hh_source.html">tasca.hh</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentació del Constructor i el Destructor</h2>
+<a class="anchor" id="a107b66327d87a31e1d97d674b9c1d837"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Tasca::Tasca </td>
@@ -144,6 +201,11 @@ Mètodes públics</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Constructor per defecte. </p>
@@ -176,15 +238,17 @@ Mètodes públics</h2></td></tr>
 <dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
 <dl class="section post"><dt>Postcondició</dt><dd>el p.i és una tasca de titol <em>titol</em> sense etiquetes </dd></dl>
 
+<p>Definició a la línia <a class="el" href="tasca_8cc_source.html#l00007">7</a> del fitxer <a class="el" href="tasca_8cc_source.html">tasca.cc</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Documentació de les Funcions Membre</h2>
-<a class="anchor" id="a638563745c9ece3188e54f3061a79fb1"></a>
+<a class="anchor" id="a7871ea389e1e35587fe4c7e7c4fcd229"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Tasca::afegir_etiqueta </td>
+          <td class="memname">void Tasca::add_etiqueta </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>etiq</em></td><td>)</td>
@@ -193,7 +257,7 @@ Mètodes públics</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Afegeix una etiqueta a la tasca. </p>
+<p>Afegir una etiqueta a la tasca. </p>
 <dl class="params"><dt>Paràmetres</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">etiq</td><td>etiqueta a afegir </td></tr>
@@ -203,16 +267,48 @@ Mètodes públics</h2></td></tr>
 <dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
 <dl class="section post"><dt>Postcondició</dt><dd>el p.i té una etiqueta <em>etiq</em> </dd></dl>
 
+<p>Definició a la línia <a class="el" href="tasca_8cc_source.html#l00013">13</a> del fitxer <a class="el" href="tasca_8cc_source.html">tasca.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTasca_a7871ea389e1e35587fe4c7e7c4fcd229_icgraph.png" border="0" usemap="#classTasca_a7871ea389e1e35587fe4c7e7c4fcd229_icgraph" alt=""/></div>
+<map name="classTasca_a7871ea389e1e35587fe4c7e7c4fcd229_icgraph" id="classTasca_a7871ea389e1e35587fe4c7e7c4fcd229_icgraph">
+<area shape="rect" id="node2" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="203,5,253,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="a5f6499c98f98eceb15243ece832304c1"></a>
+<a class="anchor" id="ab9c5e035755efb862a0757468bf456cf"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Tasca::esborrar_etiqueta </td>
+          <td class="memname"><a class="el" href="classTasca.html#af8233ebb911104c788b391de60afa1f6">Tasca::tag_iterator</a> Tasca::begin_etiquetes </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtenir un iterador al principi del cjt d'etiquetes. </p>
+<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>retorna un iterador a la primera de les etiquetes, end_etiqueta() si no hi ha cap etiqueta </dd></dl>
+
+<p>Definició a la línia <a class="el" href="tasca_8cc_source.html#l00025">25</a> del fitxer <a class="el" href="tasca_8cc_source.html">tasca.cc</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac2881ef756de6004d1fde1de5125dc36"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tasca::del_etiqueta </td>
+          <td>(</td>
+          <td class="paramtype">const string&#160;</td>
           <td class="paramname"><em>etiq</em></td><td>)</td>
           <td></td>
         </tr>
@@ -229,14 +325,170 @@ Mètodes públics</h2></td></tr>
 <dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
 <dl class="section post"><dt>Postcondició</dt><dd>el p.i no té com a etiqueta <em>etiq</em> </dd></dl>
 
+<p>Definició a la línia <a class="el" href="tasca_8cc_source.html#l00017">17</a> del fitxer <a class="el" href="tasca_8cc_source.html">tasca.cc</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ac1e95d388130b22f771df14bff0b049e"></a>
+<a class="anchor" id="a2f196ae8e2cb0895c1f6c28422b1a385"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Tasca::modificar_titol </td>
+          <td class="memname">void Tasca::del_etiquetes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esborrar totes les etiquetes de la tasca. </p>
+<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>el p.i no té cap etiqueta </dd></dl>
+
+<p>Definició a la línia <a class="el" href="tasca_8cc_source.html#l00021">21</a> del fitxer <a class="el" href="tasca_8cc_source.html">tasca.cc</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2affc785be51f35abb9a2d8fdb4e1203"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTasca.html#af8233ebb911104c788b391de60afa1f6">Tasca::tag_iterator</a> Tasca::end_etiquetes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtenir un iterator al final de les etiquetes. </p>
+<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>retorna un iterador al l'element següent a l'última etiqueta del p.i </dd></dl>
+
+<p>Definició a la línia <a class="el" href="tasca_8cc_source.html#l00029">29</a> del fitxer <a class="el" href="tasca_8cc_source.html">tasca.cc</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a26a5ba43ce13afd9fc453015a3574825"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tasca::print_etiquetes </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classTasca.html">Tasca</a> &amp;&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mostrar les etiquetes de la tasca. </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>tasca, les etiquetes de la qual s'han de mostrar </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>flux de sortida on s'ha d'escriure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>s'han escrit a <em>out</em> les etiquetes del p.i en ordre lexicogràfic separades per espais: % tag1 tag2 tag3 ... tagN% (% no inclòs) </dd></dl>
+
+<p>Definició a la línia <a class="el" href="tasca_8cc_source.html#l00037">37</a> del fitxer <a class="el" href="tasca_8cc_source.html">tasca.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTasca_a26a5ba43ce13afd9fc453015a3574825_icgraph.png" border="0" usemap="#classTasca_a26a5ba43ce13afd9fc453015a3574825_icgraph" alt=""/></div>
+<map name="classTasca_a26a5ba43ce13afd9fc453015a3574825_icgraph" id="classTasca_a26a5ba43ce13afd9fc453015a3574825_icgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a0de61ca1cb2b61ceece1b43505e926a7" title="Escriure una línia del menú " alt="" coords="209,49,384,76"/><area shape="rect" id="node3" href="classAgenda.html#a7c9ddb0fd2c7ac7d759c15b137aaf41c" title="Escriu totes les tasques del passat. " alt="" coords="643,5,762,32"/><area shape="rect" id="node5" href="classAgenda.html#ae5fff8c4457eda2e37a5c4ab853535ae" title="Genera i escriu el menú d&#39;un interval de tasques Genera i escriu el menú (alhora) de totes les tasque..." alt="" coords="432,49,591,76"/><area shape="rect" id="node6" href="classAgenda.html#ae4bd87b19b4f89f9193a75685cb29bae" title="Escriure el menú " alt="" coords="440,100,583,127"/><area shape="rect" id="node4" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="853,17,904,44"/><area shape="rect" id="node7" href="classAgenda.html#acb7322980fcfd3cfb52e32c99f6698b6" title="Genera el menu de les tasques d&#39;un interval que compleixen una expressió " alt="" coords="639,75,767,101"/><area shape="rect" id="node8" href="classAgenda.html#a37417bfacad0c06e85cdfebf0660d80f" title="Genera el menu del tasques d&#39;un dia que compleixen una expressió " alt="" coords="815,75,943,101"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4e84f388a8059d6ff51c193c67b9ce83"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tasca::print_titol </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classTasca.html">Tasca</a> &amp;&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mostrar el títol de la tasca. </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">t</td><td>tasca de la qual volem escriure el títol </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>flux de sortida on s'ha d'escriure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>s'ha escrit el titol del p.i a <em>out</em> </dd></dl>
+
+<p>Definició a la línia <a class="el" href="tasca_8cc_source.html#l00033">33</a> del fitxer <a class="el" href="tasca_8cc_source.html">tasca.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTasca_a4e84f388a8059d6ff51c193c67b9ce83_icgraph.png" border="0" usemap="#classTasca_a4e84f388a8059d6ff51c193c67b9ce83_icgraph" alt=""/></div>
+<map name="classTasca_a4e84f388a8059d6ff51c193c67b9ce83_icgraph" id="classTasca_a4e84f388a8059d6ff51c193c67b9ce83_icgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a0de61ca1cb2b61ceece1b43505e926a7" title="Escriure una línia del menú " alt="" coords="175,49,349,76"/><area shape="rect" id="node3" href="classAgenda.html#a7c9ddb0fd2c7ac7d759c15b137aaf41c" title="Escriu totes les tasques del passat. " alt="" coords="609,5,727,32"/><area shape="rect" id="node5" href="classAgenda.html#ae5fff8c4457eda2e37a5c4ab853535ae" title="Genera i escriu el menú d&#39;un interval de tasques Genera i escriu el menú (alhora) de totes les tasque..." alt="" coords="397,49,556,76"/><area shape="rect" id="node6" href="classAgenda.html#ae4bd87b19b4f89f9193a75685cb29bae" title="Escriure el menú " alt="" coords="405,100,548,127"/><area shape="rect" id="node4" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="819,17,869,44"/><area shape="rect" id="node7" href="classAgenda.html#acb7322980fcfd3cfb52e32c99f6698b6" title="Genera el menu de les tasques d&#39;un interval que compleixen una expressió " alt="" coords="604,75,732,101"/><area shape="rect" id="node8" href="classAgenda.html#a37417bfacad0c06e85cdfebf0660d80f" title="Genera el menu del tasques d&#39;un dia que compleixen una expressió " alt="" coords="780,75,908,101"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a857dfa2ca6948480c345c152bc4b73fa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tasca::set_titol </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>titol</em></td><td>)</td>
@@ -245,20 +497,68 @@ Mètodes públics</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Modifica el títol de la tasca. </p>
+<p>Modificar el títol de la tasca. </p>
 <dl class="params"><dt>Paràmetres</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">titol</td><td>nou títol de la tasca </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">titol</td><td>nou títol </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
 <dl class="section post"><dt>Postcondició</dt><dd>el titol del p.i és <em>titol</em> </dd></dl>
 
+<p>Definició a la línia <a class="el" href="tasca_8cc_source.html#l00009">9</a> del fitxer <a class="el" href="tasca_8cc_source.html">tasca.cc</a>.</p>
+
 </div>
 </div>
-<hr/>La documentació d'aquesta classe es va generar a partir del següent fitxer:<ul>
-<li><a class="el" href="tasca_8hh_source.html">tasca.hh</a></li>
+<h2 class="groupheader">Documentació de les Dades Membre</h2>
+<a class="anchor" id="a539dd630c80f5c99caf56a2f6ac7ba6f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">set&lt;string&gt; Tasca::tags_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definició a la línia <a class="el" href="tasca_8hh_source.html#l00022">22</a> del fitxer <a class="el" href="tasca_8hh_source.html">tasca.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7bf8e389b7151d51dc6d6dad5a1dee48"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Tasca::title_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definició a la línia <a class="el" href="tasca_8hh_source.html#l00021">21</a> del fitxer <a class="el" href="tasca_8hh_source.html">tasca.hh</a>.</p>
+
+</div>
+</div>
+<hr/>La documentació d'aquesta classe es va generar a partir dels següents fitxers:<ul>
+<li>src/<a class="el" href="tasca_8hh_source.html">tasca.hh</a></li>
+<li>src/<a class="el" href="tasca_8cc_source.html">tasca.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -266,7 +566,7 @@ Mètodes públics</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classTasca.html">Tasca</a></li>
-    <li class="footer">Generat a Dt Mai 5 2015 20:42:58 per a Agenda-PRO2 per
+    <li class="footer">Generat a Dg Mai 24 2015 23:02:41 per a Agenda-PRO2 per
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

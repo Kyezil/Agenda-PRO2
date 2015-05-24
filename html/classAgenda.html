@@ -83,7 +83,7 @@ $(document).ready(function(){initNavTree('classAgenda.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tot</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fitxers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funcions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definicions de Tipus</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pàgines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tot</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fitxers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funcions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definicions de Tipus</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Classes Amigues</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,7 +94,11 @@ $(document).ready(function(){initNavTree('classAgenda.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Mètodes públics</a> &#124;
+<a href="#pri-types">Tipus Privats</a> &#124;
+<a href="#pri-methods">Mètodes Privats</a> &#124;
+<a href="#pri-attribs">Atributs Privats</a> &#124;
 <a href="classAgenda-members.html">Llista de tots els membres</a>  </div>
   <div class="headertitle">
 <div class="title">Referència de la Classe Agenda</div>  </div>
@@ -105,7 +109,17 @@ $(document).ready(function(){initNavTree('classAgenda.html','');});
  <a href="classAgenda.html#details">Més...</a></p>
 
 <p><code>#include &lt;<a class="el" href="agenda_8hh_source.html">agenda.hh</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de col·laboració per a Agenda:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda__coll__graph.png" border="0" usemap="#Agenda_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">llegenda</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAgenda_1_1ordre__instant.html">ordre_instant</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Mètodes públics</h2></td></tr>
 <tr class="memitem:a6685054d2b4ccbf2a4ef2ac5e3746bc3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a6685054d2b4ccbf2a4ef2ac5e3746bc3">Agenda</a> ()</td></tr>
@@ -114,73 +128,265 @@ Mètodes públics</h2></td></tr>
 <tr class="memitem:a9f93f923984de6ae2857e2ccdfa6657d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a9f93f923984de6ae2857e2ccdfa6657d">set_rellotge</a> (<a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> data)</td></tr>
 <tr class="memdesc:a9f93f923984de6ae2857e2ccdfa6657d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avança el rellotge.  <a href="#a9f93f923984de6ae2857e2ccdfa6657d">Més...</a><br /></td></tr>
 <tr class="separator:a9f93f923984de6ae2857e2ccdfa6657d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3718671bfa2b7cc8c1232f6977f747ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a3718671bfa2b7cc8c1232f6977f747ce">add_tasca</a> (string titol, <a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> data)</td></tr>
-<tr class="memdesc:a3718671bfa2b7cc8c1232f6977f747ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Afegeix una tasca.  <a href="#a3718671bfa2b7cc8c1232f6977f747ce">Més...</a><br /></td></tr>
-<tr class="separator:a3718671bfa2b7cc8c1232f6977f747ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a1a99c45d3fd30aa7b0b607c900fbfa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a2a1a99c45d3fd30aa7b0b607c900fbfa">set_titol</a> (int id, string titol)</td></tr>
-<tr class="memdesc:a2a1a99c45d3fd30aa7b0b607c900fbfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Canvia el títol d'una tasca del menú  <a href="#a2a1a99c45d3fd30aa7b0b607c900fbfa">Més...</a><br /></td></tr>
-<tr class="separator:a2a1a99c45d3fd30aa7b0b607c900fbfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13e6857743f77efe45de0a011e1cebfa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a13e6857743f77efe45de0a011e1cebfa">set_data</a> (int id, <a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> data)</td></tr>
-<tr class="memdesc:a13e6857743f77efe45de0a011e1cebfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Canvia la data d'una tasca del menú  <a href="#a13e6857743f77efe45de0a011e1cebfa">Més...</a><br /></td></tr>
-<tr class="separator:a13e6857743f77efe45de0a011e1cebfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16f8a23befae6e7f5fa9e56297388c4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a16f8a23befae6e7f5fa9e56297388c4e">add_etiqueta</a> (int id, string etiqueta)</td></tr>
-<tr class="memdesc:a16f8a23befae6e7f5fa9e56297388c4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Afegeix una etiqueda a una tasca del menú  <a href="#a16f8a23befae6e7f5fa9e56297388c4e">Més...</a><br /></td></tr>
-<tr class="separator:a16f8a23befae6e7f5fa9e56297388c4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3a19ef06ad45a76ab0e5d02b3d3cb65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#aa3a19ef06ad45a76ab0e5d02b3d3cb65">del_etiqueta</a> (int id, string etiqueta)</td></tr>
-<tr class="memdesc:aa3a19ef06ad45a76ab0e5d02b3d3cb65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esborra una etiqueda d'una tasca del menú  <a href="#aa3a19ef06ad45a76ab0e5d02b3d3cb65">Més...</a><br /></td></tr>
-<tr class="separator:aa3a19ef06ad45a76ab0e5d02b3d3cb65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37c283d1fea87dabd99cbe86723c1ebe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a37c283d1fea87dabd99cbe86723c1ebe">del_etiquetes</a> (int id)</td></tr>
-<tr class="memdesc:a37c283d1fea87dabd99cbe86723c1ebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esborra totes les etiquedes d'una tasca del menú  <a href="#a37c283d1fea87dabd99cbe86723c1ebe">Més...</a><br /></td></tr>
-<tr class="separator:a37c283d1fea87dabd99cbe86723c1ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37fca8db7be2382cd93dded83afc9eb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a37fca8db7be2382cd93dded83afc9eb9">del_tasca</a> (int id)</td></tr>
-<tr class="memdesc:a37fca8db7be2382cd93dded83afc9eb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esborra una tasca del menú  <a href="#a37fca8db7be2382cd93dded83afc9eb9">Més...</a><br /></td></tr>
-<tr class="separator:a37fca8db7be2382cd93dded83afc9eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6c42d4f05be9b7f0c48018dc6391b1d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#ad6c42d4f05be9b7f0c48018dc6391b1d">existeix</a> (<a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> data) const </td></tr>
-<tr class="memdesc:ad6c42d4f05be9b7f0c48018dc6391b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consulta si hi ha una tasca en una data.  <a href="#ad6c42d4f05be9b7f0c48018dc6391b1d">Més...</a><br /></td></tr>
-<tr class="separator:ad6c42d4f05be9b7f0c48018dc6391b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac60aa6484d53e9873cc47627f4d6fc30"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#ac60aa6484d53e9873cc47627f4d6fc30">es_passat</a> (<a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> data) const </td></tr>
-<tr class="memdesc:ac60aa6484d53e9873cc47627f4d6fc30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consulta si una data és passada.  <a href="#ac60aa6484d53e9873cc47627f4d6fc30">Més...</a><br /></td></tr>
-<tr class="separator:ac60aa6484d53e9873cc47627f4d6fc30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac806bdff68a0dde44205b7cb3926bafc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#ac806bdff68a0dde44205b7cb3926bafc">es_modificable</a> (int id) const </td></tr>
-<tr class="memdesc:ac806bdff68a0dde44205b7cb3926bafc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consulta si es pot modificar una tasca del menú  <a href="#ac806bdff68a0dde44205b7cb3926bafc">Més...</a><br /></td></tr>
-<tr class="separator:ac806bdff68a0dde44205b7cb3926bafc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93ea61a826cd8c61f2dc1dee7d2d0567"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a93ea61a826cd8c61f2dc1dee7d2d0567">print_rellotge</a> () const </td></tr>
-<tr class="memdesc:a93ea61a826cd8c61f2dc1dee7d2d0567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consulta el rellotge.  <a href="#a93ea61a826cd8c61f2dc1dee7d2d0567">Més...</a><br /></td></tr>
-<tr class="separator:a93ea61a826cd8c61f2dc1dee7d2d0567"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae835bb647d0423fdc24fe672e31c236f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structDia.html">Dia</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#ae835bb647d0423fdc24fe672e31c236f">get_dia</a> () const </td></tr>
+<tr class="memitem:a651419e686f5e359f9e88b05a765b1cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a651419e686f5e359f9e88b05a765b1cf">add_tasca</a> (const <a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> &amp;data, const <a class="el" href="classTasca.html">Tasca</a> &amp;t)</td></tr>
+<tr class="memdesc:a651419e686f5e359f9e88b05a765b1cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Afegeix una tasca.  <a href="#a651419e686f5e359f9e88b05a765b1cf">Més...</a><br /></td></tr>
+<tr class="separator:a651419e686f5e359f9e88b05a765b1cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac131d0c49fad3d55ab42f4b5f47890dc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#ac131d0c49fad3d55ab42f4b5f47890dc">set_titol</a> (const int id, string titol)</td></tr>
+<tr class="memdesc:ac131d0c49fad3d55ab42f4b5f47890dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Canvia el títol d'una tasca del menú  <a href="#ac131d0c49fad3d55ab42f4b5f47890dc">Més...</a><br /></td></tr>
+<tr class="separator:ac131d0c49fad3d55ab42f4b5f47890dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a098cac50c2423800d1715d6e634fe937"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a098cac50c2423800d1715d6e634fe937">set_dia</a> (const int id, <a class="el" href="classDia.html">Dia</a> d)</td></tr>
+<tr class="memdesc:a098cac50c2423800d1715d6e634fe937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Canvia el dia d'una tasca del menú  <a href="#a098cac50c2423800d1715d6e634fe937">Més...</a><br /></td></tr>
+<tr class="separator:a098cac50c2423800d1715d6e634fe937"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0dd912c079692da4daeb31e2e70bfec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#ae0dd912c079692da4daeb31e2e70bfec">set_hora</a> (const int id, <a class="el" href="classHora.html">Hora</a> h)</td></tr>
+<tr class="memdesc:ae0dd912c079692da4daeb31e2e70bfec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Canvia la hora d'una tasca del menú  <a href="#ae0dd912c079692da4daeb31e2e70bfec">Més...</a><br /></td></tr>
+<tr class="separator:ae0dd912c079692da4daeb31e2e70bfec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6638416a8bd605d4119cd6bf914d4c26"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a6638416a8bd605d4119cd6bf914d4c26">set_data</a> (const int id, <a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> d)</td></tr>
+<tr class="memdesc:a6638416a8bd605d4119cd6bf914d4c26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Canvia la data d'una tasca del menú  <a href="#a6638416a8bd605d4119cd6bf914d4c26">Més...</a><br /></td></tr>
+<tr class="separator:a6638416a8bd605d4119cd6bf914d4c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab35e2abd36689ed600f1652d96807c9f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#ab35e2abd36689ed600f1652d96807c9f">add_etiqueta</a> (const int id, string etiqueta)</td></tr>
+<tr class="memdesc:ab35e2abd36689ed600f1652d96807c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Afegeix una etiqueda a una tasca del menú  <a href="#ab35e2abd36689ed600f1652d96807c9f">Més...</a><br /></td></tr>
+<tr class="separator:ab35e2abd36689ed600f1652d96807c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ef451c0e91d39fe3457acf37be7f3b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a6ef451c0e91d39fe3457acf37be7f3b9">del_etiqueta</a> (const int id, const string etiqueta)</td></tr>
+<tr class="memdesc:a6ef451c0e91d39fe3457acf37be7f3b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esborra una etiqueda d'una tasca del menú  <a href="#a6ef451c0e91d39fe3457acf37be7f3b9">Més...</a><br /></td></tr>
+<tr class="separator:a6ef451c0e91d39fe3457acf37be7f3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acab4b24367d4dbf5dd8e03e10f9c283f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#acab4b24367d4dbf5dd8e03e10f9c283f">del_etiquetes</a> (const int id)</td></tr>
+<tr class="memdesc:acab4b24367d4dbf5dd8e03e10f9c283f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esborra totes les etiquedes d'una tasca del menú  <a href="#acab4b24367d4dbf5dd8e03e10f9c283f">Més...</a><br /></td></tr>
+<tr class="separator:acab4b24367d4dbf5dd8e03e10f9c283f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7bec241daeb8540c96aa24e9fbf5180"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#ab7bec241daeb8540c96aa24e9fbf5180">del_tasca</a> (const int id)</td></tr>
+<tr class="memdesc:ab7bec241daeb8540c96aa24e9fbf5180"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esborra una tasca del menú  <a href="#ab7bec241daeb8540c96aa24e9fbf5180">Més...</a><br /></td></tr>
+<tr class="separator:ab7bec241daeb8540c96aa24e9fbf5180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2e7ac42f8058febb99478c30aa6a4a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#ad2e7ac42f8058febb99478c30aa6a4a6">is_passat</a> (const <a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> &amp;data) const </td></tr>
+<tr class="memdesc:ad2e7ac42f8058febb99478c30aa6a4a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consulta si una data és passada.  <a href="#ad2e7ac42f8058febb99478c30aa6a4a6">Més...</a><br /></td></tr>
+<tr class="separator:ad2e7ac42f8058febb99478c30aa6a4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae835bb647d0423fdc24fe672e31c236f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDia.html">Dia</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#ae835bb647d0423fdc24fe672e31c236f">get_dia</a> () const </td></tr>
 <tr class="memdesc:ae835bb647d0423fdc24fe672e31c236f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obté el dia del rellotge.  <a href="#ae835bb647d0423fdc24fe672e31c236f">Més...</a><br /></td></tr>
 <tr class="separator:ae835bb647d0423fdc24fe672e31c236f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60ffe3674451123442c53eceb7d76797"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structHora.html">Hora</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a60ffe3674451123442c53eceb7d76797">get_hora</a> () const </td></tr>
+<tr class="memitem:a60ffe3674451123442c53eceb7d76797"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classHora.html">Hora</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a60ffe3674451123442c53eceb7d76797">get_hora</a> () const </td></tr>
 <tr class="memdesc:a60ffe3674451123442c53eceb7d76797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obté la hora del rellotge.  <a href="#a60ffe3674451123442c53eceb7d76797">Més...</a><br /></td></tr>
 <tr class="separator:a60ffe3674451123442c53eceb7d76797"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb7322980fcfd3cfb52e32c99f6698b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#acb7322980fcfd3cfb52e32c99f6698b6">consulta</a> (<a class="el" href="structDia.html">Dia</a> dia1, <a class="el" href="structDia.html">Dia</a> dia2, string expressio=&quot;&quot;)</td></tr>
-<tr class="memdesc:acb7322980fcfd3cfb52e32c99f6698b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera el menu per busqueda en rang i expressió  <a href="#acb7322980fcfd3cfb52e32c99f6698b6">Més...</a><br /></td></tr>
+<tr class="memitem:acb7322980fcfd3cfb52e32c99f6698b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#acb7322980fcfd3cfb52e32c99f6698b6">consulta</a> (<a class="el" href="classDia.html">Dia</a> dia1, <a class="el" href="classDia.html">Dia</a> dia2, string expressio=&quot;&quot;)</td></tr>
+<tr class="memdesc:acb7322980fcfd3cfb52e32c99f6698b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera el menu de les tasques d'un interval que compleixen una expressió  <a href="#acb7322980fcfd3cfb52e32c99f6698b6">Més...</a><br /></td></tr>
 <tr class="separator:acb7322980fcfd3cfb52e32c99f6698b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37417bfacad0c06e85cdfebf0660d80f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a37417bfacad0c06e85cdfebf0660d80f">consulta</a> (<a class="el" href="structDia.html">Dia</a> dia, string expressio=&quot;&quot;)</td></tr>
-<tr class="memdesc:a37417bfacad0c06e85cdfebf0660d80f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera el menu corresponen a la búsqueda en un dia.  <a href="#a37417bfacad0c06e85cdfebf0660d80f">Més...</a><br /></td></tr>
+<tr class="memitem:a37417bfacad0c06e85cdfebf0660d80f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a37417bfacad0c06e85cdfebf0660d80f">consulta</a> (<a class="el" href="classDia.html">Dia</a> dia, string expressio=&quot;&quot;)</td></tr>
+<tr class="memdesc:a37417bfacad0c06e85cdfebf0660d80f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera el menu del tasques d'un dia que compleixen una expressió  <a href="#a37417bfacad0c06e85cdfebf0660d80f">Més...</a><br /></td></tr>
 <tr class="separator:a37417bfacad0c06e85cdfebf0660d80f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fe2a3e0a383206b6c11efcf12b7b51b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a7fe2a3e0a383206b6c11efcf12b7b51b">consulta</a> ()</td></tr>
-<tr class="memdesc:a7fe2a3e0a383206b6c11efcf12b7b51b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera el menu de les tasques no passades.  <a href="#a7fe2a3e0a383206b6c11efcf12b7b51b">Més...</a><br /></td></tr>
-<tr class="separator:a7fe2a3e0a383206b6c11efcf12b7b51b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cd1c5270ee001bf372ecff80b65ed5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a0cd1c5270ee001bf372ecff80b65ed5c">passat</a> () const </td></tr>
-<tr class="memdesc:a0cd1c5270ee001bf372ecff80b65ed5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escriu totes les tasques del passat.  <a href="#a0cd1c5270ee001bf372ecff80b65ed5c">Més...</a><br /></td></tr>
-<tr class="separator:a0cd1c5270ee001bf372ecff80b65ed5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc29a5af5330c6c21ffd95a0bb2a16ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#acc29a5af5330c6c21ffd95a0bb2a16ff">consulta</a> (string expressio=&quot;&quot;)</td></tr>
+<tr class="memdesc:acc29a5af5330c6c21ffd95a0bb2a16ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera el menu de les tasques que compleixen una expressió <br />
+En aquest cas no hi ha cap restricció temporal, sinó que es busca en totes.  <a href="#acc29a5af5330c6c21ffd95a0bb2a16ff">Més...</a><br /></td></tr>
+<tr class="separator:acc29a5af5330c6c21ffd95a0bb2a16ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c9ddb0fd2c7ac7d759c15b137aaf41c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a7c9ddb0fd2c7ac7d759c15b137aaf41c">passat</a> ()</td></tr>
+<tr class="memdesc:a7c9ddb0fd2c7ac7d759c15b137aaf41c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escriu totes les tasques del passat.  <a href="#a7c9ddb0fd2c7ac7d759c15b137aaf41c">Més...</a><br /></td></tr>
+<tr class="separator:a7c9ddb0fd2c7ac7d759c15b137aaf41c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Tipus Privats</h2></td></tr>
+<tr class="memitem:a505505981b60ebb5ae54a6dbb646952d"><td class="memItemLeft" align="right" valign="top">typedef map&lt; <a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a>, <a class="el" href="classTasca.html">Tasca</a> &gt;<br class="typebreak" />
+::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a></td></tr>
+<tr class="memdesc:a505505981b60ebb5ae54a6dbb646952d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Un instant itera sobre el conjunt de les tasques.  <a href="#a505505981b60ebb5ae54a6dbb646952d">Més...</a><br /></td></tr>
+<tr class="separator:a505505981b60ebb5ae54a6dbb646952d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81d8b6bbacc6457812e56e1673ff85e9"><td class="memItemLeft" align="right" valign="top">typedef map&lt; <a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a>, <a class="el" href="classTasca.html">Tasca</a> &gt;<br class="typebreak" />
+::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a81d8b6bbacc6457812e56e1673ff85e9">cinstant</a></td></tr>
+<tr class="memdesc:a81d8b6bbacc6457812e56e1673ff85e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Un cinstant és un instant sense dret a modificació  <a href="#a81d8b6bbacc6457812e56e1673ff85e9">Més...</a><br /></td></tr>
+<tr class="separator:a81d8b6bbacc6457812e56e1673ff85e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c8ffc685adc383ad053962d71c6bde4"><td class="memItemLeft" align="right" valign="top">typedef set&lt; <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a>, <br class="typebreak" />
+<a class="el" href="structAgenda_1_1ordre__instant.html">ordre_instant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a0c8ffc685adc383ad053962d71c6bde4">set_instant</a></td></tr>
+<tr class="memdesc:a0c8ffc685adc383ad053962d71c6bde4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Un set_instant és un conjunt d'instants ordenats per <a class="el" href="structAgenda_1_1ordre__instant.html">ordre_instant</a>.  <a href="#a0c8ffc685adc383ad053962d71c6bde4">Més...</a><br /></td></tr>
+<tr class="separator:a0c8ffc685adc383ad053962d71c6bde4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30845902779495023753776f38bfe464"><td class="memItemLeft" align="right" valign="top">typedef map&lt; string, <a class="el" href="classAgenda.html#a0c8ffc685adc383ad053962d71c6bde4">set_instant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a30845902779495023753776f38bfe464">tag_map</a></td></tr>
+<tr class="memdesc:a30845902779495023753776f38bfe464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Un tag_map és un map de tag al seu conjunt d'instants.  <a href="#a30845902779495023753776f38bfe464">Més...</a><br /></td></tr>
+<tr class="separator:a30845902779495023753776f38bfe464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Mètodes Privats</h2></td></tr>
+<tr class="memitem:a2cd80b131fd4e0961ac98c7ec5ea1931"><td class="memItemLeft" align="right" valign="top">pair&lt; list&lt; <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &gt;<br class="typebreak" />
+::iterator, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a2cd80b131fd4e0961ac98c7ec5ea1931">menu_item</a> (const int id)</td></tr>
+<tr class="memdesc:a2cd80b131fd4e0961ac98c7ec5ea1931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indica si es pot modificar la tasca #id del menu.  <a href="#a2cd80b131fd4e0961ac98c7ec5ea1931">Més...</a><br /></td></tr>
+<tr class="separator:a2cd80b131fd4e0961ac98c7ec5ea1931"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74d0496377fb6a4e07284c0a283a7319"><td class="memItemLeft" align="right" valign="top">pair&lt; <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a>, bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a74d0496377fb6a4e07284c0a283a7319">p_add_tasca</a> (const <a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> &amp;data, const <a class="el" href="classTasca.html">Tasca</a> &amp;t)</td></tr>
+<tr class="memdesc:a74d0496377fb6a4e07284c0a283a7319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Afegeix una tasca (private)  <a href="#a74d0496377fb6a4e07284c0a283a7319">Més...</a><br /></td></tr>
+<tr class="separator:a74d0496377fb6a4e07284c0a283a7319"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a502724c66c14346ddea6583eee1d126f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a502724c66c14346ddea6583eee1d126f">p_set_data</a> (list&lt; <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &gt;::iterator &amp;it, <a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> d)</td></tr>
+<tr class="memdesc:a502724c66c14346ddea6583eee1d126f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modifica la data d'una tasca del menú  <a href="#a502724c66c14346ddea6583eee1d126f">Més...</a><br /></td></tr>
+<tr class="separator:a502724c66c14346ddea6583eee1d126f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4249ea55b2c9b58ace450297591b5f06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a4249ea55b2c9b58ace450297591b5f06">menu_directe</a> (<a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &amp;in1, <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &amp;in2)</td></tr>
+<tr class="memdesc:a4249ea55b2c9b58ace450297591b5f06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera i escriu el menú d'un interval de tasques Genera i escriu el menú (alhora) de totes les tasques entre in1 i in2, [in1,in2) és un interval del cjt de tasques.  <a href="#a4249ea55b2c9b58ace450297591b5f06">Més...</a><br /></td></tr>
+<tr class="separator:a4249ea55b2c9b58ace450297591b5f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5fff8c4457eda2e37a5c4ab853535ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#ae5fff8c4457eda2e37a5c4ab853535ae">menu_directe</a> (set_instant::iterator &amp;in1, set_instant::iterator &amp;in2)</td></tr>
+<tr class="memdesc:ae5fff8c4457eda2e37a5c4ab853535ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genera i escriu el menú d'un interval de tasques Genera i escriu el menú (alhora) de totes les tasques entre in1 i in2, [in1, in2) és un interval del cjt de tasques associat a una etiqueta.  <a href="#ae5fff8c4457eda2e37a5c4ab853535ae">Més...</a><br /></td></tr>
+<tr class="separator:ae5fff8c4457eda2e37a5c4ab853535ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b206a6e97654e619243f213610734aa"><td class="memTemplParams" colspan="2">template&lt;typename Iterator &gt; </td></tr>
+<tr class="memitem:a4b206a6e97654e619243f213610734aa"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classAgenda.html#a4b206a6e97654e619243f213610734aa">merge_and</a> (Iterator in1, Iterator in2, list&lt; <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &gt; &amp;l)</td></tr>
+<tr class="memdesc:a4b206a6e97654e619243f213610734aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fusiona 2 rangs de tasques fent la intersecció  <a href="#a4b206a6e97654e619243f213610734aa">Més...</a><br /></td></tr>
+<tr class="separator:a4b206a6e97654e619243f213610734aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a108ff0cb84a1c25b0129b5ae707d964b"><td class="memTemplParams" colspan="2">template&lt;typename Iterator &gt; </td></tr>
+<tr class="memitem:a108ff0cb84a1c25b0129b5ae707d964b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classAgenda.html#a108ff0cb84a1c25b0129b5ae707d964b">merge_or</a> (Iterator in1, Iterator in2, list&lt; <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &gt; &amp;l)</td></tr>
+<tr class="memdesc:a108ff0cb84a1c25b0129b5ae707d964b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fusiona 2 rangs de tasques fent la unió  <a href="#a108ff0cb84a1c25b0129b5ae707d964b">Més...</a><br /></td></tr>
+<tr class="separator:a108ff0cb84a1c25b0129b5ae707d964b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88351fa1c0ed2995674873d7515fa689"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a88351fa1c0ed2995674873d7515fa689">extract_tag</a> (istringstream &amp;exp)</td></tr>
+<tr class="memdesc:a88351fa1c0ed2995674873d7515fa689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Llegeix una etiqueta d'una expressió  <a href="#a88351fa1c0ed2995674873d7515fa689">Més...</a><br /></td></tr>
+<tr class="separator:a88351fa1c0ed2995674873d7515fa689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac209ebb75d9f2a09121433438574984d"><td class="memItemLeft" align="right" valign="top">set_instant::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#ac209ebb75d9f2a09121433438574984d">safe_bound</a> (tag_map::iterator &amp;tag, const <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &amp;in)</td></tr>
+<tr class="memdesc:ac209ebb75d9f2a09121433438574984d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obté una cota equivalent en el cjt d'instant d'una etiqueta Obté un iterador que apunta al primer instant del cjt de tags *tag que no és anterior a in <br />
+Esquema : * representa una tasca, X és "in" i Y el "return" <br />
+Cjt general: * * * * * * * * * X * * * * * * * * <br />
+Cjt etiqueta: * * * Y *.  <a href="#ac209ebb75d9f2a09121433438574984d">Més...</a><br /></td></tr>
+<tr class="separator:ac209ebb75d9f2a09121433438574984d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b9b980d262cf3b6c6caaf14913748d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a9b9b980d262cf3b6c6caaf14913748d1">exp_parentitzada</a> (const <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &amp;in1, const <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &amp;in2, istringstream &amp;exp, list&lt; <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &gt; &amp;l)</td></tr>
+<tr class="memdesc:a9b9b980d262cf3b6c6caaf14913748d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avalua una expressió parentitzada en un interval d'instants Avalua una expressió booleana parentitzada que comença per un '(' fins al parèntesi tancant ')' corresponent, deixant al flux la part no evaluada.  <a href="#a9b9b980d262cf3b6c6caaf14913748d1">Més...</a><br /></td></tr>
+<tr class="separator:a9b9b980d262cf3b6c6caaf14913748d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0de61ca1cb2b61ceece1b43505e926a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a0de61ca1cb2b61ceece1b43505e926a7">print_menu_item</a> (int i, const <a class="el" href="classAgenda.html#a81d8b6bbacc6457812e56e1673ff85e9">cinstant</a> &amp;it) const </td></tr>
+<tr class="memdesc:a0de61ca1cb2b61ceece1b43505e926a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escriure una línia del menú  <a href="#a0de61ca1cb2b61ceece1b43505e926a7">Més...</a><br /></td></tr>
+<tr class="separator:a0de61ca1cb2b61ceece1b43505e926a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4bd87b19b4f89f9193a75685cb29bae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#ae4bd87b19b4f89f9193a75685cb29bae">print_menu</a> () const </td></tr>
+<tr class="memdesc:ae4bd87b19b4f89f9193a75685cb29bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escriure el menú  <a href="#ae4bd87b19b4f89f9193a75685cb29bae">Més...</a><br /></td></tr>
+<tr class="separator:ae4bd87b19b4f89f9193a75685cb29bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributs Privats</h2></td></tr>
+<tr class="memitem:a39cb68838b3f54776812c51e559ee8e0"><td class="memItemLeft" align="right" valign="top">pair&lt; <a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a>, <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a39cb68838b3f54776812c51e559ee8e0">clock_</a></td></tr>
+<tr class="memdesc:a39cb68838b3f54776812c51e559ee8e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rellotge: data concreta a la qual està i instant a la primera tasca no passada.  <a href="#a39cb68838b3f54776812c51e559ee8e0">Més...</a><br /></td></tr>
+<tr class="separator:a39cb68838b3f54776812c51e559ee8e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34ca04664781e905fb50d8053a4b220e"><td class="memItemLeft" align="right" valign="top">map&lt; <a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a>, <a class="el" href="classTasca.html">Tasca</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#a34ca04664781e905fb50d8053a4b220e">tasks_</a></td></tr>
+<tr class="memdesc:a34ca04664781e905fb50d8053a4b220e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conjunt de tasques: guarda les tasques ordenades i associades per la seva data.  <a href="#a34ca04664781e905fb50d8053a4b220e">Més...</a><br /></td></tr>
+<tr class="separator:a34ca04664781e905fb50d8053a4b220e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab27331223fbc69ccd60c97dfa8e5c4c3"><td class="memItemLeft" align="right" valign="top">map&lt; string, <a class="el" href="classAgenda.html#a0c8ffc685adc383ad053962d71c6bde4">set_instant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#ab27331223fbc69ccd60c97dfa8e5c4c3">tags_</a></td></tr>
+<tr class="memdesc:ab27331223fbc69ccd60c97dfa8e5c4c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Catàleg d'etiquetes: associa a cada etiqueta el cjt de tasques que la tenen.  <a href="#ab27331223fbc69ccd60c97dfa8e5c4c3">Més...</a><br /></td></tr>
+<tr class="separator:ab27331223fbc69ccd60c97dfa8e5c4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8b3c38dde65025e4fd9b8ed67a1bfa3"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAgenda.html#ac8b3c38dde65025e4fd9b8ed67a1bfa3">menu_</a></td></tr>
+<tr class="memdesc:ac8b3c38dde65025e4fd9b8ed67a1bfa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Menú: guarda les tasques corresponents a la última consulta.  <a href="#ac8b3c38dde65025e4fd9b8ed67a1bfa3">Més...</a><br /></td></tr>
+<tr class="separator:ac8b3c38dde65025e4fd9b8ed67a1bfa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripció Detallada</h2>
 <div class="textblock"><p>Representa una agenda amb un conjunt de tasques amb etiquetes. </p>
-<dl class="section invariant"><dt>Invariant</dt><dd><ul>
-<li>No hi han tasques amb la mateixa data</li>
-<li>No es poden modificar les tasques del passat</li>
-</ul>
-</dd></dl>
 <dl class="section user"><dt>Notació</dt><dd><ol type="1">
-<li>Una data és "del passat" o "passada" si és anterior al rellotge del p.i.</li>
+<li>Una data és "del passat" o "passada" si és anterior al rellotge intern.</li>
 <li>Una tasca és "del passat" si la seva data associada ho és. </li>
 </ol>
 </dd></dl>
+<dl class="section invariant"><dt>Invariant</dt><dd><ul>
+<li>Rellotge intern<ol type="1">
+<li>Indica el que es considera com el "present"</li>
+<li>Només es pot avançar (viatges al passat prohibits)</li>
+</ol>
+</li>
+<li>Conjunt de tasques<ol type="1">
+<li>Cada tasca té una única data i no hi ha dues tasques amb la mateixa data</li>
+<li>El rellotge intern separa les tasques passades (anteriors) de les que no ho són</li>
+<li>Una tasca passada no admet modificacions ni esborrament </li>
+</ol>
+</li>
+</ul>
+</dd></dl>
 
-<p>Definició a la línia <a class="el" href="agenda_8hh_source.html#l00028">28</a> del fitxer <a class="el" href="agenda_8hh_source.html">agenda.hh</a>.</p>
-</div><h2 class="groupheader">Documentació del Constructor i el Destructor</h2>
+<p>Definició a la línia <a class="el" href="agenda_8hh_source.html#l00032">32</a> del fitxer <a class="el" href="agenda_8hh_source.html">agenda.hh</a>.</p>
+</div><h2 class="groupheader">Documentació de les Definicions de Tipus Membre</h2>
+<a class="anchor" id="a81d8b6bbacc6457812e56e1673ff85e9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef map&lt;<a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a>, <a class="el" href="classTasca.html">Tasca</a>&gt;::const_iterator <a class="el" href="classAgenda.html#a81d8b6bbacc6457812e56e1673ff85e9">Agenda::cinstant</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Un cinstant és un instant sense dret a modificació </p>
+
+<p>Definició a la línia <a class="el" href="agenda_8hh_source.html#l00166">166</a> del fitxer <a class="el" href="agenda_8hh_source.html">agenda.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a505505981b60ebb5ae54a6dbb646952d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef map&lt;<a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a>, <a class="el" href="classTasca.html">Tasca</a>&gt;::iterator <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">Agenda::instant</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Un instant itera sobre el conjunt de les tasques. </p>
+<dl class="section invariant"><dt>Invariant</dt><dd><ul>
+<li>Conjunt etiquetes<ol type="1">
+<li>El cjt d'etiquetes està ordenat lexicogràficament</li>
+<li>Cada cjt de tasques és un subconjunt ordenat de tasques no passades</li>
+<li>Cada etiqueta té un únic cjt de tasques associat i viceversa</li>
+<li>El cjt de tasques de cada etiqueta conté almenys 1 element (no buits) </li>
+</ol>
+</li>
+</ul>
+</dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8hh_source.html#l00164">164</a> del fitxer <a class="el" href="agenda_8hh_source.html">agenda.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0c8ffc685adc383ad053962d71c6bde4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef set&lt;<a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a>, <a class="el" href="structAgenda_1_1ordre__instant.html">ordre_instant</a>&gt; <a class="el" href="classAgenda.html#a0c8ffc685adc383ad053962d71c6bde4">Agenda::set_instant</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Un set_instant és un conjunt d'instants ordenats per <a class="el" href="structAgenda_1_1ordre__instant.html">ordre_instant</a>. </p>
+
+<p>Definició a la línia <a class="el" href="agenda_8hh_source.html#l00180">180</a> del fitxer <a class="el" href="agenda_8hh_source.html">agenda.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a30845902779495023753776f38bfe464"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef map&lt;string, <a class="el" href="classAgenda.html#a0c8ffc685adc383ad053962d71c6bde4">set_instant</a>&gt; <a class="el" href="classAgenda.html#a30845902779495023753776f38bfe464">Agenda::tag_map</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Un tag_map és un map de tag al seu conjunt d'instants. </p>
+
+<p>Definició a la línia <a class="el" href="agenda_8hh_source.html#l00182">182</a> del fitxer <a class="el" href="agenda_8hh_source.html">agenda.hh</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentació del Constructor i el Destructor</h2>
 <a class="anchor" id="a6685054d2b4ccbf2a4ef2ac5e3746bc3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -196,19 +402,21 @@ Mètodes públics</h2></td></tr>
 
 <p>Constructor d'una agenda per defecte. </p>
 <dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>el p.i és una agenda buida amb rellotge </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>el p.i és una agenda buida amb rellotge al 20.04.15 00:00 </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00008">8</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Documentació de les Funcions Membre</h2>
-<a class="anchor" id="a16f8a23befae6e7f5fa9e56297388c4e"></a>
+<a class="anchor" id="ab35e2abd36689ed600f1652d96807c9f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Agenda::add_etiqueta </td>
+          <td class="memname">bool Agenda::add_etiqueta </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>id</em>, </td>
         </tr>
         <tr>
@@ -233,35 +441,37 @@ Mètodes públics</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondició</dt><dd>es_modificable(id) </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>la tasca <em>id</em> del menú té l'etiqueta <em>etiqueta</em> </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>si retorna true, la tasca <em>id</em> del menú té l'etiqueta <em>etiqueta</em> </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00057">57</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
 
 <p><div class="dynheader">
 Gràfic de crides a aquesta funció:</div>
 <div class="dyncontent">
-<div class="center"><img src="classAgenda_a16f8a23befae6e7f5fa9e56297388c4e_icgraph.png" border="0" usemap="#classAgenda_a16f8a23befae6e7f5fa9e56297388c4e_icgraph" alt=""/></div>
-<map name="classAgenda_a16f8a23befae6e7f5fa9e56297388c4e_icgraph" id="classAgenda_a16f8a23befae6e7f5fa9e56297388c4e_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="211,5,261,32"/></map>
+<div class="center"><img src="classAgenda_ab35e2abd36689ed600f1652d96807c9f_icgraph.png" border="0" usemap="#classAgenda_ab35e2abd36689ed600f1652d96807c9f_icgraph" alt=""/></div>
+<map name="classAgenda_ab35e2abd36689ed600f1652d96807c9f_icgraph" id="classAgenda_ab35e2abd36689ed600f1652d96807c9f_icgraph">
+<area shape="rect" id="node2" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="211,5,261,32"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a3718671bfa2b7cc8c1232f6977f747ce"></a>
+<a class="anchor" id="a651419e686f5e359f9e88b05a765b1cf"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Agenda::add_tasca </td>
+          <td class="memname">bool Agenda::add_tasca </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
-          <td class="paramname"><em>titol</em>, </td>
+          <td class="paramtype">const <a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a>&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classTasca.html">Tasca</a> &amp;&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -274,20 +484,22 @@ Gràfic de crides a aquesta funció:</div>
 <p>Afegeix una tasca. </p>
 <dl class="params"><dt>Paràmetres</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">titol</td><td>títol de la tasca a afegir </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>data de la tasca a afegir </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>la data de la tasca a afegir </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tasca</td><td>la tasca a afegir </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondició</dt><dd>no es_passat(data) i no existeix(data) </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>el p.i conté una tasca amb títol <em>titol</em> i data <em>data</em> </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>no is_passat(data) </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>si retorna true el p.i conté la tasca t </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00030">30</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
 
 <p><div class="dynheader">
 Gràfic de crides a aquesta funció:</div>
 <div class="dyncontent">
-<div class="center"><img src="classAgenda_a3718671bfa2b7cc8c1232f6977f747ce_icgraph.png" border="0" usemap="#classAgenda_a3718671bfa2b7cc8c1232f6977f747ce_icgraph" alt=""/></div>
-<map name="classAgenda_a3718671bfa2b7cc8c1232f6977f747ce_icgraph" id="classAgenda_a3718671bfa2b7cc8c1232f6977f747ce_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="196,5,247,32"/></map>
+<div class="center"><img src="classAgenda_a651419e686f5e359f9e88b05a765b1cf_icgraph.png" border="0" usemap="#classAgenda_a651419e686f5e359f9e88b05a765b1cf_icgraph" alt=""/></div>
+<map name="classAgenda_a651419e686f5e359f9e88b05a765b1cf_icgraph" id="classAgenda_a651419e686f5e359f9e88b05a765b1cf_icgraph">
+<area shape="rect" id="node2" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="196,5,247,32"/></map>
 </div>
 </p>
 
@@ -300,13 +512,13 @@ Gràfic de crides a aquesta funció:</div>
         <tr>
           <td class="memname">void Agenda::consulta </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structDia.html">Dia</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="classDia.html">Dia</a>&#160;</td>
           <td class="paramname"><em>dia1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structDia.html">Dia</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="classDia.html">Dia</a>&#160;</td>
           <td class="paramname"><em>dia2</em>, </td>
         </tr>
         <tr>
@@ -323,24 +535,35 @@ Gràfic de crides a aquesta funció:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Genera el menu per busqueda en rang i expressió </p>
+<p>Genera el menu de les tasques d'un interval que compleixen una expressió </p>
 <dl class="params"><dt>Paràmetres</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dia1</td><td>cota temporal inferior de la búsqueda </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dia2</td><td>cota temporal superior de la búsqueda </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">expressio</td><td>expressió booleana sobre les etiquetes </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dia1</td><td>inici de l'interval temporal </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dia2</td><td>final de l'interval temporal </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">expressio</td><td>expressió booleana ben parentitzada (opcional) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>el menú conté les tasques amb data en [<em>data1</em>, <em>data2</em>] no passades tal que el conjunt d'etiquetes de les quals compleix <em>expressio</em> i es mostra el menú </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>el menú conté les tasques amb data en [<em>data1</em>, <em>data2</em>] no passades amb un conjunt d'etiquetes que compleix <em>expressio</em> i es mostra el menú </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00131">131</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_acb7322980fcfd3cfb52e32c99f6698b6_cgraph.png" border="0" usemap="#classAgenda_acb7322980fcfd3cfb52e32c99f6698b6_cgraph" alt=""/></div>
+<map name="classAgenda_acb7322980fcfd3cfb52e32c99f6698b6_cgraph" id="classAgenda_acb7322980fcfd3cfb52e32c99f6698b6_cgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a4249ea55b2c9b58ace450297591b5f06" title="Genera i escriu el menú d&#39;un interval de tasques Genera i escriu el menú (alhora) de totes les tasque..." alt="" coords="193,5,351,32"/><area shape="rect" id="node6" href="classAgenda.html#ac209ebb75d9f2a09121433438574984d" title="Obté una cota equivalent en el cjt d&#39;instant d&#39;una etiqueta Obté un iterador que apunta al primer ins..." alt="" coords="424,107,572,133"/><area shape="rect" id="node7" href="classAgenda.html#a9b9b980d262cf3b6c6caaf14913748d1" title="Avalua una expressió parentitzada en un interval d&#39;instants Avalua una expressió booleana parentitzad..." alt="" coords="181,157,363,184"/><area shape="rect" id="node11" href="classAgenda.html#ae4bd87b19b4f89f9193a75685cb29bae" title="Escriure el menú " alt="" coords="201,56,343,83"/><area shape="rect" id="node3" href="classAgenda.html#a0de61ca1cb2b61ceece1b43505e926a7" title="Escriure una línia del menú " alt="" coords="411,31,585,57"/><area shape="rect" id="node4" href="classTasca.html#a4e84f388a8059d6ff51c193c67b9ce83" title="Mostrar el títol de la tasca. " alt="" coords="651,5,772,32"/><area shape="rect" id="node5" href="classTasca.html#a26a5ba43ce13afd9fc453015a3574825" title="Mostrar les etiquetes de la tasca. " alt="" coords="633,56,789,83"/><area shape="rect" id="node8" href="classAgenda.html#a88351fa1c0ed2995674873d7515fa689" title="Llegeix una etiqueta d&#39;una expressió " alt="" coords="426,157,570,184"/><area shape="rect" id="node9" href="classAgenda.html#a4b206a6e97654e619243f213610734aa" title="Fusiona 2 rangs de tasques fent la intersecció " alt="" coords="425,208,571,235"/><area shape="rect" id="node10" href="classAgenda.html#a108ff0cb84a1c25b0129b5ae707d964b" title="Fusiona 2 rangs de tasques fent la unió " alt="" coords="430,259,566,285"/></map>
+</div>
+</p>
 
 <p><div class="dynheader">
 Gràfic de crides a aquesta funció:</div>
 <div class="dyncontent">
 <div class="center"><img src="classAgenda_acb7322980fcfd3cfb52e32c99f6698b6_icgraph.png" border="0" usemap="#classAgenda_acb7322980fcfd3cfb52e32c99f6698b6_icgraph" alt=""/></div>
 <map name="classAgenda_acb7322980fcfd3cfb52e32c99f6698b6_icgraph" id="classAgenda_acb7322980fcfd3cfb52e32c99f6698b6_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="181,5,232,32"/></map>
+<area shape="rect" id="node2" href="classAgenda.html#a37417bfacad0c06e85cdfebf0660d80f" title="Genera el menu del tasques d&#39;un dia que compleixen una expressió " alt="" coords="181,5,309,32"/><area shape="rect" id="node3" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="220,56,271,83"/></map>
 </div>
 </p>
 
@@ -353,7 +576,7 @@ Gràfic de crides a aquesta funció:</div>
         <tr>
           <td class="memname">void Agenda::consulta </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structDia.html">Dia</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="classDia.html">Dia</a>&#160;</td>
           <td class="paramname"><em>dia</em>, </td>
         </tr>
         <tr>
@@ -370,52 +593,76 @@ Gràfic de crides a aquesta funció:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Genera el menu corresponen a la búsqueda en un dia. </p>
+<p>Genera el menu del tasques d'un dia que compleixen una expressió </p>
 <dl class="params"><dt>Paràmetres</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dia</td><td>dia en què s'ha de buscar </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">expressio</td><td>expressió booleana sobre les etiquetes </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dia</td><td>dia on han d'estar les tasques </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">expressio</td><td>expressió booleana ben parentitzada (opcional) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>el menú conté les tasques no passadaes amb dia <em>dia</em> tal que el conjunt d'etiquetes de les quals compleix <em>expressio</em> i es mostra el menú </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>el menú conté les tasques no passades amb dia <em>dia</em> i un un conjunt d'etiquetes que compleix <em>expressio</em> i es mostra el menú </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00156">156</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_a37417bfacad0c06e85cdfebf0660d80f_cgraph.png" border="0" usemap="#classAgenda_a37417bfacad0c06e85cdfebf0660d80f_cgraph" alt=""/></div>
+<map name="classAgenda_a37417bfacad0c06e85cdfebf0660d80f_cgraph" id="classAgenda_a37417bfacad0c06e85cdfebf0660d80f_cgraph">
+<area shape="rect" id="node2" href="classAgenda.html#acb7322980fcfd3cfb52e32c99f6698b6" title="Genera el menu de les tasques d&#39;un interval que compleixen una expressió " alt="" coords="181,81,309,108"/><area shape="rect" id="node3" href="classAgenda.html#a4249ea55b2c9b58ace450297591b5f06" title="Genera i escriu el menú d&#39;un interval de tasques Genera i escriu el menú (alhora) de totes les tasque..." alt="" coords="369,5,527,32"/><area shape="rect" id="node7" href="classAgenda.html#ac209ebb75d9f2a09121433438574984d" title="Obté una cota equivalent en el cjt d&#39;instant d&#39;una etiqueta Obté un iterador que apunta al primer ins..." alt="" coords="600,107,748,133"/><area shape="rect" id="node8" href="classAgenda.html#a9b9b980d262cf3b6c6caaf14913748d1" title="Avalua una expressió parentitzada en un interval d&#39;instants Avalua una expressió booleana parentitzad..." alt="" coords="357,157,539,184"/><area shape="rect" id="node12" href="classAgenda.html#ae4bd87b19b4f89f9193a75685cb29bae" title="Escriure el menú " alt="" coords="377,56,519,83"/><area shape="rect" id="node4" href="classAgenda.html#a0de61ca1cb2b61ceece1b43505e926a7" title="Escriure una línia del menú " alt="" coords="587,31,761,57"/><area shape="rect" id="node5" href="classTasca.html#a4e84f388a8059d6ff51c193c67b9ce83" title="Mostrar el títol de la tasca. " alt="" coords="827,5,948,32"/><area shape="rect" id="node6" href="classTasca.html#a26a5ba43ce13afd9fc453015a3574825" title="Mostrar les etiquetes de la tasca. " alt="" coords="809,56,965,83"/><area shape="rect" id="node9" href="classAgenda.html#a88351fa1c0ed2995674873d7515fa689" title="Llegeix una etiqueta d&#39;una expressió " alt="" coords="602,157,746,184"/><area shape="rect" id="node10" href="classAgenda.html#a4b206a6e97654e619243f213610734aa" title="Fusiona 2 rangs de tasques fent la intersecció " alt="" coords="601,208,747,235"/><area shape="rect" id="node11" href="classAgenda.html#a108ff0cb84a1c25b0129b5ae707d964b" title="Fusiona 2 rangs de tasques fent la unió " alt="" coords="606,259,742,285"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a7fe2a3e0a383206b6c11efcf12b7b51b"></a>
+<a class="anchor" id="acc29a5af5330c6c21ffd95a0bb2a16ff"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Agenda::consulta </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>expressio</em> = <code>&quot;&quot;</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Genera el menu de les tasques no passades. </p>
+<p>Genera el menu de les tasques que compleixen una expressió <br />
+En aquest cas no hi ha cap restricció temporal, sinó que es busca en totes. </p>
 <dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>el menú conté les tasques no passades i es mostra </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>el menú conté les tasques no passades amb un conjunt d'etiquetes que compleix expressio i es mostra el menú </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00160">160</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_acc29a5af5330c6c21ffd95a0bb2a16ff_cgraph.png" border="0" usemap="#classAgenda_acc29a5af5330c6c21ffd95a0bb2a16ff_cgraph" alt=""/></div>
+<map name="classAgenda_acc29a5af5330c6c21ffd95a0bb2a16ff_cgraph" id="classAgenda_acc29a5af5330c6c21ffd95a0bb2a16ff_cgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a4249ea55b2c9b58ace450297591b5f06" title="Genera i escriu el menú d&#39;un interval de tasques Genera i escriu el menú (alhora) de totes les tasque..." alt="" coords="193,31,351,57"/><area shape="rect" id="node6" href="classAgenda.html#a9b9b980d262cf3b6c6caaf14913748d1" title="Avalua una expressió parentitzada en un interval d&#39;instants Avalua una expressió booleana parentitzad..." alt="" coords="181,132,363,159"/><area shape="rect" id="node11" href="classAgenda.html#ae4bd87b19b4f89f9193a75685cb29bae" title="Escriure el menú " alt="" coords="201,81,343,108"/><area shape="rect" id="node3" href="classAgenda.html#a0de61ca1cb2b61ceece1b43505e926a7" title="Escriure una línia del menú " alt="" coords="411,31,585,57"/><area shape="rect" id="node4" href="classTasca.html#a4e84f388a8059d6ff51c193c67b9ce83" title="Mostrar el títol de la tasca. " alt="" coords="651,5,772,32"/><area shape="rect" id="node5" href="classTasca.html#a26a5ba43ce13afd9fc453015a3574825" title="Mostrar les etiquetes de la tasca. " alt="" coords="633,56,789,83"/><area shape="rect" id="node7" href="classAgenda.html#a88351fa1c0ed2995674873d7515fa689" title="Llegeix una etiqueta d&#39;una expressió " alt="" coords="426,81,570,108"/><area shape="rect" id="node8" href="classAgenda.html#ac209ebb75d9f2a09121433438574984d" title="Obté una cota equivalent en el cjt d&#39;instant d&#39;una etiqueta Obté un iterador que apunta al primer ins..." alt="" coords="424,132,572,159"/><area shape="rect" id="node9" href="classAgenda.html#a4b206a6e97654e619243f213610734aa" title="Fusiona 2 rangs de tasques fent la intersecció " alt="" coords="425,183,571,209"/><area shape="rect" id="node10" href="classAgenda.html#a108ff0cb84a1c25b0129b5ae707d964b" title="Fusiona 2 rangs de tasques fent la unió " alt="" coords="430,233,566,260"/></map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="aa3a19ef06ad45a76ab0e5d02b3d3cb65"></a>
+<a class="anchor" id="a6ef451c0e91d39fe3457acf37be7f3b9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Agenda::del_etiqueta </td>
+          <td class="memname">bool Agenda::del_etiqueta </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>id</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">string&#160;</td>
+          <td class="paramtype">const string&#160;</td>
           <td class="paramname"><em>etiqueta</em>&#160;</td>
         </tr>
         <tr>
@@ -434,28 +681,30 @@ Gràfic de crides a aquesta funció:</div>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondició</dt><dd>es_modificable(id) </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>la tasca <em>id</em> no té l'etiqueta <em>etiqueta</em> </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>si retorna true, la tasca <em>id</em> no té l'etiqueta <em>etiqueta</em> </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00066">66</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
 
 <p><div class="dynheader">
 Gràfic de crides a aquesta funció:</div>
 <div class="dyncontent">
-<div class="center"><img src="classAgenda_aa3a19ef06ad45a76ab0e5d02b3d3cb65_icgraph.png" border="0" usemap="#classAgenda_aa3a19ef06ad45a76ab0e5d02b3d3cb65_icgraph" alt=""/></div>
-<map name="classAgenda_aa3a19ef06ad45a76ab0e5d02b3d3cb65_icgraph" id="classAgenda_aa3a19ef06ad45a76ab0e5d02b3d3cb65_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="205,5,256,32"/></map>
+<div class="center"><img src="classAgenda_a6ef451c0e91d39fe3457acf37be7f3b9_icgraph.png" border="0" usemap="#classAgenda_a6ef451c0e91d39fe3457acf37be7f3b9_icgraph" alt=""/></div>
+<map name="classAgenda_a6ef451c0e91d39fe3457acf37be7f3b9_icgraph" id="classAgenda_a6ef451c0e91d39fe3457acf37be7f3b9_icgraph">
+<area shape="rect" id="node2" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="205,5,256,32"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a37c283d1fea87dabd99cbe86723c1ebe"></a>
+<a class="anchor" id="acab4b24367d4dbf5dd8e03e10f9c283f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Agenda::del_etiquetes </td>
+          <td class="memname">bool Agenda::del_etiquetes </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
@@ -469,28 +718,39 @@ Gràfic de crides a aquesta funció:</div>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondició</dt><dd>es_modificable(id) </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>la tasca <em>id</em> del menú no té cap etiqueta </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>si retorna true, la tasca <em>id</em> del menú no té cap etiqueta </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00084">84</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_acab4b24367d4dbf5dd8e03e10f9c283f_cgraph.png" border="0" usemap="#classAgenda_acab4b24367d4dbf5dd8e03e10f9c283f_cgraph" alt=""/></div>
+<map name="classAgenda_acab4b24367d4dbf5dd8e03e10f9c283f_cgraph" id="classAgenda_acab4b24367d4dbf5dd8e03e10f9c283f_cgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a2cd80b131fd4e0961ac98c7ec5ea1931" title="Indica si es pot modificar la tasca #id del menu. " alt="" coords="212,5,355,32"/><area shape="rect" id="node3" href="classAgenda.html#ad2e7ac42f8058febb99478c30aa6a4a6" title="Consulta si una data és passada. " alt="" coords="403,5,537,32"/></map>
+</div>
+</p>
 
 <p><div class="dynheader">
 Gràfic de crides a aquesta funció:</div>
 <div class="dyncontent">
-<div class="center"><img src="classAgenda_a37c283d1fea87dabd99cbe86723c1ebe_icgraph.png" border="0" usemap="#classAgenda_a37c283d1fea87dabd99cbe86723c1ebe_icgraph" alt=""/></div>
-<map name="classAgenda_a37c283d1fea87dabd99cbe86723c1ebe_icgraph" id="classAgenda_a37c283d1fea87dabd99cbe86723c1ebe_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="212,5,263,32"/></map>
+<div class="center"><img src="classAgenda_acab4b24367d4dbf5dd8e03e10f9c283f_icgraph.png" border="0" usemap="#classAgenda_acab4b24367d4dbf5dd8e03e10f9c283f_icgraph" alt=""/></div>
+<map name="classAgenda_acab4b24367d4dbf5dd8e03e10f9c283f_icgraph" id="classAgenda_acab4b24367d4dbf5dd8e03e10f9c283f_icgraph">
+<area shape="rect" id="node2" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="212,5,263,32"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a37fca8db7be2382cd93dded83afc9eb9"></a>
+<a class="anchor" id="ab7bec241daeb8540c96aa24e9fbf5180"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Agenda::del_tasca </td>
+          <td class="memname">bool Agenda::del_tasca </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
@@ -504,120 +764,154 @@ Gràfic de crides a aquesta funció:</div>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondició</dt><dd>es_modificable(id) </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>el p.i no conté la tasca <em>id</em> del menú </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>si retorna true, el p.i no conté la tasca <em>id</em> del menú </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00099">99</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_ab7bec241daeb8540c96aa24e9fbf5180_cgraph.png" border="0" usemap="#classAgenda_ab7bec241daeb8540c96aa24e9fbf5180_cgraph" alt=""/></div>
+<map name="classAgenda_ab7bec241daeb8540c96aa24e9fbf5180_cgraph" id="classAgenda_ab7bec241daeb8540c96aa24e9fbf5180_cgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a2cd80b131fd4e0961ac98c7ec5ea1931" title="Indica si es pot modificar la tasca #id del menu. " alt="" coords="191,5,333,32"/><area shape="rect" id="node3" href="classAgenda.html#ad2e7ac42f8058febb99478c30aa6a4a6" title="Consulta si una data és passada. " alt="" coords="381,5,516,32"/></map>
+</div>
+</p>
 
 <p><div class="dynheader">
 Gràfic de crides a aquesta funció:</div>
 <div class="dyncontent">
-<div class="center"><img src="classAgenda_a37fca8db7be2382cd93dded83afc9eb9_icgraph.png" border="0" usemap="#classAgenda_a37fca8db7be2382cd93dded83afc9eb9_icgraph" alt=""/></div>
-<map name="classAgenda_a37fca8db7be2382cd93dded83afc9eb9_icgraph" id="classAgenda_a37fca8db7be2382cd93dded83afc9eb9_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="191,5,241,32"/></map>
+<div class="center"><img src="classAgenda_ab7bec241daeb8540c96aa24e9fbf5180_icgraph.png" border="0" usemap="#classAgenda_ab7bec241daeb8540c96aa24e9fbf5180_icgraph" alt=""/></div>
+<map name="classAgenda_ab7bec241daeb8540c96aa24e9fbf5180_icgraph" id="classAgenda_ab7bec241daeb8540c96aa24e9fbf5180_icgraph">
+<area shape="rect" id="node2" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="191,5,241,32"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ac806bdff68a0dde44205b7cb3926bafc"></a>
+<a class="anchor" id="a9b9b980d262cf3b6c6caaf14913748d1"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Agenda::es_modificable </td>
+          <td class="memname">void Agenda::exp_parentitzada </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &amp;&#160;</td>
+          <td class="paramname"><em>in1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &amp;&#160;</td>
+          <td class="paramname"><em>in2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">istringstream &amp;&#160;</td>
+          <td class="paramname"><em>exp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">list&lt; <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Consulta si es pot modificar una tasca del menú </p>
+<p>Avalua una expressió parentitzada en un interval d'instants Avalua una expressió booleana parentitzada que comença per un '(' fins al parèntesi tancant ')' corresponent, deixant al flux la part no evaluada. </p>
 <dl class="params"><dt>Paràmetres</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>nº de la tasca a modificar </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in1</td><td>inici de l'interval on avaluar </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in2</td><td>final de l'interval on avaluar </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">exp</td><td>flux de l'expressió parentitzada </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">in]</td><td>l contenidor on es guarda el resultat </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>retorna si es pot modificar la tasca <em>id</em> del menú </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>in1 apunta a un element no passat i in2 és posterior a in1 <br />
+ exp conté, al seu principi, una expressió booleana de la forma: <br />
+ exp: (e.e) | (e,e) e: exp | etiqueta <br />
+ ; l és una llista buida ; exp = EXP <br />
+ </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>l conté les tasques en [in1,in2) que compleixen l'expressió delimitada pel primer '(' fins al ')' corresponent, s'ha consumit aquesta expressió de exp </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00310">310</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_a9b9b980d262cf3b6c6caaf14913748d1_cgraph.png" border="0" usemap="#classAgenda_a9b9b980d262cf3b6c6caaf14913748d1_cgraph" alt=""/></div>
+<map name="classAgenda_a9b9b980d262cf3b6c6caaf14913748d1_cgraph" id="classAgenda_a9b9b980d262cf3b6c6caaf14913748d1_cgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a88351fa1c0ed2995674873d7515fa689" title="Llegeix una etiqueta d&#39;una expressió " alt="" coords="237,5,381,32"/><area shape="rect" id="node3" href="classAgenda.html#ac209ebb75d9f2a09121433438574984d" title="Obté una cota equivalent en el cjt d&#39;instant d&#39;una etiqueta Obté un iterador que apunta al primer ins..." alt="" coords="235,56,383,83"/><area shape="rect" id="node4" href="classAgenda.html#a4b206a6e97654e619243f213610734aa" title="Fusiona 2 rangs de tasques fent la intersecció " alt="" coords="235,107,382,133"/><area shape="rect" id="node5" href="classAgenda.html#a108ff0cb84a1c25b0129b5ae707d964b" title="Fusiona 2 rangs de tasques fent la unió " alt="" coords="241,157,377,184"/></map>
+</div>
+</p>
 
 <p><div class="dynheader">
 Gràfic de crides a aquesta funció:</div>
 <div class="dyncontent">
-<div class="center"><img src="classAgenda_ac806bdff68a0dde44205b7cb3926bafc_icgraph.png" border="0" usemap="#classAgenda_ac806bdff68a0dde44205b7cb3926bafc_icgraph" alt=""/></div>
-<map name="classAgenda_ac806bdff68a0dde44205b7cb3926bafc_icgraph" id="classAgenda_ac806bdff68a0dde44205b7cb3926bafc_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="223,5,273,32"/></map>
+<div class="center"><img src="classAgenda_a9b9b980d262cf3b6c6caaf14913748d1_icgraph.png" border="0" usemap="#classAgenda_a9b9b980d262cf3b6c6caaf14913748d1_icgraph" alt=""/></div>
+<map name="classAgenda_a9b9b980d262cf3b6c6caaf14913748d1_icgraph" id="classAgenda_a9b9b980d262cf3b6c6caaf14913748d1_icgraph">
+<area shape="rect" id="node2" href="classAgenda.html#acb7322980fcfd3cfb52e32c99f6698b6" title="Genera el menu de les tasques d&#39;un interval que compleixen una expressió " alt="" coords="235,31,363,57"/><area shape="rect" id="node3" href="classAgenda.html#a37417bfacad0c06e85cdfebf0660d80f" title="Genera el menu del tasques d&#39;un dia que compleixen una expressió " alt="" coords="411,5,539,32"/><area shape="rect" id="node4" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="449,56,500,83"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="ac60aa6484d53e9873cc47627f4d6fc30"></a>
+<a class="anchor" id="a88351fa1c0ed2995674873d7515fa689"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Agenda::es_passat </td>
+          <td class="memname">string Agenda::extract_tag </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a>&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">istringstream &amp;&#160;</td>
+          <td class="paramname"><em>exp</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Consulta si una data és passada. </p>
+<p>Llegeix una etiqueta d'una expressió </p>
 <dl class="params"><dt>Paràmetres</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>la data a evaluar </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">exp</td><td>expressió d'on s'ha d'extreure l'etiqueta </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>retorna (data anterior al rellotge del p.i) </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>exp és una part d'una expressió booleana on el 1r caràcter és el 1r caràcter de l'etiqueta a extreure </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>es retorna l'etiqueta extreta i s'ha consumit l'etiqueta de exp </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00295">295</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
 
 <p><div class="dynheader">
 Gràfic de crides a aquesta funció:</div>
 <div class="dyncontent">
-<div class="center"><img src="classAgenda_ac60aa6484d53e9873cc47627f4d6fc30_icgraph.png" border="0" usemap="#classAgenda_ac60aa6484d53e9873cc47627f4d6fc30_icgraph" alt=""/></div>
-<map name="classAgenda_ac60aa6484d53e9873cc47627f4d6fc30_icgraph" id="classAgenda_ac60aa6484d53e9873cc47627f4d6fc30_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="193,5,244,32"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="ad6c42d4f05be9b7f0c48018dc6391b1d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Agenda::existeix </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a>&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Consulta si hi ha una tasca en una data. </p>
-<dl class="params"><dt>Paràmetres</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>data de la tasca </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>retorna si existeix una tasca amb data <em>data</em> </dd></dl>
-
-<p><div class="dynheader">
-Gràfic de crides a aquesta funció:</div>
-<div class="dyncontent">
-<div class="center"><img src="classAgenda_ad6c42d4f05be9b7f0c48018dc6391b1d_icgraph.png" border="0" usemap="#classAgenda_ad6c42d4f05be9b7f0c48018dc6391b1d_icgraph" alt=""/></div>
-<map name="classAgenda_ad6c42d4f05be9b7f0c48018dc6391b1d_icgraph" id="classAgenda_ad6c42d4f05be9b7f0c48018dc6391b1d_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="177,5,228,32"/></map>
+<div class="center"><img src="classAgenda_a88351fa1c0ed2995674873d7515fa689_icgraph.png" border="0" usemap="#classAgenda_a88351fa1c0ed2995674873d7515fa689_icgraph" alt=""/></div>
+<map name="classAgenda_a88351fa1c0ed2995674873d7515fa689_icgraph" id="classAgenda_a88351fa1c0ed2995674873d7515fa689_icgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a9b9b980d262cf3b6c6caaf14913748d1" title="Avalua una expressió parentitzada en un interval d&#39;instants Avalua una expressió booleana parentitzad..." alt="" coords="197,31,379,57"/><area shape="rect" id="node3" href="classAgenda.html#acb7322980fcfd3cfb52e32c99f6698b6" title="Genera el menu de les tasques d&#39;un interval que compleixen una expressió " alt="" coords="427,31,555,57"/><area shape="rect" id="node4" href="classAgenda.html#a37417bfacad0c06e85cdfebf0660d80f" title="Genera el menu del tasques d&#39;un dia que compleixen una expressió " alt="" coords="603,5,731,32"/><area shape="rect" id="node5" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="641,56,692,83"/></map>
 </div>
 </p>
 
@@ -628,7 +922,7 @@ Gràfic de crides a aquesta funció:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structDia.html">Dia</a> Agenda::get_dia </td>
+          <td class="memname"><a class="el" href="classDia.html">Dia</a> Agenda::get_dia </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -640,12 +934,14 @@ Gràfic de crides a aquesta funció:</div>
 <dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
 <dl class="section post"><dt>Postcondició</dt><dd>retorna el dia del rellotge del p.i </dd></dl>
 
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00123">123</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
 <p><div class="dynheader">
 Gràfic de crides a aquesta funció:</div>
 <div class="dyncontent">
 <div class="center"><img src="classAgenda_ae835bb647d0423fdc24fe672e31c236f_icgraph.png" border="0" usemap="#classAgenda_ae835bb647d0423fdc24fe672e31c236f_icgraph" alt=""/></div>
 <map name="classAgenda_ae835bb647d0423fdc24fe672e31c236f_icgraph" id="classAgenda_ae835bb647d0423fdc24fe672e31c236f_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="176,5,227,32"/></map>
+<area shape="rect" id="node2" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="176,5,227,32"/></map>
 </div>
 </p>
 
@@ -656,7 +952,7 @@ Gràfic de crides a aquesta funció:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structHora.html">Hora</a> Agenda::get_hora </td>
+          <td class="memname"><a class="el" href="classHora.html">Hora</a> Agenda::get_hora </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -666,20 +962,475 @@ Gràfic de crides a aquesta funció:</div>
 
 <p>Obté la hora del rellotge. </p>
 <dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>retorna el rellotge del rellotge del p.i </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>retorna la hora del rellotge del p.i </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00127">127</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
 
 <p><div class="dynheader">
 Gràfic de crides a aquesta funció:</div>
 <div class="dyncontent">
 <div class="center"><img src="classAgenda_a60ffe3674451123442c53eceb7d76797_icgraph.png" border="0" usemap="#classAgenda_a60ffe3674451123442c53eceb7d76797_icgraph" alt=""/></div>
 <map name="classAgenda_a60ffe3674451123442c53eceb7d76797_icgraph" id="classAgenda_a60ffe3674451123442c53eceb7d76797_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="184,5,235,32"/></map>
+<area shape="rect" id="node2" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="184,5,235,32"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a0cd1c5270ee001bf372ecff80b65ed5c"></a>
+<a class="anchor" id="ad2e7ac42f8058febb99478c30aa6a4a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Agenda::is_passat </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Consulta si una data és passada. </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>la data a avaluar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>retorna si data és anterior al rellotge del p.i </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00119">119</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_ad2e7ac42f8058febb99478c30aa6a4a6_icgraph.png" border="0" usemap="#classAgenda_ad2e7ac42f8058febb99478c30aa6a4a6_icgraph" alt=""/></div>
+<map name="classAgenda_ad2e7ac42f8058febb99478c30aa6a4a6_icgraph" id="classAgenda_ad2e7ac42f8058febb99478c30aa6a4a6_icgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a2cd80b131fd4e0961ac98c7ec5ea1931" title="Indica si es pot modificar la tasca #id del menu. " alt="" coords="188,56,331,83"/><area shape="rect" id="node4" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="585,56,636,83"/><area shape="rect" id="node3" href="classAgenda.html#acab4b24367d4dbf5dd8e03e10f9c283f" title="Esborra totes les etiquedes d&#39;una tasca del menú " alt="" coords="379,5,537,32"/><area shape="rect" id="node5" href="classAgenda.html#ab7bec241daeb8540c96aa24e9fbf5180" title="Esborra una tasca del menú " alt="" coords="389,56,527,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4249ea55b2c9b58ace450297591b5f06"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Agenda::menu_directe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &amp;&#160;</td>
+          <td class="paramname"><em>in1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &amp;&#160;</td>
+          <td class="paramname"><em>in2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera i escriu el menú d'un interval de tasques Genera i escriu el menú (alhora) de totes les tasques entre in1 i in2, [in1,in2) és un interval del cjt de tasques. </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">in1</td><td>inici de l'interval </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in2</td><td>final de l'interval </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondició</dt><dd>in1 apunta a una tasca no passada i in2 apunta a una tasca no anterior a la de in1 (informalment: rellotge del p.i &lt;= *in1 &lt;= *in2); i el menú està buit </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>el menú conté les tasques de [*in1, *in2) i s'ha mostrat el menú </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00260">260</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_a4249ea55b2c9b58ace450297591b5f06_cgraph.png" border="0" usemap="#classAgenda_a4249ea55b2c9b58ace450297591b5f06_cgraph" alt=""/></div>
+<map name="classAgenda_a4249ea55b2c9b58ace450297591b5f06_cgraph" id="classAgenda_a4249ea55b2c9b58ace450297591b5f06_cgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a0de61ca1cb2b61ceece1b43505e926a7" title="Escriure una línia del menú " alt="" coords="212,31,387,57"/><area shape="rect" id="node3" href="classTasca.html#a4e84f388a8059d6ff51c193c67b9ce83" title="Mostrar el títol de la tasca. " alt="" coords="452,5,573,32"/><area shape="rect" id="node4" href="classTasca.html#a26a5ba43ce13afd9fc453015a3574825" title="Mostrar les etiquetes de la tasca. " alt="" coords="435,56,591,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_a4249ea55b2c9b58ace450297591b5f06_icgraph.png" border="0" usemap="#classAgenda_a4249ea55b2c9b58ace450297591b5f06_icgraph" alt=""/></div>
+<map name="classAgenda_a4249ea55b2c9b58ace450297591b5f06_icgraph" id="classAgenda_a4249ea55b2c9b58ace450297591b5f06_icgraph">
+<area shape="rect" id="node2" href="classAgenda.html#acb7322980fcfd3cfb52e32c99f6698b6" title="Genera el menu de les tasques d&#39;un interval que compleixen una expressió " alt="" coords="212,31,340,57"/><area shape="rect" id="node3" href="classAgenda.html#a37417bfacad0c06e85cdfebf0660d80f" title="Genera el menu del tasques d&#39;un dia que compleixen una expressió " alt="" coords="388,5,516,32"/><area shape="rect" id="node4" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="427,56,477,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae5fff8c4457eda2e37a5c4ab853535ae"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Agenda::menu_directe </td>
+          <td>(</td>
+          <td class="paramtype">set_instant::iterator &amp;&#160;</td>
+          <td class="paramname"><em>in1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">set_instant::iterator &amp;&#160;</td>
+          <td class="paramname"><em>in2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genera i escriu el menú d'un interval de tasques Genera i escriu el menú (alhora) de totes les tasques entre in1 i in2, [in1, in2) és un interval del cjt de tasques associat a una etiqueta. </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">in1</td><td>inici de l'interval </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in2</td><td>final de l'interval </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondició</dt><dd>in1 apunta a una tasca no passada i in2 apunta a una tasca no anterior a la de in1 (informalment: rellotge del p.i &lt;= in1 &lt;= in2); i el menú està buit </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>el menú conté les tasques de [in1, in2) i s'ha mostrat el menú </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00250">250</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_ae5fff8c4457eda2e37a5c4ab853535ae_cgraph.png" border="0" usemap="#classAgenda_ae5fff8c4457eda2e37a5c4ab853535ae_cgraph" alt=""/></div>
+<map name="classAgenda_ae5fff8c4457eda2e37a5c4ab853535ae_cgraph" id="classAgenda_ae5fff8c4457eda2e37a5c4ab853535ae_cgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a0de61ca1cb2b61ceece1b43505e926a7" title="Escriure una línia del menú " alt="" coords="212,31,387,57"/><area shape="rect" id="node3" href="classTasca.html#a4e84f388a8059d6ff51c193c67b9ce83" title="Mostrar el títol de la tasca. " alt="" coords="452,5,573,32"/><area shape="rect" id="node4" href="classTasca.html#a26a5ba43ce13afd9fc453015a3574825" title="Mostrar les etiquetes de la tasca. " alt="" coords="435,56,591,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2cd80b131fd4e0961ac98c7ec5ea1931"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pair&lt; list&lt; <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">Agenda::instant</a> &gt;::iterator, bool &gt; Agenda::menu_item </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indica si es pot modificar la tasca #id del menu. </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>número de la tasca en el menu </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>si es pot modificar retorna un iterador a l'element id-èssim del menú; si no, retorna false </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00202">202</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_a2cd80b131fd4e0961ac98c7ec5ea1931_cgraph.png" border="0" usemap="#classAgenda_a2cd80b131fd4e0961ac98c7ec5ea1931_cgraph" alt=""/></div>
+<map name="classAgenda_a2cd80b131fd4e0961ac98c7ec5ea1931_cgraph" id="classAgenda_a2cd80b131fd4e0961ac98c7ec5ea1931_cgraph">
+<area shape="rect" id="node2" href="classAgenda.html#ad2e7ac42f8058febb99478c30aa6a4a6" title="Consulta si una data és passada. " alt="" coords="196,5,331,32"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_a2cd80b131fd4e0961ac98c7ec5ea1931_icgraph.png" border="0" usemap="#classAgenda_a2cd80b131fd4e0961ac98c7ec5ea1931_icgraph" alt=""/></div>
+<map name="classAgenda_a2cd80b131fd4e0961ac98c7ec5ea1931_icgraph" id="classAgenda_a2cd80b131fd4e0961ac98c7ec5ea1931_icgraph">
+<area shape="rect" id="node2" href="classAgenda.html#acab4b24367d4dbf5dd8e03e10f9c283f" title="Esborra totes les etiquedes d&#39;una tasca del menú " alt="" coords="196,5,355,32"/><area shape="rect" id="node4" href="classAgenda.html#ab7bec241daeb8540c96aa24e9fbf5180" title="Esborra una tasca del menú " alt="" coords="207,56,344,83"/><area shape="rect" id="node3" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="403,31,453,57"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4b206a6e97654e619243f213610734aa"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Iterator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Agenda::merge_and </td>
+          <td>(</td>
+          <td class="paramtype">Iterator&#160;</td>
+          <td class="paramname"><em>in1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Iterator&#160;</td>
+          <td class="paramname"><em>in2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">list&lt; <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fusiona 2 rangs de tasques fent la intersecció </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">in1</td><td>inici del 1r operand </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in2</td><td>final del 1r operand </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">out]</td><td>l 2n operand i contenidor de la intersecció </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondició</dt><dd>in1 i in2 són iteradors a contenidors d'instants </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>l conté la intersecció de [in1, in2) amb l </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00271">271</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_a4b206a6e97654e619243f213610734aa_icgraph.png" border="0" usemap="#classAgenda_a4b206a6e97654e619243f213610734aa_icgraph" alt=""/></div>
+<map name="classAgenda_a4b206a6e97654e619243f213610734aa_icgraph" id="classAgenda_a4b206a6e97654e619243f213610734aa_icgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a9b9b980d262cf3b6c6caaf14913748d1" title="Avalua una expressió parentitzada en un interval d&#39;instants Avalua una expressió booleana parentitzad..." alt="" coords="200,31,381,57"/><area shape="rect" id="node3" href="classAgenda.html#acb7322980fcfd3cfb52e32c99f6698b6" title="Genera el menu de les tasques d&#39;un interval que compleixen una expressió " alt="" coords="429,31,557,57"/><area shape="rect" id="node4" href="classAgenda.html#a37417bfacad0c06e85cdfebf0660d80f" title="Genera el menu del tasques d&#39;un dia que compleixen una expressió " alt="" coords="605,5,733,32"/><area shape="rect" id="node5" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="644,56,695,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a108ff0cb84a1c25b0129b5ae707d964b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Iterator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Agenda::merge_or </td>
+          <td>(</td>
+          <td class="paramtype">Iterator&#160;</td>
+          <td class="paramname"><em>in1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Iterator&#160;</td>
+          <td class="paramname"><em>in2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">list&lt; <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fusiona 2 rangs de tasques fent la unió </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">in1</td><td>inici del 1r operand </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in2</td><td>final del 1r operand </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">out]</td><td>l 2n operand i contenidor de la unió </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondició</dt><dd>in1 i in2 són iteradors a contenidors d'instants </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>l conté la reunió de [in1, in2) amb l </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00282">282</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_a108ff0cb84a1c25b0129b5ae707d964b_icgraph.png" border="0" usemap="#classAgenda_a108ff0cb84a1c25b0129b5ae707d964b_icgraph" alt=""/></div>
+<map name="classAgenda_a108ff0cb84a1c25b0129b5ae707d964b_icgraph" id="classAgenda_a108ff0cb84a1c25b0129b5ae707d964b_icgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a9b9b980d262cf3b6c6caaf14913748d1" title="Avalua una expressió parentitzada en un interval d&#39;instants Avalua una expressió booleana parentitzad..." alt="" coords="189,31,371,57"/><area shape="rect" id="node3" href="classAgenda.html#acb7322980fcfd3cfb52e32c99f6698b6" title="Genera el menu de les tasques d&#39;un interval que compleixen una expressió " alt="" coords="419,31,547,57"/><area shape="rect" id="node4" href="classAgenda.html#a37417bfacad0c06e85cdfebf0660d80f" title="Genera el menu del tasques d&#39;un dia que compleixen una expressió " alt="" coords="595,5,723,32"/><area shape="rect" id="node5" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="633,56,684,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a74d0496377fb6a4e07284c0a283a7319"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pair&lt; <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">Agenda::instant</a>, bool &gt; Agenda::p_add_tasca </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classTasca.html">Tasca</a> &amp;&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Afegeix una tasca (private) </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>la data de la tasca a afegir </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tasca</td><td>la tasca a afegir </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>iterator a la tasca inserida i bool si s'ha pogut inserir </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>no is_passat(data) </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>si return.second, el p.i conté la tasca t i return.first és un instant que hi apunta </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00214">214</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_a74d0496377fb6a4e07284c0a283a7319_icgraph.png" border="0" usemap="#classAgenda_a74d0496377fb6a4e07284c0a283a7319_icgraph" alt=""/></div>
+<map name="classAgenda_a74d0496377fb6a4e07284c0a283a7319_icgraph" id="classAgenda_a74d0496377fb6a4e07284c0a283a7319_icgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a502724c66c14346ddea6583eee1d126f" title="Modifica la data d&#39;una tasca del menú " alt="" coords="209,5,353,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a502724c66c14346ddea6583eee1d126f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Agenda::p_set_data </td>
+          <td>(</td>
+          <td class="paramtype">list&lt; <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &gt;::iterator &amp;&#160;</td>
+          <td class="paramname"><em>it</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a>&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Modifica la data d'una tasca del menú </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname"></td><td>pre true </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section post"><dt>Postcondició</dt><dd>si no existeix una tasca amb data d, la tasca del menú apuntada per it té com a data d. Retorna si s'ha pogut fer la modificació </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00230">230</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_a502724c66c14346ddea6583eee1d126f_cgraph.png" border="0" usemap="#classAgenda_a502724c66c14346ddea6583eee1d126f_cgraph" alt=""/></div>
+<map name="classAgenda_a502724c66c14346ddea6583eee1d126f_cgraph" id="classAgenda_a502724c66c14346ddea6583eee1d126f_cgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a74d0496377fb6a4e07284c0a283a7319" title="Afegeix una tasca (private) " alt="" coords="197,5,353,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a7c9ddb0fd2c7ac7d759c15b137aaf41c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -687,69 +1438,223 @@ Gràfic de crides a aquesta funció:</div>
           <td class="memname">void Agenda::passat </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Escriu totes les tasques del passat. </p>
 <dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>es mostren totes les tasques del passat </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>s'han mostrat pel canal estàndar de sortida totes les tasques anteriors al rellotge del p.i </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00184">184</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_a7c9ddb0fd2c7ac7d759c15b137aaf41c_cgraph.png" border="0" usemap="#classAgenda_a7c9ddb0fd2c7ac7d759c15b137aaf41c_cgraph" alt=""/></div>
+<map name="classAgenda_a7c9ddb0fd2c7ac7d759c15b137aaf41c_cgraph" id="classAgenda_a7c9ddb0fd2c7ac7d759c15b137aaf41c_cgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a0de61ca1cb2b61ceece1b43505e926a7" title="Escriure una línia del menú " alt="" coords="172,31,347,57"/><area shape="rect" id="node3" href="classTasca.html#a4e84f388a8059d6ff51c193c67b9ce83" title="Mostrar el títol de la tasca. " alt="" coords="412,5,533,32"/><area shape="rect" id="node4" href="classTasca.html#a26a5ba43ce13afd9fc453015a3574825" title="Mostrar les etiquetes de la tasca. " alt="" coords="395,56,551,83"/></map>
+</div>
+</p>
 
 <p><div class="dynheader">
 Gràfic de crides a aquesta funció:</div>
 <div class="dyncontent">
-<div class="center"><img src="classAgenda_a0cd1c5270ee001bf372ecff80b65ed5c_icgraph.png" border="0" usemap="#classAgenda_a0cd1c5270ee001bf372ecff80b65ed5c_icgraph" alt=""/></div>
-<map name="classAgenda_a0cd1c5270ee001bf372ecff80b65ed5c_icgraph" id="classAgenda_a0cd1c5270ee001bf372ecff80b65ed5c_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="172,5,223,32"/></map>
+<div class="center"><img src="classAgenda_a7c9ddb0fd2c7ac7d759c15b137aaf41c_icgraph.png" border="0" usemap="#classAgenda_a7c9ddb0fd2c7ac7d759c15b137aaf41c_icgraph" alt=""/></div>
+<map name="classAgenda_a7c9ddb0fd2c7ac7d759c15b137aaf41c_icgraph" id="classAgenda_a7c9ddb0fd2c7ac7d759c15b137aaf41c_icgraph">
+<area shape="rect" id="node2" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="172,5,223,32"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a93ea61a826cd8c61f2dc1dee7d2d0567"></a>
+<a class="anchor" id="ae4bd87b19b4f89f9193a75685cb29bae"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Agenda::print_rellotge </td>
+          <td class="memname">void Agenda::print_menu </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Consulta el rellotge. </p>
+<p>Escriure el menú </p>
 <dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>s'ha escrit el rellotge pel canal de sortida estàndar </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>s'ha escrit pel canal de sortida estàndar 1 línia per a cada element del menú seguint el format de print_menu_item </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00388">388</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_ae4bd87b19b4f89f9193a75685cb29bae_cgraph.png" border="0" usemap="#classAgenda_ae4bd87b19b4f89f9193a75685cb29bae_cgraph" alt=""/></div>
+<map name="classAgenda_ae4bd87b19b4f89f9193a75685cb29bae_cgraph" id="classAgenda_ae4bd87b19b4f89f9193a75685cb29bae_cgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a0de61ca1cb2b61ceece1b43505e926a7" title="Escriure una línia del menú " alt="" coords="196,31,371,57"/><area shape="rect" id="node3" href="classTasca.html#a4e84f388a8059d6ff51c193c67b9ce83" title="Mostrar el títol de la tasca. " alt="" coords="436,5,557,32"/><area shape="rect" id="node4" href="classTasca.html#a26a5ba43ce13afd9fc453015a3574825" title="Mostrar les etiquetes de la tasca. " alt="" coords="419,56,575,83"/></map>
+</div>
+</p>
 
 <p><div class="dynheader">
 Gràfic de crides a aquesta funció:</div>
 <div class="dyncontent">
-<div class="center"><img src="classAgenda_a93ea61a826cd8c61f2dc1dee7d2d0567_icgraph.png" border="0" usemap="#classAgenda_a93ea61a826cd8c61f2dc1dee7d2d0567_icgraph" alt=""/></div>
-<map name="classAgenda_a93ea61a826cd8c61f2dc1dee7d2d0567_icgraph" id="classAgenda_a93ea61a826cd8c61f2dc1dee7d2d0567_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="208,5,259,32"/></map>
+<div class="center"><img src="classAgenda_ae4bd87b19b4f89f9193a75685cb29bae_icgraph.png" border="0" usemap="#classAgenda_ae4bd87b19b4f89f9193a75685cb29bae_icgraph" alt=""/></div>
+<map name="classAgenda_ae4bd87b19b4f89f9193a75685cb29bae_icgraph" id="classAgenda_ae4bd87b19b4f89f9193a75685cb29bae_icgraph">
+<area shape="rect" id="node2" href="classAgenda.html#acb7322980fcfd3cfb52e32c99f6698b6" title="Genera el menu de les tasques d&#39;un interval que compleixen una expressió " alt="" coords="196,31,324,57"/><area shape="rect" id="node3" href="classAgenda.html#a37417bfacad0c06e85cdfebf0660d80f" title="Genera el menu del tasques d&#39;un dia que compleixen una expressió " alt="" coords="372,5,500,32"/><area shape="rect" id="node4" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="411,56,461,83"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a13e6857743f77efe45de0a011e1cebfa"></a>
+<a class="anchor" id="a0de61ca1cb2b61ceece1b43505e926a7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Agenda::print_menu_item </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classAgenda.html#a81d8b6bbacc6457812e56e1673ff85e9">cinstant</a> &amp;&#160;</td>
+          <td class="paramname"><em>it</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Escriure una línia del menú </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>número de la línia </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">it</td><td>cinstant apuntant a l'entrada a escriure </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondició</dt><dd>it és valid (!= end) </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>s'ha escrit pel canal de sortida estàndar una línia en format: i titol_tasca data_tasca etiquetes% </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00380">380</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides d'aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_a0de61ca1cb2b61ceece1b43505e926a7_cgraph.png" border="0" usemap="#classAgenda_a0de61ca1cb2b61ceece1b43505e926a7_cgraph" alt=""/></div>
+<map name="classAgenda_a0de61ca1cb2b61ceece1b43505e926a7_cgraph" id="classAgenda_a0de61ca1cb2b61ceece1b43505e926a7_cgraph">
+<area shape="rect" id="node2" href="classTasca.html#a4e84f388a8059d6ff51c193c67b9ce83" title="Mostrar el títol de la tasca. " alt="" coords="245,5,367,32"/><area shape="rect" id="node3" href="classTasca.html#a26a5ba43ce13afd9fc453015a3574825" title="Mostrar les etiquetes de la tasca. " alt="" coords="228,56,384,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_a0de61ca1cb2b61ceece1b43505e926a7_icgraph.png" border="0" usemap="#classAgenda_a0de61ca1cb2b61ceece1b43505e926a7_icgraph" alt=""/></div>
+<map name="classAgenda_a0de61ca1cb2b61ceece1b43505e926a7_icgraph" id="classAgenda_a0de61ca1cb2b61ceece1b43505e926a7_icgraph">
+<area shape="rect" id="node2" href="classAgenda.html#a7c9ddb0fd2c7ac7d759c15b137aaf41c" title="Escriu totes les tasques del passat. " alt="" coords="439,5,558,32"/><area shape="rect" id="node4" href="classAgenda.html#ae5fff8c4457eda2e37a5c4ab853535ae" title="Genera i escriu el menú d&#39;un interval de tasques Genera i escriu el menú (alhora) de totes les tasque..." alt="" coords="228,49,387,76"/><area shape="rect" id="node5" href="classAgenda.html#ae4bd87b19b4f89f9193a75685cb29bae" title="Escriure el menú " alt="" coords="236,100,379,127"/><area shape="rect" id="node3" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="649,17,700,44"/><area shape="rect" id="node6" href="classAgenda.html#acb7322980fcfd3cfb52e32c99f6698b6" title="Genera el menu de les tasques d&#39;un interval que compleixen una expressió " alt="" coords="435,75,563,101"/><area shape="rect" id="node7" href="classAgenda.html#a37417bfacad0c06e85cdfebf0660d80f" title="Genera el menu del tasques d&#39;un dia que compleixen una expressió " alt="" coords="611,75,739,101"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac209ebb75d9f2a09121433438574984d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Agenda::set_instant::iterator Agenda::safe_bound </td>
+          <td>(</td>
+          <td class="paramtype">tag_map::iterator &amp;&#160;</td>
+          <td class="paramname"><em>tag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a> &amp;&#160;</td>
+          <td class="paramname"><em>in</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obté una cota equivalent en el cjt d'instant d'una etiqueta Obté un iterador que apunta al primer instant del cjt de tags *tag que no és anterior a in <br />
+Esquema : * representa una tasca, X és "in" i Y el "return" <br />
+Cjt general: * * * * * * * * * X * * * * * * * * <br />
+Cjt etiqueta: * * * Y *. </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">tag</td><td>iterador que apunta al cjt d'instants que s'ha d'acotar </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>instant amb el qual volem acotar el conjunt tag </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondició</dt><dd>tag és vàlid (no apunta a l'end) </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>retorna un iterador del cjt d'instant d'una etiqueta tal que els elements que hi són anteriors i posteriors també ho són respecte in; si no n'hi ha cap retorna un iterador al final (end) </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00305">305</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_ac209ebb75d9f2a09121433438574984d_icgraph.png" border="0" usemap="#classAgenda_ac209ebb75d9f2a09121433438574984d_icgraph" alt=""/></div>
+<map name="classAgenda_ac209ebb75d9f2a09121433438574984d_icgraph" id="classAgenda_ac209ebb75d9f2a09121433438574984d_icgraph">
+<area shape="rect" id="node2" href="classAgenda.html#acb7322980fcfd3cfb52e32c99f6698b6" title="Genera el menu de les tasques d&#39;un interval que compleixen una expressió " alt="" coords="431,31,559,57"/><area shape="rect" id="node5" href="classAgenda.html#a9b9b980d262cf3b6c6caaf14913748d1" title="Avalua una expressió parentitzada en un interval d&#39;instants Avalua una expressió booleana parentitzad..." alt="" coords="201,56,383,83"/><area shape="rect" id="node3" href="classAgenda.html#a37417bfacad0c06e85cdfebf0660d80f" title="Genera el menu del tasques d&#39;un dia que compleixen una expressió " alt="" coords="607,5,735,32"/><area shape="rect" id="node4" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="645,56,696,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6638416a8bd605d4119cd6bf914d4c26"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Agenda::set_data </td>
+          <td class="memname">bool Agenda::set_data </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>id</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a>&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -763,19 +1668,117 @@ Gràfic de crides a aquesta funció:</div>
 <dl class="params"><dt>Paràmetres</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>nº de la tasca al menú </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>nova data de la tasca </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td>nova data de la tasca </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondició</dt><dd>es_modificable(id) i no existeix(data) </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>la tasca <em>id</em> del menú té com a data <em>data</em> </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>si retorna true, la tasca <em>id</em> del menú té com a data <em>d</em> </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00052">52</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
 
 <p><div class="dynheader">
 Gràfic de crides a aquesta funció:</div>
 <div class="dyncontent">
-<div class="center"><img src="classAgenda_a13e6857743f77efe45de0a011e1cebfa_icgraph.png" border="0" usemap="#classAgenda_a13e6857743f77efe45de0a011e1cebfa_icgraph" alt=""/></div>
-<map name="classAgenda_a13e6857743f77efe45de0a011e1cebfa_icgraph" id="classAgenda_a13e6857743f77efe45de0a011e1cebfa_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="184,5,235,32"/></map>
+<div class="center"><img src="classAgenda_a6638416a8bd605d4119cd6bf914d4c26_icgraph.png" border="0" usemap="#classAgenda_a6638416a8bd605d4119cd6bf914d4c26_icgraph" alt=""/></div>
+<map name="classAgenda_a6638416a8bd605d4119cd6bf914d4c26_icgraph" id="classAgenda_a6638416a8bd605d4119cd6bf914d4c26_icgraph">
+<area shape="rect" id="node2" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="184,5,235,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a098cac50c2423800d1715d6e634fe937"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Agenda::set_dia </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classDia.html">Dia</a>&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Canvia el dia d'una tasca del menú </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>nº de la tasca al menú </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td>nou dia de la tasca </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>si retorna true, la tasca <em>id</em> del menú té com a dia <em>d</em> </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00040">40</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_a098cac50c2423800d1715d6e634fe937_icgraph.png" border="0" usemap="#classAgenda_a098cac50c2423800d1715d6e634fe937_icgraph" alt=""/></div>
+<map name="classAgenda_a098cac50c2423800d1715d6e634fe937_icgraph" id="classAgenda_a098cac50c2423800d1715d6e634fe937_icgraph">
+<area shape="rect" id="node2" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="176,5,227,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae0dd912c079692da4daeb31e2e70bfec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Agenda::set_hora </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classHora.html">Hora</a>&#160;</td>
+          <td class="paramname"><em>h</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Canvia la hora d'una tasca del menú </p>
+<dl class="params"><dt>Paràmetres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>nº de la tasca al menú </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">h</td><td>nova hora de la tasca </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>si retorna true, la tasca <em>id</em> del menú té com a hora <em>h</em> </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00046">46</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
+
+<p><div class="dynheader">
+Gràfic de crides a aquesta funció:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAgenda_ae0dd912c079692da4daeb31e2e70bfec_icgraph.png" border="0" usemap="#classAgenda_ae0dd912c079692da4daeb31e2e70bfec_icgraph" alt=""/></div>
+<map name="classAgenda_ae0dd912c079692da4daeb31e2e70bfec_icgraph" id="classAgenda_ae0dd912c079692da4daeb31e2e70bfec_icgraph">
+<area shape="rect" id="node2" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="184,5,235,32"/></map>
 </div>
 </p>
 
@@ -802,28 +1805,30 @@ Gràfic de crides a aquesta funció:</div>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondició</dt><dd>no es_passat(data) </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>si el rellotge del p.i marca <em>data</em> </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>no is_passat(data) </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>el rellotge del p.i marca <em>data</em> </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00013">13</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
 
 <p><div class="dynheader">
 Gràfic de crides a aquesta funció:</div>
 <div class="dyncontent">
 <div class="center"><img src="classAgenda_a9f93f923984de6ae2857e2ccdfa6657d_icgraph.png" border="0" usemap="#classAgenda_a9f93f923984de6ae2857e2ccdfa6657d_icgraph" alt=""/></div>
 <map name="classAgenda_a9f93f923984de6ae2857e2ccdfa6657d_icgraph" id="classAgenda_a9f93f923984de6ae2857e2ccdfa6657d_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="201,5,252,32"/></map>
+<area shape="rect" id="node2" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="201,5,252,32"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a2a1a99c45d3fd30aa7b0b607c900fbfa"></a>
+<a class="anchor" id="ac131d0c49fad3d55ab42f4b5f47890dc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Agenda::set_titol </td>
+          <td class="memname">bool Agenda::set_titol </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>id</em>, </td>
         </tr>
         <tr>
@@ -848,22 +1853,122 @@ Gràfic de crides a aquesta funció:</div>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondició</dt><dd>es_modificable(id) </dd></dl>
-<dl class="section post"><dt>Postcondició</dt><dd>la tasca <em>id</em> del menú té com a títol <em>titol</em> </dd></dl>
+<dl class="section pre"><dt>Precondició</dt><dd>true </dd></dl>
+<dl class="section post"><dt>Postcondició</dt><dd>si retorna true, la tasca <em>id</em> del menú té com a títol <em>titol</em> </dd></dl>
+
+<p>Definició a la línia <a class="el" href="agenda_8cc_source.html#l00034">34</a> del fitxer <a class="el" href="agenda_8cc_source.html">agenda.cc</a>.</p>
 
 <p><div class="dynheader">
 Gràfic de crides a aquesta funció:</div>
 <div class="dyncontent">
-<div class="center"><img src="classAgenda_a2a1a99c45d3fd30aa7b0b607c900fbfa_icgraph.png" border="0" usemap="#classAgenda_a2a1a99c45d3fd30aa7b0b607c900fbfa_icgraph" alt=""/></div>
-<map name="classAgenda_a2a1a99c45d3fd30aa7b0b607c900fbfa_icgraph" id="classAgenda_a2a1a99c45d3fd30aa7b0b607c900fbfa_icgraph">
-<area shape="rect" id="node2" href="main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="176,5,227,32"/></map>
+<div class="center"><img src="classAgenda_ac131d0c49fad3d55ab42f4b5f47890dc_icgraph.png" border="0" usemap="#classAgenda_ac131d0c49fad3d55ab42f4b5f47890dc_icgraph" alt=""/></div>
+<map name="classAgenda_ac131d0c49fad3d55ab42f4b5f47890dc_icgraph" id="classAgenda_ac131d0c49fad3d55ab42f4b5f47890dc_icgraph">
+<area shape="rect" id="node2" href="program_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="176,5,227,32"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<hr/>La documentació d'aquesta classe es va generar a partir del següent fitxer:<ul>
-<li><a class="el" href="agenda_8hh_source.html">agenda.hh</a></li>
+<h2 class="groupheader">Documentació de les Dades Membre</h2>
+<a class="anchor" id="a39cb68838b3f54776812c51e559ee8e0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pair&lt;<a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a>, <a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a>&gt; Agenda::clock_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rellotge: data concreta a la qual està i instant a la primera tasca no passada. </p>
+
+<p>Definició a la línia <a class="el" href="agenda_8hh_source.html#l00185">185</a> del fitxer <a class="el" href="agenda_8hh_source.html">agenda.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac8b3c38dde65025e4fd9b8ed67a1bfa3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">list&lt;<a class="el" href="classAgenda.html#a505505981b60ebb5ae54a6dbb646952d">instant</a>&gt; Agenda::menu_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Menú: guarda les tasques corresponents a la última consulta. </p>
+
+<p>Definició a la línia <a class="el" href="agenda_8hh_source.html#l00191">191</a> del fitxer <a class="el" href="agenda_8hh_source.html">agenda.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab27331223fbc69ccd60c97dfa8e5c4c3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;string, <a class="el" href="classAgenda.html#a0c8ffc685adc383ad053962d71c6bde4">set_instant</a>&gt; Agenda::tags_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Catàleg d'etiquetes: associa a cada etiqueta el cjt de tasques que la tenen. </p>
+
+<p>Definició a la línia <a class="el" href="agenda_8hh_source.html#l00189">189</a> del fitxer <a class="el" href="agenda_8hh_source.html">agenda.hh</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a34ca04664781e905fb50d8053a4b220e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">map&lt;<a class="el" href="data_8hh.html#a6ce001f8a23e966a5b4b6ee856f309f4">Data</a>, <a class="el" href="classTasca.html">Tasca</a>&gt; Agenda::tasks_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Conjunt de tasques: guarda les tasques ordenades i associades per la seva data. </p>
+
+<p>Definició a la línia <a class="el" href="agenda_8hh_source.html#l00187">187</a> del fitxer <a class="el" href="agenda_8hh_source.html">agenda.hh</a>.</p>
+
+</div>
+</div>
+<hr/>La documentació d'aquesta classe es va generar a partir dels següents fitxers:<ul>
+<li>src/<a class="el" href="agenda_8hh_source.html">agenda.hh</a></li>
+<li>src/<a class="el" href="agenda_8cc_source.html">agenda.cc</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -871,7 +1976,7 @@ Gràfic de crides a aquesta funció:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classAgenda.html">Agenda</a></li>
-    <li class="footer">Generat a Dt Mai 5 2015 20:42:58 per a Agenda-PRO2 per
+    <li class="footer">Generat a Dg Mai 24 2015 23:02:41 per a Agenda-PRO2 per
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

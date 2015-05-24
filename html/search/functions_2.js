@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['data',['data',['../classComanda.html#ab4ce0a50bde32145d11cbaee753526c7',1,'Comanda']]],
-  ['del_5fetiqueta',['del_etiqueta',['../classAgenda.html#aa3a19ef06ad45a76ab0e5d02b3d3cb65',1,'Agenda']]],
-  ['del_5fetiquetes',['del_etiquetes',['../classAgenda.html#a37c283d1fea87dabd99cbe86723c1ebe',1,'Agenda']]],
-  ['del_5ftasca',['del_tasca',['../classAgenda.html#a37fca8db7be2382cd93dded83afc9eb9',1,'Agenda']]],
-  ['dia',['Dia',['../structDia.html#a1c0f0d55bb9d937496d4122a817fc193',1,'Dia']]]
+  ['comanda',['Comanda',['../classComanda.html#a0f09e7aa5b7c15f131020d04bf5a8a94',1,'Comanda']]],
+  ['consulta',['consulta',['../classAgenda.html#acb7322980fcfd3cfb52e32c99f6698b6',1,'Agenda::consulta(Dia dia1, Dia dia2, string expressio=&quot;&quot;)'],['../classAgenda.html#a37417bfacad0c06e85cdfebf0660d80f',1,'Agenda::consulta(Dia dia, string expressio=&quot;&quot;)'],['../classAgenda.html#acc29a5af5330c6c21ffd95a0bb2a16ff',1,'Agenda::consulta(string expressio=&quot;&quot;)']]],
+  ['cos',['cos',['../classToken.html#a3cadf105c92e161b50eea2d8096cb608',1,'Token']]]
 ];

@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['main',['main',['../main_8cc.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cc']]],
-  ['main_2ecc',['main.cc',['../main_8cc.html',1,'']]],
-  ['mes',['mes',['../structDia.html#a654caaea275b08510b3422681aa3d973',1,'Dia']]],
-  ['minut',['minut',['../structHora.html#ac80dca8aac1972870cc47d9db7fd4e12',1,'Hora']]],
-  ['modificar_5ftitol',['modificar_titol',['../classTasca.html#ac1e95d388130b22f771df14bff0b049e',1,'Tasca']]]
+  ['hora',['Hora',['../classHora.html',1,'Hora'],['../classHora.html#a0a453671c02c2fab93fc546f5696480c',1,'Hora::hora()'],['../classToken.html#a64b32630460ba9c9e43b0ab4954e346d',1,'Token::hora()'],['../classComanda.html#ae8bca2ad702d3316dc1c53dcab7cac02',1,'Comanda::hora()'],['../classHora.html#ae05fd06528302df59fbf8ffe8ad7f9bc',1,'Hora::Hora()=default'],['../classHora.html#aa8fe684f1e7e271a0acb6bb774afc1af',1,'Hora::Hora(int hora, int minut)'],['../classHora.html#ac2e684e593a06b8c03e3899a15048ad1',1,'Hora::Hora(string s)']]]
 ];

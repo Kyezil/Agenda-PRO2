@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['nombre_5fdates',['nombre_dates',['../classComanda.html#aadabfc85ec7cdeb45039e8952a1ab124',1,'Comanda']]],
-  ['nombre_5fetiquetes',['nombre_etiquetes',['../classComanda.html#a4280b6ae2d435d9c21bbed364cb1db3d',1,'Comanda']]]
+  ['iniciar',['iniciar',['../classComanda.html#a57a4df9cbf2f41ebbd36270f867e8694',1,'Comanda::iniciar()'],['../classToken.html#a8115f6d5917bd05f7cd568622318af24',1,'Token::iniciar()']]],
+  ['is_5fpassat',['is_passat',['../classAgenda.html#ad2e7ac42f8058febb99478c30aa6a4a6',1,'Agenda']]]
 ];

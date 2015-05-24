@@ -83,7 +83,7 @@ $(document).ready(function(){initNavTree('classTasca.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tot</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fitxers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funcions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definicions de Tipus</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Pàgines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tot</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fitxers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funcions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definicions de Tipus</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Classes Amigues</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -100,17 +100,25 @@ $(document).ready(function(){initNavTree('classTasca.html','');});
 
 <p>Aquesta és la llista complerta dels membres de <a class="el" href="classTasca.html">Tasca</a>, incloent tots els membres heretats.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classTasca.html#a638563745c9ece3188e54f3061a79fb1">afegir_etiqueta</a>(string etiq)</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classTasca.html#a5f6499c98f98eceb15243ece832304c1">esborrar_etiqueta</a>(string etiq)</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classTasca.html#ac1e95d388130b22f771df14bff0b049e">modificar_titol</a>(string titol)</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classTasca.html#a94ed48399673b7c60ce0664f99be2d02">Tasca</a>()</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classTasca.html#a26330095c08461227c77a08ad9b0f5b2">Tasca</a>(string titol)</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classTasca.html#a7871ea389e1e35587fe4c7e7c4fcd229">add_etiqueta</a>(string etiq)</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classTasca.html#ab9c5e035755efb862a0757468bf456cf">begin_etiquetes</a>()</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classTasca.html#ac2881ef756de6004d1fde1de5125dc36">del_etiqueta</a>(const string etiq)</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classTasca.html#a2f196ae8e2cb0895c1f6c28422b1a385">del_etiquetes</a>()</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classTasca.html#a2affc785be51f35abb9a2d8fdb4e1203">end_etiquetes</a>()</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classTasca.html#a26a5ba43ce13afd9fc453015a3574825">print_etiquetes</a>(const Tasca &amp;t, ostream &amp;out)</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classTasca.html#a4e84f388a8059d6ff51c193c67b9ce83">print_titol</a>(const Tasca &amp;t, ostream &amp;out)</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classTasca.html#a857dfa2ca6948480c345c152bc4b73fa">set_titol</a>(string titol)</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classTasca.html#af8233ebb911104c788b391de60afa1f6">tag_iterator</a> typedef</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classTasca.html#a539dd630c80f5c99caf56a2f6ac7ba6f">tags_</a></td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classTasca.html#a107b66327d87a31e1d97d674b9c1d837">Tasca</a>()=default</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classTasca.html#a26330095c08461227c77a08ad9b0f5b2">Tasca</a>(string titol)</td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classTasca.html#a7bf8e389b7151d51dc6d6dad5a1dee48">title_</a></td><td class="entry"><a class="el" href="classTasca.html">Tasca</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generat a Dt Mai 5 2015 20:42:58 per a Agenda-PRO2 per
+    <li class="footer">Generat a Dg Mai 24 2015 23:02:41 per a Agenda-PRO2 per
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

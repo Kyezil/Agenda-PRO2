@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hora',['Hora',['../structHora.html',1,'']]]
+  ['hora',['Hora',['../classHora.html',1,'']]]
 ];

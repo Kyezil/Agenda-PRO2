@@ -106,7 +106,7 @@ class Agenda {
 
         // Consultores
         /** \brief Consulta si una data és passada
-         *  \param[in] data la data a evaluar
+         *  \param[in] data la data a avaluar
          *  \pre true
          *  \post retorna si data és anterior al rellotge del p.i */
         bool is_passat(const Data &data) const;
@@ -138,7 +138,7 @@ class Agenda {
          *  d'etiquetes que compleix \e expressio i es mostra el menú */
         void consulta(Dia dia, string expressio = "");
 
-        /** \brief Genera el menu de les tasques que compleixen una expressió
+        /** \brief Genera el menu de les tasques que compleixen una expressió \n
          * En aquest cas no hi ha cap restricció temporal, sinó que es busca en totes
          *  \pre true
          *  \post el menú conté les tasques no passades amb un conjunt d'etiquetes que
@@ -261,9 +261,9 @@ class Agenda {
 
         /** \brief Obté una cota equivalent en el cjt d'instant d'una etiqueta
          * Obté un iterador que apunta al primer instant del cjt de tags *tag que no és
-         * anterior a in
-         * Esquema : * representa una tasca, X és "in" i Y el "return"
-         * Cjt general:  * * * * * * * * * X * * * * * * * *
+         * anterior a in \n
+         * Esquema : * representa una tasca, X és "in" i Y el "return" \n
+         * Cjt general:  * * * * * * * * * X * * * * * * * * \n
          * Cjt etiqueta: *     *   *         Y           *
          *  \param[in] tag iterador que apunta al cjt d'instants que s'ha d'acotar
          *  \param[in] in instant amb el qual volem acotar el conjunt tag
@@ -280,11 +280,10 @@ class Agenda {
          *  \param[in] in2 final de l'interval on avaluar
          *  \param[in] exp flux de l'expressió parentitzada
          *  \param[out][in] l contenidor on es guarda el resultat
-         *  \pre in1 apunta a un element no passat i in2 és posterior a in1
-         *       exp conté, al seu principi, una expressió booleana de la forma:
-         *       exp: (e.e) | (e,e)
-         *         e:  exp  | etiqueta
-         *      ; l és una llista buida ; exp = EXP
+         *  \pre in1 apunta a un element no passat i in2 és posterior a in1 \n
+         *       exp conté, al seu principi, una expressió booleana de la forma: \n
+         *       exp: (e.e) | (e,e)   e:  exp  | etiqueta \n
+         *      ; l és una llista buida ; exp = EXP \n
          *  \post l conté les tasques en [in1,in2) que compleixen l'expressió delimitada
          *  pel primer '(' fins al ')' corresponent, s'ha consumit aquesta expressió
          *  de exp */
@@ -303,6 +302,5 @@ class Agenda {
          *  \post s'ha escrit pel canal de sortida estàndar 1 línia per a cada element
          *  del menú seguint el format de print_menu_item */
         void print_menu() const;
-
 };
 #endif
