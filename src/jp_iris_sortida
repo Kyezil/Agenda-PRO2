@@ -78,17 +78,18 @@ passat?
 + anar a la uni 11.06.15 09:00 #classe #concentracio #amics
 
 + entreno 12.06.15 17:00 #run #club #amics #equip
-Error de format
+
++ 13.06.15 10:00 platja
 
 ?
 1 entrenament 20.04.15 19:30 #club #equip #lleure #run
-2 dinar amb la familia 30.05.15 14:00 #cumple #descans #familia
-3 anar al dentista 02.06.15 11:00 #caries #medicina
-4 cine 02.06.15 18:30 #art #descans #lleure
+2 anar al dentista 02.06.15 11:00 #caries #medicina
+3 cine 02.06.15 18:30 #art #descans #lleure
+4 dinar amb la familia 03.06.15 00:00 #cumple #descans #familia
 5 campionats regionals 10.06.15 10:00 #club #equip #lleure #run
 6 anar a la uni 11.06.15 09:00 #amics #classe #concentracio
 7 entreno 12.06.15 17:00 #amics #club #equip #run
-8 platja 13.06.15 17:00
+8 platja 13.06.15 10:00
 9 viatge a illes balears 29.06.15 10:00
 
 -1
@@ -98,7 +99,7 @@ No s'ha realitzat
 
 2 20.06.15 10:00
 
-2 #pro2 #mates
+6 #pro2 #mates
 
 3 -#caries
 
@@ -108,13 +109,13 @@ No s'ha realitzat
 4 #sol #sol #sol
 
 ?
-1 anar al dentista 02.06.15 11:00 #medicina
-2 cine 02.06.15 18:30 #art #descans #lleure #sol
+1 cine 02.06.15 18:30 #art #descans #lleure
+2 dinar amb la familia 03.06.15 00:00 #cumple #descans #familia #sol
 3 campionats regionals 10.06.15 10:00 #club #equip #lleure #run
-4 anar a la uni 11.06.15 09:00 #amics #classe #concentracio
+4 anar a la uni 11.06.15 09:00 #amics #classe #concentracio #mates #pro2
 5 entreno 12.06.15 17:00 #amics #club #equip #run
-6 platja 13.06.15 17:00
-7 dinar amb la familia 20.06.15 10:00 #cumple #descans #familia #mates #pro2
+6 platja 13.06.15 10:00
+7 anar al dentista 20.06.15 10:00 #caries #medicina
 8 viatge a illes balears 29.06.15 10:00
 
 5 -etiquetes
@@ -123,7 +124,7 @@ No s'ha realitzat
 
 3 20.04.15
 
-7 19.04.15
+7 19.04.14
 No s'ha realitzat
 
 rellotge?
@@ -139,8 +140,7 @@ rellotge 20:00
 rellotge 00:00 20.06.15
 
 ?
-1 dinar amb la familia 20.06.15 10:00 #cumple #descans #familia #mates #pro2
-2 viatge a illes balears 29.06.15 10:00
+1 viatge a illes balears 29.06.15 10:00
 
 rellotge 20.06.15
 
