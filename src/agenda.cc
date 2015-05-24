@@ -275,7 +275,7 @@ void Agenda::merge_and(Iterator in1, Iterator in2, list<instant>& l){
         else if((*it_l)->first < (*in1)->first) it_l = l.erase(it_l);//només en el 2n
         else ++it_l, ++in1; //en els 2
     }
-    while (it_l != l.end()) it_l = l.erase(it_l);
+    l.erase(it_l, l.end());
 }
 
 template<typename Iterator>
@@ -289,10 +289,7 @@ void Agenda::merge_or(Iterator in1, Iterator in2, list<instant>& l){
         else if ((*it_l)->first < (*in1)->first) ++it_l;//només en el 2n
         else ++it_l, ++in1;//en ambos
     }
-    while (in1 != in2) {
-        l.insert(l.end(), *in1);
-        ++in1;
-    }
+    l.insert(l.end(), in1, in2);
 }
 
 void Agenda::extract_tag(istringstream& exp, string& tag) {
