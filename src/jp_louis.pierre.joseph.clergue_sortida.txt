@@ -1,0 +1,204 @@
+
+rellotge?
+20.04.15 00:00
+
+rellotge 19.04.15
+No s'ha realitzat
+
+rellotge 20.04.15 00:01
+
+rellotge 00:00
+No s'ha realitzat
+
+rellotge?
+20.04.15 00:01
+
+1 canviar menu no generat #fail
+No s'ha realitzat
+
+-1
+No s'ha realitzat
+
+1 #no-op
+No s'ha realitzat
+
+1 -#no-op
+No s'ha realitzat
+
+1 -etiquetes
+No s'ha realitzat
+
+?
+
+1 canviar menu buit #fail
+No s'ha realitzat
+
+-1
+No s'ha realitzat
+
+1 #no-op
+No s'ha realitzat
+
+1 -#no-op
+No s'ha realitzat
+
+1 -etiquetes
+No s'ha realitzat
+
++ 25.04.15 00:00 limit #just
+
++ 25.04.15 23:59 limit #funciona
+
+? 25.04.15
+1 limit 25.04.15 00:00 #just
+2 limit 25.04.15 23:59 #funciona
+
+rellotge 25.04.15 00:00
+
+-1
+
++ 25.04.15 00:00 resurecció #just
+
+?
+1 resurecció 25.04.15 00:00 #just
+2 limit 25.04.15 23:59 #funciona
+
+? 25.04.15 #just
+1 resurecció 25.04.15 00:00 #just
+
+1 #ara-si
+
+rellotge 00:01
+
+1 #ara-no
+No s'ha realitzat
+
+passat?
+1 resurecció 25.04.15 00:00 #ara-si #just
+
+? 25.04.15
+1 limit 25.04.15 23:59 #funciona
+
+? 24.04.15 25.04.15
+1 limit 25.04.15 23:59 #funciona
+
+1 -#funciona
+
+1 -#funciona
+No s'ha realitzat
+
+1 #doble #doble
+
+1 00:00 #peta
+No s'ha realitzat
+
+? (#peta,#doble)
+1 limit 25.04.15 23:59 #doble
+
++ tags1 26.04.15 12:00 #a #b #c #d #e #f #g
+
++ tags2 26.04.15 13:00 #a #c #e #g
+
++ tags3 27.04.15 14:00 #b #d #f
+
++ tags4 26.04.15 12:30 #h
+
++ tags5 28.04.15 19:00 #null
+
+? (#a,#h)
+1 tags1 26.04.15 12:00 #a #b #c #d #e #f #g
+2 tags4 26.04.15 12:30 #h
+3 tags2 26.04.15 13:00 #a #c #e #g
+
+? (((#a.(#b.#c)).#d),#f)
+1 tags1 26.04.15 12:00 #a #b #c #d #e #f #g
+2 tags3 27.04.15 14:00 #b #d #f
+
+? ((#b,(#c.#e)).#a)
+1 tags1 26.04.15 12:00 #a #b #c #d #e #f #g
+2 tags2 26.04.15 13:00 #a #c #e #g
+
+? 26.04.15 (#f,(#b.#d))
+1 tags1 26.04.15 12:00 #a #b #c #d #e #f #g
+
+? 26.04.15 27.04.15 ((#f,#b).(#f,#d))
+1 tags1 26.04.15 12:00 #a #b #c #d #e #f #g
+2 tags3 27.04.15 14:00 #b #d #f
+
+? (#h,#null)
+1 tags4 26.04.15 12:30 #h
+2 tags5 28.04.15 19:00 #null
+
+? (#h.#null)
+
+? (((#a,#b),#d).#no-exist)
+
+? (#no-exist,((#a,#b),#d))
+1 tags1 26.04.15 12:00 #a #b #c #d #e #f #g
+2 tags2 26.04.15 13:00 #a #c #e #g
+3 tags3 27.04.15 14:00 #b #d #f
+
+? 24.04.15 24.04.15
+
+? 28.04.15 27.04.15
+
+? 01.01.00 31.12.99
+1 limit 25.04.15 23:59 #doble
+2 tags1 26.04.15 12:00 #a #b #c #d #e #f #g
+3 tags4 26.04.15 12:30 #h
+4 tags2 26.04.15 13:00 #a #c #e #g
+5 tags3 27.04.15 14:00 #b #d #f
+6 tags5 28.04.15 19:00 #null
+
+1 modificat abans
+
+rellotge 26.04.15 12:00
+
+1 modificat després #fail #lol
+No s'ha realitzat
+
+-1
+No s'ha realitzat
+
+? 26.04.15
+1 tags1 26.04.15 12:00 #a #b #c #d #e #f #g
+2 tags4 26.04.15 12:30 #h
+3 tags2 26.04.15 13:00 #a #c #e #g
+
+1 -etiquetes
+
+2 #a #b #c 13:00 multiples #fail
+No s'ha realitzat
+
+3 26.04.15 13:00 #fail a sí mateix
+No s'ha realitzat
+
+3 26.04.15 12:00 reemplaç #fail
+No s'ha realitzat
+
+-1
+
+-1
+No s'ha realitzat
+
+3 12:00 reemplaç #substitut
+
+3 -#a
+
+3 -#a
+No s'ha realitzat
+
+-5
+No s'ha realitzat
+
+?
+1 reemplaç 26.04.15 12:00 #c #e #g #substitut
+2 tags4 26.04.15 12:30 #h
+3 tags3 27.04.15 14:00 #b #d #f
+4 tags5 28.04.15 19:00 #null
+
+passat?
+1 resurecció 25.04.15 00:00 #ara-si #just
+2 modificat abans 25.04.15 23:59 #doble
+
+sortir
