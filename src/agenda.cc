@@ -27,36 +27,8 @@ void Agenda::set_rellotge(Data data) {
     clock_.first = data;
 }
 
-pair<Agenda::instant, bool> Agenda::p_add_tasca(const Data& data, const Tasca& t) {
-    pair<instant,bool> ins = tasks_.insert(make_pair(data, t));
-    if (ins.second) { //si s'ha pogut inserir
-        // afegeix etiquetes i actualitza tags
-        Tasca::tag_iterator tag = ins.first->second.begin_etiquetes();
-        while (tag != ins.first->second.end_etiquetes()) {
-            tags_[*tag].insert(ins.first);
-            ++tag;
-        }
-        // si estem abans de la primera data no passada
-       ++ins.first;
-        if (ins.first == clock_.second) --clock_.second;
-       --ins.first;
-    }
-    return ins;
-}
-
 bool Agenda::add_tasca(const Data &data, const Tasca& t) {
     return p_add_tasca(data, t).second;
-}
-
-pair<list<Agenda::instant>::iterator, bool> Agenda::menu_item(const int id) {
-    bool ok  = (1 <= id) and (id <= menu_.size());
-    list<instant>::iterator it = menu_.begin();
-    if (ok) {
-        advance(it, id - 1);
-        ok = (*it != tasks_.end())
-            and not is_passat((*it)->first);
-    }
-    return make_pair(it, ok);
 }
 
 bool Agenda::set_titol(const int id, string titol) {
@@ -65,34 +37,9 @@ bool Agenda::set_titol(const int id, string titol) {
     return it.second;
 }
 
-bool Agenda::p_set_data(list<instant>::iterator& it, Data data) {
-        if (data < clock_.first) return false;
-        Tasca tem = (*it)->second;
-        pair<instant,bool> ans = p_add_tasca(data, tem);
-        if (ans.second) {
-            Tasca::tag_iterator inici = (*it)->second.begin_etiquetes();
-            Tasca::tag_iterator fi = (*it)->second.end_etiquetes();
-            while(inici != fi) {
-                tag_map::iterator t = tags_.find(*inici);
-                t->second.erase(*it);
-                if (t->second.empty()) tags_.erase(t);
-                ++inici;
-            }
-            if (*it == clock_.second) ++clock_.second;
-            tasks_.erase(*it); // (*it) es iterador del element a esborrar
-            *it = ans.first;
-        }
-        return ans.second;
-}
-
-bool Agenda::set_data(const int id, Data d) {
-    pair<list<instant>::iterator,bool> it = menu_item(id);
-    return it.second and ((*it.first)->first != d) and p_set_data(it.first, d);
-}
-
 bool Agenda::set_dia(const int id, Dia d) {
     pair<list<instant>::iterator,bool> it = menu_item(id);
-    return it.second and ((*it.first)->first.first != d) and 
+    return it.second and ((*it.first)->first.first != d) and
         p_set_data(it.first, make_pair(d, (*it.first)->first.second));
 }
 
@@ -100,6 +47,11 @@ bool Agenda::set_hora(const int id, Hora h) {
     pair<list<instant>::iterator,bool> it = menu_item(id);
     return it.second and ((*it.first)->first.second != h) and
         p_set_data(it.first, make_pair((*it.first)->first.first, h));
+}
+
+bool Agenda::set_data(const int id, Data d) {
+    pair<list<instant>::iterator,bool> it = menu_item(id);
+    return it.second and ((*it.first)->first != d) and p_set_data(it.first, d);
 }
 
 bool Agenda::add_etiqueta(const int id, string etiqueta) {
@@ -238,20 +190,73 @@ void Agenda::passat() {
     }
 }
 
-void Agenda::print_menu_item(int i, const cinstant& it) const {
-    cout << i << ' ';
-    Tasca::print_titol(it->second, cout);
-    cout << ' ' << it->first;
-    Tasca::print_etiquetes(it->second, cout);
-    cout << '\n';
+// PRIVATES
+bool Agenda::ordre_instant::operator()(const instant& a, const instant& b) const {
+    return (a->first < b->first);
 }
 
-void Agenda::print_menu() const {
-    list<instant>::const_iterator it = menu_.begin();
+pair<list<Agenda::instant>::iterator, bool> Agenda::menu_item(const int id) {
+    bool ok  = (1 <= id) and (id <= menu_.size());
+    list<instant>::iterator it = menu_.begin();
+    if (ok) {
+        advance(it, id - 1);
+        ok = (*it != tasks_.end())
+            and not is_passat((*it)->first);
+    }
+    return make_pair(it, ok);
+}
+
+pair<Agenda::instant, bool> Agenda::p_add_tasca(const Data& data, const Tasca& t) {
+    pair<instant,bool> ins = tasks_.insert(make_pair(data, t));
+    if (ins.second) { //si s'ha pogut inserir
+        // afegeix etiquetes i actualitza tags
+        Tasca::tag_iterator tag = ins.first->second.begin_etiquetes();
+        while (tag != ins.first->second.end_etiquetes()) {
+            tags_[*tag].insert(ins.first);
+            ++tag;
+        }
+        // si estem abans de la primera data no passada
+       ++ins.first;
+        if (ins.first == clock_.second) --clock_.second;
+       --ins.first;
+    }
+    return ins;
+}
+bool Agenda::p_set_data(list<instant>::iterator& it, Data data) {
+        if (data < clock_.first) return false;
+        Tasca tem = (*it)->second;
+        pair<instant,bool> ans = p_add_tasca(data, tem);
+        if (ans.second) {
+            Tasca::tag_iterator inici = (*it)->second.begin_etiquetes();
+            Tasca::tag_iterator fi = (*it)->second.end_etiquetes();
+            while(inici != fi) {
+                tag_map::iterator t = tags_.find(*inici);
+                t->second.erase(*it);
+                if (t->second.empty()) tags_.erase(t);
+                ++inici;
+            }
+            if (*it == clock_.second) ++clock_.second;
+            tasks_.erase(*it); // (*it) es iterador del element a esborrar
+            *it = ans.first;
+        }
+        return ans.second;
+}
+
+void Agenda::menu_directe(set_instant::iterator& in1, set_instant::iterator& in2) {
     int i = 1;
-    while (it != menu_.end()) {
-        print_menu_item(i, *it);
-        ++it, ++i;
+    while (in1 != in2) {
+        menu_.insert(menu_.end(), *in1);
+        print_menu_item(i, *in1);
+        ++in1, ++i;
+    }
+}
+
+void Agenda::menu_directe(instant& in1, instant& in2) {
+    int i = 1;
+    while (in1 != in2) {
+        menu_.insert(menu_.end(), in1);
+        print_menu_item(i, in1);
+        ++in1, ++i;
     }
 }
 
@@ -280,24 +285,6 @@ void Agenda::merge_or(Iterator in1, Iterator in2, list<instant>& l){
     while (in1 != in2) {
         l.insert(l.end(), *in1);
         ++in1;
-    }
-}
-
-void Agenda::menu_directe(set_instant::iterator& in1, set_instant::iterator& in2) {
-    int i = 1;
-    while (in1 != in2) {
-        menu_.insert(menu_.end(), *in1);
-        print_menu_item(i, *in1);
-        ++in1, ++i;
-    }
-}
-
-void Agenda::menu_directe(instant& in1, instant& in2) {
-    int i = 1;
-    while (in1 != in2) {
-        menu_.insert(menu_.end(), in1);
-        print_menu_item(i, in1);
-        ++in1, ++i;
     }
 }
 
@@ -353,6 +340,19 @@ void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstr
     c = exp.get();
 }
 
-bool Agenda::ordre_instant::operator()(const instant& a, const instant& b) const {
-    return (a->first < b->first);
+void Agenda::print_menu_item(int i, const cinstant& it) const {
+    cout << i << ' ';
+    Tasca::print_titol(it->second, cout);
+    cout << ' ' << it->first;
+    Tasca::print_etiquetes(it->second, cout);
+    cout << '\n';
+}
+
+void Agenda::print_menu() const {
+    list<instant>::const_iterator it = menu_.begin();
+    int i = 1;
+    while (it != menu_.end()) {
+        print_menu_item(i, *it);
+        ++it, ++i;
+    }
 }

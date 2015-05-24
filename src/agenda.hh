@@ -190,26 +190,13 @@ class Agenda {
         /// Menú: guarda les tasques corresponents a la última consulta
         list<instant> menu_;
 
-        /** \brief Escriure una línia del menú
-         *  \param[in] i número de la línia
-         *  \param[in] it cinstant apuntant a l'entrada a escriure
-         *  \pre it és valid (!= end)
-         *  \post s'ha escrit pel canal de sortida estàndar una línia en format:
-         *  %i titol_tasca data_tasca etiquetes% */
-        void print_menu_item(int i, const cinstant& it) const;
 
-        /** \brief Escriure el menú
-         *  \pre true
-         *  \post s'ha escrit pel canal de sortida estàndar 1 línia per a cada element
-         *  del menú seguint el format de print_menu_item */
-        void print_menu() const;
-
-        /** \brief Modifica la data d'una tasca del menú
-         *  \param[in]
-         *  \pre no is_passat(data)
-         *  \post si no existeix una tasca amb data d, la tasca del menú apuntada per
-         *  it té com a data d. Retorna si s'ha pogut fer la modificació */
-        bool p_set_data(list<instant>::iterator& it, Data d);
+        /** \brief Indica si es pot modificar la tasca #id del menu
+         * \param[in] id número de la tasca en el menu
+         * \pre true
+         * \post si es pot modificar retorna un iterador a l'element id-èssim del menú;
+         *  si no, retorna false */
+        pair<list<instant>::iterator, bool> menu_item(const int id);
 
         /** \brief Afegeix una tasca (private)
          *  \param[in] data la data de la tasca a afegir
@@ -220,6 +207,13 @@ class Agenda {
          *  instant que hi apunta */
         pair<instant, bool> p_add_tasca(const Data& data, const Tasca& t);
 
+        /** \brief Modifica la data d'una tasca del menú
+         *  \param[in]
+         *  \pre no is_passat(data)
+         *  \post si no existeix una tasca amb data d, la tasca del menú apuntada per
+         *  it té com a data d. Retorna si s'ha pogut fer la modificació */
+        bool p_set_data(list<instant>::iterator& it, Data d);
+
         /** \brief Genera i escriu el menú d'un interval de tasques
          *  Genera i escriu el menú (alhora) de totes les tasques entre in1 i in2,
          *  [in1,in2) és un interval del cjt de tasques
@@ -229,6 +223,16 @@ class Agenda {
          *  la de in1 (informalment: rellotge del p.i <= *in1 <= *in2); i el menú està buit
          *  \post el menú conté les tasques de [*in1, *in2) i s'ha mostrat el menú */
         void menu_directe(instant& in1, instant& in2);
+
+        /** \brief Genera i escriu el menú d'un interval de tasques
+         *  Genera i escriu el menú (alhora) de totes les tasques entre in1 i in2,
+         *  [in1, in2) és un interval del cjt de tasques associat a una etiqueta
+         *  \param[in] in1 inici de l'interval
+         *  \param[in] in2 final de l'interval
+         *  \pre in1 apunta a una tasca no passada i in2 apunta a una tasca no anterior a
+         *  la de in1 (informalment: rellotge del p.i <= in1 <= in2); i el menú està buit
+         *  \post el menú conté les tasques de [in1, in2) i s'ha mostrat el menú */
+        void menu_directe(set_instant::iterator& in1, set_instant::iterator& in2);
 
         /** \brief Fusiona 2 rangs de tasques fent la intersecció
          *  \param[in] in1 inici del 1r operand
@@ -247,16 +251,6 @@ class Agenda {
          *  \post l conté la reunió de [in1, in2) i l */
         template<typename Iterator>
         void merge_or(Iterator in1, Iterator in2, list<instant>& l);
-
-        /** \brief Genera i escriu el menú d'un interval de tasques
-         *  Genera i escriu el menú (alhora) de totes les tasques entre in1 i in2,
-         *  [in1, in2) és un interval del cjt de tasques associat a una etiqueta
-         *  \param[in] in1 inici de l'interval
-         *  \param[in] in2 final de l'interval
-         *  \pre in1 apunta a una tasca no passada i in2 apunta a una tasca no anterior a
-         *  la de in1 (informalment: rellotge del p.i <= in1 <= in2); i el menú està buit
-         *  \post el menú conté les tasques de [in1, in2) i s'ha mostrat el menú */
-        void menu_directe(set_instant::iterator& in1, set_instant::iterator& in2);
 
         /** \brief Llegeix una etiqueta d'una expressió
          *  \param[in] exp expressió d'on s'ha d'extreure l'etiqueta
@@ -294,11 +288,19 @@ class Agenda {
          *  \post l conté les tasques en [in1,in2) que compleixen l'expressió exp */
         void exp_parentitzada(const instant& in1, const instant& in2, istringstream& exp, list<instant>& l);
 
-        /** \brief Indica si es pot modificar la tasca #id del menu
-         * \param[in] id número de la tasca en el menu
-         * \pre true
-         * \post si es pot modificar retorna un iterador a l'element id-èssim del menú;
-         *  si no, retorna false */
-        pair<list<instant>::iterator, bool> menu_item(const int id);
+        /** \brief Escriure una línia del menú
+         *  \param[in] i número de la línia
+         *  \param[in] it cinstant apuntant a l'entrada a escriure
+         *  \pre it és valid (!= end)
+         *  \post s'ha escrit pel canal de sortida estàndar una línia en format:
+         *  %i titol_tasca data_tasca etiquetes% */
+        void print_menu_item(int i, const cinstant& it) const;
+
+        /** \brief Escriure el menú
+         *  \pre true
+         *  \post s'ha escrit pel canal de sortida estàndar 1 línia per a cada element
+         *  del menú seguint el format de print_menu_item */
+        void print_menu() const;
+
 };
 #endif
