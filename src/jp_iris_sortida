@@ -8,7 +8,7 @@
 + graduacio de la escola 20.06.14 18:00 #lleure #descans #familia #cole
 No s'ha realitzat
 
-+ anar al dentista 02.06.15 11:00 #caries #medic
++ anar al dentista 02.06.15 11:00 #caries #medicina
 
 + campionats regionals #equip #club #lleure #run 10:00 10.06.15
 
@@ -17,7 +17,7 @@ No s'ha realitzat
 ?
 1 entrenament 20.04.15 19:30 #club #equip #lleure #run
 2 dinar amb la familia 30.05.15 14:00 #cumple #descans #familia
-3 anar al dentista 02.06.15 11:00 #caries #medic
+3 anar al dentista 02.06.15 11:00 #caries #medicina
 4 cine 02.06.15 18:30 #art #descans #lleure
 5 campionats regionals 10.06.15 10:00 #club #equip #lleure #run
 6 viatge a illes balears 29.06.15 10:00
@@ -29,7 +29,8 @@ passat?
 2 cine 02.06.15 18:30 #art #descans #lleure
 3 campionats regionals 10.06.15 10:00 #club #equip #lleure #run
 
-? #chill 02.06.15
+? #descans 02.06.15
+1 cine 02.06.15 18:30 #art #descans #lleure
 
 ? (#lleure,#descans)
 1 entrenament 20.04.15 19:30 #club #equip #lleure #run
@@ -55,24 +56,24 @@ passat?
 
 ? (#salut,(#cumple.#club))
 
-? (#salut,(#cumple.#club)) 10.06.15
-
 ? (#salut,(#cumple.#club)) 02.06.15 10.06.15
 
-1 00:00
-No s'ha realitzat
+? #cumple
+1 dinar amb la familia 30.05.15 14:00 #cumple #descans #familia
 
-? (#salut,(#cumple.#club)) 02.06.15
+1 00:00
+
+? #cumple 30.05.15
+1 dinar amb la familia 30.05.15 00:00 #cumple #descans #familia
 
 1 23:59
-No s'ha realitzat
 
-? (#salut,(#cumple.#club)) 02.06.15
+? #cumple 30.05.15
+1 dinar amb la familia 30.05.15 23:59 #cumple #descans #familia
 
 1 00:00 03.06.15
-No s'ha realitzat
 
-? (#salut,(#cumple.#club)) 02.06.15
+? #cumple 30.05.15
 
 + anar a la uni 11.06.15 09:00 #classe #concentracio #amics
 
@@ -82,7 +83,7 @@ Error de format
 ?
 1 entrenament 20.04.15 19:30 #club #equip #lleure #run
 2 dinar amb la familia 30.05.15 14:00 #cumple #descans #familia
-3 anar al dentista 02.06.15 11:00 #caries #medic
+3 anar al dentista 02.06.15 11:00 #caries #medicina
 4 cine 02.06.15 18:30 #art #descans #lleure
 5 campionats regionals 10.06.15 10:00 #club #equip #lleure #run
 6 anar a la uni 11.06.15 09:00 #amics #classe #concentracio
@@ -99,8 +100,7 @@ No s'ha realitzat
 
 2 #pro2 #mates
 
-3 -#run
-No s'ha realitzat
+3 -#caries
 
 3 -#sol
 No s'ha realitzat
@@ -108,7 +108,7 @@ No s'ha realitzat
 4 #sol #sol #sol
 
 ?
-1 anar al dentista 02.06.15 11:00 #caries #medic
+1 anar al dentista 02.06.15 11:00 #medicina
 2 cine 02.06.15 18:30 #art #descans #lleure #sol
 3 campionats regionals 10.06.15 10:00 #club #equip #lleure #run
 4 anar a la uni 11.06.15 09:00 #amics #classe #concentracio
@@ -117,11 +117,14 @@ No s'ha realitzat
 7 dinar amb la familia 20.06.15 10:00 #cumple #descans #familia #mates #pro2
 8 viatge a illes balears 29.06.15 10:00
 
-1 -etiquetes
+5 -etiquetes
 
 2 sitges i anar a la platja #gelat
 
 3 20.04.15
+
+7 19.04.15
+No s'ha realitzat
 
 rellotge?
 20.04.15 00:00
@@ -142,6 +145,8 @@ rellotge 00:00 20.06.15
 rellotge 20.06.15
 
 rellotge 20.06.15 00:00
-Error de format
+
+rellotge 01.05.15 10:00
+No s'ha realitzat
 
 sortir
