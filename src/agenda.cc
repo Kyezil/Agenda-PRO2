@@ -319,8 +319,7 @@ void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstr
         // POST exp_parentitzada => HI1
     }
     else {// etiqueta
-        string tag = extract_tag(exp);// extreiem l'etiqueta
-        tag_map::iterator cjt_tag = tags_.find(tag);// cjt d'instants associat
+        tag_map::iterator cjt_tag = tags_.find(extract_tag(exp));// cjt d'instants associat
         if (cjt_tag != tags_.end()) { //si existeix
             l.insert(l.end(), safe_bound(cjt_tag, in1), safe_bound(cjt_tag,in2));
             // => l conté les tasques del cjt de l'etiqueta que estan en [in1,in2)
@@ -350,8 +349,7 @@ void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstr
         // HI1 + (4) => l conté les tasques en [in1,in2) que compleixen EXP   (8.1)
     }
     else {//etiqueta
-        string tag = extract_tag(exp); // extreure l'etiqueta
-        tag_map::iterator cjt_tag = tags_.find(tag); //cjt associat
+        tag_map::iterator cjt_tag = tags_.find(extract_tag(exp)); //cjt associat
         if (cjt_tag != tags_.end()) {//si existeix
             // IF => PRE de safe_bound
             // POST de safe_bound => PRE de merge_{and/or}
