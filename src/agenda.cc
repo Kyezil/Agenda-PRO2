@@ -129,8 +129,8 @@ Hora Agenda::get_hora() const {
 }
 
 void Agenda::consulta(Dia dia1, Dia dia2, string expressio) {
+    menu_.clear();
     if (dia2 >= dia1 and dia2 >= clock_.first.first) { // interval correcte
-        menu_.clear();
         Data d1 = make_pair(dia1, Hora(0,0));// inici de l'interval
         if (d1 < clock_.first) d1 = clock_.first;// anterior al rellotge => rellotge
         Data d2 = make_pair(dia2, Hora(23,59));// final de l'interval (vàlid per l'if)
