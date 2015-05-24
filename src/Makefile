@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -c -std=c++0x -O2 -Wshadow -Wall -Wextra -Werror -Wno-uninitialized -Wno-sign-compare -DND_DEBUG
+CXXFLAGS = -c -std=c++0x -O2 -Wshadow -Wall -Wextra -Werror -Wno-uninitialized -Wno-sign-compare -DND_DEBUG -D_JUDGE_
 LDFLAGS =
 SRC = program.cc agenda.cc tasca.cc data.cc
 LIB = comanda.cc token.cc
