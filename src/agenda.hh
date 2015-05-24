@@ -209,7 +209,7 @@ class Agenda {
 
         /** \brief Modifica la data d'una tasca del menú
          *  \param[in]
-         *  \pre no is_passat(data)
+         *  \pre true
          *  \post si no existeix una tasca amb data d, la tasca del menú apuntada per
          *  it té com a data d. Retorna si s'ha pogut fer la modificació */
         bool p_set_data(list<instant>::iterator& it, Data d);
@@ -239,7 +239,7 @@ class Agenda {
          *  \param[in] in2 final del 1r operand
          *  \param[in][out] l 2n operand i contenidor de la intersecció
          *  \pre in1 i in2 són iteradors a contenidors d'instants
-         *  \post l conté la intersecció de [in1, in2) i l */
+         *  \post l conté la intersecció de [in1, in2) amb l */
         template<typename Iterator>
         void merge_and(Iterator in1, Iterator in2, list<instant>& l);
 
@@ -248,7 +248,7 @@ class Agenda {
          *  \param[in] in2 final del 1r operand
          *  \param[in][out] l 2n operand i contenidor de la unió
          *  \pre in1 i in2 són iteradors a contenidors d'instants
-         *  \post l conté la reunió de [in1, in2) i l */
+         *  \post l conté la reunió de [in1, in2) amb l */
         template<typename Iterator>
         void merge_or(Iterator in1, Iterator in2, list<instant>& l);
 
@@ -282,10 +282,13 @@ class Agenda {
          *  \param[in] exp flux de l'expressió parentitzada
          *  \param[out][in] l contenidor on es guarda el resultat
          *  \pre in1 apunta a un element no passat i in2 és posterior a in1
-         *       exp conté al principi una expressió booleana de la forma:
+         *       exp conté, al seu principi, una expressió booleana de la forma:
          *       exp: (e.e) | (e,e)
          *         e:  exp  | etiqueta
-         *  \post l conté les tasques en [in1,in2) que compleixen l'expressió exp */
+         *      ; l és una llista buida ; exp = EXP
+         *  \post l conté les tasques en [in1,in2) que compleixen l'expressió delimitada
+         *  pel primer '(' fins al ')' corresponent, s'ha consumit aquesta expressió
+         *  de exp */
         void exp_parentitzada(const instant& in1, const instant& in2, istringstream& exp, list<instant>& l);
 
         /** \brief Escriure una línia del menú
