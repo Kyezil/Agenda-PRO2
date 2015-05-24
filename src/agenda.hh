@@ -254,11 +254,10 @@ class Agenda {
 
         /** \brief Llegeix una etiqueta d'una expressió
          *  \param[in] exp expressió d'on s'ha d'extreure l'etiqueta
-         *  \param[out] tag string on s'ha de guardar l'etiqueta
          *  \pre exp és una part d'una expressió booleana on el 1r caràcter és el 1r
-         *  caràcter de l'etiqueta a extreure; tag = "#"
-         *  \post s'ha consumit l'etiqueta de exp i tag conté l'etiqueta extreta */
-        void extract_tag(istringstream& exp, string& tag);
+         *  caràcter de l'etiqueta a extreure
+         *  \post es retorna l'etiqueta extreta i s'ha consumit l'etiqueta de exp */
+        string extract_tag(istringstream& exp);
 
         /** \brief Obté una cota equivalent en el cjt d'instant d'una etiqueta
          * Obté un iterador que apunta al primer instant del cjt de tags *tag que no és

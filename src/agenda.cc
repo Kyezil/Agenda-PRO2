@@ -292,10 +292,14 @@ void Agenda::merge_or(Iterator in1, Iterator in2, list<instant>& l){
     l.insert(l.end(), in1, in2);
 }
 
-void Agenda::extract_tag(istringstream& exp, string& tag) {
+string Agenda::extract_tag(istringstream& exp) {
+    string ret;
     char c;
-    while (c = exp.peek(), not exp.eof() and c != '.' and c != ',' and c != ')')
-        tag += exp.get();
+    while (c = exp.get(), not exp.eof() and c != '.' and c != ',' and c != ')') {
+        ret += c;
+    }
+    exp.unget();
+    return ret;
 }
 
 Agenda::set_instant::iterator Agenda::safe_bound(tag_map::iterator &tag, const instant& in) {
@@ -315,8 +319,7 @@ void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstr
         // POST exp_parentitzada => HI1
     }
     else {// etiqueta
-        string tag;
-        extract_tag(exp, tag);// extreiem l'etiqueta
+        string tag = extract_tag(exp);// extreiem l'etiqueta
         tag_map::iterator cjt_tag = tags_.find(tag);// cjt d'instants associat
         if (cjt_tag != tags_.end()) { //si existeix
             l.insert(l.end(), safe_bound(cjt_tag, in1), safe_bound(cjt_tag,in2));
@@ -347,8 +350,7 @@ void Agenda::exp_parentitzada(const instant& in1, const instant& in2, istringstr
         // HI1 + (4) => l conté les tasques en [in1,in2) que compleixen EXP   (8.1)
     }
     else {//etiqueta
-        string tag;
-        extract_tag(exp, tag); // extreure l'etiqueta
+        string tag = extract_tag(exp); // extreure l'etiqueta
         tag_map::iterator cjt_tag = tags_.find(tag); //cjt associat
         if (cjt_tag != tags_.end()) {//si existeix
             // IF => PRE de safe_bound
