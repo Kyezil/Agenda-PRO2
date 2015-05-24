@@ -50,59 +50,64 @@ class Agenda {
          *  \post si retorna true el p.i conté la tasca t */
         bool add_tasca(const Data &data, const Tasca& t);
 
-        /** \brief Canvia el títol d'una tasca del menú
-         *  \param[in] id nº de la tasca al menú
-         *  \param[in] titol nou títol de la tasca
-         *  \pre true
-         *  \post si retorna true, la tasca \e id del menú té com a títol \e titol */
-        bool set_titol(const int id, string titol);
+        /** \brief Indica si es pot modificar la tasca #id del menu, i prepara l'element
+         * \param[in] id número de la tasca en el menu
+         * \pre true
+         * \post retorna si es pot modificar la tasca #id del menu i prepara l'element per
+         * a ser modificat */
+        bool set_menu_item(const int id);
+
+        /** \brief Canvia el títol de la tasca marcada del menú
+         *  \param[in] titol nou títol
+         *  \pre set_menu_item(id) "s'ha marcat la tasca nº id del menú"
+         *  \post la tasca marcada del menú té com a títol \e titol */
+        void set_titol(string titol);
 
         /** \brief Canvia el dia d'una tasca del menú
-         *  \param[in] id nº de la tasca al menú
          *  \param[in] d nou dia de la tasca
-         *  \pre  true
+         *  \pre set_menu_item(id) "s'ha marcat la tasca nº id del menú"
          *  \post si retorna true, la tasca \e id del menú té com a dia \e d */
-        bool set_dia(const int id, Dia d);
+        bool set_dia(Dia d);
 
         /** \brief Canvia la hora d'una tasca del menú
          *  \param[in] id nº de la tasca al menú
          *  \param[in] h nova hora de la tasca
          *  \pre  true
          *  \post si retorna true, la tasca \e id del menú té com a hora \e h */
-        bool set_hora(const int id, Hora h);
+        bool set_hora(Hora h);
 
         /** \brief Canvia la data d'una tasca del menú
          *  \param[in] id nº de la tasca al menú
          *  \param[in] d nova data de la tasca
          *  \pre  true
          *  \post si retorna true, la tasca \e id del menú té com a data \e d */
-        bool set_data(const int id, Data d);
+        bool set_data(Data d);
 
         /** \brief Afegeix una etiqueda a una tasca del menú
          *  \param[in] id nº de la tasca al menú
          *  \param[in] etiqueta etiqueta a afegir
          *  \pre  true
          *  \post si retorna true, la tasca \e id del menú té l'etiqueta \e etiqueta */
-        bool add_etiqueta(const int id, string etiqueta);
+        void add_etiqueta(string etiqueta);
 
         /** \brief Esborra una etiqueda d'una tasca del menú
          *  \param[in] id nº de la tasca al menú
          *  \param[in] etiqueta etiqueta a esborrar
          *  \pre  true
          *  \post si retorna true, la tasca \e id no té l'etiqueta \e etiqueta */
-        bool del_etiqueta(const int id, const string etiqueta);
+        bool del_etiqueta(string etiqueta);
 
         /** \brief Esborra totes les etiquedes d'una tasca del menú
          *  \param[in] id nº de la tasca al menú
          *  \pre true
          *  \post si retorna true, la tasca \e id del menú no té cap etiqueta */
-        bool del_etiquetes(const int id);
+        void del_etiquetes();
 
         /** \brief Esborra una tasca del menú
          *  \param[in] id nº de la tasca al menú
          *  \pre true
          *  \post si retorna true, el p.i no conté la tasca \e id del menú */
-        bool del_tasca(const int id);
+        void del_tasca();
 
         // Consultores
         /** \brief Consulta si una data és passada
@@ -189,14 +194,8 @@ class Agenda {
         map<string, set_instant> tags_;
         /// Menú: guarda les tasques corresponents a la última consulta
         list<instant> menu_;
+        list<instant>::iterator menu_item;
 
-
-        /** \brief Indica si es pot modificar la tasca #id del menu
-         * \param[in] id número de la tasca en el menu
-         * \pre true
-         * \post si es pot modificar retorna un iterador a l'element id-èssim del menú;
-         *  si no, retorna false */
-        pair<list<instant>::iterator, bool> menu_item(const int id);
 
         /** \brief Afegeix una tasca (private)
          *  \param[in] data la data de la tasca a afegir
@@ -205,14 +204,14 @@ class Agenda {
          *  \pre  no is_passat(data)
          *  \post si return.second, el p.i conté la tasca t i return.first és un
          *  instant que hi apunta */
-        pair<instant, bool> p_add_tasca(const Data& data, const Tasca& t);
+        void update_tasca(instant& it);
 
         /** \brief Modifica la data d'una tasca del menú
          *  \param[in]
          *  \pre true
          *  \post si no existeix una tasca amb data d, la tasca del menú apuntada per
          *  it té com a data d. Retorna si s'ha pogut fer la modificació */
-        bool p_set_data(list<instant>::iterator& it, Data d);
+        bool p_set_data(Data d);
 
         /** \brief Genera i escriu el menú d'un interval de tasques
          *  Genera i escriu el menú (alhora) de totes les tasques entre in1 i in2,

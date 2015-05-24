@@ -76,25 +76,32 @@ int main (){
             nop(ok);
         }
         else if (com.es_modificacio()) {
-            bool ok = true;
-            if (com.nombre_dates() == 0 and com.te_hora()) ok = ag.set_hora(com.tasca(), com.hora());
-            else if (com.nombre_dates() != 0) {
-                if (com.te_hora()) ok = ag.set_data(com.tasca(), make_pair(Dia(com.data(1)), Hora(com.hora())));
-                else ok = ag.set_dia(com.tasca(), com.data(1));
+            bool ok = false;
+            if (ag.set_menu_item(com.tasca())) {
+                ok = true;
+                if (com.nombre_dates() == 0 and com.te_hora())
+                    ok = ag.set_hora(com.hora());
+                else if (com.nombre_dates() != 0) {
+                    if (com.te_hora())
+                        ok = ag.set_data(make_pair(Dia(com.data(1)), Hora(com.hora())));
+                    else ok = ag.set_dia(com.data(1));
+                }
+                if (ok and com.te_titol()) ag.set_titol(com.titol());
+                for (int i = 1; ok and i <= com.nombre_etiquetes(); ++i)
+                    ag.add_etiqueta(com.etiqueta(i));
             }
-            if (ok and com.te_titol())
-                ok = ag.set_titol(com.tasca(), com.titol());
-            for (int i = 1; ok and i <= com.nombre_etiquetes(); ++i)
-                ok = ag.add_etiqueta(com.tasca(), com.etiqueta(i));
             nop(ok);
         }
         else if (com.es_esborrat()) {
-            if (com.tipus_esborrat() == "etiqueta")
-                nop(ag.del_etiqueta(com.tasca(), com.etiqueta(1)));
-            else if (com.tipus_esborrat() == "etiquetes")
-                nop(ag.del_etiquetes(com.tasca()));
-            else if (com.tipus_esborrat() == "tasca")
-                nop(ag.del_tasca(com.tasca()));
+            if (ag.set_menu_item(com.tasca())) {
+                if (com.tipus_esborrat() == "etiqueta")
+                    nop(ag.del_etiqueta(com.etiqueta(1)));
+                else if (com.tipus_esborrat() == "etiquetes")
+                    ag.del_etiquetes();
+                else if (com.tipus_esborrat() == "tasca")
+                    ag.del_tasca();
+            }
+            else nop();
         }
     }
 }
