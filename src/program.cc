@@ -77,15 +77,15 @@ int main (){
         }
         else if (com.es_modificacio()) {
             bool ok = true;
-            if (com.te_titol())
-                ok = ag.set_titol(com.tasca(), com.titol());
-                for (int i = 1; ok and i <= com.nombre_etiquetes(); ++i)
-                    ok = ag.add_etiqueta(com.tasca(), com.etiqueta(i));
-            if (ok and com.nombre_dates() == 0 and com.te_hora()) ok = ag.set_hora(com.tasca(), com.hora());
-            else if (ok and com.nombre_dates() != 0) {
+            if (com.nombre_dates() == 0 and com.te_hora()) ok = ag.set_hora(com.tasca(), com.hora());
+            else if (com.nombre_dates() != 0) {
                 if (com.te_hora()) ok = ag.set_data(com.tasca(), make_pair(Dia(com.data(1)), Hora(com.hora())));
                 else ok = ag.set_dia(com.tasca(), com.data(1));
             }
+            if (ok and com.te_titol())
+                ok = ag.set_titol(com.tasca(), com.titol());
+            for (int i = 1; ok and i <= com.nombre_etiquetes(); ++i)
+                ok = ag.add_etiqueta(com.tasca(), com.etiqueta(i));
             nop(ok);
         }
         else if (com.es_esborrat()) {
