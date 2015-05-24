@@ -1,0 +1,70 @@
+rellotge?
+rellotge 19.04.15
+rellotge 20.04.15 00:01
+rellotge 00:00
+rellotge?
+1 canviar menu no generat #fail
+-1
+1 #no-op
+1 -#no-op
+1 -etiquetes
+?
+1 canviar menu buit #fail
+-1
+1 #no-op
+1 -#no-op
+1 -etiquetes
++ 25.04.15 00:00 limit #just
++ 25.04.15 23:59 limit #funciona
+? 25.04.15
+rellotge 25.04.15 00:00
+-1
++ 25.04.15 00:00 resurecció #just
+?
+? 25.04.15 #just
+1 #ara-si
+rellotge 00:01
+1 #ara-no
+passat?
+? 25.04.15
+? 24.04.15 25.04.15
+1 -#funciona
+1 -#funciona
+1 #doble #doble
+1 00:00 #peta
+? (#peta,#doble)
++ tags1 26.04.15 12:00 #a #b #c #d #e #f #g
++ tags2 26.04.15 13:00 #a #c #e #g
++ tags3 27.04.15 14:00 #b #d #f
++ tags4 26.04.15 12:30 #h
++ tags5 28.04.15 19:00 #null
+? (#a,#h)
+? (((#a.(#b.#c)).#d),#f)
+? ((#b,(#c.#e)).#a)
+? 26.04.15 (#f,(#b.#d))
+? 26.04.15 27.04.15 ((#f,#b).(#f,#d))
+? (#h,#null)
+? (#h.#null)
+? (((#a,#b),#d).#no-exist)
+? (#no-exist,((#a,#b),#d))
+? 24.04.15 24.04.15
+? 28.04.15 27.04.15
+? 01.01.00 31.12.99
+1 modificat abans
+rellotge 26.04.15 12:00
+1 modificat després #fail #lol
+-1
+? 26.04.15
+1 -etiquetes
+2 #a #b #c 13:00 multiples #fail
+3 26.04.15 13:00 #fail a sí mateix
+3 26.04.15 12:00 reemplaç #fail
+-1
+-1
+3 12:00 reemplaç #substitut
+3 -#a
+3 -#a
+-5
+?
+passat?
+sortir
